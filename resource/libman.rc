@@ -1,0 +1,181 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "..\resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "winresrc.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE
+BEGIN
+  "..\\resource.h\0"
+END
+
+2 TEXTINCLUDE
+BEGIN
+  "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+  "#include ""winresrc.h""\r\n"
+  "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+  "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+ICON1_1                 ICON                    "..\\resource\\icon1.ico"
+ICON1_2                 ICON                    "..\\resource\\icon2.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+BITMAP_INFO             BITMAP                  "..\\resource\\info.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU
+BEGIN
+  MENUITEM " ",                           65535
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_NEW_LIB DIALOG  0, 0, 258, 47
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New library name"
+FONT 8, "MS Sans Serif"
+BEGIN
+  EDITTEXT        IDC_EDIT1,5,11,185,12,ES_AUTOHSCROLL
+  DEFPUSHBUTTON   "OK",IDOK,203,10,50,14
+  PUSHBUTTON      "Cancel",IDCANCEL,203,27,50,14
+END
+
+IDD_DIALOG_ABOUT DIALOGEX 0, 0, 309, 127
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About library manager"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+  DEFPUSHBUTTON   "OK",IDOK,43,102,50,14
+  LTEXT           "Layout editor PCB Elegance",IDC_STATIC1,45,9,118,12
+  CONTROL         1500,BITMAP_INFO,"Static",SS_BITMAP,3,6,33,26
+  EDITTEXT        IDC_EDIT1,43,22,258,73,ES_MULTILINE | ES_AUTOVSCROLL
+END
+
+IDD_DIALOG_GET_DIR DIALOG  0, 0, 258, 47
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+  DEFPUSHBUTTON   "OK",IDOK,203,10,50,14
+  PUSHBUTTON      "Cancel",IDCANCEL,203,27,50,14
+  COMBOBOX        IDC_COMBO1,7,20,182,235,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+  LTEXT           "Select directory",IDC_STATIC1,8,8,82,9
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3,0,0,1
+ PRODUCTVERSION 3,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904b0"
+    BEGIN
+      VALUE "CompanyName", "www.pcbelegance.com"
+      VALUE "FileDescription", "Library manager"
+      VALUE "FileVersion", "3, 5, 0, 1"
+      VALUE "InternalName", "Libman"
+      VALUE "OriginalFilename", "Libman.exe"
+      VALUE "ProductName", "Symbol/geometry library manager PCB elegance"
+      VALUE "ProductVersion", "3, 5, 0, 1"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1200
+  END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+  IDD_DIALOG_ABOUT, DIALOG
+  BEGIN
+    RIGHTMARGIN, 301
+    BOTTOMMARGIN, 117
+  END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
