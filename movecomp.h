@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: movecomp.h 
+ * File: movecomp.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,15 +29,15 @@
 
 #include "types.h"
 
-void MoveSelectedObjects(int32 Mode,int32 Count);
+void MoveSelectedObjects(int32 Mode, int32 Count);
 
-void DrawSelectedObjects(double CurrentX,double CurrentY,int32 Mode);
+void DrawSelectedObjects(double CurrentX, double CurrentY, int32 Mode);
 
 void PlaceRotatedFlippedComponents(int32 Mode);
 
-void RotateFlipPoint(double *x,double *y,double CX,double CY,int32 Mode);
+void RotateFlipPoint(double *x, double *y, double CX, double CY, int32 Mode);
 
-void RotateFlipPoint2(float *x,float *y,double CX,double CY,int32 Mode);
+void RotateFlipPoint2(float *x, float *y, double CX, double CY, int32 Mode);
 
 void ClearRefs(int32 mode);
 
@@ -54,4 +54,3 @@ void ChangeTextHeight(int32 mode);
 void ChangeLineStyle(int32 mode);
 
 #endif
-

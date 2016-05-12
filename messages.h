@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: messages.h 
+ * File: messages.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,6 +29,6 @@
 
 #include "owntypes.h"
 
-void GetMessageString(int32 Nr,char *MessageString);
+void GetMessageString(int32 Nr, char *MessageString);
 
 #endif

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: check.h 
+ * File: check.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,26 +29,24 @@
 
 #include "types.h"
 
-int32  CheckWiresAndBusses(void);
+int32 CheckWiresAndBusses(void);
 
-int32  CheckNetLabels(void);
+int32 CheckNetLabels(void);
 
-int32  CheckBusConnections(void);
+int32 CheckBusConnections(void);
 
-int32  CheckDoubleBusConnections(void);
+int32 CheckDoubleBusConnections(void);
 
-int32  CheckUnusedBusConnections(void);
+int32 CheckUnusedBusConnections(void);
 
-int32  CheckGlobalConnections(void);
+int32 CheckGlobalConnections(void);
 
-int32  CheckInstances(int32 Mode,double *cx,double *cy);
+int32 CheckInstances(int32 Mode, double *cx, double *cy);
 
-int32  CheckUnusedGlobalConnections(void);
+int32 CheckUnusedGlobalConnections(void);
 
 int32 Check(int32 mode);
 
-int32  CheckPins(int32 mode);
+int32 CheckPins(int32 mode);
 
 #endif
-
-

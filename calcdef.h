@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: calcdef.h 
+ * File: calcdef.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -55,32 +55,31 @@
 
 #define AdjustTo100Mil(Nr) ( (((Nr))>(0)) ? (((Nr+50)/100)*100) : (((Nr-50)/100)*100) )
 
-double  PixelToReal(int32 X);
+double PixelToReal(int32 X);
 
-double  PixelToRealOffX(int32 X);
+double PixelToRealOffX(int32 X);
 
-double  PixelToRealOffY(int32 Y);
+double PixelToRealOffY(int32 Y);
 
-double  AdjustToDrawGrid(double x);
+double AdjustToDrawGrid(double x);
 
-int32 ArcToLineSegments(double x1,double y1,double Width,double Height,
-                        double x2a,double y2a,double x2b,double y2b,double *LineSegments);
+int32 ArcToLineSegments(double x1, double y1, double Width, double Height, double x2a, double y2a, double x2b,
+                        double y2b, double *LineSegments);
 
-double GetAngleBetweenLines(double x1,double y1,double x2,double y2,double x3,double y3);
+double GetAngleBetweenLines(double x1, double y1, double x2, double y2, double x3, double y3);
 
-void  RotatePoint2(double *x,double *y,double Rotation);
+void RotatePoint2(double *x, double *y, double Rotation);
 
-double UnitConvert(double Value,int32 Units);
+double UnitConvert(double Value, int32 Units);
 
-void  ConvNormalCoorToPolar(double x1,double y1,double x2,double y2,double *Angle,double *Length);
+void ConvNormalCoorToPolar(double x1, double y1, double x2, double y2, double *Angle, double *Length);
 
-void   RotatePointFromOtherPoint(double *x,double *y,double OX,double OY,double Rotation);
+void RotatePointFromOtherPoint(double *x, double *y, double OX, double OY, double Rotation);
 
-void   RotatePointFromOtherPoint2(float *x,float *y,double OX,double OY,double Rotation);
+void RotatePointFromOtherPoint2(float *x, float *y, double OX, double OY, double Rotation);
 
-double AdjustToGrid(double x,double Grid);
+double AdjustToGrid(double x, double Grid);
 
-int32 ConvertTextString(LPSTR TextStr,LPSTR NewTextStr);
+int32 ConvertTextString(LPSTR TextStr, LPSTR NewTextStr);
 
 #endif
-

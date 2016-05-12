@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: edit.h 
+ * File: edit.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,29 +29,29 @@
 
 #include "types.h"
 
-void  CommandAddWires(int32 Mode);
+void CommandAddWires(int32 Mode);
 
-void  CommandAddBusses(int32 Mode);
+void CommandAddBusses(int32 Mode);
 
-void  CommandAddJunction(int32 Mode);
+void CommandAddJunction(int32 Mode);
 
-void  CommandAddOnePinNet(int32 Mode);
+void CommandAddOnePinNet(int32 Mode);
 
-void  CommandAddNetLabels(int32 Mode);
+void CommandAddNetLabels(int32 Mode);
 
-void  CommandAddMultipleNetLabels(int32 Mode);
+void CommandAddMultipleNetLabels(int32 Mode);
 
-void  CommandAddBusConnection(int32 Mode);
+void CommandAddBusConnection(int32 Mode);
 
-void  CommandAddObjectRect(int32 Mode);
+void CommandAddObjectRect(int32 Mode);
 
-void  CommandAddObjectCircle(int32 Mode);
+void CommandAddObjectCircle(int32 Mode);
 
-void  CommandAddObjectArc(int32 Mode);
+void CommandAddObjectArc(int32 Mode);
 
-void  CommandAddObjectText(int32 Mode);
+void CommandAddObjectText(int32 Mode);
 
-void  CommandAddObjectTextNumbers(int32 Mode);
+void CommandAddObjectTextNumbers(int32 Mode);
 
 int32 CopyToClipBoard(void);
 
@@ -59,8 +59,6 @@ int32 CopyFromClipBoard(void);
 
 int32 CopySelectionsToClipBoard(void);
 
-int32  WireBusEndPointReached(double CurrentX,double CurrentY,int32 mode);
+int32 WireBusEndPointReached(double CurrentX, double CurrentY, int32 mode);
 
 #endif
-
-

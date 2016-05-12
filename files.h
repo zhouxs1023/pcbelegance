@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: files.h 
+ * File: files.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,19 +30,19 @@
 #include  "owntypes.h"
 
 
-void  SetWindowName(int32 mode);
+void SetWindowName(int32 mode);
 
 int32 LoadNewFile(int32 mode);
 
 int32 SaveFileName(int32 Mode);
 
-int32 CopySymbolFromLibraryToFile(LPSTR SymbolName,LPSTR SymbolFileName);
+int32 CopySymbolFromLibraryToFile(LPSTR SymbolName, LPSTR SymbolFileName);
 
-int32 GetSymbolAttribute(SymbolRecord *Symbol,LPSTR AttributeIdent,LPSTR AttributeValue,int32 mode);
+int32 GetSymbolAttribute(SymbolRecord * Symbol, LPSTR AttributeIdent, LPSTR AttributeValue, int32 mode);
 
-int32 AddSymbolAttribute(SymbolRecord *Symbol,LPSTR AttributeIdent,LPSTR AttributeValue,int32 mode);
+int32 AddSymbolAttribute(SymbolRecord * Symbol, LPSTR AttributeIdent, LPSTR AttributeValue, int32 mode);
 
-int32 RemoveSymbolAttribute(SymbolRecord *Symbol,LPSTR AttributeIdent,int32 mode);
+int32 RemoveSymbolAttribute(SymbolRecord * Symbol, LPSTR AttributeIdent, int32 mode);
 
 int32 LoadDesign();
 
@@ -52,22 +52,20 @@ int32 SaveFile(int32 mode);
 
 int32 SaveFile2(int32 mode);
 
-int32 SearchSymbol(LPSTR SymbolName,LPSTR FileName,int32 *Pos,int32 *Length,int32 mode);
+int32 SearchSymbol(LPSTR SymbolName, LPSTR FileName, int32 * Pos, int32 * Length, int32 mode);
 
-int32 CheckFileName(LPSTR CheckFile,int32 FileSize,int32 Mode);
+int32 CheckFileName(LPSTR CheckFile, int32 FileSize, int32 Mode);
 
-int32 ChangeFile(LPSTR FileName,int32 mode);
+int32 ChangeFile(LPSTR FileName, int32 mode);
 
-void  InitLoadedObjects(int32 Mode);
+void InitLoadedObjects(int32 Mode);
 
 int32 GetCurrentEditFile(LPSTR FileName);
 
 int32 ReloadSymbols(int32 mode);
 
-int32 CheckWildCard(LPSTR SearchString,LPSTR Name);
+int32 CheckWildCard(LPSTR SearchString, LPSTR Name);
 
 void LoadDesignIniFile(void);
 
 #endif
-
-

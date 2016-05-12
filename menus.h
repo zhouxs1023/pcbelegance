@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: menus.h 
+ * File: menus.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,25 +29,24 @@
 
 #include "types.h"
 
-int32 OwnAppendMenu(HMENU Menu,UINT MenuOptions,UINT MenuId,LPCTSTR Text);
+int32 OwnAppendMenu(HMENU Menu, UINT MenuOptions, UINT MenuId, LPCTSTR Text);
 
-void  MenuPopUp(void);
+void MenuPopUp(void);
 
-void  MakeDefaultMenu(void);
+void MakeDefaultMenu(void);
 
-void  AddMenuFiles(void);
+void AddMenuFiles(void);
 
-void  MakeSheetMenu(void);
+void MakeSheetMenu(void);
 
-void  MakeSymbolMenu(void);
+void MakeSymbolMenu(void);
 
-void  SetDefaultMenu(void);
+void SetDefaultMenu(void);
 
-void  SetSheetMenu(void);
+void SetSheetMenu(void);
 
-void  SetSymbolMenu(void);
+void SetSymbolMenu(void);
 
-void  KillMenus(void);
+void KillMenus(void);
 
 #endif
-

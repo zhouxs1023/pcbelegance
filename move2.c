@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: move2.c 
+ * File: move2.c
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -47,7 +47,7 @@
 #include "property.h"
 #include "ctype.h"
 
-extern  ProjectInfoRecord  *ProjectInfo;
+extern ProjectInfoRecord *ProjectInfo;
 
 
 // ************************************************************************************************
@@ -57,50 +57,63 @@ extern  ProjectInfoRecord  *ProjectInfo;
 
 int32 EditLayoutComponent(int32 mode)
 {
-  int32 cnt,cnt2,len;
-  HWND  DesignWindow;
-  char  str[200];
-  InstanceRecord *Instance;
+	int32 cnt, cnt2, len;
+	HWND DesignWindow;
+	char str[200];
+	InstanceRecord *Instance;
 
-  for (cnt=0;cnt<Design.NrInstances;cnt++) {
-    Instance=(InstanceRecord *)&((*Instances)[cnt]);
-    if ((Instance->Info & (OBJECT_NOT_VISIBLE|OBJECT_SELECTED)) == (OBJECT_SELECTED)) {
-      DesignWindow=FindWindow("DESIGN",NULL);
-      if (ProjectInfo) {
-        if (DesignWindow) {
-          memset(&ProjectInfo->TempStr1,0,sizeof(ProjectInfo->TempStr1));
-          strcpy(str,Instance->Reference);
-          len=strlen(str);
-          if ((len>0)
-             &&
-             (str[len-1]!='?')) {
-            if (isdigit(str[len-1])) {
-              strncpy(ProjectInfo->TempStr1,str,sizeof(ProjectInfo->TempStr1)-1);
-              SendMessage(DesignWindow,WM_COMMAND,ID_LAYOUT_OPEN_REF,1);
-            } else {
-              cnt2=len-1;
-              while ((cnt2>0)
-                    &&
-                    (isalpha(str[cnt2]))) cnt2--;
-              if (isdigit(str[cnt2])) {
-                str[cnt2+1]=0;
-                strncpy(ProjectInfo->TempStr1,str,sizeof(ProjectInfo->TempStr1)-1);
-                SendMessage(DesignWindow,WM_COMMAND,ID_LAYOUT_OPEN_REF,1);
-              }
-            }
-          } else {
-          }
-        }
-      }
-      return 0;
-    }
-  }
-  return 0;
+	for (cnt = 0; cnt < Design.NrInstances; cnt++)
+	{
+		Instance = (InstanceRecord *) & ((*Instances)[cnt]);
+
+		if ((Instance->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == (OBJECT_SELECTED))
+		{
+			DesignWindow = FindWindow("DESIGN", NULL);
+
+			if (ProjectInfo)
+			{
+				if (DesignWindow)
+				{
+					memset(&ProjectInfo->TempStr1, 0, sizeof(ProjectInfo->TempStr1));
+					strcpy(str, Instance->Reference);
+					len = strlen(str);
+
+					if ((len > 0) && (str[len - 1] != '?'))
+					{
+						if (isdigit(str[len - 1]))
+						{
+							strncpy(ProjectInfo->TempStr1, str, sizeof(ProjectInfo->TempStr1) - 1);
+							SendMessage(DesignWindow, WM_COMMAND, ID_LAYOUT_OPEN_REF, 1);
+						}
+						else
+						{
+							cnt2 = len - 1;
+
+							while ((cnt2 > 0) && (isalpha(str[cnt2])))
+								cnt2--;
+
+							if (isdigit(str[cnt2]))
+							{
+								str[cnt2 + 1] = 0;
+								strncpy(ProjectInfo->TempStr1, str, sizeof(ProjectInfo->TempStr1) - 1);
+								SendMessage(DesignWindow, WM_COMMAND, ID_LAYOUT_OPEN_REF, 1);
+							}
+						}
+					}
+					else
+					{
+					}
+				}
+			}
+
+			return 0;
+		}
+	}
+
+	return 0;
 }
 
 // ********************************************************************************************************
 // ********************************************************************************************************
 // ********************************************************************************************************
 // ********************************************************************************************************
-
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: demo.h 
+ * File: demo.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -33,4 +33,3 @@
 #define TIME_STRING      "18 May, 2012"
 
 #endif
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: dxf.h 
+ * File: dxf.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -33,8 +33,4 @@ int32 ImportDXF(int32 Layer);
 
 int32 ExportDXF(int32 Mode);
 
-#endif        
-
-
-
-
+#endif

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: insdel.h 
+ * File: insdel.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -34,61 +34,60 @@ InstanceRecord *FindFirstInstance(int32 mode);
 
 int32 ZeroUnusedObjects(int32 mode);
 
-void  RemoveDeletedObjects(void);
+void RemoveDeletedObjects(void);
 
-void  DeleteSelectedObjects(int32 Mode);
+void DeleteSelectedObjects(int32 Mode);
 
-int32  AddObject(ObjectRecord *Object);
+int32 AddObject(ObjectRecord * Object);
 
-int32  AddSymbol(SymbolRecord *Symbol);
+int32 AddSymbol(SymbolRecord * Symbol);
 
-int32  AddInstance(InstanceRecord *Instance);
+int32 AddInstance(InstanceRecord * Instance);
 
-int32  AddWire(WireRecord *Wire);
+int32 AddWire(WireRecord * Wire);
 
-int32  CommandAddTryingWire(WireRecord *Wire,int32 Mode);
+int32 CommandAddTryingWire(WireRecord * Wire, int32 Mode);
 
-int32  AddBus(BusRecord *Bus);
+int32 AddBus(BusRecord * Bus);
 
-int32  CommandAddTryingBus(BusRecord *Bus,int32 Mode);
+int32 CommandAddTryingBus(BusRecord * Bus, int32 Mode);
 
-int32  AddJunction(JunctionRecord *Junction);
+int32 AddJunction(JunctionRecord * Junction);
 
-int32  AddOnePinNet(OnePinNetRecord *OnePinNet);
+int32 AddOnePinNet(OnePinNetRecord * OnePinNet);
 
-int32  AddNetLabel(NetLabelRecord *NetLabel);
+int32 AddNetLabel(NetLabelRecord * NetLabel);
 
-int32  AddBusConnection(BusConnectionRecord *BusConnection);
+int32 AddBusConnection(BusConnectionRecord * BusConnection);
 
-int32  AddPin(PinRecord *Pin);
+int32 AddPin(PinRecord * Pin);
 
-int32  AddPowerPin(PowerPinRecord *PowerPin);
+int32 AddPowerPin(PowerPinRecord * PowerPin);
 
-int32  AddPinBus(PinBusRecord *PinBus);
+int32 AddPinBus(PinBusRecord * PinBus);
 
-int32  AddRedefinedPinBus(RedefinedPinBusRecord *RedefinedPinBus);
+int32 AddRedefinedPinBus(RedefinedPinBusRecord * RedefinedPinBus);
 
-int32  AddGlobalConnection(GlobalConnectionRecord *GlobalConnection);
+int32 AddGlobalConnection(GlobalConnectionRecord * GlobalConnection);
 
-int32  AddObjectLine(ObjectLineRecord *ObjectLine);
+int32 AddObjectLine(ObjectLineRecord * ObjectLine);
 
-int32  AddObjectRect(ObjectRectRecord *ObjectRect);
+int32 AddObjectRect(ObjectRectRecord * ObjectRect);
 
-int32  AddObjectCircle(ObjectCircleRecord *ObjectCircle);
+int32 AddObjectCircle(ObjectCircleRecord * ObjectCircle);
 
-int32  AddObjectArc(ObjectArcRecord *ObjectArc);
+int32 AddObjectArc(ObjectArcRecord * ObjectArc);
 
-int32  AddObjectText(ObjectTextRecord *ObjectText);
+int32 AddObjectText(ObjectTextRecord * ObjectText);
 
-void  UndoObjects(void);
+void UndoObjects(void);
 
-void  RedoObjects(void);
+void RedoObjects(void);
 
-void  MemInfo(int32 *TotalMemSize,int32 *DeletedMemSize);
+void MemInfo(int32 * TotalMemSize, int32 * DeletedMemSize);
 
-int32 RebuildJunctions(int32 mode,double *FailedJunctionX,double *FailedJunctionY);
+int32 RebuildJunctions(int32 mode, double *FailedJunctionX, double *FailedJunctionY);
 
-int32 PlaceJunctionOnEndPoint(double x,double y,int32 mode);
+int32 PlaceJunctionOnEndPoint(double x, double y, int32 mode);
 
 #endif
-

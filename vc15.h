@@ -6,5 +6,3 @@
 #define SS_SUNKEN      0
 
 #endif
-
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: graphics.h 
+ * File: graphics.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -120,16 +120,14 @@
 #define OnePinNetColorNr                        26
 
 
-extern int32                DrawWindowMinX,DrawWindowMaxX,DrawWindowMinY,DrawWindowMaxY,
-                            PrintingBusThickness;
-extern double                ViewMinX,ViewMinY,ViewMaxX,ViewMaxY,
-                            Factor,Xoffset,Yoffset;
+extern int32 DrawWindowMinX, DrawWindowMaxX, DrawWindowMinY, DrawWindowMaxY, PrintingBusThickness;
+extern double ViewMinX, ViewMinY, ViewMaxX, ViewMaxY, Factor, Xoffset, Yoffset;
 
-extern HDC                  SCHDisplay;
+extern HDC SCHDisplay;
 
-extern COLORREF             SCHColors[64];
+extern COLORREF SCHColors[64];
 
-void AddGraphicsObject(HGDIOBJ *Object);
+void AddGraphicsObject(HGDIOBJ * Object);
 
 void CreateDrawObjects(int32 mode);
 
@@ -187,9 +185,9 @@ void InitDrawingInstanceValueText(int32 Thickness);
 
 void InitDrawingObjectLines(int32 Thickness);
 
-void InitDrawingObjectRects(int32 Thickness,int32 Filled);
+void InitDrawingObjectRects(int32 Thickness, int32 Filled);
 
-void InitDrawingObjectCircles(int32 Thickness,int32 Filled);
+void InitDrawingObjectCircles(int32 Thickness, int32 Filled);
 
 void InitDrawingObjectArcs(int32 Thickness);
 
@@ -217,13 +215,13 @@ void InitDrawingButtonInfo(void);
 
 void ExitDrawing(void);
 
-void DrawGridCursor(int16 x,int16 y);
+void DrawGridCursor(int16 x, int16 y);
 
-void DrawLineWhite(double x1,double y1,double x2,double y2,int32 mode);
+void DrawLineWhite(double x1, double y1, double x2, double y2, int32 mode);
 
-void DrawLineYellow(double x1,double y1,double x2,double y2);
+void DrawLineYellow(double x1, double y1, double x2, double y2);
 
-void DrawCircleWhite(double x,double y,double dikte,int32 mode);
+void DrawCircleWhite(double x, double y, double dikte, int32 mode);
 
 void LoadDefaultColors(void);
 
@@ -231,9 +229,8 @@ void LoadDefaultColors2(void);
 
 void SetBackGroundActive(int32 mode);
 
-void InitDrawingBackGround(int32 mode,int32 ThickNess);
+void InitDrawingBackGround(int32 mode, int32 ThickNess);
 
 void GraphicsMain(void);
 
 #endif
-

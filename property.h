@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: property.h 
+ * File: property.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -34,9 +34,9 @@
 // ********************************************************************************************************
 // ********************************************************************************************************
 
-int32 ModifyNetProperty(int32 NetLabelIndex,int32 mode);
+int32 ModifyNetProperty(int32 NetLabelIndex, int32 mode);
 
-int32 GetProperty(LPSTR NetLabelStr,LPSTR PropertyID,LPSTR PropertyValue,int32 mode);
+int32 GetProperty(LPSTR NetLabelStr, LPSTR PropertyID, LPSTR PropertyValue, int32 mode);
 
 int32 CheckNewProperties(int32 mode);
 

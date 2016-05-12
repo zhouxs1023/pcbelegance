@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: inscomp.h 
+ * File: inscomp.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,12 +31,8 @@
 
 HMENU MakeCompMenu(void);
 
-void  DeleteCompMenu(void);
+void DeleteCompMenu(void);
 
-int32 SelectCompDialog(int32 Comp1,int32 Comp2);
+int32 SelectCompDialog(int32 Comp1, int32 Comp2);
 
 #endif
-
-
-
-

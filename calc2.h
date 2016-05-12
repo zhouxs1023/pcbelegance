@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: calc2.h 
+ * File: calc2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,16 +31,15 @@
 #include "owntypes.h"
 #include "types.h"
 
-int32    CircleTestCircleObjects(double CircleX1,double CircleY1,double CircleThickness1,
-                                double CircleX2,double CircleY2,double CircleThickness2);
+int32 CircleTestCircleObjects(double CircleX1, double CircleY1, double CircleThickness1, double CircleX2,
+                              double CircleY2, double CircleThickness2);
 
-int32    RectTestCircleObjects(double RectX,double RectY,double RectWidth,double RectHeight,
-                              double CircleX,double CircleY,double CircleThickness);
+int32 RectTestCircleObjects(double RectX, double RectY, double RectWidth, double RectHeight, double CircleX,
+                            double CircleY, double CircleThickness);
 
 
-int32 GetCompProperties(InstanceRecord *Instance,LPSTR PropertyID,LPSTR PropertyValue,int32 mode);
+int32 GetCompProperties(InstanceRecord * Instance, LPSTR PropertyID, LPSTR PropertyValue, int32 mode);
 
-int32 GetInstanceRefInfo(InstanceRecord *Instance,double *x,double *y,int32 *Rotation,LPSTR Ref,int32 mode);
+int32 GetInstanceRefInfo(InstanceRecord * Instance, double *x, double *y, int32 * Rotation, LPSTR Ref, int32 mode);
 
 #endif
-

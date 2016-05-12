@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: mainloop.h 
+ * File: mainloop.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -28,7 +28,7 @@
 
 #define _MAINLOOP
 
-extern  int32  MaxCollections;
+extern int32 MaxCollections;
 
 void DisplayCursorPosition(void);
 
@@ -42,9 +42,9 @@ void CheckInputMessages(int32 DelayInMilleSeconds);
 
 void CheckForEscape(void);
 
-int32 CheckRightButton(DrawXorFunctionRecord *DrawXorFunction);
+int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction);
 
-int32 CheckRightButton2(DrawXorFunctionRecord *DrawXorFunction);
+int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction);
 
 void MainLoop(void);
 
@@ -72,7 +72,6 @@ void ExitProgram(void);
 
 int32 CenterScreenOnInstance(int32 mode);
 
-void CenterScreen(double cx,double cy,int32 mode);
+void CenterScreen(double cx, double cy, int32 mode);
 
 #endif
-

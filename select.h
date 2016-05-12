@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: select.h 
+ * File: select.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,53 +30,52 @@
 
 #include "types.h"
 
-void  SelectObjectsFromWindow(double x1,double y1,double x2,double y2,int32 mode);
+void SelectObjectsFromWindow(double x1, double y1, double x2, double y2, int32 mode);
 
-void  SelectInstancesFromRectWindow(int32 Mode);
+void SelectInstancesFromRectWindow(int32 Mode);
 
-void  SelectWiresFromRectWindow(int32 Mode);
+void SelectWiresFromRectWindow(int32 Mode);
 
-void  SelectBussesFromRectWindow(int32 Mode);
+void SelectBussesFromRectWindow(int32 Mode);
 
-void  SelectJunctionsFromRectWindow(int32 Mode);
+void SelectJunctionsFromRectWindow(int32 Mode);
 
-void  SelectOnePinNetsFromRectWindow(int32 Mode);
+void SelectOnePinNetsFromRectWindow(int32 Mode);
 
-void  SelectNetLabelsFromRectWindow(int32 Mode);
+void SelectNetLabelsFromRectWindow(int32 Mode);
 
-void  SelectBusConnectionsFromRectWindow(int32 Mode);
+void SelectBusConnectionsFromRectWindow(int32 Mode);
 
-void  SelectObjectLinesFromRectWindow(int32 Mode);
+void SelectObjectLinesFromRectWindow(int32 Mode);
 
-void  SelectObjectRectsFromRectWindow(int32 Mode);
+void SelectObjectRectsFromRectWindow(int32 Mode);
 
-void  SelectObjectCirclesFromRectWindow(int32 Mode);
+void SelectObjectCirclesFromRectWindow(int32 Mode);
 
-void  SelectObjectArcsFromRectWindow(int32 Mode);
+void SelectObjectArcsFromRectWindow(int32 Mode);
 
-void  SelectObjectTextsFromRectWindow(int32 Mode);
+void SelectObjectTextsFromRectWindow(int32 Mode);
 
-void  SelectGlobalConnectionsFromRectWindow(int32 Mode);
+void SelectGlobalConnectionsFromRectWindow(int32 Mode);
 
-void  SelectPinBussesFromRectWindow(int32 Mode);
+void SelectPinBussesFromRectWindow(int32 Mode);
 
-void  SelectPinsFromRectWindow(int32 Mode);
+void SelectPinsFromRectWindow(int32 Mode);
 
-void  SelectPowerPinsFromRectWindow(int32 Mode);
+void SelectPowerPinsFromRectWindow(int32 Mode);
 
-void  GetNrSelections(void);
+void GetNrSelections(void);
 
 int32 ExtendSelections(int32 Mode);
 
-void  ChangeSelections(int32 Mode,int32 Selected);
+void ChangeSelections(int32 Mode, int32 Selected);
 
-void  ExportText(int32 mode);
+void ExportText(int32 mode);
 
 int32 GetFirstSymbolSheetSelected(void);
 
-void  SearchText(int32 mode);
+void SearchText(int32 mode);
 
-int32 GetInfoStr(LPSTR InfoStr,int32 mode);
+int32 GetInfoStr(LPSTR InfoStr, int32 mode);
 
 #endif
-

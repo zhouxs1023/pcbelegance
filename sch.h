@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: sch.h 
+ * File: sch.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,18 +29,18 @@
 
 #include "types.h"
 
-LRESULT CALLBACK SCHWinProc(HWND Window,UINT Message,WPARAM WParam,LPARAM LParam);
+LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LParam);
 
-extern WNDCLASS             SCHClass;
-extern HWND                 SCHWindow,DialogWindow;
-extern PAINTSTRUCT          PS;
-extern RECT                 RealWindow,ClientRect;
-extern HRGN                 EditingRegion;
-extern HMENU                PopUpMenu,MainMenu;
-extern int32                DrawWindowMinX,DrawWindowMinY,DrawWindowMaxX,DrawWindowMaxY;
+extern WNDCLASS SCHClass;
+extern HWND SCHWindow, DialogWindow;
+extern PAINTSTRUCT PS;
+extern RECT RealWindow, ClientRect;
+extern HRGN EditingRegion;
+extern HMENU PopUpMenu, MainMenu;
+extern int32 DrawWindowMinX, DrawWindowMinY, DrawWindowMaxX, DrawWindowMaxY;
 
 
-void CloseApplication(LPSTR SourceFile,int32 LineNr);
+void CloseApplication(LPSTR SourceFile, int32 LineNr);
 
 int32 CheckEditorVersion(void);
 
@@ -48,7 +48,7 @@ void SetWaitCursor(void);
 
 void SetNormalCursor(void);
 
-int32 SetNewCursor(double *CurrentX,double *CurrentY);
+int32 SetNewCursor(double *CurrentX, double *CurrentY);
 
 void DoneDeviceContext(void);
 
@@ -102,7 +102,6 @@ void SetScrollPageSize(void);
 
 void SetScrollPosition(void);
 
-void ScrollAppWindow(int32 DivX,int32 DivY);
+void ScrollAppWindow(int32 DivX, int32 DivY);
 
 #endif
-

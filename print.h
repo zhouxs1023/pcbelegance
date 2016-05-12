@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: print.h 
+ * File: print.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,13 +29,12 @@
 
 #include "types.h"
 
-void Print(int32 PaperSize,int32 Color,LPSTR CurrentPrinterName,int32 mode);
+void Print(int32 PaperSize, int32 Color, LPSTR CurrentPrinterName, int32 mode);
 
 void ExportToBitmap(int32 mode);
 
-void ExportToBitmap2(int32 mode,int32 ExportPixelsX,int32 ExportPixelsY);
+void ExportToBitmap2(int32 mode, int32 ExportPixelsX, int32 ExportPixelsY);
 
-int32 ExportToPDF(int32 PaperSize,int32 Orientation,int32 FitToPage,int32 PdfObjectStart,int32 mode);
+int32 ExportToPDF(int32 PaperSize, int32 Orientation, int32 FitToPage, int32 PdfObjectStart, int32 mode);
 
 #endif
-

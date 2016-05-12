@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: draw2.h 
+ * File: draw2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,15 +30,15 @@
 #include "types.h"
 #include "owntypes.h"
 
-void DrawObjects(double OX,double OY,int32 Mode);
+void DrawObjects(double OX, double OY, int32 Mode);
 
-void DrawObject(ObjectRecord *Object,double OX,double OY,int32 Mode);
+void DrawObject(ObjectRecord * Object, double OX, double OY, int32 Mode);
 
-void DrawReferenceInstance(InstanceRecord *Instance,double OffsetX,double OffsetY,int32 Mode);
+void DrawReferenceInstance(InstanceRecord * Instance, double OffsetX, double OffsetY, int32 Mode);
 
-void DrawValueInstance(InstanceRecord *Instance,double OffsetX,double OffsetY,int32 Mode);
+void DrawValueInstance(InstanceRecord * Instance, double OffsetX, double OffsetY, int32 Mode);
 
-void DrawInstance(InstanceRecord *Instance,double OffsetX,double OffsetY,int32 Mode);
+void DrawInstance(InstanceRecord * Instance, double OffsetX, double OffsetY, int32 Mode);
 
 void DrawInstances(int32 Mode);
 
@@ -46,9 +46,8 @@ void DrawNewGrid(void);
 
 void DrawGrid(void);
 
-void InitSpecialDraw(MEASUREITEMSTRUCT *MeasureItem);
+void InitSpecialDraw(MEASUREITEMSTRUCT * MeasureItem);
 
-void DrawSpecialItem(DRAWITEMSTRUCT *DrawItem);
+void DrawSpecialItem(DRAWITEMSTRUCT * DrawItem);
 
 #endif
-
