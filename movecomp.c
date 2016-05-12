@@ -496,6 +496,12 @@ Mode = 2  -> Copy objects
 				PlaceMovedComponents(CurrentX, CurrentY, Mode, Count - cnt);
 				CurrentX += divx;
 				CurrentY += divy;
+
+				//update selection rectangle
+				SearchMinX += divx;
+				SearchMaxX += divx;
+				SearchMinY += divy;
+				SearchMaxY += divy;
 				count++;
 			}
 

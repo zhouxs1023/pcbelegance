@@ -609,10 +609,8 @@ void SCHCommand(HWND hwnd, WPARAM WParam, int32 LParam)
 			break;
 
 		case 1:
-			UnselectAll = 1;
 			SelectObjectsFromWindow(0.0, 0.0, 0.0, 0.0, 0);
 			LastAction = 0;
-			UnselectAll = 0;
 			CenterScreenOnInstance(0);
 			break;
 		}

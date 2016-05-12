@@ -2683,6 +2683,7 @@ int32 CALLBACK InstanceInfoDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 
 			if (strcmpUTF8(sel, WorkingInstance->Reference) != 0)
 			{
+				memset(WorkingInstance->Reference, 0, sizeof(WorkingInstance->Value));
 				memcpy(WorkingInstance->Reference, &sel, min(sizeof(WorkingInstance->Reference) - 1, res));
 				InstanceChanged = 1;
 			}
