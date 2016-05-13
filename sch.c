@@ -1922,8 +1922,8 @@ LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 	case WM_MOUSEMOVE:
 		if ((Focused) && (FocusedAgain))
 		{
-			MousePosX = LOWORD(LParam);
-			MousePosY = HIWORD(LParam) + 1;
+			MousePosX = (int)(short)LOWORD(LParam);
+			MousePosY = (int)(short)HIWORD(LParam) + 1;
 
 			if (WParam & MK_LBUTTON)
 			{
@@ -1981,13 +1981,13 @@ LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 		break;
 
 	case WM_LBUTTONDOWN:
-		MousePosY2 = HIWORD(LParam) + 1;
+		MousePosY2 = (int)(short)HIWORD(LParam) + 1;
 
 		if ((Focused) && (FocusedAgain) && (MousePosY2 < DrawWindowMaxY))
 		{
 			MouseChanged = 1;
-			MousePosX = LOWORD(LParam);
-			MousePosY = HIWORD(LParam) + 1;
+			MousePosX = (int)(short)LOWORD(LParam);
+			MousePosY = (int)(short)HIWORD(LParam) + 1;
 			LeftButtonPressed = 1;
 		}
 
@@ -1998,8 +1998,8 @@ LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 		{
 			FocusedAgain = 1;
 			MouseChanged = 1;
-			MousePosX = LOWORD(LParam);
-			MousePosY = HIWORD(LParam) + 1;
+			MousePosX = (int)(short)LOWORD(LParam);
+			MousePosY = (int)(short)HIWORD(LParam) + 1;
 			LeftButtonPressed = 0;
 		}
 
@@ -2009,8 +2009,8 @@ LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 		if ((Focused) && (FocusedAgain))
 		{
 			MouseChanged = 1;
-			MousePosX = LOWORD(LParam);
-			MousePosY = HIWORD(LParam) + 1;
+			MousePosX = (int)(short)LOWORD(LParam);
+			MousePosY = (int)(short)HIWORD(LParam) + 1;
 			RightButtonPressed = 1;
 		}
 
@@ -2020,8 +2020,8 @@ LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 		if ((Focused) && (FocusedAgain))
 		{
 			MouseChanged = 1;
-			MousePosX = LOWORD(LParam);
-			MousePosY = HIWORD(LParam) + 1;
+			MousePosX = (int)(short)LOWORD(LParam);
+			MousePosY = (int)(short)HIWORD(LParam) + 1;
 			RightButtonPressed = 0;
 		}
 
@@ -2031,8 +2031,8 @@ LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 		if ((Focused) && (FocusedAgain))
 		{
 			MouseChanged = 1;
-			MousePosX = LOWORD(LParam);
-			MousePosY = HIWORD(LParam) + 1;
+			MousePosX = (int)(short)LOWORD(LParam);
+			MousePosY = (int)(short)HIWORD(LParam) + 1;
 
 			if (GetSystemMetrics(SM_CMOUSEBUTTONS) == 3)
 				MiddleButtonPressed = 1;
@@ -2044,8 +2044,8 @@ LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 		if ((Focused) && (FocusedAgain))
 		{
 			MouseChanged = 1;
-			MousePosX = LOWORD(LParam);
-			MousePosY = HIWORD(LParam) + 1;
+			MousePosX = (int)(short)LOWORD(LParam);
+			MousePosY = (int)(short)HIWORD(LParam) + 1;
 			MiddleButtonPressed = 0;
 		}
 

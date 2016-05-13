@@ -3670,7 +3670,7 @@ void CommandAddObjectText(int32 Mode)
 	CurrentDrawMode = 1;
 
 	memset(&NewObjectText, 0, sizeof(ObjectTextRecord));
-	NewObjectText.FontHeight = 1.0;
+	NewObjectText.FontHeight = (float) 1.0;
 	NewObjectText.Thickness = (float) STANDARD_LINE_THICKNESS;
 
 	if (TextInputDialog(&NewObjectText, 0) == 2)
@@ -3921,7 +3921,8 @@ void DrawTryingObjectNumbers(double CurrentX, double CurrentY, int32 Mode)
 		sprintf(NewObjectText.Text, "%i", ObjectNumbers.Start + ObjectNumbers.Step * cnt);
 		NewObjectText.X = (float) CurrentX;
 		NewObjectText.Y = (float) (CurrentY - cnt);
-		NewObjectText.FontHeight = 1.0;
+		NewObjectText.FontHeight = (float) 1.0;
+		NewObjectText.Thickness = (float) STANDARD_LINE_THICKNESS;
 
 		if (Mode == 1)
 			NewObjectText.TextMode = ALIGN_RIGHT_BOTTOM;
@@ -3956,6 +3957,7 @@ void CommandAddTryingObjectNumbers(int32 Mode)
 		NewObjectText.X = (float) ObjectNumbers.x1;
 		NewObjectText.Y = (float) (ObjectNumbers.y1 - cnt);
 		NewObjectText.FontHeight = (float) 1.0;
+		NewObjectText.Thickness = (float) STANDARD_LINE_THICKNESS;
 
 		if (Mode == 1)
 			NewObjectText.TextMode = ALIGN_RIGHT_BOTTOM;

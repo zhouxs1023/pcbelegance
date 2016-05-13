@@ -2053,7 +2053,8 @@ void CommandAddGlobalConnection(int32 Mode)
 	NewGlobalConnection.ConnectionType = (int16) (Mode << 1);
 
 	memset(&NewObjectText, 0, sizeof(ObjectTextRecord));
-	NewObjectText.FontHeight = 1.0;
+	NewObjectText.FontHeight = (float) 1.0;
+	NewObjectText.Thickness = (float) STANDARD_LINE_THICKNESS;
 
 	if (TextInputDialog(&NewObjectText, 4) == 2)
 		return;
@@ -2601,8 +2602,8 @@ int32 AddTextObjectsFromFile(int32 mode)
 	if (GetNewFileUTF8(SCHWindow, NULL, TextObjectsFile, DesignPath, "text file", NULL, "All files", "*", 0) != 0)
 		return -1;
 
-	CurrentX = AdjustToDrawGrid(PixelToRealOffX(MousePosX));
-	CurrentY = AdjustToDrawGrid(PixelToRealOffY(DrawWindowMaxY - MousePosY));
+	CurrentX = AdjustToDrawGrid(PixelToRealOffX((DrawWindowMaxX - DrawWindowMinX) / 2));
+	CurrentY = AdjustToDrawGrid(PixelToRealOffY((DrawWindowMaxY - DrawWindowMinY) / 2));
 
 //  strcpy(TextObjectsFile,"c:\\pcb_elegance\\mach15324\\insert.txt");
 
@@ -2613,7 +2614,8 @@ int32 AddTextObjectsFromFile(int32 mode)
 	}
 
 	memset(&NewObjectText, 0, sizeof(NewObjectText));
-	NewObjectText.FontHeight = 1.0;
+	NewObjectText.FontHeight = (float) 1.0;
+	NewObjectText.Thickness = (float) STANDARD_LINE_THICKNESS;
 	NewObjectText.Info = OBJECT_SELECTED | 15;
 	NewObjectText.X = (float) CurrentX;
 	NewObjectText.Y = (float) CurrentY;

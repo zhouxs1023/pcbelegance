@@ -1178,7 +1178,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 				}
 				else
 				{
-					for (cnt = 0; cnt < 20; cnt++)
+					for (cnt = 0; cnt < 24; cnt++)
 					{
 						res = GetDialogTextLine(Dialog, IDC_EDIT1, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
 
@@ -1393,8 +1393,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 #ifdef _DEBUG
 				memset(DialogTextLine, 0, 200);
 
-				if ((res =
-				            SendDlgItemMessageUTF8(Dialog, IDC_EDIT4, WM_GETTEXT, (WPARAM) 17, (LPARAM) DialogTextLine)) > 0)
+				if ((res = SendDlgItemMessageUTF8(Dialog, IDC_EDIT4, WM_GETTEXT, (WPARAM) 17, (LPARAM) DialogTextLine)) > 0)
 				{
 					res = strtol(DialogTextLine, &weg, 2);
 
@@ -1440,7 +1439,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 				divy = AddPinDialogDivY;
 				NrAddPins = 0;
 
-				for (cnt = 0; cnt < 20; cnt++)
+				for (cnt = 0; cnt < 24; cnt++)
 				{
 					res = GetDialogTextLine(Dialog, IDC_EDIT3, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
 
