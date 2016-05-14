@@ -8,3 +8,4 @@ Debug/.*\.pdb$
 Debug/.*\.tlog$
 Debug/.*\.log$
 Debug/.*\.res$
+Release/.*

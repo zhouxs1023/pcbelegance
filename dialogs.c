@@ -5584,6 +5584,7 @@ int32 InitSymbolEntries(HWND Dialog)
 		        || ((SearchString2W[0] == '*') && (wcsstr(str4, (WCHAR *) & SearchString2W[1]) != 0)))
 		{
 			UnicodeToUtf8(FileInfo.cFileName, str5, MAX_LENGTH_STRING - 100);
+			UnicodeToUtf8(str4, str2, MAX_LENGTH_STRING - 100);
 			sprintf(str3, "%s\t%s\\sym\\%s", str2, DesignPath, str5);
 			SendDlgItemMessageUTF8(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM) str3);
 			count++;
@@ -5616,6 +5617,7 @@ int32 InitSymbolEntries(HWND Dialog)
 		        || ((SearchString2W[0] == '*') && (wcsstr(str4, (WCHAR *) & SearchString2W[1]) != 0)))
 		{
 			UnicodeToUtf8(FileInfo.cFileName, str5, MAX_LENGTH_STRING - 100);
+			UnicodeToUtf8(str4, str2, MAX_LENGTH_STRING - 100);
 			sprintf(str3, "%s\t%s\\sym\\%s", str2, ExePath, str5);
 			SendDlgItemMessageUTF8(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM) str3);
 			count++;

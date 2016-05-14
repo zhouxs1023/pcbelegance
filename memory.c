@@ -2232,6 +2232,8 @@ int32 NewDesign(int32 mode)
 			return 0;
 	}
 
+	Design.DimensionHeight = DIMENSION_HEIGHT;
+	Design.ArrowLength = ARROW_LENGTH;
 	return 1;
 }
 
@@ -2295,7 +2297,8 @@ int32 NewSymbol(int32 mode)
 	Instance->ValueOriginY = (double) -2.0;
 	Instance->RefOriginY = (double) -1.0;
 	Design.NrInstances = 1;
-
+	Design.DimensionHeight = DIMENSION_HEIGHT;
+	Design.ArrowLength = ARROW_LENGTH;
 	return 1;
 }
 
@@ -2349,6 +2352,8 @@ int32 NewSheetSymbol(int32 mode)
 
 	Instance->ValueOriginY = (double) -10.0;
 	Design.NrInstances = 1;
+	Design.DimensionHeight = DIMENSION_HEIGHT;
+	Design.ArrowLength = ARROW_LENGTH;
 	return 1;
 }
 

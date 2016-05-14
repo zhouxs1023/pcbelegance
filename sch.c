@@ -2402,7 +2402,12 @@ void LoadIniFile(LPSTR FileName)
 						if (stricmp(str1, "GridSize") == 0)
 						{
 							if (sscanf(str2, "%f", &Value2) == 1)
-								DrawGridSize = GridSize = Value2;
+							{
+								if ((Value2 > (float) 10) || (Value2 < (float) 0.01))
+									DrawGridSize = GridSize = (double) 1.0; //out of range
+								else
+									DrawGridSize = GridSize = (double) Value2;
+							}
 						}
 
 						if (stricmp(str1, "CrossHairVisible") == 0)
