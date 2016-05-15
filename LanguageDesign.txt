@@ -1,0 +1,2 @@
+LanguageDesign_English.txt
+;LanguageDesign_German.txt
