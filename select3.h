@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: select3.h 
+ * File: select3.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,61 +30,60 @@
 
 #include "types.h"
 
-int32 CopyTracesFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyTracesFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-int32 CopyViasFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyViasFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-int32 CopyAreafillsFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyAreafillsFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-int32 CopyConnectionsFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyConnectionsFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-int32 CopyCompObjectsFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyCompObjectsFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-int32 CopyCompBigPolygonObjectsFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyCompBigPolygonObjectsFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-int32 CopyOtherObjectsFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyOtherObjectsFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-int32 CopyCopperObjectsFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyCopperObjectsFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-int32 CopyAllObjectsFromRectWindowToObjects4(int32 SelectedLayer,int32 mode);
+int32 CopyAllObjectsFromRectWindowToObjects4(int32 SelectedLayer, int32 mode);
 
-void  UnhiliteTraces(void);
+void UnhiliteTraces(void);
 
-void  UnhiliteVias(void);
+void UnhiliteVias(void);
 
-void  UnhiliteComps(void);
+void UnhiliteComps(void);
 
-void  UnhiliteConnections(void);
+void UnhiliteConnections(void);
 
-void  UnhiliteNets(void);
+void UnhiliteNets(void);
 
-void  HiliteNetsFromDialog(int32 NrNetsSelected,int32 mode,int32 *NetInfo,uint8 *SelectedNets);
+void HiliteNetsFromDialog(int32 NrNetsSelected, int32 mode, int32 * NetInfo, uint8 * SelectedNets);
 
-void  HideConnectionsNetsFromDialog(int32 NrNetsSelected,int32 *NetInfo,uint8 *SelectedNets);
+void HideConnectionsNetsFromDialog(int32 NrNetsSelected, int32 * NetInfo, uint8 * SelectedNets);
 
-void  DisableConnectionsNets(int32 NrNetsSelected,int32 mode,int32 *NetInfo,uint8 *SelectedNets);
+void DisableConnectionsNets(int32 NrNetsSelected, int32 mode, int32 * NetInfo, uint8 * SelectedNets);
 
-void  UnselectTracesViasNet(int32 NrNetsSelected,int32 *NetInfo,uint8 *SelectedNets);
+void UnselectTracesViasNet(int32 NrNetsSelected, int32 * NetInfo, uint8 * SelectedNets);
 
-void  ViewAllConnections(void);
+void ViewAllConnections(void);
 
-void  DeleteNets(int32 NrNetsSelected,int32 *NetInfo);
+void DeleteNets(int32 NrNetsSelected, int32 * NetInfo);
 
-void  UnViewAllConnections(void);
+void UnViewAllConnections(void);
 
 int32 CopySelectionsToClipBoard(void);
 
 int32 CopySelectionsFromClipBoard(void);
 
-void  CheckClipBoard(void);
+void CheckClipBoard(void);
 
-void  HiliteVisibleConnections(int32 mode);
+void HiliteVisibleConnections(int32 mode);
 
-void  ChangeNetsHilite(int32 NetNr,int32 Hilite);
+void ChangeNetsHilite(int32 NetNr, int32 Hilite);
 
-void  ComponentProtection(int32 NetsSelected,int32 *NetInfo,uint8 *SelectedComponents);
+void ComponentProtection(int32 NetsSelected, int32 * NetInfo, uint8 * SelectedComponents);
 
 int32 HideSelectedConnections(void);
 
 #endif
-

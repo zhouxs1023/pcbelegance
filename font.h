@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: font.h 
+ * File: font.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -32,9 +32,9 @@
 #include "types.h"
 #include "windows.h"
 
-int32 MakeAreaFillFontChar(int32 TextChar,int32 FontNr,AreaFillRecord *CharAreaFill);
+int32 MakeAreaFillFontChar(int32 TextChar, int32 FontNr, AreaFillRecord * CharAreaFill);
 
-int32 GetAreaFillFontChar(int32 TextChar,int32 FontNr,AreaFillRecord *CharAreaFill);
+int32 GetAreaFillFontChar(int32 TextChar, int32 FontNr, AreaFillRecord * CharAreaFill);
 
 
 #endif // _FONT_H

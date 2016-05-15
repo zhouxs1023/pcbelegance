@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: trace6.h 
+ * File: trace6.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -32,4 +32,3 @@
 void CopyTracesViasNet(void);
 
 #endif
-

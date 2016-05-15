@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: rules.h 
+ * File: rules.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,9 +29,8 @@
 
 #include "types.h"
 
-void  ViewDesignRuleError(int32 mode);
+void ViewDesignRuleError(int32 mode);
 
-int32 CheckDesignRules(int32 TestLayer,int32 mode);
+int32 CheckDesignRules(int32 TestLayer, int32 mode);
 
 #endif
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: print.h 
+ * File: print.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,7 +31,7 @@
 
 void OutputToPrinter(int32 mode);
 
-int32 ExportToPDF(int32 PaperSize,int32 Orientation,int32 FitToPage,int32 mode);
+int32 ExportToPDF(int32 PaperSize, int32 Orientation, int32 FitToPage, int32 mode);
 
 int32 PlotOutput(int32 mode);
 
@@ -40,4 +40,3 @@ int32 ExportOutput(int32 mode);
 void CommandCalculateAreaPolygon(int32 mode);
 
 #endif
-

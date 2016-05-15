@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: files.h 
+ * File: files.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -35,7 +35,7 @@ int32 SaveFile2(int32 mode);
 
 int32 SaveFileName(int32 Mode);
 
-int32 SaveNewFile(LPSTR NewFile,int32 Mode);
+int32 SaveNewFile(LPSTR NewFile, int32 Mode);
 
 int32 LoadNewFile(void);
 
@@ -43,16 +43,14 @@ int32 LoadShape(LPSTR ShapeName);
 
 int32 LoadShapes(int32 mode);
 
-void  FilesMain(void);
+void FilesMain(void);
 
 int32 LoadDesign();
 
-void  SetWindowName(int32 mode);
+void SetWindowName(int32 mode);
 
-void  ChangeFile(LPSTR FileName,int32 mode);
+void ChangeFile(LPSTR FileName, int32 mode);
 
 void LoadDesignIniFile(void);
 
 #endif
-
-

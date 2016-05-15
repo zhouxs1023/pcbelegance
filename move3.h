@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: move3.h 
+ * File: move3.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -37,14 +37,12 @@ int32 MirrorText(int32 mode);
 
 void ChangeGeometryComp(int32 Mode);
 
-void AddSpecialObjectsFromAsciiFile(int32 Layer,int32 mode);
+void AddSpecialObjectsFromAsciiFile(int32 Layer, int32 mode);
 
-void PutSpecialObjectsInAsciiFile(int32 Layer,int32 mode);
+void PutSpecialObjectsInAsciiFile(int32 Layer, int32 mode);
 
-int32 DrawSelectedAreafills(double CurrentX,double CurrentY,
-                            double CurrentX2,double CurrentY2,
-                            double CentreSelectedX,double CentreSelectedY,
-                            double Rotation,int32 mode);
+int32 DrawSelectedAreafills(double CurrentX, double CurrentY, double CurrentX2, double CurrentY2,
+                            double CentreSelectedX, double CentreSelectedY, double Rotation, int32 mode);
 
 int32 CopyArrayObjects(int32 mode);
 
@@ -54,18 +52,14 @@ int32 MoveStretchedAreafill(int32 mode);
 
 void MirrorObjects(int32 mode);
 
-void AreafillToObjectLines(AreaFillRecord *AreaFill,int32 ObjectLayer1,
-                           PolygonRecord *TestPolygon,int32 ObjectLayer2,int32 mode);
+void AreafillToObjectLines(AreaFillRecord * AreaFill, int32 ObjectLayer1, PolygonRecord * TestPolygon,
+                           int32 ObjectLayer2, int32 mode);
 
-void PolygonToObjectLines(PolygonRecord *DrawPolygon,int32 ObjectLayer1,
-                          PolygonRecord *TestPolygon,int32 ObjectLayer2,int32 mode);
+void PolygonToObjectLines(PolygonRecord * DrawPolygon, int32 ObjectLayer1, PolygonRecord * TestPolygon,
+                          int32 ObjectLayer2, int32 mode);
 
-void PolygonVerticesToMessage(PolygonRecord *DrawPolygon,PolygonRecord *DrawPolygon2);
+void PolygonVerticesToMessage(PolygonRecord * DrawPolygon, PolygonRecord * DrawPolygon2);
 
 void CopyAreafillStartPolygonToInfo4(int32 mode);
 
 #endif
-
-
-
-

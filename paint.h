@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: paint.h 
+ * File: paint.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -38,11 +38,10 @@ int32 SelectErrorDialog(void);
 
 int32 SettingsDialog(int32 mode);
 
-void DrawSpecialItem(DRAWITEMSTRUCT *DrawItem);
+void DrawSpecialItem(DRAWITEMSTRUCT * DrawItem);
 
-void InitSpecialDraw(MEASUREITEMSTRUCT *DrawItem);
+void InitSpecialDraw(MEASUREITEMSTRUCT * DrawItem);
 
 void GotoXY(void);
 
 #endif
-

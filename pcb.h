@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: pcb.h 
+ * File: pcb.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,70 +29,69 @@
 
 #include "types.h"
 
-LRESULT CALLBACK PCBWinProc(HWND Window,UINT Message,WPARAM WParam,LPARAM LParam);
+LRESULT CALLBACK PCBWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LParam);
 
-extern WNDCLASS             PCBClass;
-extern HWND                 PCBWindow,DialogWindow;
-extern PAINTSTRUCT          PS;
-extern RECT                 RealWindow,ClientRect;
-extern HRGN                 EditingRegion;
-extern HMENU                PopUpMenu,MainMenu;
-extern int32                DrawWindowMinX,DrawWindowMinY,DrawWindowMaxX,DrawWindowMaxY;
+extern WNDCLASS PCBClass;
+extern HWND PCBWindow, DialogWindow;
+extern PAINTSTRUCT PS;
+extern RECT RealWindow, ClientRect;
+extern HRGN EditingRegion;
+extern HMENU PopUpMenu, MainMenu;
+extern int32 DrawWindowMinX, DrawWindowMinY, DrawWindowMaxX, DrawWindowMaxY;
 
 
-void  SetWaitCursor(void);
+void SetWaitCursor(void);
 
-void  SetNormalCursor(void);
+void SetNormalCursor(void);
 
-void  DoneDeviceContext(void);
+void DoneDeviceContext(void);
 
-void  InitDeviceContext(void);
+void InitDeviceContext(void);
 
-void  StartDrawingEditingWindow(void);
+void StartDrawingEditingWindow(void);
 
 HWND GetDesignManagersWindow(int32 mode);
 
-int32 SetNewCursor(double *CurrentX,double *CurrentY);
+int32 SetNewCursor(double *CurrentX, double *CurrentY);
 
-void  EndDrawingEditingWindow(void);
+void EndDrawingEditingWindow(void);
 
-void  RedrawAbsPosStr(int32 Mode);
+void RedrawAbsPosStr(int32 Mode);
 
-void  RedrawAbsGridPosStr(int32 Mode);
+void RedrawAbsGridPosStr(int32 Mode);
 
-void  RedrawRelPosStr(int32 Mode);
+void RedrawRelPosStr(int32 Mode);
 
-void  RedrawInfoStr(int32 Mode);
+void RedrawInfoStr(int32 Mode);
 
-void  RedrawMainWindow(void);
+void RedrawMainWindow(void);
 
-void  RedrawButtons(void);
+void RedrawButtons(void);
 
-void  RedrawInfoBar(void);
+void RedrawInfoBar(void);
 
-void  WindowPaint(void);
+void WindowPaint(void);
 
-void  ResetAllObjects(void);
+void ResetAllObjects(void);
 
-void  ScrollUp(int32 SizeOfScroll);
+void ScrollUp(int32 SizeOfScroll);
 
-void  ScrollDown(int32 SizeOfScroll);
+void ScrollDown(int32 SizeOfScroll);
 
-void  ScrollLeft(int32 SizeOfScroll);
+void ScrollLeft(int32 SizeOfScroll);
 
-void  ScrollRight(int32 SizeOfScroll);
+void ScrollRight(int32 SizeOfScroll);
 
-void ScrollAppWindow(int32 DivX,int32 DivY);
+void ScrollAppWindow(int32 DivX, int32 DivY);
 
-void  WindowDestroy(void);
+void WindowDestroy(void);
 
-void  ClipMouseCursor(void);
+void ClipMouseCursor(void);
 
-void  UnClipMouseCursor(void);
+void UnClipMouseCursor(void);
 
-void  SetScrollPageSize(void);
+void SetScrollPageSize(void);
 
-void  SetScrollPosition(void);
+void SetScrollPosition(void);
 
 #endif
-

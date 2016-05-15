@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: menus.h 
+ * File: menus.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,25 +31,24 @@
 
 int32 GetExtendedResource(int32 NewResourceID);
 
-int32 GetMenuCode(int32 MenuCommand,int32 mode);
+int32 GetMenuCode(int32 MenuCommand, int32 mode);
 
 int32 LoadBitMaps(void);
 
-void  MenuPopUp(void);
+void MenuPopUp(void);
 
-void  TraceMenuPopUp(int32 mode);
+void TraceMenuPopUp(int32 mode);
 
 int32 CheckIfSelectionActive(int32 mode);
 
-void  MakeMainMenu(void);
+void MakeMainMenu(void);
 
-void  MakeGridMenu(void);
+void MakeGridMenu(void);
 
-void  MakeCheckMenu(void);
+void MakeCheckMenu(void);
 
-int32 OwnAppendMenu(HMENU Menu,UINT MenuOptions,UINT MenuId,LPSTR Text) ;
+int32 OwnAppendMenu(HMENU Menu, UINT MenuOptions, UINT MenuId, LPSTR Text);
 
 int32 UpdateKeysMainMenu(int32 mode);
 
 #endif
-

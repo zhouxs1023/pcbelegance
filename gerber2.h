@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: gerber2.h 
+ * File: gerber2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,51 +29,46 @@
 
 #include "types.h"
 
-int32 WriteGerberString(LPSTR GerberString,int32 mode);
+int32 WriteGerberString(LPSTR GerberString, int32 mode);
 
-int32 GetGerberValueInString(double ValueX,double ValueY,LPSTR GerberString,int32 mode);
+int32 GetGerberValueInString(double ValueX, double ValueY, LPSTR GerberString, int32 mode);
 
-int32 GerberWriteLine(double x1,double y1,double x2,double y2);
+int32 GerberWriteLine(double x1, double y1, double x2, double y2);
 
-int32 GerberPlotObject(ObjectRecord *Object,int32 mode);
+int32 GerberPlotObject(ObjectRecord * Object, int32 mode);
 
-int32 DrawGerberLine(double x1,double y1,double x2,double y2,
-                     double ThickNess,double PenSize);
+int32 DrawGerberLine(double x1, double y1, double x2, double y2, double ThickNess, double PenSize);
 
-int32 DrawGerberCircleOpenPad(double x1,double y1,
-                              double ThickNess,double HoleSize,double PenSize);
+int32 DrawGerberCircleOpenPad(double x1, double y1, double ThickNess, double HoleSize, double PenSize);
 
-int32 DrawGerberSquareOpenPad(double x1,double y1,
-                              double ThickNess,double HoleSize,double PenSize);
+int32 DrawGerberSquareOpenPad(double x1, double y1, double ThickNess, double HoleSize, double PenSize);
 
-int32 DrawGerberRectPad(double x1,double y1,double PadSizeX,double PadSizeY,double PenSize);
+int32 DrawGerberRectPad(double x1, double y1, double PadSizeX, double PadSizeY, double PenSize);
 
-int32 DrawGerberButterflyOpenPad(double x1,double y1,
-                              double ThickNess,double HoleSize,double PenSize);
+int32 DrawGerberButterflyOpenPad(double x1, double y1, double ThickNess, double HoleSize, double PenSize);
 
-int32 DrawGerberButterflyPad(double x1,double y1,double PadSizeX,double PadSizeY,double PenSize);
+int32 DrawGerberButterflyPad(double x1, double y1, double PadSizeX, double PadSizeY, double PenSize);
 
-int32 DrawGerberCirclePad(double x1,double y1,double ThickNess,double PenSize);
+int32 DrawGerberCirclePad(double x1, double y1, double ThickNess, double PenSize);
 
-int32 DrawGerberCircle(ObjectRecord *Object);
+int32 DrawGerberCircle(ObjectRecord * Object);
 
-int32 DrawGerberArc(ObjectRecord *Object);
+int32 DrawGerberArc(ObjectRecord * Object);
 
-int32 DrawGerberThermalRelief(ObjectRecord *Object);
+int32 DrawGerberThermalRelief(ObjectRecord * Object);
 
-int32 PlotAreaFillToGerber(AreaFillRecord *AreaFill,double Thickness1,double Thickness2,int32 mode);
+int32 PlotAreaFillToGerber(AreaFillRecord * AreaFill, double Thickness1, double Thickness2, int32 mode);
 
-int32 PowerPlaneToGerber(int32 Layer,double Thickness1,double Thickness2,int32 mode);
+int32 PowerPlaneToGerber(int32 Layer, double Thickness1, double Thickness2, int32 mode);
 
-int32 DrawGerberStr(double x,double y,double Size,double LineThickness,
-                    int32 Rotation,int32 Alignment,int32 Mirror,char *str);
+int32 DrawGerberStr(double x, double y, double Size, double LineThickness, int32 Rotation, int32 Alignment,
+                    int32 Mirror, char *str);
 
-int32 DrawGerberStr2(double x,double y,double Size,double LineThickness,
-                     double Rotation,int32 Alignment,int32 Mirror,char *str);
+int32 DrawGerberStr2(double x, double y, double Size, double LineThickness, double Rotation, int32 Alignment,
+                     int32 Mirror, char *str);
 
-int32 GerberPlotPolygon(PolygonRecord *DrawPolygon,int32 mode);
+int32 GerberPlotPolygon(PolygonRecord * DrawPolygon, int32 mode);
 
-int32 GerberPlotSpecialAreaFill(AreaFillRecord *AreaFill,int32 mode);
+int32 GerberPlotSpecialAreaFill(AreaFillRecord * AreaFill, int32 mode);
 
 #endif
-

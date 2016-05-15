@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: gerber.h 
+ * File: gerber.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -33,7 +33,6 @@ int32 GerberOutput(int32 mode);
 
 int32 PenPlotOutput(int32 mode);
 
-void  OutputGerberDrill(void);
+void OutputGerberDrill(void);
 
 #endif
-

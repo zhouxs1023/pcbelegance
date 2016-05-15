@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: insdel.h 
+ * File: insdel.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,23 +30,23 @@
 
 #include "types.h"
 
-int32 SelectNetsObjectsSelected(uint8 *SelectedNets,int32 NrNets);
+int32 SelectNetsObjectsSelected(uint8 * SelectedNets, int32 NrNets);
 
 int32 ZeroUnusedObjects(int32 mode);
 
 void DeleteObjectsSelected(void);
 
-int32 DeletePolygonsInAreaFillPowerPlane(AreaFillRecord *AreaFill);
+int32 DeletePolygonsInAreaFillPowerPlane(AreaFillRecord * AreaFill);
 
-int32 AddTrace(ObjectRecord *InsertTrace);
+int32 AddTrace(ObjectRecord * InsertTrace);
 
-int32 AddConnection(ConnectionsRecord *Connection);
+int32 AddConnection(ConnectionsRecord * Connection);
 
-int32 AddVia(ViaRecord *Via);
+int32 AddVia(ViaRecord * Via);
 
-int32 AddComp(CompRecord *Comp);
+int32 AddComp(CompRecord * Comp);
 
-void CheckAreafill(AreaFillRecord *NewAreaFill);
+void CheckAreafill(AreaFillRecord * NewAreaFill);
 
 int32 AddAreaFill(int32 mode);
 
@@ -72,19 +72,19 @@ void DeleteTracesViasSelected(void);
 
 void UpdateInsDelInfo(void);
 
-int32 AddObjectLine(ObjectLineRecord *ObjectLine);
+int32 AddObjectLine(ObjectLineRecord * ObjectLine);
 
-int32 AddObjectRect(ObjectRectRecord *ObjectRect);
+int32 AddObjectRect(ObjectRectRecord * ObjectRect);
 
-int32 AddObjectCircle(ObjectCircleRecord *ObjectCircle);
+int32 AddObjectCircle(ObjectCircleRecord * ObjectCircle);
 
-int32 AddObjectArc(ObjectArcRecord *ObjectArc);
+int32 AddObjectArc(ObjectArcRecord * ObjectArc);
 
-int32 AddObjectText(ObjectTextRecord *ObjectText);
+int32 AddObjectText(ObjectTextRecord * ObjectText);
 
-int32 AddObjectText2(ObjectTextRecord2 *ObjectText2);
+int32 AddObjectText2(ObjectTextRecord2 * ObjectText2);
 
-int32 AddObjectPolygon(ObjectPolygonRecord *ObjectPolygon);
+int32 AddObjectPolygon(ObjectPolygonRecord * ObjectPolygon);
 
 void UndoObjects(void);
 
@@ -98,11 +98,10 @@ int32 RemoveDesignLayer(int32 Layer);
 
 int32 AddDesignLayer(int32 Layer);
 
-int32 SwitchDesignLayer(int32 Layer1,int32 Layer2);
+int32 SwitchDesignLayer(int32 Layer1, int32 Layer2);
 
-int32 MoveCopyObjectsLayers(int32 SourceLayer,int32 DestinationLayer,int32 Action,int32 mode);
+int32 MoveCopyObjectsLayers(int32 SourceLayer, int32 DestinationLayer, int32 Action, int32 mode);
 
-int32 AreaFillToText(AreaFillRecord *AreaFill,int32 mode);
+int32 AreaFillToText(AreaFillRecord * AreaFill, int32 mode);
 
 #endif
-

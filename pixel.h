@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: pixel.h 
+ * File: pixel.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,15 +29,15 @@
 
 #include "types.h"
 
-void  DeleteAperturesLayer(int32 Layer,int32 mode);
+void DeleteAperturesLayer(int32 Layer, int32 mode);
 
-void  UpdatePlotObjectsLayer(int32 Layer,int32 mode);
+void UpdatePlotObjectsLayer(int32 Layer, int32 mode);
 
-void  DeleteObjectsLayer(int32 Layer,int32 mode);
+void DeleteObjectsLayer(int32 Layer, int32 mode);
 
 int32 ChangeToolDrills(int32 mode);
 
-int32 FillWithLines(int32 Layer,int32 mode);
+int32 FillWithLines(int32 Layer, int32 mode);
 
 int32 ChangeHPGLPen(int32 mode);
 
@@ -47,13 +47,12 @@ int32 ChangeParamsObjects(int32 mode);
 
 int32 RemoveDeletedMillingLines(int32 mode);
 
-int32 GetMillingPoints(int32 Layer,int32 mode);
+int32 GetMillingPoints(int32 Layer, int32 mode);
 
-int32 GetMillingPointsBitmap(int32 Layer,int32 mode);
+int32 GetMillingPointsBitmap(int32 Layer, int32 mode);
 
-int32 BitmapPointsToLines(float HResolution,float VResolution,float PenSize,int32 Layer,int32 mode);
+int32 BitmapPointsToLines(float HResolution, float VResolution, float PenSize, int32 Layer, int32 mode);
 
-int32 BitmapPointsToLines3(int32 Layer,int32 mode);
+int32 BitmapPointsToLines3(int32 Layer, int32 mode);
 
 #endif
-

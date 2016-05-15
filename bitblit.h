@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: bitblit.h 
+ * File: bitblit.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,13 +31,12 @@
 
 #include "owntypes.h"
 
-int32 BitBlitPolygon(PolygonRecord *Polygon,int32 mode);
+int32 BitBlitPolygon(PolygonRecord * Polygon, int32 mode);
 
-int32 GetLinePoints(int32 x1,int32 y1,int32 x2,int32 y2,int32 *PointsInfo,
-                    int32 MaxNrLineObjects,int32 mode);
+int32 GetLinePoints(int32 x1, int32 y1, int32 x2, int32 y2, int32 * PointsInfo, int32 MaxNrLineObjects, int32 mode);
 
-int32 FilledEllipss(int32 xm,int32 ym,int32 a,int32 b,int32 mode);
+int32 FilledEllipss(int32 xm, int32 ym, int32 a, int32 b, int32 mode);
 
-int32 ellipsbody(int32 xm,int32 ym,int32 a,int32 b,int32 mode);
+int32 ellipsbody(int32 xm, int32 ym, int32 a, int32 b, int32 mode);
 
 #endif

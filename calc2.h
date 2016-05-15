@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: calc2.h 
+ * File: calc2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -32,15 +32,14 @@
 #include "types.h"
 
 
-int32  ObjectsConnected(ObjectRecord *Object1a,ObjectRecord *Object2a);
+int32 ObjectsConnected(ObjectRecord * Object1a, ObjectRecord * Object2a);
 
-int32 ObjectsConnected2(ObjectRecord *Object1,ObjectRecord *Object2);
+int32 ObjectsConnected2(ObjectRecord * Object1, ObjectRecord * Object2);
 
-int32 ObjectsConnected3(ObjectRecord *Object1,ObjectRecord *Object2,double *Length);
+int32 ObjectsConnected3(ObjectRecord * Object1, ObjectRecord * Object2, double *Length);
 
-int32  ObjectsConnected4(ObjectRecord *Object1,ObjectRecord *Object2);
+int32 ObjectsConnected4(ObjectRecord * Object1, ObjectRecord * Object2);
 
-double ObjectsDistance(ObjectRecord *Object1,ObjectRecord *Object2);
+double ObjectsDistance(ObjectRecord * Object1, ObjectRecord * Object2);
 
 #endif
-

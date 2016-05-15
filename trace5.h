@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: trace5.h 
+ * File: trace5.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,21 +29,14 @@
 
 #include "types.h"
 
-void  MoveOneTrace(int32 mode);
+void MoveOneTrace(int32 mode);
 
 int32 ChangeObjectTraceWidth(void);
 
 int32 ChangeClearance(int32 mode);
 
-void  ChangeVias(void);
+void ChangeVias(void);
 
 int32 HighLightNet(int32 mode);
 
 #endif
-
-
-
-
-
-
-

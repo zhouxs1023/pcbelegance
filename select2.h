@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: select2.h 
+ * File: select2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,23 +30,19 @@
 
 #include "types.h"
 
-void  SelectObjectOnPointer(double x11,double y11,double x22,double y22,int32 mode);
+void SelectObjectOnPointer(double x11, double y11, double x22, double y22, int32 mode);
 
-void  DrawTraceFromGuide(double PointX,double PointY);
+void DrawTraceFromGuide(double PointX, double PointY);
 
-void  DrawTraceFromTrace(double PointX,double PointY);
+void DrawTraceFromTrace(double PointX, double PointY);
 
-void  DrawTraceFromPinOrVia(double PointX,double PointY);
+void DrawTraceFromPinOrVia(double PointX, double PointY);
 
-int32 FindEndPointFromNetObjects(double StartX,double StartY,
-                                 double EndX,double EndY,
-                                 double ThickNess,
-                                 int32 Direction,int32 Layer,
-                                 double *NewX,double *NewY);
+int32 FindEndPointFromNetObjects(double StartX, double StartY, double EndX, double EndY, double ThickNess,
+                                 int32 Direction, int32 Layer, double *NewX, double *NewY);
 
-int32 FindObjectNrFromNetObjects(ObjectRecord *SearchObject);
+int32 FindObjectNrFromNetObjects(ObjectRecord * SearchObject);
 
 int32 SelectTraceUnderCursor(int32 mode);
 
 #endif
-

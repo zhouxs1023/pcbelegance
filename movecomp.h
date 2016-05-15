@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: movecomp.h 
+ * File: movecomp.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,19 +29,19 @@
 
 #include "types.h"
 
-void  MoveComponents(int32 mode);
+void MoveComponents(int32 mode);
 
-void  DrawConnecions(double CurrentX,double CurrentY);
+void DrawConnecions(double CurrentX, double CurrentY);
 
-void  MoveComponents(int32 mode);
+void MoveComponents(int32 mode);
 
 int32 RegroupComponents(int32 mode);
 
-void PlaceMovedObjects(double CurrentX,double CurrentY,double Rotation,int32 mode);
+void PlaceMovedObjects(double CurrentX, double CurrentY, double Rotation, int32 mode);
 
-void  SwitchLayerComp(int32 Layer);
+void SwitchLayerComp(int32 Layer);
 
-void  UnselectComp(int32 mode);
+void UnselectComp(int32 mode);
 
 int32 CheckFloatingConnections(void);
 
@@ -53,9 +53,7 @@ int32 AlignComponents(int32 mode);
 
 int32 MoveComponentsOneGridPosition(int32 mode);
 
-int32 AdjustOffsetForSnap(double CursorX,double CursorY,double GridX,double GridY,
-                          double divx,double divy,
-                          double *ShiftOffsetX,double *ShiftOffsetY,int32 mode);
+int32 AdjustOffsetForSnap(double CursorX, double CursorY, double GridX, double GridY, double divx, double divy,
+                          double *ShiftOffsetX, double *ShiftOffsetY, int32 mode);
 
 #endif
-

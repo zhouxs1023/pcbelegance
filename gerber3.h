@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: gerber3.h 
+ * File: gerber3.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,27 +29,26 @@
 
 #include "types.h"
 
-int32 GerberPrepareTraces(int32 Layer,int32 mode);
+int32 GerberPrepareTraces(int32 Layer, int32 mode);
 
-int32 GerberPrepareVias(int32 Layer,int32 mode);
+int32 GerberPrepareVias(int32 Layer, int32 mode);
 
-int32 GerberPrepareComponentPins(int32 Layer,int32 mode);
+int32 GerberPrepareComponentPins(int32 Layer, int32 mode);
 
-int32 GerberPrepareComponentPinsViasSolderPasteObjects(int32 Layer,int32 mode);
+int32 GerberPrepareComponentPinsViasSolderPasteObjects(int32 Layer, int32 mode);
 
-int32 GerberPrepareComponentInfoObjects(int32 Layer,int32 mode);
+int32 GerberPrepareComponentInfoObjects(int32 Layer, int32 mode);
 
-int32 GerberPrepareComponentInfoObjects(int32 Layer,int32 mode);
+int32 GerberPrepareComponentInfoObjects(int32 Layer, int32 mode);
 
-int32 GerberPrepareComponentOutlineObjects(int32 Layer,int32 CompOutlineLayers,int32 mode);
+int32 GerberPrepareComponentOutlineObjects(int32 Layer, int32 CompOutlineLayers, int32 mode);
 
-int32 GerberPrepareComponentBoardOutlineObjects(int32 Layer,int32 mode);
+int32 GerberPrepareComponentBoardOutlineObjects(int32 Layer, int32 mode);
 
-int32 GerberPrepareComponentRoutingKeepoutObjects(int32 Layer,int32 mode);
+int32 GerberPrepareComponentRoutingKeepoutObjects(int32 Layer, int32 mode);
 
-int32 GerberPrepareComponentSilkScreenObjects(int32 Layer,int32 mode);
+int32 GerberPrepareComponentSilkScreenObjects(int32 Layer, int32 mode);
 
-int32 GerberPrepareSpecialObjects(int32 Layer,int32 mode);
+int32 GerberPrepareSpecialObjects(int32 Layer, int32 mode);
 
 #endif
-

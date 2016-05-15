@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: nets.h 
+ * File: nets.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,33 +29,33 @@
 
 #include "types.h"
 
-int32 GetObjectNrFromEndPoint(int32 Layer,double x,double y,int32 mode);
+int32 GetObjectNrFromEndPoint(int32 Layer, double x, double y, int32 mode);
 
-int32 CountNrObjectsEndPoint(int32 Layer,double x,double y,int32 mode);
+int32 CountNrObjectsEndPoint(int32 Layer, double x, double y, int32 mode);
 
-int32 GetObjectNrFromEndPoint2(int32 Layer,double x,double y);
+int32 GetObjectNrFromEndPoint2(int32 Layer, double x, double y);
 
-int32 GetViaObjectNrFromEndPoint(double x,double y);
+int32 GetViaObjectNrFromEndPoint(double x, double y);
 
-void  GetObjectsNet(int32 NetNr,int32 ObjectArrayNr,int32 Mode);
+void GetObjectsNet(int32 NetNr, int32 ObjectArrayNr, int32 Mode);
 
-void DeleteAndUndisplayConnectionsNet(int32 NetNr,int32 mode);
+void DeleteAndUndisplayConnectionsNet(int32 NetNr, int32 mode);
 
-void  AddPowerPlaneObjects3(int32 PowerNetNr,int32 mode);
+void AddPowerPlaneObjects3(int32 PowerNetNr, int32 mode);
 
-int32 CheckNet(int32 NetNr,int32 mode);
+int32 CheckNet(int32 NetNr, int32 mode);
 
-int32 InsertConnections(int32 NetNr,int32 mode);
+int32 InsertConnections(int32 NetNr, int32 mode);
 
-void ReCalcConnectionsNet(int32 NetNr,int32 mode,int32 RePaint);
+void ReCalcConnectionsNet(int32 NetNr, int32 mode, int32 RePaint);
 
-void  DeleteNet(int32 NetNr);
+void DeleteNet(int32 NetNr);
 
-void  DeleteTracesViasNetSelectedTrace(void);
+void DeleteTracesViasNetSelectedTrace(void);
 
-void  DeleteTracesVias(void);
+void DeleteTracesVias(void);
 
-void  CheckConnectivity(int32 mode);
+void CheckConnectivity(int32 mode);
 
 int32 GetNrObjectsAllNets(void);
 
@@ -63,10 +63,8 @@ int32 GetNetNrSelectedTrace(void);
 
 int32 ShowFirstUnroutedNet(int32 mode);
 
-int32 ChangeNetType(int32 NetNr,double TraceWidth,double Clearance,int32 mode);
+int32 ChangeNetType(int32 NetNr, double TraceWidth, double Clearance, int32 mode);
 
 int32 ChangeDesignRulesPcb(int32 mode);
 
 #endif
-
-

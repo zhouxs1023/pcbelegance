@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: tar.h 
+ * File: tar.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,25 +30,25 @@
 #include "owntypes.h"
 #include "files2.h"
 
-typedef struct {
-  int32 Uid;
-  int32 Gid;
-  int32 FileType; // 0 = File, 1 = Directory
-  int32 FileSize;
-  char  FileName[200];
-  SYSTEMTIME FileDate;
+typedef struct
+{
+	int32 Uid;
+	int32 Gid;
+	int32 FileType;				// 0 = File, 1 = Directory
+	int32 FileSize;
+	char FileName[200];
+	SYSTEMTIME FileDate;
 } TarFileHeaderStruct;
 
 
-int32 GetHeaderTar(int32 fp,TarFileHeaderStruct *TarFileHeader);
+int32 GetHeaderTar(int32 fp, TarFileHeaderStruct * TarFileHeader);
 
-int32 UntarOdbFile(LPSTR OdbTarFile,LPSTR TarDirectory);
+int32 UntarOdbFile(LPSTR OdbTarFile, LPSTR TarDirectory);
 
-int32 TarOdbDirectory(LPSTR OdbFile,LPSTR TarDirectory);
+int32 TarOdbDirectory(LPSTR OdbFile, LPSTR TarDirectory);
 
-int32 DecompressFile(LPSTR SrcFile,LPSTR DestFile,int32 mode);
+int32 DecompressFile(LPSTR SrcFile, LPSTR DestFile, int32 mode);
 
-int32 CompressFile(LPSTR SrcFile,LPSTR DestFile,int32 mode);
+int32 CompressFile(LPSTR SrcFile, LPSTR DestFile, int32 mode);
 
 #endif // _TARGZ
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: select4.h 
+ * File: select4.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -28,32 +28,28 @@
 
 #include "types.h"
 
-int32  FindLimitTrace(double StartX,double StartY,double EndX,double EndY,
-                     double TraceWidth,double TraceClearance,
-                     double *NewEndX,double *NewEndY,
-                     int32 NetNr,int32 Layer);
+int32 FindLimitTrace(double StartX, double StartY, double EndX, double EndY, double TraceWidth, double TraceClearance,
+                     double *NewEndX, double *NewEndY, int32 NetNr, int32 Layer);
 
-void  ProtectComponents(void);
+void ProtectComponents(void);
 
-void  UnprotectComponents(void);
+void UnprotectComponents(void);
 
 void FindNextConnection(void);
 
-int32 GetInfoStr(LPSTR InfoStr,int32 mode);
+int32 GetInfoStr(LPSTR InfoStr, int32 mode);
 
-void  SelectOnlyTraces(void);
+void SelectOnlyTraces(void);
 
-void  SelectOnlyVias(void);
+void SelectOnlyVias(void);
 
 int32 SelectNetViasTraces(int32 mode);
 
 int32 SelectNetAreaFills(int32 mode);
 
-void  SelectOnlyObjects(int32 mode);
+void SelectOnlyObjects(int32 mode);
 
-void  UnselectObjects(int32 mode);
+void UnselectObjects(int32 mode);
 
 
 #endif
-
-

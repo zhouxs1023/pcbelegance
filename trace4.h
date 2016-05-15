@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: trace4.h 
+ * File: trace4.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,19 +29,18 @@
 
 #include "types.h"
 
-void CommandAddObjectLines(double LineThickNess,int32 Layer,int32 Mode);
+void CommandAddObjectLines(double LineThickNess, int32 Layer, int32 Mode);
 
-void CommandAddObjectRects(double LineThickNess,int32 Layer,int32 Mode);
+void CommandAddObjectRects(double LineThickNess, int32 Layer, int32 Mode);
 
-void CommandAddObjectCircles(double LineThickNess,int32 Layer,int32 Mode);
+void CommandAddObjectCircles(double LineThickNess, int32 Layer, int32 Mode);
 
-void CommandAddObjectArcs(double LineThickNess,int32 Layer,int32 CircleMode,int32 Mode);
+void CommandAddObjectArcs(double LineThickNess, int32 Layer, int32 CircleMode, int32 Mode);
 
-void CommandAddObjectTexts(double LineThickNess,int32 Layer,int32 Mode);
+void CommandAddObjectTexts(double LineThickNess, int32 Layer, int32 Mode);
 
-void CommandAddObjectTexts2(double LineThickNess,int32 Layer,int32 Mode);
+void CommandAddObjectTexts2(double LineThickNess, int32 Layer, int32 Mode);
 
-void CommandAddTryingObjectText2(ObjectTextRecord2 *ObjectText2);
+void CommandAddTryingObjectText2(ObjectTextRecord2 * ObjectText2);
 
 #endif
-

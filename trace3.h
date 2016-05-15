@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: trace3.h 
+ * File: trace3.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -34,10 +34,3 @@ void TraceDrawing(int32 mode);
 void AddAreaFillVia(int32 mode);
 
 #endif
-
-
-
-
-
-
-

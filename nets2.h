@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: nets2.h 
+ * File: nets2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,14 +30,12 @@
 #include "types.h"
 
 
-int32 GetTracePointNr(double x,double y);
+int32 GetTracePointNr(double x, double y);
 
-void  InsertObjectPoint(double x1,double y1);
+void InsertObjectPoint(double x1, double y1);
 
-int32 GetTraceObjectNrFromEndPoint(double x,double y,double *NewX,double *NewY,int32 mode);
+int32 GetTraceObjectNrFromEndPoint(double x, double y, double *NewX, double *NewY, int32 mode);
 
 double GetTraceLengthNet(int32 mode);
 
 #endif
-
-

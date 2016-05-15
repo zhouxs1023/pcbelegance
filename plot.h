@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: plot.h 
+ * File: plot.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -44,11 +44,11 @@ int32 AllocateMemAperTures(int32 count);
 
 void DeleteAperTures(void);
 
-void  WriteApertureFile(int32 mode);
+void WriteApertureFile(int32 mode);
 
 int32 CheckTraceAperTure(double ThickNess);
 
-void  DeAllocateMemAperTures(void);
+void DeAllocateMemAperTures(void);
 
 int32 CheckPlatedDrillAperTure(double ThickNess);
 
@@ -56,15 +56,15 @@ int32 CheckUnPlatedDrillAperTure(double ThickNess);
 
 int32 CheckRoundPadAperTure(double ThickNess);
 
-int32 CheckRectPadAperTure(double x,double y);
+int32 CheckRectPadAperTure(double x, double y);
 
-int32 CheckThermalReliefAperTure(double InsideDiameter,double OutsideDiameter,double CrossHairThickness);
+int32 CheckThermalReliefAperTure(double InsideDiameter, double OutsideDiameter, double CrossHairThickness);
 
-int32 CheckPolygonAperTure(int32 ObjectType,double x2,double y2,double Rotation,int32 Mirror,uint8 *Address);
+int32 CheckPolygonAperTure(int32 ObjectType, double x2, double y2, double Rotation, int32 Mirror, uint8 * Address);
 
 int32 TraceGerberOutput(int32 Layer);
 
-int32 TracePenPlotOutput(int32 Layer,int32 NrTraceObjects);
+int32 TracePenPlotOutput(int32 Layer, int32 NrTraceObjects);
 
 int32 ViaGerberOutput(int32 Layer);
 
@@ -72,17 +72,17 @@ int32 CompPinGerberOutput(int32 Layer);
 
 int32 PasteSoldMaskGerberOutput(int32 Layer);
 
-int32 ObjectsGerberOutput(int32 Layer,int32 ObjectStartNr);
+int32 ObjectsGerberOutput(int32 Layer, int32 ObjectStartNr);
 
-int32 WriteGerberText(int32 Layer,int32 mode);
+int32 WriteGerberText(int32 Layer, int32 mode);
 
 int32 DrillOutput(void);
 
 int32 CompPositionOutput(int32 mode);
 
-void  WriteComponents(int Filefp);
+void WriteComponents(int Filefp);
 
-void  WriteLayerInfo(void);
+void WriteLayerInfo(void);
 
 int32 WriteNeutralFile(int32 mode);
 

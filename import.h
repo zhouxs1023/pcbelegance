@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: import.h 
+ * File: import.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,7 +30,7 @@
 
 #include "types.h"
 
-int32 FindCompNr(LPSTR CompName,int32 mode);
+int32 FindCompNr(LPSTR CompName, int32 mode);
 
 int32 ImportNetList(int32 mode);
 
@@ -43,4 +43,3 @@ int32 UpdateNetList(int32 mode);
 int32 GetNetNr(LPSTR NetName);
 
 #endif
-

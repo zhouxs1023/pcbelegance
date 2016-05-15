@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: odb.h 
+ * File: odb.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -34,4 +34,3 @@
 int32 ExportToOdb(int32 mode);
 
 #endif
-

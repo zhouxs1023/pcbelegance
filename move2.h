@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: move2.h 
+ * File: move2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,19 +29,19 @@
 
 #include "types.h"
 
-void MoveSelectedSpecialObjects(int32 Mode,int32 Count);
+void MoveSelectedSpecialObjects(int32 Mode, int32 Count);
 
 void PlaceRotatedSpecialObjects(int32 Mode);
 
 void ScaleSelectedSpecialObjects(int32 mode);
 
-void MoveSelectedRefs(int32 Mode,int32 Count);
+void MoveSelectedRefs(int32 Mode, int32 Count);
 
-void MoveSelectedCompValues(int32 Mode,int32 Count);
+void MoveSelectedCompValues(int32 Mode, int32 Count);
 
-void PlaceRotatedComponentReferences(double Rotation,int32 mode);
+void PlaceRotatedComponentReferences(double Rotation, int32 mode);
 
-void PlaceRotatedComponentValues(double Rotation,int32 mode);
+void PlaceRotatedComponentValues(double Rotation, int32 mode);
 
 void ChangeVisibilityCompRefsValues(int32 Mode);
 
@@ -69,14 +69,10 @@ int32 AssignSelectedSpecialObjectsToNet(int32 mode);
 
 int32 EditSchematicComponent(int32 mode);
 
-int32 SearchForComponents(LPSTR SearchString,int32 mode);
+int32 SearchForComponents(LPSTR SearchString, int32 mode);
 
 int32 ChangeNetAreaFills(int32 mode);
 
 int32 ChangeNetTracesVias(int32 mode);
 
 #endif
-
-
-
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: draw2.h 
+ * File: draw2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -35,35 +35,35 @@ void DrawObjectsWithColorMagenta(int32 Mode);
 
 void DrawObjects2WithColorMagenta(int32 Mode);
 
-void DrawSpecialObject(ObjectRecord *Object,int32 Number,int32 Mode);
+void DrawSpecialObject(ObjectRecord * Object, int32 Number, int32 Mode);
 
 void ReDisplayNet(int32 mode);
 
 void DrawObjects(int32 Mode);
 
-void DrawObject2(Polygon8Record *Object,int32 Mode);
+void DrawObject2(Polygon8Record * Object, int32 Mode);
 
-void DrawObject(ObjectRecord *Object,int32 Mode);
+void DrawObject(ObjectRecord * Object, int32 Mode);
 
-void DrawDrillObject(ObjectRecord *Object,int32 Mode);
+void DrawDrillObject(ObjectRecord * Object, int32 Mode);
 
-void DrawCrossObjects(int32    Repaint,int32 Mode);
+void DrawCrossObjects(int32 Repaint, int32 Mode);
 
-void DrawCrossObjectsClear(int32    Repaint,int32 Mode);
+void DrawCrossObjectsClear(int32 Repaint, int32 Mode);
 
-void DrawOutlineComp(CompRecord *Comp,double OffsetX,double OffsetY,double Rotation,int32 Mode);
+void DrawOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY, double Rotation, int32 Mode);
 
-void DrawSilkScreenComp(CompRecord *Comp,double OffsetX,double OffsetY,double Rotation,int32 Mode);
+void DrawSilkScreenComp(CompRecord * Comp, double OffsetX, double OffsetY, double Rotation, int32 Mode);
 
-void DrawReferenceComp(CompRecord *Comp,double OX,double OY,double Rotation,int32 Mode);
+void DrawReferenceComp(CompRecord * Comp, double OX, double OY, double Rotation, int32 Mode);
 
-void DrawPlacementOutlineComp(CompRecord *Comp,double OffsetX,double OffsetY,double Rotation,int32 Mode);
+void DrawPlacementOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY, double Rotation, int32 Mode);
 
-void DrawValueComp(CompRecord *Comp,double OX,double OY,double Rotation,int32 Mode);
+void DrawValueComp(CompRecord * Comp, double OX, double OY, double Rotation, int32 Mode);
 
-void DrawPinsComp(CompRecord *Comp,double OffsetX,double OffsetY,double Rotation,int32 Mode);
+void DrawPinsComp(CompRecord * Comp, double OffsetX, double OffsetY, double Rotation, int32 Mode);
 
-void DrawDrillsComp(CompRecord *Comp,double OffsetX,double OffsetY,double Rotation,int32 Mode);
+void DrawDrillsComp(CompRecord * Comp, double OffsetX, double OffsetY, double Rotation, int32 Mode);
 
 void DrawDrillsComps(int32 Mode);
 
@@ -71,9 +71,9 @@ void DrawTextComps(int32 Mode);
 
 void DrawPinsComps(int32 Mode);
 
-void DrawComp(CompRecord *Comp,double OffsetX,double OffsetY,double Rotation,int32 Mode);
+void DrawComp(CompRecord * Comp, double OffsetX, double OffsetY, double Rotation, int32 Mode);
 
-void DrawComp2(CompRecord *Comp,double OffsetX,double OffsetY,double Rotation,int32 Mode);
+void DrawComp2(CompRecord * Comp, double OffsetX, double OffsetY, double Rotation, int32 Mode);
 
 void DrawComps(int32 Mode);
 
@@ -95,7 +95,6 @@ void DrawCurrentWorkingTraceOff(int32 mode);
 
 void DrawErrorObjects(void);
 
-int32 CommandSelectPoint(double *OX,double *OY,double MinX,double MinY,double MaxX,double MaxY,int32 Mode);
+int32 CommandSelectPoint(double *OX, double *OY, double MinX, double MinY, double MaxX, double MaxY, int32 Mode);
 
 #endif
-

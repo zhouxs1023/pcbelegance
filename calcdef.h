@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: calcdef.h 
+ * File: calcdef.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -95,8 +95,8 @@
 #define GetValueRotationFromComp(Rotation)     ( ((Rotation & 0x60) >> 4) + ((Rotation & 0x800) >> 11) )
 #define SetValueRotationToComp(Rotation)       ( ((Rotation & 6   ) << 4) + ((Rotation & 1    ) << 11) )
 
-extern double  CircleCos[257];
-extern double  CircleSin[257];
+extern double CircleCos[257];
+extern double CircleSin[257];
 
 
 // *******************************************************************************************************
@@ -104,102 +104,102 @@ extern double  CircleSin[257];
 // *******************************************************************************************************
 // *******************************************************************************************************
 
-double  PixelToReal(int32 X);
+double PixelToReal(int32 X);
 
-double  PixelToRealOffX(int32 X);
+double PixelToRealOffX(int32 X);
 
-double  PixelToRealOffY(int32 Y);
+double PixelToRealOffY(int32 Y);
 
-void   AdjustMouseToGrid(int32 MouseX,int32 MouseY,double *x2,double *y2);
+void AdjustMouseToGrid(int32 MouseX, int32 MouseY, double *x2, double *y2);
 
-double  AdjustToGrid(double x,double Grid);
+double AdjustToGrid(double x, double Grid);
 
-double  AdjustToDrawGrid(double x);
+double AdjustToDrawGrid(double x);
 
-double  AdjustToDrawGridDiv2(double x);
+double AdjustToDrawGridDiv2(double x);
 
-void   XchangeMem(uint8 *buf1,uint8 *buf2,int32 Length);
+void XchangeMem(uint8 * buf1, uint8 * buf2, int32 Length);
 
-double UnitsConvert(int32 Units,double value);
+double UnitsConvert(int32 Units, double value);
 
-double ConvertToUnits2(int32 Units,double value,int32 mode);
+double ConvertToUnits2(int32 Units, double value, int32 mode);
 
-double ConvertToUnits(int32 Units,double value);
+double ConvertToUnits(int32 Units, double value);
 
-int32 GetUnitsValue(int32 Units,double value,LPSTR str,int32 mode);
+int32 GetUnitsValue(int32 Units, double value, LPSTR str, int32 mode);
 
-int32 GetUnitsValue2(int32 Units,double value,LPSTR str,int32 mode);
+int32 GetUnitsValue2(int32 Units, double value, LPSTR str, int32 mode);
 
-int32 GetUnitText(int32 Units,LPSTR str,int32 mode);
+int32 GetUnitText(int32 Units, LPSTR str, int32 mode);
 
-int32 SetNextUnits(int32 Units,int32 mode);
+int32 SetNextUnits(int32 Units, int32 mode);
 
-int32  ScanParameters(int32 NrParameters,LPSTR Str,int32 mode) ;
+int32 ScanParameters(int32 NrParameters, LPSTR Str, int32 mode);
 
-void   RotateFlipPoint(float *x,float *y,double OX,double OY,int32 Mode);
+void RotateFlipPoint(float *x, float *y, double OX, double OY, int32 Mode);
 
-void   RotateFlipPoint2(double *x,double *y,double OX,double OY,int32 Mode);
+void RotateFlipPoint2(double *x, double *y, double OX, double OY, int32 Mode);
 
-void   ConvertPointToPolar(double x,double y,double *Distance,double *Angle);
+void ConvertPointToPolar(double x, double y, double *Distance, double *Angle);
 
-void   ConvNormalCoorToPolar(double x1,double y1,double x2,double y2,double *Angle,double *Length);
+void ConvNormalCoorToPolar(double x1, double y1, double x2, double y2, double *Angle, double *Length);
 
-void   RotatePoint(float *x,float *y,double Rotation);
+void RotatePoint(float *x, float *y, double Rotation);
 
-void   RotatePoint2(double *x,double *y,double Rotation);
+void RotatePoint2(double *x, double *y, double Rotation);
 
-void   RotatePointFromOtherPoint2(double *x,double *y,double OX,double OY,double Rotation);
+void RotatePointFromOtherPoint2(double *x, double *y, double OX, double OY, double Rotation);
 
-void   RotatePointFromOtherPoint(float *x,float *y,double OX,double OY,double Rotation);
+void RotatePointFromOtherPoint(float *x, float *y, double OX, double OY, double Rotation);
 
-int32  RectTestLine2(double LineX1,double LineY1,double LineX2,double LineY2);
+int32 RectTestLine2(double LineX1, double LineY1, double LineX2, double LineY2);
 
-int32  RectTestLine3(double LineX1,double LineY1,double LineX2,double LineY2,double Thickness);
+int32 RectTestLine3(double LineX1, double LineY1, double LineX2, double LineY2, double Thickness);
 
-int32  GetRotationFromFloat(double Rotation);
+int32 GetRotationFromFloat(double Rotation);
 
-void   SevereProgramError(LPSTR SourceFile,int32 LineNr);
+void SevereProgramError(LPSTR SourceFile, int32 LineNr);
 
-int32  CircleTestCircleObjects(double CircleX1,double CircleY1,double CircleThickness1,
-                              double CircleX2,double CircleY2,double CircleThickness2);
+int32 CircleTestCircleObjects(double CircleX1, double CircleY1, double CircleThickness1, double CircleX2,
+                              double CircleY2, double CircleThickness2);
 
-int32  RectTestCircleObjects(double RectX,double RectY,double RectWidth,double RectHeight,
-                            double CircleX,double CircleY,double CircleThickness);
+int32 RectTestCircleObjects(double RectX, double RectY, double RectWidth, double RectHeight, double CircleX,
+                            double CircleY, double CircleThickness);
 
-int32  CircleTestDiag1Objects(double CircleX,double CircleY,double CircleThickness,
-                             double Diag1X1,double Diag1Y1,double Diag1LengthX,double Diag1Width);
+int32 CircleTestDiag1Objects(double CircleX, double CircleY, double CircleThickness, double Diag1X1, double Diag1Y1,
+                             double Diag1LengthX, double Diag1Width);
 
-int32  CircleTestDiag2Objects(double CircleX,double CircleY,double CircleThickness,
-                             double Diag2X1,double Diag2Y1,double Diag2LengthX,double Diag2Width);
+int32 CircleTestDiag2Objects(double CircleX, double CircleY, double CircleThickness, double Diag2X1, double Diag2Y1,
+                             double Diag2LengthX, double Diag2Width);
 
-int32  RectTestDiag1Objects(double RectX,double RectY,double RectWidth,double RectHeight,
-                           double Diag1X1,double Diag1Y1,double Diag1LengthX,double Diag1Width);
+int32 RectTestDiag1Objects(double RectX, double RectY, double RectWidth, double RectHeight, double Diag1X1,
+                           double Diag1Y1, double Diag1LengthX, double Diag1Width);
 
-int32  RectTestDiag2Objects(double RectX,double RectY,double RectWidth,double RectHeight,
-                           double Diag2X1,double Diag2Y1,double Diag2LengthX,double Diag2Width);
+int32 RectTestDiag2Objects(double RectX, double RectY, double RectWidth, double RectHeight, double Diag2X1,
+                           double Diag2Y1, double Diag2LengthX, double Diag2Width);
 
-int32  Diag1TestDiag1Objects(double Diag1X11,double Diag1Y11,double Diag1LengthX1,double Diag1Width1,
-                            double Diag1X21,double Diag1Y21,double Diag1LengthX2,double Diag1Width2);
+int32 Diag1TestDiag1Objects(double Diag1X11, double Diag1Y11, double Diag1LengthX1, double Diag1Width1, double Diag1X21,
+                            double Diag1Y21, double Diag1LengthX2, double Diag1Width2);
 
-int32  Diag1TestDiag2Objects(double Diag1X11,double Diag1Y11,double Diag1LengthX1,double Diag1Width1,
-                            double Diag2X21,double Diag2Y21,double Diag2LengthX2,double Diag2Width2);
+int32 Diag1TestDiag2Objects(double Diag1X11, double Diag1Y11, double Diag1LengthX1, double Diag1Width1, double Diag2X21,
+                            double Diag2Y21, double Diag2LengthX2, double Diag2Width2);
 
-int32  Diag2TestDiag2Objects(double Diag2X11,double Diag2Y11,double Diag2LengthX1,double Diag2Width1,
-                            double Diag2X21,double Diag2Y21,double Diag2LengthX2,double Diag2Width2);
+int32 Diag2TestDiag2Objects(double Diag2X11, double Diag2Y11, double Diag2LengthX1, double Diag2Width1, double Diag2X21,
+                            double Diag2Y21, double Diag2LengthX2, double Diag2Width2);
 
-int32 InRangeRico(double rico1,double rico2);
+int32 InRangeRico(double rico1, double rico2);
 
-double GetAngleBetweenLines(double x1,double y1,double x2,double y2,double x3,double y3);
+double GetAngleBetweenLines(double x1, double y1, double x2, double y2, double x3, double y3);
 
-void GetString2a(LPSTR Str,LPSTR Result);
+void GetString2a(LPSTR Str, LPSTR Result);
 
-void GetString2b(LPSTR Str,LPSTR Delimiters,LPSTR Result);
+void GetString2b(LPSTR Str, LPSTR Delimiters, LPSTR Result);
 
-int32 CompressSrcDestLayer(int32 SrcLayer,int32 DestLayer);
+int32 CompressSrcDestLayer(int32 SrcLayer, int32 DestLayer);
 
-int32 DecompressSrcDestLayer(int32 CodedLayer,int32 *SrcLayer,int32 *DestLayer);
+int32 DecompressSrcDestLayer(int32 CodedLayer, int32 * SrcLayer, int32 * DestLayer);
 
-void SendDlgItemUnits(HWND Dialog,int32 Control,int32 Units);
+void SendDlgItemUnits(HWND Dialog, int32 Control, int32 Units);
 
 int32 CheckIfInnerLayer(int32 Layer);
 
@@ -213,7 +213,7 @@ int32 CheckIfDrillLayer(int32 Layer);
 
 int32 CheckIfLayerHasObjectWithClearances(int32 Layer);
 
-int32 CheckGeometryLayer(int32 *Layer,int32 NrGeomLayers,int32 Mirror);
+int32 CheckGeometryLayer(int32 * Layer, int32 NrGeomLayers, int32 Mirror);
 
 ObjectRecord *GetNewObject4(void);
 
@@ -223,22 +223,20 @@ int32 IsRoutingKeepoutLayer(int32 Layer);
 
 uint8 SwapBitsByte(uint8 code);
 
-void SwapBitsLine(uint8 *LineBytes,int32 ByteCount);
+void SwapBitsLine(uint8 * LineBytes, int32 ByteCount);
 
-void GetRotationAndMirrorFromShapeText(double ShapeRotation,double *Rotation,int32 *Mirror);
+void GetRotationAndMirrorFromShapeText(double ShapeRotation, double *Rotation, int32 * Mirror);
 
-int32 IsPolygonVisible(PolygonRecord *DrawPolygon,int32 mode);
+int32 IsPolygonVisible(PolygonRecord * DrawPolygon, int32 mode);
 
-int32 IsAreaFillVisible(AreaFillRecord *AreaFill,int32 mode);
+int32 IsAreaFillVisible(AreaFillRecord * AreaFill, int32 mode);
 
-int32 AdjustOffsetOnPoints(double *Points,double OffsetX,double OffsetY,int32 count,int32 mode);
+int32 AdjustOffsetOnPoints(double *Points, double OffsetX, double OffsetY, int32 count, int32 mode);
 
-int32 ConvertTextString(LPSTR TextStr,LPSTR NewTextStr,int32 Layer);
+int32 ConvertTextString(LPSTR TextStr, LPSTR NewTextStr, int32 Layer);
 
-uint32 mktime2(uint32 year, uint32 mon,uint32 day,
-               uint32 hour,uint32 min, uint32 sec);
+uint32 mktime2(uint32 year, uint32 mon, uint32 day, uint32 hour, uint32 min, uint32 sec);
 
-int32 GetTimeString(int32 mode,LPSTR TimeString);
+int32 GetTimeString(int32 mode, LPSTR TimeString);
 
 #endif
-

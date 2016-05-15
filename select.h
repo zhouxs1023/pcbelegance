@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: select.h 
+ * File: select.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,45 +30,45 @@
 
 #include "types.h"
 
-void  SelectObjectsFromWindow(double x1,double y1,double x2,double y2,int32 mode);
+void SelectObjectsFromWindow(double x1, double y1, double x2, double y2, int32 mode);
 
-void  SelectTracesFromRectWindow(void);
+void SelectTracesFromRectWindow(void);
 
-void  SelectCompsFromRectWindow(int32 mode);
+void SelectCompsFromRectWindow(int32 mode);
 
-void  SelectViasFromRectWindow(void);
+void SelectViasFromRectWindow(void);
 
-void  SelectConnectionsFromRectWindow(void);
+void SelectConnectionsFromRectWindow(void);
 
-void  SelectReferencesFromRectWindow(int32 Mode);
+void SelectReferencesFromRectWindow(int32 Mode);
 
-void  SelectCompValuesFromRectWindow(int32 Mode);
+void SelectCompValuesFromRectWindow(int32 Mode);
 
 void SelectAreaFillsFromRectWindow(int32 Mode);
 
-void  SelectObjectLinesFromRectWindow(int32 Mode);
+void SelectObjectLinesFromRectWindow(int32 Mode);
 
-void  SelectObjectRectsFromRectWindow(int32 Mode);
+void SelectObjectRectsFromRectWindow(int32 Mode);
 
-void  SelectObjectCirclesFromRectWindow(int32 Mode);
+void SelectObjectCirclesFromRectWindow(int32 Mode);
 
-void  SelectObjectArcsFromRectWindow(int32 Mode);
+void SelectObjectArcsFromRectWindow(int32 Mode);
 
-void  SelectObjectTexts2FromRectWindow(int32 Mode);
+void SelectObjectTexts2FromRectWindow(int32 Mode);
 
-void  SelectObjectPolygonsFromRectWindow(int32 Mode);
+void SelectObjectPolygonsFromRectWindow(int32 Mode);
 
-int32 CopySelectedTracesToObjects4(int32 mode,int32 SelectedLayer);
+int32 CopySelectedTracesToObjects4(int32 mode, int32 SelectedLayer);
 
-int32 CopySelectedViasToObjects4(int32 mode,int32 SelectedLayer);
+int32 CopySelectedViasToObjects4(int32 mode, int32 SelectedLayer);
 
-int32 CopySelectedConnectionsToObjects4(int32 mode,int32 SelectedLayer);
+int32 CopySelectedConnectionsToObjects4(int32 mode, int32 SelectedLayer);
 
-void  GetMaxRectSelectedObjects(int32 mode,double *MinX,double *MinY,double *MaxX,double *MaxY);
+void GetMaxRectSelectedObjects(int32 mode, double *MinX, double *MinY, double *MaxX, double *MaxY);
 
-int32 IndexSelectedObjects(int32 CopyMode,int32 *SelectedObjects,int32 MaxSelectedObjects,int32 mode);
+int32 IndexSelectedObjects(int32 CopyMode, int32 * SelectedObjects, int32 MaxSelectedObjects, int32 mode);
 
-int32 GetNrObjectSelections(int32 Layer,int32 mode);
+int32 GetNrObjectSelections(int32 Layer, int32 mode);
 
 int32 GetNrTracesSelected(void);
 
@@ -86,11 +86,10 @@ int32 GetNrAreaFillsSelected(void);
 
 int32 GetNrPowerPlanes(void);
 
-void  GetInfoSelectedObjects(int32 mode);
+void GetInfoSelectedObjects(int32 mode);
 
-int32 SelectOnlyObjectOnLayer(int32 Layer,int32 mode);
+int32 SelectOnlyObjectOnLayer(int32 Layer, int32 mode);
 
-int32 UnselectObjectOnLayer(int32 Layer,int32 mode);
+int32 UnselectObjectOnLayer(int32 Layer, int32 mode);
 
 #endif
-

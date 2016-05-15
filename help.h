@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: help.h 
+ * File: help.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -191,7 +191,6 @@
 #define IDH_Measurement                                     30375
 
 //void Help(int32 Command,int32 mode);
-void Help(LPSTR Topic,int32 mode);
+void Help(LPSTR Topic, int32 mode);
 
 #endif
-

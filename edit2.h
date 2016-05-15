@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: edit2.h 
+ * File: edit2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify

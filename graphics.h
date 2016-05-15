@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: graphics.h 
+ * File: graphics.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -252,34 +252,34 @@
 // ****************************************************************************************************
 
 
-extern int32                DrawWindowMinX,DrawWindowMaxX,DrawWindowMinY,DrawWindowMaxY;
+extern int32 DrawWindowMinX, DrawWindowMaxX, DrawWindowMinY, DrawWindowMaxY;
 
-extern int32                CurrentObjectCode;
+extern int32 CurrentObjectCode;
 
-extern COLORREF             GraphicsObjectColor[192];
-extern COLORREF             GraphicsObjectColor2[192];
-extern COLORREF             PCBColors[192];
-extern COLORREF             PCBColors2[192];
-extern HBRUSH               GraphicsObjectBrush[192];
-extern HPEN                 GraphicsObjectPen[192];
-extern int32                GraphicsObjectCodes[192];
-extern int32                PCBObjectCodes[192];
-extern int32                GraphicsObjectPenThickness[192];
+extern COLORREF GraphicsObjectColor[192];
+extern COLORREF GraphicsObjectColor2[192];
+extern COLORREF PCBColors[192];
+extern COLORREF PCBColors2[192];
+extern HBRUSH GraphicsObjectBrush[192];
+extern HPEN GraphicsObjectPen[192];
+extern int32 GraphicsObjectCodes[192];
+extern int32 PCBObjectCodes[192];
+extern int32 GraphicsObjectPenThickness[192];
 extern LayerObjectCodesRecord LayerObjectCodes[NrLayerObjects];
 
 
-extern double                ViewMinX,ViewMinY,ViewMaxX,ViewMaxY;
+extern double ViewMinX, ViewMinY, ViewMaxX, ViewMaxY;
 
-extern HPALETTE             PCBPalette,CurrentPalette;
-extern HDC                  OutputDisplay;
+extern HPALETTE PCBPalette, CurrentPalette;
+extern HDC OutputDisplay;
 
 void CreateDrawObjects(int32 mode);
 
-void FillBrushOnColorObjectNr(LOGBRUSH *Brush,int32 ObjectColorNr);
+void FillBrushOnColorObjectNr(LOGBRUSH * Brush, int32 ObjectColorNr);
 
 void GetGraphicsPenBrush(int32 mode);
 
-int32 InitDrawingObject(int32 ObjectType,int32 Layer,int32 ThickNess,int32 mode);
+int32 InitDrawingObject(int32 ObjectType, int32 Layer, int32 ThickNess, int32 mode);
 
 void InitDrawingEmptyPen(void);
 
@@ -287,29 +287,29 @@ void InitDrawingColor(COLORREF Color);
 
 void ExitDrawing(void);
 
-void DrawLineWhite(double x1,double y1,double x2,double y2);
+void DrawLineWhite(double x1, double y1, double x2, double y2);
 
-void DrawLineYellow(double x1,double y1,double x2,double y2);
+void DrawLineYellow(double x1, double y1, double x2, double y2);
 
-void DrawLineRed(double x1,double y1,double x2,double y2);
+void DrawLineRed(double x1, double y1, double x2, double y2);
 
-void DrawLineGreen(double x1,double y1,double x2,double y2);
+void DrawLineGreen(double x1, double y1, double x2, double y2);
 
-void DrawLineWhite3(double x1,double y1,double x2,double y2);
+void DrawLineWhite3(double x1, double y1, double x2, double y2);
 
-void DrawLineGray(double x1,double y1,double x2,double y2);
+void DrawLineGray(double x1, double y1, double x2, double y2);
 
-void DrawLineYellow3(double x1,double y1,double x2,double y2);
+void DrawLineYellow3(double x1, double y1, double x2, double y2);
 
-void DrawLineRed3(double x1,double y1,double x2,double y2);
+void DrawLineRed3(double x1, double y1, double x2, double y2);
 
-void DrawLineGreen3(double x1,double y1,double x2,double y2);
+void DrawLineGreen3(double x1, double y1, double x2, double y2);
 
-void DrawCircleWhite(double x,double y,double dikte);
+void DrawCircleWhite(double x, double y, double dikte);
 
-void DrawCircleYellow(double x,double y,double dikte);
+void DrawCircleYellow(double x, double y, double dikte);
 
-void DrawCircleGray(double x,double y,double dikte);
+void DrawCircleGray(double x, double y, double dikte);
 
 void DeleteGraphicObjects(void);
 
@@ -320,4 +320,3 @@ void GraphicsMain(void);
 void LoadDefaultColors(void);
 
 #endif
-

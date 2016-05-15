@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: own_zlib.h 
+ * File: own_zlib.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,9 +29,8 @@
 
 #include "types.h"
 
-int32 zlib_inflate_ascii85(char *Src,int32 SrcLength);
+int32 zlib_inflate_ascii85(char *Src, int32 SrcLength);
 
-int32 zlib_inflate(char *Src,int32 SrcLength);
+int32 zlib_inflate(char *Src, int32 SrcLength);
 
 #endif
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: gateswap.h 
+ * File: gateswap.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -35,14 +35,12 @@ int32 DeallocateMemObjectTextBuf(void);
 
 void DeallocateMemGatePinSwap(void);
 
-int32 GetGateSwapInfo(LPSTR Reference,LPSTR PinName,LPSTR Reference2,LPSTR PinName2,
-                      LPSTR SrcPins,LPSTR DestPins,int32 mode);
+int32 GetGateSwapInfo(LPSTR Reference, LPSTR PinName, LPSTR Reference2, LPSTR PinName2, LPSTR SrcPins, LPSTR DestPins,
+                      int32 mode);
 
-int32 GetPinSwapInfo(LPSTR Reference,LPSTR PinName,LPSTR Reference2,LPSTR PinName2,
-                     LPSTR SrcPins,LPSTR DestPins,int32 mode);
+int32 GetPinSwapInfo(LPSTR Reference, LPSTR PinName, LPSTR Reference2, LPSTR PinName2, LPSTR SrcPins, LPSTR DestPins,
+                     int32 mode);
 
 int32 SelectGatePinSwap(int32 mode);
 
 #endif
-
-

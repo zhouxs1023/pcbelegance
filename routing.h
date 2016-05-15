@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: routing.h 
+ * File: routing.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,7 +31,3 @@
 
 
 #endif
-
-
-
-
