@@ -8495,8 +8495,9 @@ void CommandAddObjectPolygon(double LineThickNess, int32 Layer, int32 Mode)
 				OldX = CurrentX;
 				OldY = CurrentY;
 			}
+			Mode2 = min(1, Mode2 + 1);
 
-			Mode2++;
+			//Mode2++;
 
 			if (!FinishPolygon)
 			{

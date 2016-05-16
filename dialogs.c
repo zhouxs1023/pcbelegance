@@ -730,7 +730,7 @@ int32 CALLBACK TextInputDialog4(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(181, "Text height"));
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(182, "Line thickness"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(183, "Rotation"));
-		SetDialogItemText(Dialog, IDC_BUTTON1, SC(272, "Mirror X"));
+		SetDialogItemText(Dialog, IDC_BUTTON1, SC(1344, "Add Font"));
 		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
 
 		switch (DialogMode)

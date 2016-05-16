@@ -1001,6 +1001,7 @@ int32 CALLBACK SaveGeomDialog2(HWND Dialog, WORD Message, WORD WParam, int32 LPa
 			if (SendDlgItemMessageOwn(Dialog, IDC_CHECK4, BM_GETCHECK, 0, 0))
 				GeomSaveOptions |= 8;
 
+			memset(str, 0, 6);
 			SendDlgItemMessageOwn(Dialog, IDC_EDIT1, WM_GETTEXT, 80, (LPARAM) str);
 			str[5] = 0;
 
