@@ -346,7 +346,7 @@ void MoveSelectedSpecialObjects(int32 Mode, int32 Count)
 			SelectionEsc = 1;
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			PopUpMenu = CreatePopupMenu();
@@ -1805,7 +1805,7 @@ void MoveSelectedRefs(int32 Mode, int32 Count)
 			SelectionEsc = 1;
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawSelectedRefs(OldX, OldY, Rotation);
@@ -1929,7 +1929,7 @@ void MoveSelectedCompValues(int32 Mode, int32 Count)
 	DrawSelectedCompValues(CurrentX, CurrentY, Rotation);
 	FirstShift = 1;
 	SystemBusyMode = 5;
-	DrawXorFunction.Function2 = (FUNCP2) DrawSelectedRefs;
+	DrawXorFunction.Function2 = (FUNCP2) DrawSelectedCompValues;
 	DrawXorFunction.Param1[0] = &OldX;
 	DrawXorFunction.Param1[1] = &OldY;
 	DrawXorFunction.Param1[2] = &Rotation;
@@ -2100,7 +2100,7 @@ void MoveSelectedCompValues(int32 Mode, int32 Count)
 			SelectionEsc = 1;
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawSelectedCompValues(OldX, OldY, Rotation);

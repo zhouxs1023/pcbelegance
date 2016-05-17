@@ -2979,11 +2979,11 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 		break;
 
 	case ID_SEL_ONLY_DRILLS:
-		SelectOnlyObjectOnLayer(0, 0);
+		SelectOnlyObjectOnLayer(DRILL_LAYER, 0);
 		break;
 
 	case ID_SEL_ONLY_DRILLS_UNPLATED:
-		SelectOnlyObjectOnLayer(0, 0);
+		SelectOnlyObjectOnLayer(DRILL_UNPLATED_LAYER, 0);
 		break;
 
 	case ID_SEL_ONLY_INFO2:

@@ -2025,7 +2025,7 @@ int32 CommandAddPolygonLines(double LineThickNess, int32 Layer, int32 Mode, int3
 		}
 
 // ****************************************************************************
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingPolygonObject(OldX, OldY, Mode2 | 16);
@@ -8495,9 +8495,9 @@ void CommandAddObjectPolygon(double LineThickNess, int32 Layer, int32 Mode)
 				OldX = CurrentX;
 				OldY = CurrentY;
 			}
-			Mode2 = min(1, Mode2 + 1);
+			//Mode2 = min(1, Mode2 + 1);
 
-			//Mode2++;
+			Mode2++;
 
 			if (!FinishPolygon)
 			{
@@ -8510,7 +8510,7 @@ void CommandAddObjectPolygon(double LineThickNess, int32 Layer, int32 Mode)
 		}
 
 // ****************************************************************************
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingPolygonObject(OldX, OldY, Mode2);
@@ -9373,7 +9373,7 @@ void CommandCutFromPolygon(int32 ObjectType)
 		}
 
 // ****************************************************************************
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingPolygonObject(OldX, OldY, Mode2);

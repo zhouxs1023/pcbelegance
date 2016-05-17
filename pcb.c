@@ -2467,7 +2467,7 @@ LRESULT CALLBACK PCBWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 	int32 v1, v2, ok, res, MousePosY2, hulp3, divx, divy, CommandToExecute;
 	LRESULT Result;
 	double dx, dy, cx, cy, ty, tx, Factor3;
-
+/*
 #ifdef _DEBUG
 	char str[200], str2[200];
 
@@ -2490,7 +2490,7 @@ LRESULT CALLBACK PCBWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 	}
 
 #endif
-
+*/
 	switch (Message)
 	{
 	case WM_HELP:

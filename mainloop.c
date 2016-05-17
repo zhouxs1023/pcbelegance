@@ -1044,8 +1044,8 @@ int32 DrawSpecialXorFunction(DrawXorFunctionRecord * DrawXorFunction, int32 mode
 		case 1:
 			p1d = *(double *) DrawXorFunction->Param1[0];
 			p2d = *(double *) DrawXorFunction->Param1[1];
-			p3 = *(int32 *) DrawXorFunction->Param1[2];
-			DrawXorFunction->Function2(p1d, p2d, p3);
+			p3d = *(double *) DrawXorFunction->Param1[2];
+			DrawXorFunction->Function2(p1d, p2d, p3d);
 			break;
 
 		case 2:
@@ -1117,8 +1117,8 @@ int32 DrawSpecialXorFunction(DrawXorFunctionRecord * DrawXorFunction, int32 mode
 		case 1:
 			p1d = *(double *) DrawXorFunction->Param2[0];
 			p2d = *(double *) DrawXorFunction->Param2[1];
-			p3 = *(int32 *) DrawXorFunction->Param2[2];
-			DrawXorFunction->Function2(p1d, p2d, p3);
+			p3d = *(double *) DrawXorFunction->Param2[2];
+			DrawXorFunction->Function2(p1d, p2d, p3d);
 			break;
 
 		case 2:
@@ -1367,7 +1367,10 @@ int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction)
 			RightButtonDivTime = GetDifferenceTimer2inMilliSeconds();
 
 			if (RightButtonDivTime < 300)
+			{
+				FirstRightButtonPressed = 0;
 				return 1;
+			}
 		}
 
 		FirstRightButtonPressed = 0;
@@ -1773,7 +1776,7 @@ void CheckInputMessages(int32 DelayInMilleSeconds)
 			AltPressed = 0;
 			CtrlPressed = 0;
 			ShiftPressed = 0;
-			RightButtonPressed = 0;
+			//RightButtonPressed = 0;
 			LeftButtonPressed = 0;
 			TotalExit = 1;
 			ok = 1;

@@ -5005,7 +5005,7 @@ int32 MoveGerberObjects(int32 Layer, int32 mode)
 			SelectionEsc = 1;
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			TrackPopupMenu(PopUpMenu, TPM_RIGHTBUTTON, RealWindow.left + MousePosX + 5, RealWindow.top + MousePosY + 40,

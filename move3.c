@@ -1928,7 +1928,7 @@ int32 MoveSelectedAreafill(int32 mode)
 			SelectionEsc = 1;
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawSelectedAreafills(OldX, OldY, CurrentX2, CurrentY2, CentreSelectedX, CentreSelectedY, Rotation, 1);
@@ -2462,7 +2462,7 @@ int32 MoveStretchedAreafill(int32 mode)
 		SpecialDivX2 = CurrentX - CurrentX2 - CentreSelectedX;
 		SpecialDivY2 = CurrentY - CurrentY2 - CentreSelectedY;
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			RightButtonPressed = 0;

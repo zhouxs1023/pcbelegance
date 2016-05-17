@@ -931,7 +931,7 @@ void MoveOneTrace2(int32 mode)
 		}
 
 // ***********************************************************************************
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			CalcSpecialTrace(div_old);

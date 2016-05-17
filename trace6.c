@@ -506,7 +506,7 @@ void MoveTracesVias(int32 mode)
 			DrawTracesVias(CurrentX, CurrentY, 0);
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 		}

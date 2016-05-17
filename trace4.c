@@ -643,7 +643,7 @@ void CommandAddObjectLines(double LineThickNess, int32 Layer, int32 Mode)
 				DrawTryingObjectLine(CurrentX, CurrentY, Mode);
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingObjectLine(OldX, OldY, Mode);
@@ -1137,7 +1137,7 @@ void CommandAddObjectRects(double LineThickNess, int32 Layer, int32 Mode)
 				DrawTryingObjectRect(CurrentX, CurrentY, Mode);
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 		}
@@ -1745,7 +1745,7 @@ void CommandAddObjectArcs(double LineThickNess, int32 Layer, int32 CircleMode, i
 				DrawTryingObjectArc(CurrentX, CurrentY, Mode);
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			/*
@@ -2261,7 +2261,7 @@ void CommandAddObjectTexts2(double LineThickNess, int32 Layer, int32 Mode)
 				DrawTryingObjectText2(CurrentX, CurrentY, Mode);
 		}
 
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingObjectText2(CurrentX, CurrentY, Mode);

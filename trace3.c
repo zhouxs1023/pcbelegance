@@ -809,7 +809,7 @@ void TraceDrawing(int32 mode)
 		}
 
 // ***********************************************************************************
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			TraceDrawingOff(0);
@@ -3323,7 +3323,7 @@ void AddAreaFillVia(int32 mode)
 			LeftButtonDoublePressed = 0;
 
 // ***********************************************************************************
-		if (CheckRightButton(&DrawXorFunction) == 1)
+		if (CheckRightButton2(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			RightButtonPressed = 0;
