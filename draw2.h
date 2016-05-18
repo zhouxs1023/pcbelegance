@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: draw2.h 
+ * File: draw2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -32,29 +32,28 @@
 
 void DrawObjects(int32 Mode);
 
-void DrawPinTextObject(ObjectRecord *Object,int32 mode);
+void DrawPinTextObject(ObjectRecord * Object, int32 mode);
 
-void DrawObjects2(double ox,double oy,int32 Mode);
+void DrawObjects2(double ox, double oy, int32 Mode);
 
-void DrawObjects2a(double ox,double oy,double ox2,double oy2,int32 Mode);
+void DrawObjects2a(double ox, double oy, double ox2, double oy2, int32 Mode);
 
 void DrawObjectPolygons(int32 Mode);
 
-void DrawObjectPolygon(ObjectPolygonRecord *ObjectPolygon,double OX,double OY,int32 Mode);
+void DrawObjectPolygon(ObjectPolygonRecord * ObjectPolygon, double OX, double OY, int32 Mode);
 
-void DrawPolygonObjectWithClearance(ObjectPolygonRecord *ObjectPolygon,double OX,double OY,int32 Mode);
+void DrawPolygonObjectWithClearance(ObjectPolygonRecord * ObjectPolygon, double OX, double OY, int32 Mode);
 
-void DrawObject(ObjectRecord *Object,double ox,double oy,int32 Mode);
+void DrawObject(ObjectRecord * Object, double ox, double oy, int32 Mode);
 
-void DrawObjectWithClearance(ObjectRecord *Object,double ox,double oy,int32 Mode);
+void DrawObjectWithClearance(ObjectRecord * Object, double ox, double oy, int32 Mode);
 
-void DrawText2(double x1,double y1,LPSTR TextStr);
+void DrawText2(double x1, double y1, LPSTR TextStr);
 
 void DrawGrid(void);
 
-void InitSpecialDraw(MEASUREITEMSTRUCT *MeasureItem);
+void InitSpecialDraw(MEASUREITEMSTRUCT * MeasureItem);
 
-void DrawSpecialItem(DRAWITEMSTRUCT *DrawItem);
+void DrawSpecialItem(DRAWITEMSTRUCT * DrawItem);
 
 #endif
-

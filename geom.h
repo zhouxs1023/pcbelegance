@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: geom.h 
+ * File: geom.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,15 +30,15 @@
 #include "types.h"
 
 
-LRESULT CALLBACK GEOMWinProc(HWND Window,uint32 Message,WPARAM WParam,LPARAM LParam);
+LRESULT CALLBACK GEOMWinProc(HWND Window, uint32 Message, WPARAM WParam, LPARAM LParam);
 
-extern WNDCLASS             GEOMClass;
-extern HWND                 GEOMWindow,DialogWindow;
-extern PAINTSTRUCT          PS;
-extern RECT                 RealWindow,ClientRect;
-extern HRGN                 EditingRegion;
-extern HMENU                PopUpMenu,MainMenu;
-extern int32                DrawWindowMinX,DrawWindowMinY,DrawWindowMaxX,DrawWindowMaxY;
+extern WNDCLASS GEOMClass;
+extern HWND GEOMWindow, DialogWindow;
+extern PAINTSTRUCT PS;
+extern RECT RealWindow, ClientRect;
+extern HRGN EditingRegion;
+extern HMENU PopUpMenu, MainMenu;
+extern int32 DrawWindowMinX, DrawWindowMinY, DrawWindowMaxX, DrawWindowMaxY;
 
 
 void DoneDeviceContext(void);
@@ -73,7 +73,7 @@ void ScrollLeft(int32 SizeOfScroll);
 
 void ScrollRight(int32 SizeOfScroll);
 
-void ScrollAppWindow(int32 DivX,int32 DivY);
+void ScrollAppWindow(int32 DivX, int32 DivY);
 
 void ClipMouseCursor(void);
 
@@ -84,4 +84,3 @@ void SetScrollPageSize(void);
 void SetScrollPosition(void);
 
 #endif
-

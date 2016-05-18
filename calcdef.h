@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: calcdef.h 
+ * File: calcdef.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -104,56 +104,54 @@ double PixelToRealOffX(int32 X);
 
 double PixelToRealOffY(int32 Y);
 
-void  AdjustMouseToGrid(int32 MouseX,int32 MouseY,double *x2,double *y2);
+void AdjustMouseToGrid(int32 MouseX, int32 MouseY, double *x2, double *y2);
 
 double AdjustToDrawGrid(double x);
 
-void  RotatePointFromOtherPoint(float *x,float *y,double OX,double OY,double Rotation);
+void RotatePointFromOtherPoint(float *x, float *y, double OX, double OY, double Rotation);
 
-void  RotatePointFromOtherPoint2(double *x,double *y,double OX,double OY,double Rotation);
+void RotatePointFromOtherPoint2(double *x, double *y, double OX, double OY, double Rotation);
 
-void  RotateFlipPoint(float *x,float *y,double CX,double CY,int32 Mode);
+void RotateFlipPoint(float *x, float *y, double CX, double CY, int32 Mode);
 
-void  RotatePoint(float *x,float *y,double Rotation);
+void RotatePoint(float *x, float *y, double Rotation);
 
-void  RotatePoint2(double *x,double *y,double Rotation);
+void RotatePoint2(double *x, double *y, double Rotation);
 
-void  RotateFlipPoint2(double *x,double *y,double OX,double OY,int32 Mode);
+void RotateFlipPoint2(double *x, double *y, double OX, double OY, int32 Mode);
 
-int32  InRangeRico(double rico1,double rico2);
+int32 InRangeRico(double rico1, double rico2);
 
-double GetAngleBetweenLines(double x1,double y1,double x2,double y2,double x3,double y3);
+double GetAngleBetweenLines(double x1, double y1, double x2, double y2, double x3, double y3);
 
-void  ConvertPointToPolar(double x,double y,double *Distance,double *Angle);
+void ConvertPointToPolar(double x, double y, double *Distance, double *Angle);
 
-void  ConvNormalCoorToPolar(double x1,double y1,double x2,double y2,double *Angle,double *Length);
+void ConvNormalCoorToPolar(double x1, double y1, double x2, double y2, double *Angle, double *Length);
 
-double UnitConvert(double Value,int32 Units);
+double UnitConvert(double Value, int32 Units);
 
-double ConvertUnits(double Value,int32 Units);
+double ConvertUnits(double Value, int32 Units);
 
-int32 LineCrosses(double LineX1,double LineY1,double LineX2,double LineY2,
-                  double LineX3,double LineY3,double LineX4,double LineY4);
+int32 LineCrosses(double LineX1, double LineY1, double LineX2, double LineY2, double LineX3, double LineY3,
+                  double LineX4, double LineY4);
 
-int32 GetCrossPointLineWithPoint(double x1,double y1,double x2,double y2,double px,double py,
-                                 double *cx,double *cy,int32 mode);
+int32 GetCrossPointLineWithPoint(double x1, double y1, double x2, double y2, double px, double py, double *cx,
+                                 double *cy, int32 mode);
 
-int32 PointWithinLine(double x1,double y1,double x2,double y2,double px,double py,int32 mode);
+int32 PointWithinLine(double x1, double y1, double x2, double y2, double px, double py, int32 mode);
 
-double MinDistancePointToLine(double x1,double y1,double x2,double y2,double px,double py,int32 mode);
+double MinDistancePointToLine(double x1, double y1, double x2, double y2, double px, double py, int32 mode);
 
-double MinDistanceLineToLine(double x11,double y11,double x12,double y12,
-                             double x21,double y21,double x22,double y22,
-                             int32 mode);
+double MinDistanceLineToLine(double x11, double y11, double x12, double y12, double x21, double y21, double x22,
+                             double y22, int32 mode);
 
-int32 GetLayerText(int32 Layer,LPSTR TextStr,int32 mode);
+int32 GetLayerText(int32 Layer, LPSTR TextStr, int32 mode);
 
 int32 CheckIfInnerLayer(int32 Layer);
 
-int32 ArcToLineSegments(double x1,double y1,double Width,double Height,
-                        double x2a,double y2a,double x2b,double y2b,double *LineSegments);
+int32 ArcToLineSegments(double x1, double y1, double Width, double Height, double x2a, double y2a, double x2b,
+                        double y2b, double *LineSegments);
 
-int32 GetUnitsValue(int32 Units,double value,LPSTR str,int32 mode);
+int32 GetUnitsValue(int32 Units, double value, LPSTR str, int32 mode);
 
 #endif
-

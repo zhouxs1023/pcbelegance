@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: draw.h 
+ * File: draw.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,9 +31,8 @@
 
 void DrawInsertionPoint(int32 mode);
 
-void DrawStrWithRotation(double x,double y,double Size,double Rotation,int32 Alignment,int32 Mirror,char *str);
+void DrawStrWithRotation(double x, double y, double Size, double Rotation, int32 Alignment, int32 Mirror, char *str);
 
-void DrawFilledPolygon(PolygonRecord *FilledPolygon,int32 mode);
+void DrawFilledPolygon(PolygonRecord * FilledPolygon, int32 mode);
 
 #endif
-

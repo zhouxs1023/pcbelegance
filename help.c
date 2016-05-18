@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: help.c 
+ * File: help.c
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,29 +29,30 @@
 #include "memory.h"
 #include "htmlhelp.h"
 
-extern HWND      GEOMWindow;
+extern HWND GEOMWindow;
 
 
-void Help(LPSTR Topic,int32 mode)
-
+void Help(LPSTR Topic, int32 mode)
 {
-  char  str[400];
+	char str[400];
 
-  sprintf(str,"%s\\geom.chm::/html/%s",ExePath,Topic);
-  switch (mode) {
+	sprintf(str, "%s\\geom.chm::/html/%s", ExePath, Topic);
+
+	switch (mode)
+	{
 	case 0:
-	  HtmlHelp(GEOMWindow,(LPCTSTR)str,HH_DISPLAY_TOPIC,0);
-	  break;
+		HtmlHelp(GEOMWindow, (LPCTSTR) str, HH_DISPLAY_TOPIC, 0);
+		break;
+
 	case 1:
-	  break;
+		break;
+
 	case 2:
-	  HtmlHelp(0,0,HH_CLOSE_ALL,0);
-	  break;
+		HtmlHelp(0, 0, HH_CLOSE_ALL, 0);
+		break;
+
 	case 3:
-	  HtmlHelp(GEOMWindow,(LPCTSTR)str,HH_HELP_CONTEXT,(uint32)Topic);
-	  break;
-  }
+		HtmlHelp(GEOMWindow, (LPCTSTR) str, HH_HELP_CONTEXT, (uint32) Topic);
+		break;
+	}
 }
-
-
-

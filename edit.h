@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: edit.h 
+ * File: edit.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,11 +29,11 @@
 
 #include "types.h"
 
-void CommandAddObjects(int32 ObjectType,double LineThickNess,int32 Layer,int32 ObjectMode);
+void CommandAddObjects(int32 ObjectType, double LineThickNess, int32 Layer, int32 ObjectMode);
 
 void CommandAddMultipleObjects(int32 mode);
 
-void CommandChangedCrosses(double OX,double OY,int32 Mode);
+void CommandChangedCrosses(double OX, double OY, int32 Mode);
 
 int32 CopyObjectsToClipBoard(int32 mode);
 
@@ -48,4 +48,3 @@ void PrintScreenToBitmap(int32 mode);
 int32 RenamePin(int32 mode);
 
 #endif
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: select.h 
+ * File: select.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,11 +30,11 @@
 
 #include "types.h"
 
-void SelectObjectsFromWindow(double x1a,double y1a,double x2a,double y2a,int32 mode);
+void SelectObjectsFromWindow(double x1a, double y1a, double x2a, double y2a, int32 mode);
 
 int32 ObjectLayerVisible(int32 Layer);
 
-int32 FindFirstObjectUnderCursor(double x,double y);
+int32 FindFirstObjectUnderCursor(double x, double y);
 
 int32 GetNrSelectObjects(void);
 
@@ -42,13 +42,12 @@ void ChangeSelections(int32 Modifier);
 
 void GetMinMaxSelectedObjects(void);
 
-void FindMinMaxBoard(double *OriginX,double *OriginY,double *Width,double *Height,int32 mode);
+void FindMinMaxBoard(double *OriginX, double *OriginY, double *Width, double *Height, int32 mode);
 
 void ObjectsInfo(void);
 
 int32 AddToMessageBuf(LPSTR Line);
 
-int32 GetObjectSize(ObjectRecord *Object,double *MinX,double *MinY,double *MaxX,double *MaxY);
+int32 GetObjectSize(ObjectRecord * Object, double *MinX, double *MinY, double *MaxX, double *MaxY);
 
 #endif
-

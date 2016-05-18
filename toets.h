@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: toets.h 
+ * File: toets.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -37,41 +37,40 @@
 /*   global toets variables */
 
 
-extern int32     TranslateKey,AltPressed,CtrlPressed,ShiftPressed;
+extern int32 TranslateKey, AltPressed, CtrlPressed, ShiftPressed;
 
-extern int32    NrFunctionsInBuf;
+extern int32 NrFunctionsInBuf;
 
 /*   global toets functions */
 
-void  DecodeKey(int32 Toets);
+void DecodeKey(int32 Toets);
 
-void  KeyChar(int32 Vtkey);
+void KeyChar(int32 Vtkey);
 
-void  KeyDown(int32 Vtkey);
+void KeyDown(int32 Vtkey);
 
-void  KeyUp(int32 Vtkey);
+void KeyUp(int32 Vtkey);
 
-int32  KeyPressed(void);
+int32 KeyPressed(void);
 
 int32 ReadKeyFunction(void);
 
-void  InsertFunction(int32 Func);
+void InsertFunction(int32 Func);
 
 int32 GetKeyValue(LPSTR KeyString);
 
-int32 GetKeyString(LPSTR KeyString,int32 Function,int32 mode);
+int32 GetKeyString(LPSTR KeyString, int32 Function, int32 mode);
 
-int32 GetSystemFunction(int32 KeyFunction,int32 mode);
+int32 GetSystemFunction(int32 KeyFunction, int32 mode);
 
-int32 GetFunctionByTranslatedKey(int32 Key,int32 SystemMode);
+int32 GetFunctionByTranslatedKey(int32 Key, int32 SystemMode);
 
-int32 SetKeyOnKeyFunctionString(int32 Key,LPSTR FunctionString);
+int32 SetKeyOnKeyFunctionString(int32 Key, LPSTR FunctionString);
 
 int32 CheckExpandedCtrlKeys(int32 mode);
 
 int32 LoadDefaultKeys(int32 mode);
 
-void  ToetsMain(void);
+void ToetsMain(void);
 
 #endif
-

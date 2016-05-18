@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: print.h 
+ * File: print.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -32,4 +32,3 @@
 void Print(int32 mode);
 
 #endif
-

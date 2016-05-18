@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: command.h 
+ * File: command.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,8 +29,7 @@
 
 #include "types.h"
 
-void GEOMCommand(int32 WParam,int32 LParam);
+void GEOMCommand(int32 WParam, int32 LParam);
 
 
 #endif
-

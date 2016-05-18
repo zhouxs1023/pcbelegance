@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: insdel.h 
+ * File: insdel.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -38,19 +38,18 @@ void RedoObjects(void);
 
 void DeleteObjects(void);
 
-int32 AddObject(ObjectRecord *Object);
+int32 AddObject(ObjectRecord * Object);
 
-int32 AddObjectPolygon(ObjectPolygonRecord *ObjectPolygon);
+int32 AddObjectPolygon(ObjectPolygonRecord * ObjectPolygon);
 
 int32 AddObjectPolygon2(int32 PolygonIndex);
 
-int32 AddPinInfo(PinInfoRecord *PinInfoObject);
+int32 AddPinInfo(PinInfoRecord * PinInfoObject);
 
 int32 InsertDialogObjects(int32 DialogMode);
 
-void InsertObjects2(double OffsetX,double OffsetY);
+void InsertObjects2(double OffsetX, double OffsetY);
 
 void AddSILOnObjectsSelected(int32 mode);
 
 #endif
-

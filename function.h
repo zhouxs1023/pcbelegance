@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: function.h 
+ * File: function.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -138,6 +138,3 @@
 #define FunctionCopyFromClipboard             22147
 
 #endif
-
-
-

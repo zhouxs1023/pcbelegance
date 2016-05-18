@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: graphics.h 
+ * File: graphics.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -121,29 +121,30 @@
 #define ShapeInfo3ColorNr                       26
 #define ShapeInfo4ColorNr                       27
 
-typedef struct {
-          uint16      palVersion;
-          uint16      palNumEntries;
-          COLORREF  Colors[64];
-        } GEOMPaletteRecord ;
+typedef struct
+{
+	uint16 palVersion;
+	uint16 palNumEntries;
+	COLORREF Colors[64];
+} GEOMPaletteRecord;
 
 
 
 
-extern int32                DrawWindowMinX,DrawWindowMaxX,DrawWindowMinY,DrawWindowMaxY;
-extern int32                CurrentObjectCode,CurrentFontCode;
-extern double               ViewMinX,ViewMinY,ViewMaxX,ViewMaxY;
+extern int32 DrawWindowMinX, DrawWindowMaxX, DrawWindowMinY, DrawWindowMaxY;
+extern int32 CurrentObjectCode, CurrentFontCode;
+extern double ViewMinX, ViewMinY, ViewMaxX, ViewMaxY;
 
-extern HPALETTE             GEOMPalette,CurrentPalette;
-extern HDC                  OutputDisplay;
+extern HPALETTE GEOMPalette, CurrentPalette;
+extern HDC OutputDisplay;
 
-extern COLORREF             GEOMColors[64];
+extern COLORREF GEOMColors[64];
 
 void CreateDrawObjects(void);
 
 void DeleteGraphicObjects(void);
 
-void InitDrawingObject(int32 ObjectType,int32 Layer,int32 ThickNess,int32 mode);
+void InitDrawingObject(int32 ObjectType, int32 Layer, int32 ThickNess, int32 mode);
 
 void InitDrawingClearance(void);
 
@@ -169,33 +170,32 @@ void InitDrawingButtonInfo(void);
 
 void InitDrawingBackGroundBrush(void);
 
-void DrawLineWhite(double x1,double y1,double x2,double y2,int32 mode);
+void DrawLineWhite(double x1, double y1, double x2, double y2, int32 mode);
 
 void ExitDrawing(void);
 
-void DrawGridCursor(int32 x,int32 y);
+void DrawGridCursor(int32 x, int32 y);
 
-void DrawLineYellow(double x1,double y1,double x2,double y2);
+void DrawLineYellow(double x1, double y1, double x2, double y2);
 
-void DrawLineRed(double x1,double y1,double x2,double y2);
+void DrawLineRed(double x1, double y1, double x2, double y2);
 
-void DrawLineGreen(double x1,double y1,double x2,double y2);
+void DrawLineGreen(double x1, double y1, double x2, double y2);
 
-void DrawLineWhite3(double x1,double y1,double x2,double y2);
+void DrawLineWhite3(double x1, double y1, double x2, double y2);
 
-void DrawLineYellow3(double x1,double y1,double x2,double y2);
+void DrawLineYellow3(double x1, double y1, double x2, double y2);
 
-void DrawLineRed3(double x1,double y1,double x2,double y2);
+void DrawLineRed3(double x1, double y1, double x2, double y2);
 
-void DrawLineGreen3(double x1,double y1,double x2,double y2);
+void DrawLineGreen3(double x1, double y1, double x2, double y2);
 
 void SetBackGroundActive(int32 mode);
 
-void InitDrawingBackGround(int32 mode,int32 ThickNess);
+void InitDrawingBackGround(int32 mode, int32 ThickNess);
 
 void GraphicsMain(void);
 
 void LoadDefaultColors(void);
 
 #endif
-
