@@ -3103,7 +3103,7 @@ void WriteComponents(int Filefp)
 void WriteLayerInfo()
 {
 	int32 cnt3, Layer, res, fp;
-	char str[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING], FileName[MAX_LENGTH_STRING], FileStr[MAX_LENGTH_STRING];
+	char str[MAX_LENGTH_STRING * 3], str2[MAX_LENGTH_STRING], FileName[MAX_LENGTH_STRING], FileStr[MAX_LENGTH_STRING];
 	struct tm *today;
 	time_t ltime;
 	double minx, miny, maxx, maxy;
@@ -3392,12 +3392,6 @@ void WriteLayerInfo()
 	strcat(str, GerberInfo.PcbCopperThickness);
 	WriteLn(fp, str);
 
-	if (GerberInfo.Extra1[0] != 0)
-	{
-		strcat(str, GerberInfo.Extra1);
-		WriteLn(fp, str);
-	}
-
 	sprintf(str, SC(980, "Number of layers"));
 	strcat(str, "                                      ");
 	str[36] = 0;
@@ -3418,6 +3412,13 @@ void WriteLayerInfo()
 	sprintf(str2, SC(982, ": %.0f mils (%.4f mm)"), Design.StandardClearance / 2540, Design.StandardClearance / 100000);
 	strcat(str, str2);
 	WriteLn(fp, str);
+
+	if (GerberInfo.Extra1[0] != 0)
+	{
+		strcpy(str, GerberInfo.Extra1);
+		WriteLn(fp, str);
+	}
+
 	FileClose(fp);
 
 	if (WriteLnError != 0)
@@ -4517,6 +4518,7 @@ void WriteDrillApertureFile(int32 fp, int32 mode)
 	uint8 zeros[8];
 	int32 cnt, NrTempDrillAperTures, breedte2;
 	char str[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING], str3[MAX_LENGTH_STRING], NumberString[MAX_LENGTH_STRING];
+	char FileName[MAX_LENGTH_STRING];
 
 	memset(&zeros, 0, 8);
 	NrTempDrillAperTures = 0;
@@ -4556,6 +4558,9 @@ void WriteDrillApertureFile(int32 fp, int32 mode)
 
 	if (mode == 0)
 	{
+		strcpy(str, EditFile);
+		CutExtensionFileName(str);
+		GetFilePartFromFileName(FileName, str);
 		sprintf(str, "%s\\pcb\\gerber\\", DesignPath);
 		strcat(str, SC(964, "drills"));
 		strcat(str, ".txt");
@@ -4567,7 +4572,7 @@ void WriteDrillApertureFile(int32 fp, int32 mode)
 			return;
 		}
 
-		sprintf(str2, SC(986, ";Drill tools [ %s ]"), EditFile);
+		sprintf(str2, SC(986, ";Drill tools [ %s ]"), FileName);
 		WriteLn(fp, str2);
 		WriteLn(fp, ";");
 		strcpy(str2, SC(987, ";  Tool nr   Type      Diam mm     mils        Nr drills"));

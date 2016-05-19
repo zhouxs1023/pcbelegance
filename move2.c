@@ -3389,10 +3389,11 @@ void ChangeArc(int32 mode)
 
 		if (sscanf(ChangedObjectText2.Text, "%f,%f", &value1, &value2) != 2)
 			return;
+
+		NewValue.Value = value1;
+		NewValue.Value2 = value2;
 	}
 
-	NewValue.Value = value1;
-	NewValue.Value2 = value2;
 	TempLastActionNr = (int16) LastActionNr - 1;
 
 	if (mode == 0)

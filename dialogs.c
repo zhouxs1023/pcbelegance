@@ -2283,7 +2283,7 @@ int32 CALLBACK AreaFillDialogBody2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 //          DialogAreaFill->Clearance=value2;
 			if (SendDlgItemMessageOwn(Dialog, IDC_CHECK2, BM_GETCHECK, 0, 0))
 			{
-				DialogAreaFill->Info |= AREAFILL_WITH_THERMAL_RELIEF;
+				DialogAreaFill->Info |= (AREAFILL_WITH_THERMAL_RELIEF | AREAFILL_WITH_NO_VIA_THERMAL_RELIEF);
 
 				if ((value1 = GetDialogValue(Dialog, IDC_EDIT7)) < 100.0)
 				{
@@ -3107,9 +3107,12 @@ int32 CALLBACK GerberDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 			SendDlgItemMessageOwn(Dialog, IDC_CHECK1, BM_SETCHECK, 1, 0);
 
 		SendDlgItemMessageOwn(Dialog, IDC_CHECK5, BM_SETCHECK, 0, 0);
-
 		if (GerberInfo.ReverseLayerNumbering)
 			SendDlgItemMessageOwn(Dialog, IDC_CHECK5, BM_SETCHECK, 1, 0);
+
+		SendDlgItemMessageOwn(Dialog, IDC_CHECK6, BM_SETCHECK, 0, 0);
+		if (GerberInfo.DrillAsGerber)
+			SendDlgItemMessageOwn(Dialog, IDC_CHECK6, BM_SETCHECK, 1, 0);
 
 		if (GerberInfo.GerberOutputMode == 0)
 			SendDlgItemMessageOwn(Dialog, IDC_RADIO1, BM_SETCHECK, 1, 0);

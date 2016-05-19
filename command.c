@@ -732,7 +732,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 		break;
 
 	case ID_ACTION_ROUTE_TRACES:
-		if ((LParam == 1) && (SelectionMode != ROUTING_MODE))
+		if (SelectionMode != ROUTING_MODE)
 		{
 			DepressButton(0, 0);
 			PressButton(ROUTING_MODE, 0);
@@ -768,7 +768,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 		break;
 
 	case ID_ACTION_DRAG_TRACE:
-		if ((LParam == 1) && (SelectionMode != MOVE_ONE_TRACE_MODE))
+		if (SelectionMode != MOVE_ONE_TRACE_MODE)
 		{
 			DepressButton(0, 0);
 			PressButton(MOVE_ONE_TRACE_MODE, 0);
@@ -808,7 +808,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 
 	case ID_ACTION_MOVE_COMPS:
 	case ID_ACTION_MOVE_COMPS2:
-		if ((WParam == ID_ACTION_MOVE_COMPS2) && (SelectionMode != MOVE_COMPONENTS_MODE))
+		if (SelectionMode != MOVE_COMPONENTS_MODE)
 		{
 			DepressButton(0, 0);
 			PressButton(MOVE_COMPONENTS_MODE, 0);
@@ -943,7 +943,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 		break;
 
 	case ID_ACTION_OBJECTS:
-		if ((LParam == 1) && (SelectionMode != OBJECTS_MODE))
+		if (SelectionMode != OBJECTS_MODE)
 		{
 			DepressButton(0, 0);
 			PressButton(OBJECTS_MODE, 0);
@@ -979,7 +979,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 		break;
 
 	case ID_ACTION_AREAFILLS:
-		if ((LParam == 1) && (SelectionMode != AREAFILLS_MODE))
+		if (SelectionMode != AREAFILLS_MODE)
 		{
 			DepressButton(0, 0);
 			PressButton(AREAFILLS_MODE, 0);
@@ -1015,7 +1015,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 		break;
 
 	case ID_ACTION_DRAG_TRACES_VIAS:
-		if ((LParam == 1) && (SelectionMode != MOVING_TRACES_VIAS_MODE))
+		if (SelectionMode != MOVING_TRACES_VIAS_MODE)
 		{
 			DepressButton(0, 0);
 			PressButton(MOVING_TRACES_VIAS_MODE, 0);
