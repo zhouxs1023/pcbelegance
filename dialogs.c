@@ -1911,7 +1911,7 @@ void GetDialogValues(HWND Dialog, int32 DialogMode, int32 TempUnits, int32 mode)
 		if ((res = GetDialogText(Dialog, DialogMode, IDD_GEOM_START1)) == 2)
 			strcpy((LPSTR) TempGeom->Start1, DialogTextLine);
 		else
-			DialogTextLine[0] = 0;
+			TempGeom->Start1[0] = 0;
 	}
 }
 
