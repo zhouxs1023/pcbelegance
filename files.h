@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: files.h 
+ * File: files.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -43,9 +43,9 @@ int32 LoadSymbol(LPSTR FileName);
 
 int32 SaveFile(int32 mode);
 
-int32 SearchSymbol(LPSTR SymbolName,LPSTR FileName,int32 *Pos,int32 *Length,int32 mode);
+int32 SearchSymbol(LPSTR SymbolName, LPSTR FileName, int32 * Pos, int32 * Length, int32 mode);
 
-void GetSymbolNameFromFileName(LPSTR FileName,LPSTR SymbolName);
+void GetSymbolNameFromFileName(LPSTR FileName, LPSTR SymbolName);
 
 void SelectColors(void);
 
@@ -57,7 +57,7 @@ int32 GetCurrentEditFile(LPSTR FileName);
 
 int32 LoadDesign(void);
 
-int32 LoadSheetInMemory(int32 SheetNr,int32 mode);
+int32 LoadSheetInMemory(int32 SheetNr, int32 mode);
 
 int32 MakeBackup(LPSTR CurrentFile);
 
@@ -65,7 +65,7 @@ void LoadSchematicIniFile(int32 mode);
 
 int32 CheckExtensionFile(LPSTR FileName);
 
-int32 TextInputDialog(LPSTR TextLine,int32 Mode);
+int32 TextInputDialog(LPSTR TextLine, int32 Mode);
 
 int32 ProjectDialog(int32 Mode);
 
@@ -73,11 +73,11 @@ int32 NewProjectDialog(int32 Mode);
 
 int32 BOMDialog(int32 Mode);
 
-int32 AnnotationDialog(int32 Mode,int32 *MaxNrRefsPerSheet);
+int32 AnnotationDialog(int32 Mode, int32 * MaxNrRefsPerSheet);
 
-int32  AboutDialog(void);
+int32 AboutDialog(void);
 
-int32 LoadOrcadFileName(LPSTR OrcadFile,int32 mode);
+int32 LoadOrcadFileName(LPSTR OrcadFile, int32 mode);
 
 int32 OrcadConversion(int32 mode);
 
@@ -94,5 +94,3 @@ void SaveDesignIniFile(void);
 int32 AddMessage(LPSTR str);
 
 #endif
-
-

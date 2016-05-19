@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: mainloop.h 
+ * File: mainloop.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -28,7 +28,7 @@
 
 #define _MAINLOOP
 
-extern  int32  MaxCollections;
+extern int32 MaxCollections;
 
 void CheckInputMessages(void);
 
@@ -41,4 +41,3 @@ void MainLoop(void);
 void MakeNewProject(int32 mode);
 
 #endif
-

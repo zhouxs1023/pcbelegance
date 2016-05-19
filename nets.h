@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: nets.h 
+ * File: nets.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,38 +29,34 @@
 
 #include "types.h"
 
-int32 nets1(int32 SheetNr,double *x,double *y);
+int32 nets1(int32 SheetNr, double *x, double *y);
 
 int32 ObjectTextToBuf(LPSTR ObjectText);
 
 #ifdef GCC_COMP
 
 static inline LPSTR GetObjectText(int32 Pos)
-
 {
-  char   *TextPos;
+	char *TextPos;
 
-  TextPos=ObjectTextBuf+Pos;
-  return TextPos;
+	TextPos = ObjectTextBuf + Pos;
+	return TextPos;
 
 }
 
 #else
 
 __inline LPSTR GetObjectText(int32 Pos)
-
 {
-  char   *TextPos;
+	char *TextPos;
 
-  TextPos=ObjectTextBuf+Pos;
-  return TextPos;
+	TextPos = ObjectTextBuf + Pos;
+	return TextPos;
 
 }
 
 #endif
 
-int32 CheckNets(int32 SheetNr,int32 mode,double *x,double *y);
+int32 CheckNets(int32 SheetNr, int32 mode, double *x, double *y);
 
 #endif
-
-

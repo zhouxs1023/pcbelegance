@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: mentor.h 
+ * File: mentor.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -34,4 +34,3 @@ int32 AddMentorShape(LPSTR ShapeName);
 int32 CreateMentorGeometries(int32 mode);
 
 #endif // _MENTOR
-

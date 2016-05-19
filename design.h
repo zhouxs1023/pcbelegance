@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: design.h 
+ * File: design.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -66,17 +66,17 @@
 #define RGB_Violet                              RGB(128,0  ,128)
 
 
-LRESULT FAR PASCAL SCHWinProc(HWND Window,UINT Message,WPARAM WParam,LPARAM LParam);
+LRESULT FAR PASCAL SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LParam);
 
-extern WNDCLASS             DESIGNClass;
-extern HWND                 DESIGNWindow,DialogWindow;
-extern PAINTSTRUCT          PS;
-extern RECT                 RealWindow,ClientRect;
-extern HRGN                 EditingRegion;
-extern HMENU                PopUpMenu,MainMenu;
-extern int32                DrawWindowMinX,DrawWindowMinY,DrawWindowMaxX,DrawWindowMaxY;
+extern WNDCLASS DESIGNClass;
+extern HWND DESIGNWindow, DialogWindow;
+extern PAINTSTRUCT PS;
+extern RECT RealWindow, ClientRect;
+extern HRGN EditingRegion;
+extern HMENU PopUpMenu, MainMenu;
+extern int32 DrawWindowMinX, DrawWindowMinY, DrawWindowMaxX, DrawWindowMaxY;
 
-void SetWindowName(LPSTR DesignName,int32 mode);
+void SetWindowName(LPSTR DesignName, int32 mode);
 
 void DoneDeviceContext(void);
 
@@ -84,7 +84,7 @@ void InitDeviceContext(void);
 
 int32 ActivateProjectWindow(HANDLE WindowHandle);
 
-HWND GetProjectWindow(LPSTR ActiveFile,int32 FileType,int32 mode);
+HWND GetProjectWindow(LPSTR ActiveFile, int32 FileType, int32 mode);
 
 void StartDrawingEditingWindow(void);
 
@@ -111,4 +111,3 @@ void ReloadSchematics(int32 mode);
 void CloseOpenFiles(int32 mode);
 
 #endif
-

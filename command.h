@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: command.h 
+ * File: command.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,7 +31,6 @@
 
 int32 CheckExeDir(void);
 
-void DESIGNCommand(HWND hwnd,WPARAM WParam,LPARAM LParam);
+void DESIGNCommand(HWND hwnd, WPARAM WParam, LPARAM LParam);
 
 #endif
-

@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: pcb.h 
+ * File: pcb.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,17 +31,16 @@
 
 int32 LoadShape(LPSTR ShapeName);
 
-void ShapePinsToObject(ShapeRecord *Shape,double OffsetX,double OffsetY,
-                       double TempRotation,int32 ObjectArrayNr,int32 SelectedLayer,int32 mode);
+void ShapePinsToObject(ShapeRecord * Shape, double OffsetX, double OffsetY, double TempRotation, int32 ObjectArrayNr,
+                       int32 SelectedLayer, int32 mode);
 
-void ShapePlacementOutLineToObject(ShapeRecord *Shape,double OffsetX,double OffsetY,double TempRotation);
+void ShapePlacementOutLineToObject(ShapeRecord * Shape, double OffsetX, double OffsetY, double TempRotation);
 
-void ShapeCompOutLineToObject(ShapeRecord *Shape,double OffsetX,double OffsetY,double TempRotation);
+void ShapeCompOutLineToObject(ShapeRecord * Shape, double OffsetX, double OffsetY, double TempRotation);
 
-void ShapeCompSilkScreenToObject(ShapeRecord *Shape,double OffsetX,double OffsetY,double TempRotation);
+void ShapeCompSilkScreenToObject(ShapeRecord * Shape, double OffsetX, double OffsetY, double TempRotation);
 
-void ShapeOtherToObject(ShapeRecord *Shape,double OffsetX,double OffsetY,double TempRotation,
-                        int32 SelectedLayer,int32 mode);
+void ShapeOtherToObject(ShapeRecord * Shape, double OffsetX, double OffsetY, double TempRotation, int32 SelectedLayer,
+                        int32 mode);
 
 #endif // _PCB
-

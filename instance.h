@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: instance.h 
+ * File: instance.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,11 +29,11 @@
 
 #include "owntypes.h"
 
-int32 Annotate(int32 mode,int32 MaxNrRefsPerSheet);
+int32 Annotate(int32 mode, int32 MaxNrRefsPerSheet);
 
-int32 AnnotateRestart(int32 mode,int32 MaxNrRefsPerSheet);
+int32 AnnotateRestart(int32 mode, int32 MaxNrRefsPerSheet);
 
-int32 AnnotateAppend(int32 mode,int32 MaxNrRefsPerSheet);
+int32 AnnotateAppend(int32 mode, int32 MaxNrRefsPerSheet);
 
 int32 CheckRefInstances(int32 Mode);
 
@@ -52,4 +52,3 @@ int32 CreateGatePinSwapInfo(int32 Mode);
 int32 WriteSchematics(int32 mode);
 
 #endif
-

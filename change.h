@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: change.h 
+ * File: change.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -33,8 +33,6 @@ int32 BackAnnotate(int32 mode);
 
 int32 ChangeInstances(int32 mode);
 
-int32 ChangeUserVar(LPSTR UserVarID,LPSTR UserVarValue,int32 mode);
+int32 ChangeUserVar(LPSTR UserVarID, LPSTR UserVarValue, int32 mode);
 
 #endif // _CHANGE
-
-

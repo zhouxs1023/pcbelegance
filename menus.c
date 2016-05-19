@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: menus.c 
+ * File: menus.c
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -38,47 +38,12 @@
 #define PopUpMenuX     30
 #define PopUpMenuY     30
 
-HMENU   DESIGNMenu,
-        DESIGNMenu1,
-        DESIGNMenu1a,
-        DESIGNMenu2,
-        DESIGNMenu3,
-        DESIGNMenu4,
-        DESIGNMenu5,
-        DESIGNMenu6,
-        DESIGNMenu6a,
-        DESIGNMenu6b,
-        DESIGNMenu7,
-        DESIGNMenu8,
-        DESIGNMenu9,
-        DESIGNMenu10;
+HMENU DESIGNMenu, DESIGNMenu1, DESIGNMenu1a, DESIGNMenu2, DESIGNMenu3, DESIGNMenu4, DESIGNMenu5, DESIGNMenu6,
+      DESIGNMenu6a, DESIGNMenu6b, DESIGNMenu7, DESIGNMenu8, DESIGNMenu9, DESIGNMenu10;
 
-HMENU   PopUpMenu,
-        DefaultMenu,
-        DefaultMenu1,
-        DefaultMenu2,
-        DefaultMenu3,
-        DefaultMenu4,
-        SheetMenu,
-        SheetMenu1,
-        SheetMenu2,
-        SheetMenu3,
-        SheetMenu4,
-        SheetMenu5,
-        SheetMenu6,
-        SheetMenu7,
-        SheetMenu8,
-        SheetMenu9,
-        SymbolMenu,
-        SymbolMenu1,
-        SymbolMenu2,
-        SymbolMenu3,
-        SymbolMenu4,
-        SymbolMenu5,
-        SymbolMenu6,
-        SymbolMenu7,
-        SymbolMenu8,
-        SymbolMenu9;
+HMENU PopUpMenu, DefaultMenu, DefaultMenu1, DefaultMenu2, DefaultMenu3, DefaultMenu4, SheetMenu, SheetMenu1, SheetMenu2,
+      SheetMenu3, SheetMenu4, SheetMenu5, SheetMenu6, SheetMenu7, SheetMenu8, SheetMenu9, SymbolMenu, SymbolMenu1,
+      SymbolMenu2, SymbolMenu3, SymbolMenu4, SymbolMenu5, SymbolMenu6, SymbolMenu7, SymbolMenu8, SymbolMenu9;
 
 
 // *******************************************************************************************************
@@ -87,37 +52,44 @@ HMENU   PopUpMenu,
 // *******************************************************************************************************
 
 void MenuPopUp(int32 mode)
-
 {
-  int32  cnt,NrMenus;
-  char   str[MAX_LENGTH_STRING];
-  HMENU  PopUpMenu,PopUpMenu1=NULL;
+	int32 cnt, NrMenus;
+	char str[MAX_LENGTH_STRING];
+	HMENU PopUpMenu, PopUpMenu1 = NULL;
 
-  GetDesignSheets();
-  NrMenus=0;
-  PopUpMenu=CreatePopupMenu();
-  if (mode==0) {
-    PopUpMenu1=CreatePopupMenu();
-    for (cnt=0;cnt<NrSheets;cnt++) {
-      strcpy(str,Sheets[cnt].SheetName);
-      _strupr(str);
-      AppendMenuUTF8(PopUpMenu1,MF_ENABLED|MF_STRING,ID_SHEET_OPEN_TOP_SHEET+cnt,str);
-    }
-    AppendMenuUTF8(PopUpMenu,MF_ENABLED|MF_POPUP,(UINT) PopUpMenu1,SC(152,"Open sheet"));
-    AppendMenuUTF8(PopUpMenu,MF_ENABLED|MF_STRING,ID_SHEET_OPEN_REF,SC(153,"Open sheet on reference"));
-    AppendMenuUTF8(PopUpMenu,MF_ENABLED|MF_STRING,ID_SHEET_OPEN_PARTNR,SC(271,"Open sheet on partnr"));
-  } else {
-    AppendMenuUTF8(PopUpMenu,MF_ENABLED|MF_STRING,ID_LAYOUT_OPEN_REF,SC(269,"Open layout on reference"));
-    AppendMenuUTF8(PopUpMenu,MF_ENABLED|MF_STRING,ID_LAYOUT_OPEN_PARTNR,SC(270,"Open layout on partnr"));
-  }
-  AppendMenuUTF8(PopUpMenu,MF_ENABLED|MF_SEPARATOR,0,0);
-  AppendMenuUTF8(PopUpMenu,MF_ENABLED|MF_STRING,0,SC(154,"Exit"));
-  TrackPopupMenu(PopUpMenu,TPM_RIGHTBUTTON,
-                 RealWindow.left+MousePosX+5,RealWindow.top+MousePosY+40,0,DESIGNWindow,NULL);
-  DestroyMenu(PopUpMenu);
-  if (PopUpMenu1) {
-    DestroyMenu(PopUpMenu1);
-  }
+	GetDesignSheets();
+	NrMenus = 0;
+	PopUpMenu = CreatePopupMenu();
+
+	if (mode == 0)
+	{
+		PopUpMenu1 = CreatePopupMenu();
+
+		for (cnt = 0; cnt < NrSheets; cnt++)
+		{
+			strcpy(str, Sheets[cnt].SheetName);
+			_strupr(str);
+			AppendMenuUTF8(PopUpMenu1, MF_ENABLED | MF_STRING, ID_SHEET_OPEN_TOP_SHEET + cnt, str);
+		}
+
+		AppendMenuUTF8(PopUpMenu, MF_ENABLED | MF_POPUP, (UINT) PopUpMenu1, SC(152, "Open sheet"));
+		AppendMenuUTF8(PopUpMenu, MF_ENABLED | MF_STRING, ID_SHEET_OPEN_REF, SC(153, "Open sheet on reference"));
+		AppendMenuUTF8(PopUpMenu, MF_ENABLED | MF_STRING, ID_SHEET_OPEN_PARTNR, SC(271, "Open sheet on partnr"));
+	}
+	else
+	{
+		AppendMenuUTF8(PopUpMenu, MF_ENABLED | MF_STRING, ID_LAYOUT_OPEN_REF, SC(269, "Open layout on reference"));
+		AppendMenuUTF8(PopUpMenu, MF_ENABLED | MF_STRING, ID_LAYOUT_OPEN_PARTNR, SC(270, "Open layout on partnr"));
+	}
+
+	AppendMenuUTF8(PopUpMenu, MF_ENABLED | MF_SEPARATOR, 0, 0);
+	AppendMenuUTF8(PopUpMenu, MF_ENABLED | MF_STRING, 0, SC(154, "Exit"));
+	TrackPopupMenu(PopUpMenu, TPM_RIGHTBUTTON, RealWindow.left + MousePosX + 5, RealWindow.top + MousePosY + 40, 0,
+	               DESIGNWindow, NULL);
+	DestroyMenu(PopUpMenu);
+
+	if (PopUpMenu1)
+		DestroyMenu(PopUpMenu1);
 }
 
 // *******************************************************************************************************
@@ -126,37 +98,37 @@ void MenuPopUp(int32 mode)
 // *******************************************************************************************************
 
 void UpdateFileMenu(int32 mode)
-
 {
-  HMENU  FileMenu,MainMenu;
-  int32  cnt,res,NrItems;
+	HMENU FileMenu, MainMenu;
+	int32 cnt, res, NrItems;
 
-  if (NrDesigns==0) return;
+	if (NrDesigns == 0)
+		return;
 
-  MainMenu=GetMenu(DESIGNWindow);
-  FileMenu=GetSubMenu(MainMenu,0);
+	MainMenu = GetMenu(DESIGNWindow);
+	FileMenu = GetSubMenu(MainMenu, 0);
 //  res=AppendMenuUTF8(FileMenu,MF_ENABLED|MF_SEPARATOR,0,0);
 
-  NrItems=12;
+	NrItems = 12;
 #ifdef _DEBUG
-  NrItems=13;
+	NrItems = 13;
 #endif
 
-  for (cnt=NrItems+TotalNrDesigns+1;cnt>=NrItems;cnt--) {
-    res=DeleteMenu(FileMenu,cnt,MF_BYPOSITION);
-  }
-/*
-  for (cnt=0;cnt<TotalNrDesigns;cnt++) {
-    res=DeleteMenu(FileMenu,ID_DESIGNS+cnt,MF_BYCOMMAND);
-  }
-*/
-  for (cnt=0;cnt<NrDesigns;cnt++) {
-    res=AppendMenuUTF8(FileMenu,MF_ENABLED|MF_STRING,ID_DESIGNS+cnt,LastDesigns[cnt]);
-  }
-  AppendMenuUTF8(FileMenu,MF_ENABLED|MF_SEPARATOR,0,0);
-  AppendMenuUTF8(FileMenu,MF_ENABLED|MF_STRING,ID_FILE_EXIT,SC(154,"Exit"));
+	for (cnt = NrItems + TotalNrDesigns + 1; cnt >= NrItems; cnt--)
+		res = DeleteMenu(FileMenu, cnt, MF_BYPOSITION);
 
-  DrawMenuBar(DESIGNWindow);
+	/*
+	  for (cnt=0;cnt<TotalNrDesigns;cnt++) {
+	    res=DeleteMenu(FileMenu,ID_DESIGNS+cnt,MF_BYCOMMAND);
+	  }
+	*/
+	for (cnt = 0; cnt < NrDesigns; cnt++)
+		res = AppendMenuUTF8(FileMenu, MF_ENABLED | MF_STRING, ID_DESIGNS + cnt, LastDesigns[cnt]);
+
+	AppendMenuUTF8(FileMenu, MF_ENABLED | MF_SEPARATOR, 0, 0);
+	AppendMenuUTF8(FileMenu, MF_ENABLED | MF_STRING, ID_FILE_EXIT, SC(154, "Exit"));
+
+	DrawMenuBar(DESIGNWindow);
 }
 
 // *******************************************************************************************************
@@ -165,65 +137,63 @@ void UpdateFileMenu(int32 mode)
 // *******************************************************************************************************
 
 void MakeMainMenu()
-
 {
 
 #define MENU_ID       MF_ENABLED|MF_STRING
 
-  DESIGNMenu=CreateMenu();
+	DESIGNMenu = CreateMenu();
 
 // *****************************************************************************************
-  DESIGNMenu1=CreateMenu();
-  AppendMenuUTF8(DESIGNMenu  ,MF_ENABLED|MF_POPUP,(UINT) DESIGNMenu1,SC(155,"File"));
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_FILE_NEWDESIGN                 ,SC(156,"New design"));
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_FILE_OPENDESIGN                ,SC(157,"Open design"));
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_FILE_CLOSEDESIGN               ,SC(158,"Close design"));
-  AppendMenuUTF8(DESIGNMenu1 ,MF_ENABLED|MF_SEPARATOR,0,0);
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_FILE_PRINT_ALL_SHEETS          ,SC(159,"Print all sheets"));
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_FILE_PRINT_ALL_SHEETS_PDF      ,SC(218,"Print all sheets to PDF"));
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_FILE_COPYSYMBOLSSHAPESLOCAL    ,SC(160,"Copy symbols/geometries local"));
-  AppendMenuUTF8(DESIGNMenu1 ,MF_ENABLED|MF_SEPARATOR,0,0);
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_FILE_ORCAD_CONV                ,SC(161,"Convert ORCAD schematic"));
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_FILE_ORCAD_CONV2               ,SC(162,"Convert ORCAD library"));
-  AppendMenuUTF8(DESIGNMenu1 ,MENU_ID,ID_VIEW_GERBER_FILES              ,SC(163,"Gerber viewer"));
-  AppendMenuUTF8(DESIGNMenu1 ,MF_ENABLED|MF_SEPARATOR,0,0);
+	DESIGNMenu1 = CreateMenu();
+	AppendMenuUTF8(DESIGNMenu, MF_ENABLED | MF_POPUP, (UINT) DESIGNMenu1, SC(155, "File"));
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_FILE_NEWDESIGN, SC(156, "New design"));
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_FILE_OPENDESIGN, SC(157, "Open design"));
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_FILE_CLOSEDESIGN, SC(158, "Close design"));
+	AppendMenuUTF8(DESIGNMenu1, MF_ENABLED | MF_SEPARATOR, 0, 0);
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_FILE_PRINT_ALL_SHEETS, SC(159, "Print all sheets"));
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_FILE_PRINT_ALL_SHEETS_PDF, SC(218, "Print all sheets to PDF"));
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_FILE_COPYSYMBOLSSHAPESLOCAL, SC(160, "Copy symbols/geometries local"));
+	AppendMenuUTF8(DESIGNMenu1, MF_ENABLED | MF_SEPARATOR, 0, 0);
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_FILE_ORCAD_CONV, SC(161, "Convert ORCAD schematic"));
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_FILE_ORCAD_CONV2, SC(162, "Convert ORCAD library"));
+	AppendMenuUTF8(DESIGNMenu1, MENU_ID, ID_VIEW_GERBER_FILES, SC(163, "Gerber viewer"));
+	AppendMenuUTF8(DESIGNMenu1, MF_ENABLED | MF_SEPARATOR, 0, 0);
 
 // *****************************************************************************************
 
-  DESIGNMenu2=CreateMenu();
-  AppendMenuUTF8(DESIGNMenu  ,MF_ENABLED|MF_POPUP,(UINT) DESIGNMenu2,SC(164,"Edit"));
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_ANNOTATE                       ,SC(165,"Annotation"));
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_EDIT_CHECK                     ,SC(166,"Check schematics"));
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_BUILD_NETLIST                  ,SC(133,"Netlist"));
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_EDIT_BILLOFMATERIALS           ,SC(109,"Bill Of Materials"));
-  AppendMenuUTF8(DESIGNMenu2 ,MF_ENABLED|MF_SEPARATOR,0,0);
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_EDIT_DESIGNSETTINGS            ,SC(167,"Design settings"));
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_CHANGE_INSTANCES             ,SC(263,"Change symbols"));
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_EDIT_CREATEGATEPINSWAPINFO     ,SC(168,"Create gate/pin swap info"));
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_EDIT_VARS                      ,SC(276,"Edit user variables file"));
+	DESIGNMenu2 = CreateMenu();
+	AppendMenuUTF8(DESIGNMenu, MF_ENABLED | MF_POPUP, (UINT) DESIGNMenu2, SC(164, "Edit"));
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_ANNOTATE, SC(165, "Annotation"));
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_EDIT_CHECK, SC(166, "Check schematics"));
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_BUILD_NETLIST, SC(133, "Netlist"));
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_EDIT_BILLOFMATERIALS, SC(109, "Bill Of Materials"));
+	AppendMenuUTF8(DESIGNMenu2, MF_ENABLED | MF_SEPARATOR, 0, 0);
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_EDIT_DESIGNSETTINGS, SC(167, "Design settings"));
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_CHANGE_INSTANCES, SC(263, "Change symbols"));
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_EDIT_CREATEGATEPINSWAPINFO, SC(168, "Create gate/pin swap info"));
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_EDIT_VARS, SC(276, "Edit user variables file"));
 #ifdef _DEBUG
-  AppendMenuUTF8(DESIGNMenu2 ,MENU_ID,ID_WRITE_SCHEMATICS               ,"Write schematics");
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_WRITE_SCHEMATICS, "Write schematics");
 #endif
 
 // *****************************************************************************************
-  AppendMenuUTF8(DESIGNMenu  ,MENU_ID,ID_LIBRARYMANAGER_SYMBOLS         ,SC(169,"Library manager symbols"));
-  AppendMenuUTF8(DESIGNMenu  ,MENU_ID,ID_LIBRARYMANAGER_GEOMETRIES      ,SC(170,"Library manager geometries"));
-  AppendMenuUTF8(DESIGNMenu  ,MENU_ID,ID_MANUAL                         ,SC(279,"Manual"));
+	AppendMenuUTF8(DESIGNMenu, MENU_ID, ID_LIBRARYMANAGER_SYMBOLS, SC(169, "Library manager symbols"));
+	AppendMenuUTF8(DESIGNMenu, MENU_ID, ID_LIBRARYMANAGER_GEOMETRIES, SC(170, "Library manager geometries"));
+	AppendMenuUTF8(DESIGNMenu, MENU_ID, ID_MANUAL, SC(279, "Manual"));
 
 // *****************************************************************************************
-  DESIGNMenu5=CreateMenu();
-  AppendMenuUTF8(DESIGNMenu  ,MF_ENABLED|MF_POPUP,(UINT) DESIGNMenu5,SC(45,"Help"));
-  AppendMenuUTF8(DESIGNMenu5 ,MENU_ID,ID_HELP_TOPICS                    ,SC(171,"Topics"));
-  AppendMenuUTF8(DESIGNMenu5 ,MENU_ID,ID_HELP_GETTING_STARTED           ,SC(172,"Getting started"));
-  AppendMenuUTF8(DESIGNMenu5 ,MF_ENABLED|MF_SEPARATOR,0,0);
-  AppendMenuUTF8(DESIGNMenu5 ,MENU_ID,ID_HELP_ABOUT                     ,SC(62,"About design manager"));
+	DESIGNMenu5 = CreateMenu();
+	AppendMenuUTF8(DESIGNMenu, MF_ENABLED | MF_POPUP, (UINT) DESIGNMenu5, SC(45, "Help"));
+	AppendMenuUTF8(DESIGNMenu5, MENU_ID, ID_HELP_TOPICS, SC(171, "Topics"));
+	AppendMenuUTF8(DESIGNMenu5, MENU_ID, ID_HELP_GETTING_STARTED, SC(172, "Getting started"));
+	AppendMenuUTF8(DESIGNMenu5, MF_ENABLED | MF_SEPARATOR, 0, 0);
+	AppendMenuUTF8(DESIGNMenu5, MENU_ID, ID_HELP_ABOUT, SC(62, "About design manager"));
 
 // *****************************************************************************************
-  SetMenu(DESIGNWindow,DESIGNMenu);
+	SetMenu(DESIGNWindow, DESIGNMenu);
 }
 
 // *******************************************************************************************************
 // *******************************************************************************************************
 // *******************************************************************************************************
 // *******************************************************************************************************
-
