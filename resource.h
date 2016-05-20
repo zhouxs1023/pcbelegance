@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by e:\pcbeleg35\sch\resource\sch.rc
+// Used by C:\notes\pcbeleg\software\sch\resource\sch.rc
 //
 #define IDHELP                          9
 #define IDR_OWNFONT1                    1500
@@ -403,7 +403,7 @@
 #define ID_SEND_WINDOW_SIZE2            23002
 
 // Next default values for new objects
-//
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1

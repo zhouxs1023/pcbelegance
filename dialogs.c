@@ -2682,7 +2682,7 @@ int32 CALLBACK InstanceInfoDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 
 			if (strcmpUTF8(sel, WorkingInstance->Reference) != 0)
 			{
-				memset(WorkingInstance->Reference, 0, sizeof(WorkingInstance->Value));
+				memset(WorkingInstance->Reference, 0, sizeof(WorkingInstance->Reference));
 				memcpy(WorkingInstance->Reference, &sel, min(sizeof(WorkingInstance->Reference) - 1, res));
 				InstanceChanged = 1;
 			}
@@ -4333,7 +4333,7 @@ int32 CALLBACK AboutDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		sprintf(str, "Build version %i.%i.%i  [ %s ]", PROGRAM_VERSION / 100, PROGRAM_VERSION % 100, BUILD_VERSION,
 		        TIME_STRING);
 #ifdef GCC_COMP
-		strcat(str, "\r\n\r\nCompiled with mingw (gcc 4.6.1)");
+		strcat(str, "\r\n\r\nCompiled with mingw (gcc 4.9.2)");
 #endif
 #ifdef VC2005
 		strcat(str, "\r\n\r\nCompiled with Microsoft Visual Studio 2005");
