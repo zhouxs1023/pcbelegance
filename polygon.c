@@ -6759,7 +6759,7 @@ int32 AddNewAreaFill(int32 Layer, int32 mode)
 	DefaultAreaFill->Layer = Layer;
 	DefaultAreaFill->ThermalReliefThickness = Design.StandardClearance;
 	DefaultAreaFill->ThermalReliefDistance = (12 * 2540);
-	DefaultAreaFill->Info = AREAFILL_WITH_THERMAL_RELIEF;
+	DefaultAreaFill->Info = AREAFILL_WITH_THERMAL_RELIEF | AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
 
 	PowerPlaneNetNr = -1;
 
@@ -8495,9 +8495,9 @@ void CommandAddObjectPolygon(double LineThickNess, int32 Layer, int32 Mode)
 				OldX = CurrentX;
 				OldY = CurrentY;
 			}
-			//Mode2 = min(1, Mode2 + 1);
-
-			Mode2++;
+			
+			//Mode2++;
+			Mode2 = min(1, Mode2 + 1);
 
 			if (!FinishPolygon)
 			{
