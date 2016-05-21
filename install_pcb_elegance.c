@@ -749,7 +749,7 @@ int32 WriteIniFileAndRegistryAndLinks(int32 mode)
     ok=1;
     return -2;
   }
-  sprintf(str,"3.5");
+  sprintf(str,"3.51");
   if ((res=RegSetValueEx(NewKey,"Version",0,REG_SZ,(BYTE *)&str,strlen(str)+1))!=ERROR_SUCCESS) {
     ok=1;
     return -2;
@@ -784,12 +784,12 @@ int32 WriteIniFileAndRegistryAndLinks(int32 mode)
     ok=1;
     return -2;
   }
-  sprintf(str,"PCB Elegance 3.5");
+  sprintf(str,"PCB Elegance 3.51");
   if ((res=RegSetValueEx(NewKey,"DisplayName",0,REG_SZ,(BYTE *)&str,strlen(str)+1))!=ERROR_SUCCESS) {
     ok=1;
     return -2;
   }
-  sprintf(str,"3.5");
+  sprintf(str,"3.51");
   if ((res=RegSetValueEx(NewKey,"DisplayVersion",0,REG_SZ,(BYTE *)&str,strlen(str)+1))!=ERROR_SUCCESS) {
     ok=1;
     return -2;
@@ -1463,9 +1463,9 @@ void WindowPaint()
 
     SelectObject(OutputDisplay,TextFont);
     if (!FoundInstallation)
-      strcpy(str,"Installing PCB Elegance 3.5");
+      strcpy(str,"Installing PCB Elegance 3.51");
     else
-      strcpy(str,"Updating PCB Elegance 3.5");
+      strcpy(str,"Updating PCB Elegance 3.51");
     SetTextColor(OutputDisplay,RGB(255,255,255));
     TextOut(OutputDisplay,5,10,str,strlen(str));
 
