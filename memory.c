@@ -3463,6 +3463,8 @@ void MemoryMain()
 
 	PDFInfo.PaperSize = PAPERSIZE_A4;
 	PDFInfo.PaperOrientation = ORIENTATION_AUTO;
+
+	Units = 1; //UNITS_MM
 }
 
 // ********************************************************************************************************

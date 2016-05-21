@@ -27,8 +27,8 @@
 
 #define _DEMO
 
-#define PROGRAM_VERSION  350
+#define PROGRAM_VERSION  351
 #define BUILD_VERSION    1038
-#define TIME_STRING      "18 May, 2012"
+#define TIME_STRING      "19 May, 2016"
 
 #endif

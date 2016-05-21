@@ -28,6 +28,7 @@ EXTRA             +=-Wno-unused-variable
 DEFINES           +=-D GCC_COMP
 DEFINES           +=-D UC
 DEFINES           +=-D WIN32
+DEFINES           +=-D WINVER=0x0501 -D _WIN32_IE=0x0500 -D _WIN32_WINNT=0x0501
 
 GCC_OPTIONS        =-Wall -g2 $(OPTIMIZE) $(EXTRA) $(DEFINES)
 

@@ -602,6 +602,7 @@ void DrawSpecialItem(DRAWITEMSTRUCT * DrawItem)
 			BrushObject.lbHatch = (LONG) NULL;
 
 			MenuBrush = CreateBrushIndirect(&BrushObject);
+			//MenuPen = CreatePen(PS_SOLID, 1, MenuColor);
 			MenuPen = CreatePen(PS_SOLID, 1, MenuColor);
 			SaveBrush = SelectObject(DrawItem->hDC, MenuBrush);
 			SavePen = SelectObject(DrawItem->hDC, MenuPen);
