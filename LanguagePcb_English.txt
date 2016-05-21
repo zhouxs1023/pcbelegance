@@ -1337,3 +1337,4 @@
 1341 "Zoom mode"
 1342 "Output ODB++"
 1343 "Pan sensivity"
+1344 "Add Font"

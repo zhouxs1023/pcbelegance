@@ -1,0 +1,51 @@
+PCB Elegance NEWS
+=================
+
+Version 3.51 - 19/5/2016
+
+Layout editor
+-------------
+* BUGFIX - Renamed the 'Add Font' button in the text dialogue which was mislabeled as 'Mirror X'
+* BUGFIX - Dialogue box for pin number in 'Save layout as a geometry' now clears old data
+* BUGFIX - Add Polygon and Add Polyline are both working now
+* BUGFIX - Fixed erratic right mouse click when moving component refs/values
+* BUGFIX - No more graphics glitch when moving component refs/values and panning at the same time
+* BUGFIX - Crash bug caused by dragging a trace and panning at the same time
+* BUGFIX - 'Select only objects on layer -> drills' works now (both plated and unplated)
+* BUGFIX - Left side buttons state no longer gets out of sync when changing mode in right click menu
+* BUGFIX - 'Change arc width/height' works now
+* BUGFIX - 'Output drill data as a gerber file' checkbox in the gerber dialogue is now remembered
+* BUGFIX - Text from 'extra' field in gerber dialogue is now put into layers.txt sensibly
+* Drill summary file no longer contains full .pcb file path
+* Default for areafills changed to set 'do not add thermal reliefs'
+
+Geometry editor
+---------------
+* BUGFIX - Dialogue box 'Add round through holes -> starting pin nr' now clears old data
+
+Schematic/Symbol editor
+-----------------------
+* BUGFIX - Dialogue box for reference in 'Component Info dialogue' now clears old data
+* BUGFIX - Components no longer fly away when rotating immediately after a copy
+* BUGFIX - 'Component selections by list' actually selects components now (!!!)
+* BUGFIX - Symbol editor's pin entry dialogue now reads all lines, including the last four
+* BUGFIX - Fixed some cases where text was created with the wrong line thickness
+* BUGFIX - 'Import text from file' works now
+* BUGFIX - 'Add symbol with search' no longer corrupts the symbol name
+* BUGFIX - Arrow heads (on special lines) are now visible for newly created designs
+
+Design Manager
+--------------
+* BUGFIX - Background colour is now correctly read from the windows registry
+
+Significant known bugs in this version
+Layout editor
+-------------
+* Setting PCB layers to 1 is buggy. Workaround: Set layers to 2 for a single layer board
+* The 'Save layout as a geometry' feature crashes the program sometimes
+
+
+
+Version 3.50 - 18/5/2012
+
+Software released under GPLv2 open source licence
