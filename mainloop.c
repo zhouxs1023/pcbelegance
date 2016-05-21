@@ -419,13 +419,14 @@ HGDIOBJ DrawGerberButton(HDC ButtonMemoryDC, int32 mode)
 
 void RedrawMainWindow()
 {
-	int32 minx, maxx, miny, maxy, res, cnt, RegType, r, g, b;
+	int32 minx, maxx, miny, maxy, res, RegType, r, g, b;
 	HGDIOBJ old, SavePen, SaveBrush;
 	LOGBRUSH TempBrushObject, TempBrushObject2;
 	HBRUSH TempBrush, TempBrush2;
 	HPEN TempPen, TempPen2;
 	HDC ButtonMemoryDC;
 	char str[100], KeyValue[100];
+	int32 cnt = sizeof(KeyValue);
 	RECT Rect;
 	HKEY Key;
 
@@ -441,7 +442,7 @@ void RedrawMainWindow()
 
 		if (res == ERROR_SUCCESS)
 		{
-			res = RegQueryValueEx(Key, "Menu", NULL, &RegType, (LPBYTE) & KeyValue, &cnt);
+			res = RegQueryValueEx(Key, "Menu", NULL, &RegType, (LPBYTE) & KeyValue, (DWORD *) &cnt);
 
 			if (sscanf(KeyValue, "%d %d %d", &r, &g, &b) == 3)
 				ButtonBackGroundColor = RGB(r, g, b);
