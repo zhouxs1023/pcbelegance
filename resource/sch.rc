@@ -15,13 +15,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -496,7 +494,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,43,105,50,14
     LTEXT           "Design manager PCB Elegance",IDC_STATIC1,45,9,168,12
-    CONTROL         BITMAP_INFO,BITMAP_INFO,"Static",SS_BITMAP,3,6,33,26
+	CONTROL         2014, BITMAP_INFO, "Static", SS_BITMAP, 3, 6, 33, 26
     EDITTEXT        IDC_EDIT2,43,23,258,77,ES_MULTILINE | ES_AUTOHSCROLL
     PUSHBUTTON      "Cancel",IDCANCEL,119,105,50,14
 END
@@ -617,7 +615,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,90,63,50,14
     EDITTEXT        IDC_EDIT1,47,8,187,47,ES_MULTILINE | ES_AUTOHSCROLL
-    CONTROL         2014,BITMAP_INFO,"Static",SS_BITMAP,7,9,33,26
+    CONTROL         BITMAP_INFO,BITMAP_INFO,"Static",SS_BITMAP,7,9,33,26
 END
 
 IDD_DIALOG_ADDSYMBOL2 DIALOG 0, 0, 361, 253
@@ -1230,7 +1228,7 @@ BEGIN
 END
 #endif    // APSTUDIO_INVOKED
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
