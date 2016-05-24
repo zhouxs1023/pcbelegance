@@ -455,7 +455,12 @@ void CheckObjectSelected(ObjectRecord * Object)
 			y1 = Object->y1;
 			x2 = Object->x2;
 
-			if (RectTestText2(x1, y1, x2, Object->RotationAngle, 0, Object->Text))
+			if (Object->RotationAngle > 1000.0)
+				TestResult = RectTestText2(x1, y1, x2, Object->RotationAngle - 2000.0, 1, Object->Text);
+			else
+				TestResult = RectTestText2(x1, y1, x2, Object->RotationAngle, 0, Object->Text);
+
+			if (TestResult)
 			{
 				if (!ReplaceSelections)
 				{
@@ -2279,7 +2284,11 @@ void GetMinMaxSelectedObjects()
 				break;
 
 			case OBJECT_TEXT:
-				GetMinMaxText(x1, y1, x2, 0, Object->RotationAngle, 0, 0, Object->Text);
+				if (Object->RotationAngle > 1000.0)
+					GetMinMaxText(x1, y1, x2, 0, Object->RotationAngle - 2000.0, 0, 1, Object->Text);
+				else
+					GetMinMaxText(x1, y1, x2, 0, Object->RotationAngle, 0, 0, Object->Text);
+
 				SelectedMinX = min(SelectedMinX, TextMinX - Thickness);
 				SelectedMaxX = max(SelectedMaxX, TextMaxX + Thickness);
 				SelectedMinY = min(SelectedMinY, TextMinY - Thickness);
@@ -2338,7 +2347,11 @@ int32 GetObjectSize(ObjectRecord * Object, double *MinX, double *MinY, double *M
 		break;
 
 	case OBJECT_TEXT:
-		GetMinMaxText(x1, y1, x2, 0, Object->RotationAngle, 0, 0, Object->Text);
+		if (Object->RotationAngle > 1000.0)
+			GetMinMaxText(x1, y1, x2, 0, Object->RotationAngle - 2000.0, 0, 1, Object->Text);
+		else
+			GetMinMaxText(x1, y1, x2, 0, Object->RotationAngle, 0, 0, Object->Text);
+		
 		*MinX = min(*MinX, TextMinX - Thickness);
 		*MaxX = max(*MaxX, TextMaxX + Thickness);
 		*MinY = min(*MinY, TextMinY - Thickness);

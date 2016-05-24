@@ -847,7 +847,7 @@ int32 RectTestText2(double x1, double y1, double x2, double Rotation, int32 Mirr
 	uint8 PolygonBuf1[1024];
 	uint8 PolygonBuf2[1024];
 
-	GetMinMaxText(x1, y1, x2, 0, Rotation, 0, 0, Text);
+	GetMinMaxText(x1, y1, x2, 0, Rotation, 0, Mirror, Text);
 
 	if ((TextMaxX < SearchMinX) || (TextMinX > SearchMaxX) || (TextMaxY < SearchMinY) || (TextMinY > SearchMaxY))
 		return 0;
@@ -874,7 +874,7 @@ int32 RectTestText2(double x1, double y1, double x2, double Rotation, int32 Mirr
 	ty3 = TextMaxY;
 	tx4 = TextMinX;
 	ty4 = TextMaxY;
-
+	/*
 	if (Mirror == 1)
 	{
 		tx1 = -tx1;
@@ -882,7 +882,7 @@ int32 RectTestText2(double x1, double y1, double x2, double Rotation, int32 Mirr
 		tx3 = -tx3;
 		tx4 = -tx4;
 	}
-
+	*/
 	RotatePointFromOtherPoint2(&tx1, &ty1, x1, y1, Rotation);
 	RotatePointFromOtherPoint2(&tx2, &ty2, x1, y1, Rotation);
 	RotatePointFromOtherPoint2(&tx3, &ty3, x1, y1, Rotation);

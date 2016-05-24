@@ -1117,6 +1117,9 @@ void PlaceRotatedFlippedComponents(int32 Mode)
 		if (RotationAngle == 0.0)
 			return;
 
+		if ((RotationAngle < -360.0) || (RotationAngle > 360.0))
+			return;
+
 		if (InRange3(RotationAngle, 90.0))
 			Mode = 1;
 
@@ -1459,18 +1462,25 @@ void PlaceRotatedFlippedComponents(int32 Mode)
 						break;
 
 					case 4:
+						hx = NewObject.y4;
+						NewObject.y4 = NewObject.y3;
+						NewObject.y3 = hx;
+						hx = NewObject.x4;
+						NewObject.x4 = NewObject.x3;
+						NewObject.x3 = hx;
 						NewObject.x3 *= (float) -1.0;
 						NewObject.x4 *= (float) -1.0;
-						hx = NewObject.x3;
-						NewObject.x3 = NewObject.x4;
-						NewObject.x4 = (float) hx;
 						break;
 
 					case 8:
-						NewObject.x3 *= (float) -1.0;
-						NewObject.y3 *= (float) -1.0;
-						NewObject.x4 *= (float) -1.0;
-						NewObject.y4 *= (float) -1.0;
+						hx = NewObject.y4;
+						NewObject.y4 = NewObject.y3;
+						NewObject.y3 = hx;
+						hx = NewObject.x4;
+						NewObject.x4 = NewObject.x3;
+						NewObject.x3 = hx;
+						NewObject.y3 *= (float)-1.0;
+						NewObject.y4 *= (float)-1.0;
 						break;
 					}
 				}
@@ -1524,12 +1534,13 @@ void PlaceRotatedFlippedComponents(int32 Mode)
 						Rotation += 270.0;
 						break;
 
-					case 4:
-						NewObject.x1 -= (float) (strlen(NewObject.Text) * NewObject.x2 * DefFontSize * 0.9);
+					case 4:  // Flip X
+						Mirror ^= 1;
 						break;
 
-					case 8:
-						NewObject.y1 -= (float) (NewObject.x2 * DefFontSize * 0.9);
+					case 8:  // Flip Y
+						Mirror ^= 1;
+						Rotation += 180.0;
 						break;
 
 					case 9:	// Mirror = 0
@@ -1545,11 +1556,20 @@ void PlaceRotatedFlippedComponents(int32 Mode)
 						break;
 					}
 
+					if (Rotation >= 360.0)
+						Rotation -= 360.0;
+
 					RotateFlipPoint2(&NewObject.x1, &NewObject.y1, CentreX, CentreY, Mode);
 				}
 				else
 				{
 					Rotation += RotationAngle;
+					if (Rotation >= 360.0)
+						Rotation -= 360.0;
+
+					if (Rotation <= -360.0)
+						Rotation += 360.0;
+
 					RotatePointFromOtherPoint2(&NewObject.x1, &NewObject.y1, CentreX, CentreY, RotationAngle);
 				}
 
