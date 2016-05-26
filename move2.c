@@ -1819,6 +1819,9 @@ void MoveSelectedRefs(int32 Mode, int32 Count)
 			else
 				Rotation += 90.0;
 
+			if (Rotation >= 360.0)
+				Rotation -= 360.0;
+
 			DrawSelectedRefs(OldX, OldY, Rotation);
 		}
 
@@ -2114,6 +2117,9 @@ void MoveSelectedCompValues(int32 Mode, int32 Count)
 			else
 				Rotation += 90.0;
 
+			if (Rotation >= 360.0)
+				Rotation -= 360.0;
+
 			DrawSelectedCompValues(OldX, OldY, Rotation);
 		}
 
@@ -2270,6 +2276,12 @@ void PlaceMovedRefs(double CurrentX, double CurrentY, double Rotation)
 				rx = -rx;
 			}
 
+			if (NewComp->CompNameRotation < 0.0)
+				NewComp->CompNameRotation += 360.0;
+
+			if (NewComp->CompNameRotation > 360.0)
+				NewComp->CompNameRotation -= 360.0;
+
 			NewComp->CompNameOriginX = (float) rx;
 			NewComp->CompNameOriginY = (float) ry;
 			NewComp->TextVisibility &= ~(0x400 + 0x10 + 0x4 + 0x2 + 1);
@@ -2347,6 +2359,12 @@ void PlaceMovedCompValues(double CurrentX, double CurrentY, double Rotation)
 				NewComp->CompValueRotation += (float) Rotation;
 				rx = -rx;
 			}
+
+			if (NewComp->CompValueRotation > 360)
+				NewComp->CompValueRotation -= 360;
+
+			if (NewComp->CompValueRotation < 0)
+				NewComp->CompValueRotation += 360;
 
 			NewComp->CompValueOriginX = (float) rx;
 			NewComp->CompValueOriginY = (float) ry;

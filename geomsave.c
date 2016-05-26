@@ -1456,9 +1456,9 @@ int32 SaveLayoutAsGeometry(int32 mode)
 						ShapeLines[3] = (float) Object->x2;
 
 						if (Object->Mirror == 0)
-							ShapeLines[4] = (float) (Object->RotationAngle + 2000.0);
+							ShapeLines[4] = (float) (LimitRotation(Object->RotationAngle) + 2000.0);
 						else
-							ShapeLines[4] = (float) (Object->RotationAngle + 4000.0);
+							ShapeLines[4] = (float) (LimitRotation(Object->RotationAngle) + 4000.0);
 
 						memset(&ShapeLines[6], 0, 64);
 						memmove(&ShapeLines[6], (LPSTR) Object->TraceNr, min(strlen((LPSTR) Object->TraceNr), 63));
@@ -2807,9 +2807,9 @@ int32 SaveLayoutAsGeometry(int32 mode)
 							Pad.Layer = Layer;
 
 							if (Object->Mirror == 0)
-								Pad.Height = (float) (Object->RotationAngle + 2000.0);
+								Pad.Height = (float) (LimitRotation(Object->RotationAngle) + 2000.0);
 							else
-								Pad.Height = (float) (Object->RotationAngle + 4000.0);
+								Pad.Height = (float) (LimitRotation(Object->RotationAngle) + 4000.0);
 
 							Pad.Special.Thickness = (float) Object->Thickness;
 							memset(&ShapeLines[7], 0, 64);
@@ -2996,12 +2996,12 @@ int32 SaveLayoutAsGeometry(int32 mode)
 
 				if (NewObject.Mirror == 0)
 				{
-					Pad.Height = (float) (NewObject.RotationAngle + 2000.0);
+					Pad.Height = (float) (LimitRotation(NewObject.RotationAngle) + 2000.0);
 					Pad.Layer = SILKSCREEN_BOTTOM;
 				}
 				else
 				{
-					Pad.Height = (float) (NewObject.RotationAngle + 4000.0);
+					Pad.Height = (float) (LimitRotation(NewObject.RotationAngle) + 4000.0);
 					Pad.Layer = SILKSCREEN_TOP;
 				}
 
@@ -3033,12 +3033,12 @@ int32 SaveLayoutAsGeometry(int32 mode)
 
 				if (NewObject.Mirror == 0)
 				{
-					Pad.Height = (float) (NewObject.RotationAngle + 2000.0);
+					Pad.Height = (float) (LimitRotation(NewObject.RotationAngle) + 2000.0);
 					Pad.Layer = SILKSCREEN_BOTTOM;
 				}
 				else
 				{
-					Pad.Height = (float) (NewObject.RotationAngle + 4000.0);
+					Pad.Height = (float) (LimitRotation(NewObject.RotationAngle) + 4000.0);
 					Pad.Layer = SILKSCREEN_TOP;
 				}
 

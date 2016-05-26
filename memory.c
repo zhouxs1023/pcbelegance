@@ -3440,6 +3440,7 @@ void MemoryMain()
 	NewDesign.SilkScreenWidth = (8 * 2540.0);
 	NewDesign.BoardOutlineWidth = (8 * 2540.0);
 	NewDesign.NrBoardLayers = 2;
+	NewDesign.ArrowLength = ARROW_LENGTH;
 
 	CurrentVia.ThickNess = (50 * 2540.0);
 	CurrentVia.DrillThickNess = (0.7 * 100000.0);

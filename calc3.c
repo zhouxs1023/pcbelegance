@@ -4460,7 +4460,7 @@ int32 MakeObjectFromCompRef(CompRecord * Comp, ObjectRecord * Object, int32 Mode
 	Object->y1 = y2;
 	Object->x2 = h2;
 	Object->Test = 0;
-	Object->RotationAngle = TextRotation;
+	Object->RotationAngle = LimitRotation(TextRotation);
 	Object->Mirror = Mirror;
 	Object->Thickness = Comp->CompNamePenThickNess;
 	Object->TraceNr = (int32) & (Comp->Name);
@@ -4522,7 +4522,7 @@ int32 MakeObjectFromCompValue(CompRecord * Comp, ObjectRecord * Object, int32 Mo
 	Object->y1 = y2;
 	Object->x2 = h2;
 	Object->Test = 0;
-	Object->RotationAngle = TextRotation;
+	Object->RotationAngle = LimitRotation(TextRotation);
 	Object->Mirror = Mirror;
 	Object->Thickness = Comp->CompValuePenThickNess;
 	Object->TraceNr = (int32) & (Comp->Value);

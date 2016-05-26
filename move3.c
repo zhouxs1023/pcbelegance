@@ -1938,6 +1938,9 @@ int32 MoveSelectedAreafill(int32 mode)
 			else
 				Rotation += 45.0;
 
+			if (Rotation >= 360.0)
+				Rotation -= 360.0;
+
 			DrawSelectedAreafills(CurrentX, CurrentY, CurrentX2, CurrentY2, CentreSelectedX, CentreSelectedY, Rotation,
 			                      1);
 			RightButtonPressed = 0;
@@ -3666,11 +3669,13 @@ void MirrorObjects(int32 mode)
 			if (mode == 0)
 			{	// Horizontal mirror
 				NewObjectText2.X += (float) (2.0 * (CentreSelectedX - NewObjectText2.X));
-//        NewObjectText2.TextMode^=0x10;
+		        NewObjectText2.TextMode ^= 0x10;
 			}
 			else
 			{	// Vertical mirror
 				NewObjectText2.Y += (float) (2.0 * (CentreSelectedY - NewObjectText2.Y));
+				NewObjectText2.TextMode ^= 0x10;
+				NewObjectText2.Rotation += (float) 180;
 			}
 
 			NewObjectText2.Info = OBJECT_SELECTED;
