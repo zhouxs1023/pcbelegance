@@ -786,7 +786,7 @@ void TraceDrawing(int32 mode)
 		}
 
 // ***********************************************************************************
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 //      if ((NotInRange(CurrentDrawX1,CurrentDrawX2))
 //         ||
@@ -794,7 +794,6 @@ void TraceDrawing(int32 mode)
 // DrawTrace1
 			TraceChanging(0, 0);
 //      }
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			ok = 1;
 		}
@@ -3307,12 +3306,11 @@ void AddAreaFillVia(int32 mode)
 		}
 
 // ***********************************************************************************
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawNewVia(OldX, OldY);
 			AddNewVia(CurrentDrawX2, CurrentDrawY2);
 			ViasInserted++;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			DrawNewVia(CurrentDrawX2, CurrentDrawY2);
 			ok = 1;

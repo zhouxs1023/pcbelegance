@@ -70,6 +70,8 @@ void RedrawButtons(void);
 
 void RedrawInfoBar(void);
 
+void SaveViewPos(void);
+
 void WindowPaint(void);
 
 void ResetAllObjects(void);

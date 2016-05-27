@@ -50,7 +50,7 @@ void DisplayCursorPosition2(int32 x, int32 y, int32 control, int32 mode);
 
 void DrawCrossHair(int32 mode);
 
-int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction);
+int32 CheckLeftButton(void);
 
 int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction);
 

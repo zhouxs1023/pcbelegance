@@ -6019,7 +6019,7 @@ int32 CommandSelectPoint(double *OX, double *OY, double MinX, double MinY, doubl
 				DrawTryingObjectCross(CurrentX, CurrentY, MinX, MinY, MaxX, MaxY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectCross(OldX, OldY, MinX, MinY, MaxX, MaxY, Mode);
 			*OX = CurrentX;
@@ -6027,7 +6027,6 @@ int32 CommandSelectPoint(double *OX, double *OY, double MinX, double MinY, doubl
 			SelectionEsc = 1;
 			OldX = CurrentX;
 			OldY = CurrentY;
-			LeftButtonPressed = 0;
 			CoordinateSet = 1;
 			CheckInputMessages(0);
 		}

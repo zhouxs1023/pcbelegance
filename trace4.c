@@ -191,20 +191,10 @@ void DrawTryingObjectLine(double CurrentX, double CurrentY, int32 Mode)
 	x1 = 0.0;
 	y1 = 0.0;
 
-	if (NewObjectLine.LineMode != 1)
-	{
-		NewObjectLine.X1 = (float) CurrentX2;	// Start
-		NewObjectLine.Y1 = (float) CurrentY2;
-		NewObjectLine.X2 = (float) CurrentX;	// End (Cursor position)
-		NewObjectLine.Y2 = (float) CurrentY;
-	}
-	else
-	{
-		NewObjectLine.X1 = (float) CurrentX;	// Start
-		NewObjectLine.Y1 = (float) CurrentY;
-		NewObjectLine.X2 = (float) CurrentX2;	// End (Cursor position)
-		NewObjectLine.Y2 = (float) CurrentY2;
-	}
+	NewObjectLine.X1 = (float) CurrentX2;	// Start
+	NewObjectLine.Y1 = (float) CurrentY2;
+	NewObjectLine.X2 = (float) CurrentX;	// End (Cursor position)
+	NewObjectLine.Y2 = (float) CurrentY;
 
 	DrawObjectLine(&NewObjectLine, 0.0, 0.0, 0);
 
@@ -599,7 +589,7 @@ void CommandAddObjectLines(double LineThickNess, int32 Layer, int32 Mode)
 				DrawTryingObjectLine(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectLine(CurrentX, CurrentY, Mode);
 
@@ -633,7 +623,6 @@ void CommandAddObjectLines(double LineThickNess, int32 Layer, int32 Mode)
 			Mode++;
 			RelX = CurrentX;
 			RelY = CurrentY;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 
 			if ((NewObjectLine.LineMode != 0) && (Mode > 1))
@@ -1110,7 +1099,7 @@ void CommandAddObjectRects(double LineThickNess, int32 Layer, int32 Mode)
 				DrawTryingObjectRect(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton() == 1)
 		{
 			DrawTryingObjectRect(CurrentX, CurrentY, Mode);
 
@@ -1127,7 +1116,6 @@ void CommandAddObjectRects(double LineThickNess, int32 Layer, int32 Mode)
 			OldY = CurrentY;
 			CurrentX2 = CurrentX;
 			CurrentY2 = CurrentY;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			Mode++;
 			RelX = CurrentX;
@@ -1690,7 +1678,7 @@ void CommandAddObjectArcs(double LineThickNess, int32 Layer, int32 CircleMode, i
 				DrawTryingObjectArc(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectArc(CurrentX, CurrentY, Mode);
 
@@ -1717,7 +1705,6 @@ void CommandAddObjectArcs(double LineThickNess, int32 Layer, int32 CircleMode, i
 			CurrentY2 = CurrentY;
 			OldX = CurrentX;
 			OldY = CurrentY;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 
 			if (CircleMode == 0)
@@ -2249,11 +2236,10 @@ void CommandAddObjectTexts2(double LineThickNess, int32 Layer, int32 Mode)
 				DrawTryingObjectText2(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectText2(CurrentX, CurrentY, Mode);
 			CommandAddTryingObjectText2(&NewObjectText2);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 

@@ -1914,7 +1914,7 @@ int32 MoveSelectedAreafill(int32 mode)
 				CompPlaced = 1;
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			CompPlaced = 1;
 			divx = CurrentX - CentreSelectedX;
@@ -1923,7 +1923,6 @@ int32 MoveSelectedAreafill(int32 mode)
 			                      1);
 			PlaceMovedAreafill(AreafillNrToMove, CurrentX, CurrentY, CurrentX2, CurrentY2, CentreSelectedX,
 			                   CentreSelectedY, Rotation, mode * 2 + 1);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 		}
@@ -2448,14 +2447,13 @@ int32 MoveStretchedAreafill(int32 mode)
 				CompPlaced = 1;
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			CompPlaced = 1;
 			DrawStretchedAreafill(AreafillNrToMove, CurrentX - CurrentX2 - CentreSelectedX,
 			                      CurrentY - CurrentY2 - CentreSelectedY, 1);
 			PlaceStretchedAreafill(AreafillNrToMove, CurrentX - CurrentX2 - CentreSelectedX,
 			                       CurrentY - CurrentY2 - CentreSelectedY, 1);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 		}

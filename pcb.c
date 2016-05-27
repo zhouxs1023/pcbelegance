@@ -1383,6 +1383,35 @@ void SpecialDrawing()
 // ********************************************************************************************************
 // ********************************************************************************************************
 
+void SaveViewPos(void)
+{
+	if (ViewPosPointer > 0)
+	{
+		if (ViewPosPointer == 20)
+		{
+			memmove(&ViewPos[0], &ViewPos[1], 19 * sizeof(ViewPosRecord));
+			ViewPosPointer--;
+		}
+
+		ViewPos[ViewPosPointer].Xoffset = Xoffset;
+		ViewPos[ViewPosPointer].Yoffset = Yoffset;
+		ViewPos[ViewPosPointer].Factor = Factor;
+		ViewPosPointer++;
+	}
+	else
+	{
+		ViewPos[ViewPosPointer].Xoffset = Xoffset;
+		ViewPos[ViewPosPointer].Yoffset = Yoffset;
+		ViewPos[ViewPosPointer].Factor = Factor;
+		ViewPosPointer++;
+	}
+}
+
+// ********************************************************************************************************
+// ********************************************************************************************************
+// ********************************************************************************************************
+// ********************************************************************************************************
+
 void RedrawMainWindow()
 {
 	RECT Rect;
@@ -1419,30 +1448,8 @@ void RedrawMainWindow()
 		if (!DebugPaint)
 		{
 			ReDrawing = 1;
-
 			if (OkToAddViewPos)
-			{
-				if (ViewPosPointer > 0)
-				{
-					if (ViewPosPointer == 20)
-					{
-						memmove(&ViewPos[0], &ViewPos[1], 19 * sizeof(ViewPosRecord));
-						ViewPosPointer--;
-					}
-
-					ViewPos[ViewPosPointer].Xoffset = Xoffset;
-					ViewPos[ViewPosPointer].Yoffset = Yoffset;
-					ViewPos[ViewPosPointer].Factor = Factor;
-					ViewPosPointer++;
-				}
-				else
-				{
-					ViewPos[ViewPosPointer].Xoffset = Xoffset;
-					ViewPos[ViewPosPointer].Yoffset = Yoffset;
-					ViewPos[ViewPosPointer].Factor = Factor;
-					ViewPosPointer++;
-				}
-			}
+				SaveViewPos();
 
 			OkToAddViewPos = 1;
 			ViewMinX = PixelToRealOffX(minx - 1);
@@ -2955,39 +2962,18 @@ LRESULT CALLBACK PCBWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 		{
 			MousePosX = LOWORD(LParam);
 			MousePosY = HIWORD(LParam) + 1;
+			LeftButtonPressed = 0;
+			MiddleButtonPressed = 0;
+			RightButtonPressed = 0;
 
 			if (WParam & MK_LBUTTON)
-			{
-				if (LeftButtonPressed == 0)
-					LeftButtonPressed = 1;
-			}
-			else
-			{
-				if (LeftButtonPressed)
-					LeftButtonPressed = 0;
-			}
+				LeftButtonPressed = 1;
 
 			if (WParam & MK_MBUTTON)
-			{
-				if (MiddleButtonPressed == 0)
-					MiddleButtonPressed = 1;
-			}
-			else
-			{
-				if (MiddleButtonPressed)
-					MiddleButtonPressed = 0;
-			}
+				MiddleButtonPressed = 1;
 
 			if (WParam & MK_RBUTTON)
-			{
-				if (RightButtonPressed == 0)
-					RightButtonPressed = 1;
-			}
-			else
-			{
-				if (RightButtonPressed)
-					RightButtonPressed = 0;
-			}
+				RightButtonPressed = 1;
 
 			if ((MousePosOldX != MousePosX) || (MousePosOldY != MousePosY))
 			{
@@ -3035,6 +3021,17 @@ LRESULT CALLBACK PCBWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 			MousePosX = LOWORD(LParam);
 			MousePosY = HIWORD(LParam) + 1;
 			return DefWindowProc(Window, Message, WParam, LParam);
+		}
+
+		break;
+
+	case WM_RBUTTONDBLCLK:
+		if ((Focused) && (FocusedAgain))
+		{
+			MouseChanged = 1;
+			RightButtonPressed = 1;
+			MousePosX = LOWORD(LParam);
+			MousePosY = HIWORD(LParam) + 1;
 		}
 
 		break;

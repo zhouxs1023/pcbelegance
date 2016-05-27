@@ -1799,7 +1799,7 @@ int32 CommandAddPolygonLines(double LineThickNess, int32 Layer, int32 Mode, int3
 		}
 
 // ****************************************************************************
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingPolygonObject(OldX, OldY, Mode2 | 16);
 			RandValue = GetNewRandomValue(0);
@@ -2020,7 +2020,6 @@ int32 CommandAddPolygonLines(double LineThickNess, int32 Layer, int32 Mode, int3
 				break;
 			}
 
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 		}
 
@@ -8451,7 +8450,7 @@ void CommandAddObjectPolygon(double LineThickNess, int32 Layer, int32 Mode)
 		}
 
 // ****************************************************************************
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingPolygonObject(OldX, OldY, Mode2);
 			RandValue = GetNewRandomValue(0);
@@ -8505,7 +8504,6 @@ void CommandAddObjectPolygon(double LineThickNess, int32 Layer, int32 Mode)
 				DrawTryingPolygonObject(CurrentX, CurrentY, Mode2);
 			}
 
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 		}
 
@@ -9152,7 +9150,7 @@ void CommandCutFromPolygon(int32 ObjectType)
 		}
 
 // ****************************************************************************
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingPolygonObject(OldX, OldY, Mode2);
 			RandValue = GetNewRandomValue(0);
@@ -9368,7 +9366,6 @@ void CommandCutFromPolygon(int32 ObjectType)
 				break;
 			}
 
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 		}
 

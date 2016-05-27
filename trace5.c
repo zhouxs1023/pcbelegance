@@ -750,7 +750,7 @@ void MoveOneTrace2(int32 mode)
 		}
 
 // ***********************************************************************************
-		if ((((mode == 0) && (LeftButtonPressed)) || ((mode == 1) && (!ShiftPressed))) && (NotInRange(div1, 0.0)))
+		if ((((mode == 0) && (CheckLeftButton())) || ((mode == 1) && (!ShiftPressed))) && (NotInRange(div1, 0.0)))
 		{
 			CalcSpecialTrace(div_old);
 			SpecialTraceDrawing(2);
@@ -917,7 +917,6 @@ void MoveOneTrace2(int32 mode)
 				SelectionEsc = 1;
 			}
 
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 		}
 

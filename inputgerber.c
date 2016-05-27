@@ -4982,7 +4982,7 @@ int32 MoveGerberObjects(int32 Layer, int32 mode)
 				CompPlaced = 1;
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			CompPlaced = 1;
 			divx = CurrentX - ShiftOffsetX;
@@ -5000,7 +5000,6 @@ int32 MoveGerberObjects(int32 Layer, int32 mode)
 			divx = CurrentX - CurrentX2 - ShiftOffsetX;
 			divy = CurrentY - CurrentY2 - ShiftOffsetY;
 			PlaceMovedGerberObjects(divx, divy, Layer, 0);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 		}

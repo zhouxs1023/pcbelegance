@@ -984,11 +984,10 @@ void Measurement(int32 TestMode)
 			SelectionEsc = 1;
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawMeasurementLine(CurrentX2, CurrentY2, OldX, OldY, mode);
 			mode++;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 
 			switch (mode)

@@ -317,7 +317,7 @@ void MoveSelectedSpecialObjects(int32 Mode, int32 Count)
 				CompPlaced = 1;
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			CompPlaced = 1;
 			DrawSelectedSpecialObjects(CurrentX, CurrentY, 1);
@@ -341,7 +341,6 @@ void MoveSelectedSpecialObjects(int32 Mode, int32 Count)
 				CurrentY += divy2;
 			}
 
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 		}
@@ -1793,14 +1792,13 @@ void MoveSelectedRefs(int32 Mode, int32 Count)
 				DrawSelectedRefs(CurrentX, CurrentY, Rotation);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			CompPlaced = 1;
 			divx = CurrentX - CentreSelectedX;
 			divy = CurrentY - CentreSelectedY;
 			DrawSelectedRefs(CurrentX, CurrentY, Rotation);
 			PlaceMovedRefs(CurrentX, CurrentY, Rotation);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 		}
@@ -2091,14 +2089,13 @@ void MoveSelectedCompValues(int32 Mode, int32 Count)
 				DrawSelectedCompValues(CurrentX, CurrentY, Rotation);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			CompPlaced = 1;
 			divx = CurrentX - CentreSelectedX;
 			divy = CurrentY - CentreSelectedY;
 			DrawSelectedCompValues(CurrentX, CurrentY, Rotation);
 			PlaceMovedCompValues(CurrentX, CurrentY, Rotation);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 		}

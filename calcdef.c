@@ -205,8 +205,12 @@ extern int64 CurrentFrequency;
 
 double LimitRotation(double rotation)
 {
-	if (rotation < -360.0 || rotation > 360.0)
-		rotation = remainder(rotation, 360.0);
+	while (rotation < 0.0)
+		rotation += 360.0;
+
+	while (rotation > 360.0)
+		rotation -= 360.0;
+
 	return rotation;
 }
 

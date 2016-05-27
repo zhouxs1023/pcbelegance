@@ -1184,93 +1184,26 @@ int32 DrawSpecialXorFunction(DrawXorFunctionRecord * DrawXorFunction, int32 mode
 // *******************************************************************************************************
 // *******************************************************************************************************
 
-
-int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
+int32 CheckLeftButton(void)
 {
-	int32 DivX, DivY;
+	static int32 press, unpress;
 
-	if (RightButtonPressed)
+	if (LeftButtonPressed)
 	{
-		FirstStartTimer2 = 0;
+		unpress = 0;
 
-		if (FirstRightButtonPressed == 0)
+		if (press == 0)
 		{
-			FirstRightButtonPressed = 1;
-			SetTimer2();
-			MousePosXR = MousePosX;
-			MousePosYR = MousePosY;
+			press = 1;
+			return 1;
 		}
-		else
-		{
-			if (MousePosX != 10000)
-			{
-				DivX = MousePosX - MousePosXR;
-				DivY = MousePosY - MousePosYR;
-
-				switch (MousePanMultiply)
-				{
-				case 0:
-					break;
-
-				case 1:
-					DivX = (DivX * 3) / 2;
-					DivY = (DivY * 3) / 2;
-					break;
-
-				case 2:
-					DivX = DivX * 2;
-					DivY = DivY * 2;
-					break;
-
-				case 3:
-					DivX = DivX * 3;
-					DivY = DivY * 3;
-					break;
-
-				case 4:
-					DivX = DivX * 4;
-					DivY = DivY * 4;
-					break;
-
-				case 5:
-					DivX = DivX * 5;
-					DivY = DivY * 5;
-					break;
-
-				case 6:
-					DivX = DivX * 6;
-					DivY = DivY * 6;
-					break;
-				}
-
-				if ((abs(DivX) > MaxDisplayDiv) || (abs(DivY) > MaxDisplayDiv))
-				{
-					DrawSpecialXorFunction(DrawXorFunction, 0);
-					ScrollAppWindow(DivX, DivY);
-					DrawSpecialXorFunction(DrawXorFunction, 1);
-					MousePosXR = MousePosX;
-					MousePosYR = MousePosY;
-				}
-			}
-		}
-
-//    MenuPopUp();
-		CheckInputMessages(0);
 	}
 	else
 	{
-		if (FirstStartTimer2)
-			return 0;
+		press = 0;
 
-		RightButtonDivTime = GetDifferenceTimer2inMilliSeconds();
-		RightButtonPressed = 0;
-		FirstRightButtonPressed = 0;
-
-		if (RightButtonDivTime < 300)
-		{
-//      DrawCrossHairCursor(OldX,OldY,0);
-			return 1;
-		}
+		if (unpress == 0)
+			unpress = 1;
 	}
 
 	return 0;
@@ -1280,7 +1213,6 @@ int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
 // *******************************************************************************************************
 // *******************************************************************************************************
 // *******************************************************************************************************
-
 
 int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction)
 {
@@ -1339,6 +1271,7 @@ int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction)
 
 				if ((abs(DivX) > MaxDisplayDiv) || (abs(DivY) > MaxDisplayDiv))
 				{
+					OkToAddViewPos = 0;
 					DrawSpecialXorFunction(DrawXorFunction, 0);
 					ScrollAppWindow(DivX, DivY);
 					DrawSpecialXorFunction(DrawXorFunction, 1);
@@ -1370,6 +1303,10 @@ int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction)
 			{
 				FirstRightButtonPressed = 0;
 				return 1;
+			}
+			else
+			{
+				SaveViewPos();
 			}
 		}
 
@@ -1421,7 +1358,7 @@ void MainLoop()
 		ZoomWindow();
 	}
 
-	if (LeftButtonPressed)
+	if (CheckLeftButton())
 	{
 		DrawMouseInfoOff(0);
 		DisplayInfoOff(0);
@@ -1433,7 +1370,7 @@ void MainLoop()
 			while ((LeftButtonPressed) && (Focused))
 				CheckInputMessages(0);
 
-			LeftButtonPressed = 0;
+			//LeftButtonPressed = 0;
 			CheckButtonPressed(1);
 		}
 		else
@@ -1495,7 +1432,7 @@ void MainLoop()
 		MouseChanged = 0;
 	}
 
-	if (CheckRightButton(NULL) == 1)
+	if (CheckRightButton2(NULL) == 1)
 		MenuPopUp();
 
 	/*

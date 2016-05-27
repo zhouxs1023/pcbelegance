@@ -1158,7 +1158,7 @@ void MoveConnectionsComponents(int32 mode)
 				ObjectsPlaced = 1;
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawMoveableConnections(OldX, OldY, CompRotationForMoving, mode2);
 			UnClipMouseCursor();
@@ -1172,7 +1172,6 @@ void MoveConnectionsComponents(int32 mode)
 			      }
 			*/
 			PlaceMovedObjects(CurrentX - ShiftOffsetX, CurrentY - ShiftOffsetY, CompRotationForMoving, 0);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			ObjectsPlaced = 1;

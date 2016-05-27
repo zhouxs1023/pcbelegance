@@ -493,12 +493,11 @@ void MoveTracesVias(int32 mode)
 				ObjectsPlaced = 1;
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTracesVias(OldX, OldY, 0);
 // CurrentX2 , CurrentY2
 			PlaceCopiedTracesVias(CurrentX - ShiftOffsetX, CurrentY - ShiftOffsetY, 0);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			ObjectsPlaced = 1;
 			LastActionNr++;
