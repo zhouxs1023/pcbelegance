@@ -3980,7 +3980,7 @@ void DrawOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY, double R
 							if (Object->Layer == COMP_OUTLINE_LAYER_BOTTOM)
 								continue;
 						}
-
+						else
 						if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 						{
 							if (Object->Layer == COMP_OUTLINE_LAYER_TOP)
@@ -3994,7 +3994,7 @@ void DrawOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY, double R
 							if (Object->Layer == COMP_OUTLINE_LAYER_TOP)
 								continue;
 						}
-
+						else
 						if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 						{
 							if (Object->Layer == COMP_OUTLINE_LAYER_BOTTOM)
@@ -4029,7 +4029,7 @@ void DrawOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY, double R
 					if (Object->Layer == COMP_OUTLINE_LAYER_BOTTOM)
 						continue;
 				}
-
+				else
 				if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 				{
 					if (Object->Layer == COMP_OUTLINE_LAYER_TOP)
@@ -4043,7 +4043,7 @@ void DrawOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY, double R
 					if (Object->Layer == COMP_OUTLINE_LAYER_TOP)
 						continue;
 				}
-
+				else
 				if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 				{
 					if (Object->Layer == COMP_OUTLINE_LAYER_BOTTOM)
@@ -4152,7 +4152,7 @@ void DrawSilkScreenComp(CompRecord * Comp, double OffsetX, double OffsetY, doubl
 								if (Object->Layer == SILKSCREEN_BOTTOM)
 									continue;
 							}
-
+							else
 							if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 							{
 								if (Object->Layer == SILKSCREEN_TOP)
@@ -4166,7 +4166,7 @@ void DrawSilkScreenComp(CompRecord * Comp, double OffsetX, double OffsetY, doubl
 								if (Object->Layer == SILKSCREEN_TOP)
 									continue;
 							}
-
+							else
 							if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 							{
 								if (Object->Layer == SILKSCREEN_BOTTOM)
@@ -4205,7 +4205,7 @@ void DrawSilkScreenComp(CompRecord * Comp, double OffsetX, double OffsetY, doubl
 						if (Object->Layer == SILKSCREEN_BOTTOM)
 							continue;
 					}
-
+					else
 					if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 					{
 						if (Object->Layer == SILKSCREEN_TOP)
@@ -4219,7 +4219,7 @@ void DrawSilkScreenComp(CompRecord * Comp, double OffsetX, double OffsetY, doubl
 						if (Object->Layer == SILKSCREEN_TOP)
 							continue;
 					}
-
+					else
 					if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 					{
 						if (Object->Layer == SILKSCREEN_BOTTOM)
@@ -4306,7 +4306,7 @@ void DrawPlacementOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY,
 							if (Object->Layer == PLACEMENT_OUTLINE_BOTTOM)
 								continue;
 						}
-
+						else
 						if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 						{
 							if (Object->Layer == PLACEMENT_OUTLINE_TOP)
@@ -4320,7 +4320,7 @@ void DrawPlacementOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY,
 							if (Object->Layer == PLACEMENT_OUTLINE_TOP)
 								continue;
 						}
-
+						else
 						if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 						{
 							if (Object->Layer == PLACEMENT_OUTLINE_BOTTOM)
@@ -4353,7 +4353,7 @@ void DrawPlacementOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY,
 					if (Object->Layer == PLACEMENT_OUTLINE_BOTTOM)
 						continue;
 				}
-
+				else
 				if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 				{
 					if (Object->Layer == PLACEMENT_OUTLINE_TOP)
@@ -4367,7 +4367,7 @@ void DrawPlacementOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY,
 					if (Object->Layer == PLACEMENT_OUTLINE_TOP)
 						continue;
 				}
-
+				else
 				if (CurrentDrawingLayer == Design.NrBoardLayers - 1)
 				{
 					if (Object->Layer == PLACEMENT_OUTLINE_BOTTOM)
@@ -4536,7 +4536,7 @@ void DrawReferenceComp(CompRecord * Comp, double OX, double OY, double Rotation,
 			{
 				if ((CurrentDrawingLayer == 0) && (!Mirror) && ((DrawLayerCode[CurrentDrawingLayer] & 0x10) == 0x10))
 					return;
-
+				else
 				if ((CurrentDrawingLayer == Design.NrBoardLayers - 1) && (Mirror)
 				        && ((DrawLayerCode[CurrentDrawingLayer] & 0x10) == 0x10))
 					return;
@@ -4545,7 +4545,7 @@ void DrawReferenceComp(CompRecord * Comp, double OX, double OY, double Rotation,
 			{
 				if ((CurrentDrawingLayer == 0) && (!Mirror) && ((DrawLayerCode[CurrentDrawingLayer] & 0x10) == 0x10))
 					return;
-
+				else
 				if ((CurrentDrawingLayer == Design.NrBoardLayers - 1) && (Mirror)
 				        && ((DrawLayerCode[CurrentDrawingLayer] & 0x10) == 0x10))
 					return;
@@ -4702,7 +4702,7 @@ void DrawValueComp(CompRecord * Comp, double OX, double OY, double Rotation, int
 			{
 				if ((CurrentDrawingLayer == 0) && (!Mirror) && ((DrawLayerCode[CurrentDrawingLayer] & 0x10) == 0x10))
 					return;
-
+				else
 				if ((CurrentDrawingLayer == Design.NrBoardLayers - 1) && (Mirror)
 				        && ((DrawLayerCode[CurrentDrawingLayer] & 0x10) == 0x10))
 					return;
@@ -4711,7 +4711,7 @@ void DrawValueComp(CompRecord * Comp, double OX, double OY, double Rotation, int
 			{
 				if ((CurrentDrawingLayer == 0) && (!Mirror) && ((DrawLayerCode[CurrentDrawingLayer] & 0x10) == 0x10))
 					return;
-
+				else
 				if ((CurrentDrawingLayer == Design.NrBoardLayers - 1) && (Mirror)
 				        && ((DrawLayerCode[CurrentDrawingLayer] & 0x10) == 0x10))
 					return;
