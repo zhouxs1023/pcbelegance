@@ -38,6 +38,8 @@ int32 PanActive(void);
 
 void CheckInputMessages(int32 DelayInMilleSeconds);
 
+int32 CheckLeftButton(void);
+
 int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction);
 
 void MainLoop(void);

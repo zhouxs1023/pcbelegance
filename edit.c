@@ -1350,7 +1350,7 @@ void CommandAddObjects(int32 ObjectType, double LineThickNess, int32 Layer, int3
 
 // *******************************************************************************************************
 // *******************************************************************************************************
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 #ifdef _DEBUG
 
@@ -1550,7 +1550,6 @@ void CommandAddObjects(int32 ObjectType, double LineThickNess, int32 Layer, int3
 			}
 
 			OldDir = -1;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 
 			if (DisplayObjectOnEscape)
@@ -1655,6 +1654,8 @@ void CommandAddObjects(int32 ObjectType, double LineThickNess, int32 Layer, int3
 										NewObject.y1 = (float) (RelY + ParamsFloat[1]);
 									}
 
+									CurrentX2 = NewObject.x1;
+									CurrentY2 = NewObject.y1;
 									Mode = 1;
 								}
 
@@ -1700,8 +1701,8 @@ void CommandAddObjects(int32 ObjectType, double LineThickNess, int32 Layer, int3
 								}
 								else
 								{
-									NewObject.x2 = (float) (RelX + ParamsFloat[0]);
-									NewObject.y2 = (float) (RelY + ParamsFloat[1]);
+									NewObject.x2 = (float) (CurrentX2 + ParamsFloat[0]);
+									NewObject.y2 = (float) (CurrentY2 + ParamsFloat[1]);
 								}
 
 								CurrentX2 = NewObject.x2;
@@ -2100,8 +2101,10 @@ void CommandAddObjects(int32 ObjectType, double LineThickNess, int32 Layer, int3
 					*TextP = 0;
 
 					if (TextInputDialog2
-					        ((LPSTR) & Buf[0], SC(206, "Add polygon points x1,x2,y2,x3,y3,x4,y4, .... )"), 0) == 1)
+					        ((LPSTR) & Buf[0], SC(206, "Add polygon points x1,y1,x2,y2,x3,y3,x4,y4, .... )"), 0) == 1)
 					{
+						int32 polyParametersRelative = 0;
+
 						cnt = 0;
 						NewObjectPolygon->NrVertices = 0;
 
@@ -2144,14 +2147,30 @@ void CommandAddObjects(int32 ObjectType, double LineThickNess, int32 Layer, int3
 
 								if (((NrParams = ScanParameters(-1, (char *) str, 0)) >= 2) && ((NrParams & 1) == 0))
 								{
+									if (ParametersRelative)
+										polyParametersRelative = 1;
+
 									for (cnt2 = 0; cnt2 < NrParams / 2; cnt2++)
 									{
-										if (NewObjectPolygon->NrVertices < 200)
+										if (!polyParametersRelative)
 										{
-											NewObjectPolygon->Points[cnt].x = ParamsFloat[cnt2 * 2];
-											NewObjectPolygon->Points[cnt].y = ParamsFloat[cnt2 * 2 + 1];
-											cnt++;
-											NewObjectPolygon->NrVertices++;
+											if (NewObjectPolygon->NrVertices < 200)
+											{
+												NewObjectPolygon->Points[cnt].x = ParamsFloat[cnt2 * 2];
+												NewObjectPolygon->Points[cnt].y = ParamsFloat[cnt2 * 2 + 1];
+												cnt++;
+												NewObjectPolygon->NrVertices++;
+											}
+										}
+										else
+										{
+											if (NewObjectPolygon->NrVertices < 200)
+											{
+												NewObjectPolygon->Points[cnt].x = RelX + ParamsFloat[cnt2 * 2];
+												NewObjectPolygon->Points[cnt].y = RelY + ParamsFloat[cnt2 * 2 + 1];
+												cnt++;
+												NewObjectPolygon->NrVertices++;
+											}
 										}
 									}
 								}
@@ -2533,7 +2552,7 @@ void CommandAddMultipleObjects(int32 mode)
 				DrawObjects2(CurrentX - CentreSelectedX, CurrentY - CentreSelectedY, 1);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawObjects2(CurrentX - CentreSelectedX, CurrentY - CentreSelectedY, 1);
 			CurrentX2 = CurrentX;
@@ -2542,7 +2561,6 @@ void CommandAddMultipleObjects(int32 mode)
 			OldX = CurrentX;
 			OldY = CurrentY;
 			InsertObjects2(CurrentX - CentreSelectedX, CurrentY - CentreSelectedY);
-			LeftButtonPressed = 0;
 //      LastActionNr++;
 			SelectionEsc = 1;
 //      DrawObjects2(CurrentX-CentreSelectedX,CurrentY-CentreSelectedY,1);
@@ -2828,7 +2846,7 @@ void CommandChangedCrosses(double OX, double OY, int32 Mode)
 				DrawTryingObjectCross(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectCross(CurrentX, CurrentY, Mode);
 
@@ -2851,7 +2869,6 @@ void CommandChangedCrosses(double OX, double OY, int32 Mode)
 			SelectionEsc = 1;
 			OldX = CurrentX;
 			OldY = CurrentY;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 		}
 
@@ -3309,7 +3326,7 @@ int32 CopyObjectsFromClipBoard(int32 mode)
 				DrawObjects2(CurrentX - CentreSelectedX, CurrentY - CentreSelectedY, 1);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawObjects2(CurrentX - CentreSelectedX, CurrentY - CentreSelectedY, 1);
 			CurrentX2 = CurrentX;
@@ -3318,7 +3335,6 @@ int32 CopyObjectsFromClipBoard(int32 mode)
 			OldX = CurrentX;
 			OldY = CurrentY;
 			InsertObjects2(CurrentX - CentreSelectedX, CurrentY - CentreSelectedY);
-			LeftButtonPressed = 0;
 //      LastActionNr++;
 			SelectionEsc = 1;
 //      DrawObjects2(CurrentX-CentreSelectedX,CurrentY-CentreSelectedY,1);

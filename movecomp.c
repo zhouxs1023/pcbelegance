@@ -709,7 +709,7 @@ void MoveSelectedObjects(int32 Mode, int32 Count)
 				CompPlaced = 1;
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			CompPlaced = 1;
 			divx = CurrentX - CentreSelectedX;
@@ -736,8 +736,7 @@ void MoveSelectedObjects(int32 Mode, int32 Count)
 			}
 
 //      (int16)LastActionNr--;
-			LeftButtonPressed = 0;
-			CheckInputMessages(0);
+			//CheckInputMessages(0);
 			SelectionEsc = 1;
 
 		}

@@ -608,13 +608,45 @@ int32 DrawSpecialXorFunction(DrawXorFunctionRecord * DrawXorFunction, int32 mode
 // *******************************************************************************************************
 // *******************************************************************************************************
 
+int32 CheckLeftButton(void)
+{
+	static int32 press, unpress;
+
+	if (LeftButtonPressed)
+	{
+		unpress = 0;
+
+		if (press == 0)
+		{
+			press = 1;
+			return 1;
+		}
+	}
+	else
+	{
+		press = 0;
+
+		if (unpress == 0)
+			unpress = 1;
+	}
+
+	return 0;
+}
+
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+
 int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
 {
 	int32 DivX, DivY;
+	static int32 FirstRightButtonDepressed;
 
 	if (RightButtonPressed)
 	{
 		FirstStartTimer2 = 0;
+		FirstRightButtonDepressed = 0;
 
 		if (FirstRightButtonPressed == 0)
 		{
@@ -685,15 +717,19 @@ int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
 		if (FirstStartTimer2)
 			return 0;
 
-		RightButtonDivTime = GetDifferenceTimer2inMilliSeconds();
-		RightButtonPressed = 0;
-		FirstRightButtonPressed = 0;
-
-		if (RightButtonDivTime < 300)
+		if (FirstRightButtonDepressed == 0)
 		{
-//      DrawCrossHairCursor(OldX,OldY,0);
-			return 1;
+			FirstRightButtonDepressed = 1;
+			RightButtonDivTime = GetDifferenceTimer2inMilliSeconds();
+
+			if (RightButtonDivTime < 300)
+			{
+				FirstRightButtonPressed = 0;
+				return 1;
+			}
 		}
+
+		FirstRightButtonPressed = 0;
 	}
 
 	return 0;
@@ -734,7 +770,7 @@ void MainLoop()
 		ZoomWindow();
 	}
 
-	if (LeftButtonPressed)
+	if (CheckLeftButton())
 	{
 		DrawButtonInfoOff(0);
 

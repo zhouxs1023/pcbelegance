@@ -1938,39 +1938,18 @@ LRESULT CALLBACK GEOMWinProc(HWND Window, uint32 Message, WPARAM WParam, LPARAM 
 		{
 			MousePosX = LOWORD(LParam);
 			MousePosY = HIWORD(LParam) + 1;
+			LeftButtonPressed = 0;
+			MiddleButtonPressed = 0;
+			RightButtonPressed = 0;
 
 			if (WParam & MK_LBUTTON)
-			{
-				if (LeftButtonPressed == 0)
-					LeftButtonPressed = 1;
-			}
-			else
-			{
-				if (LeftButtonPressed)
-					LeftButtonPressed = 0;
-			}
+				LeftButtonPressed = 1;
 
 			if (WParam & MK_MBUTTON)
-			{
-				if (MiddleButtonPressed == 0)
-					MiddleButtonPressed = 1;
-			}
-			else
-			{
-				if (MiddleButtonPressed)
-					MiddleButtonPressed = 0;
-			}
+				MiddleButtonPressed = 1;
 
 			if (WParam & MK_RBUTTON)
-			{
-				if (RightButtonPressed == 0)
-					RightButtonPressed = 1;
-			}
-			else
-			{
-				if (RightButtonPressed)
-					RightButtonPressed = 0;
-			}
+				RightButtonPressed = 1;
 
 			if ((MousePosOldX != MousePosX) || (MousePosOldY != MousePosY))
 			{
@@ -2043,6 +2022,17 @@ LRESULT CALLBACK GEOMWinProc(HWND Window, uint32 Message, WPARAM WParam, LPARAM 
 			MousePosX = LOWORD(LParam);
 			MousePosY = HIWORD(LParam) + 1;
 			MiddleButtonPressed = 0;
+		}
+
+		break;
+
+	case WM_RBUTTONDBLCLK:
+		if ((Focused) && (FocusedAgain))
+		{
+			MouseChanged = 1;
+			RightButtonPressed = 1;
+			MousePosX = LOWORD(LParam);
+			MousePosY = HIWORD(LParam) + 1;
 		}
 
 		break;
