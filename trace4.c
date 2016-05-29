@@ -695,6 +695,8 @@ void CommandAddObjectLines(double LineThickNess, int32 Layer, int32 Mode)
 									NewObjectLine.Y1 = (float) (RelY + ParamsFloat[1]);
 								}
 
+								CurrentX2 = NewObjectLine.X1;
+								CurrentY2 = NewObjectLine.Y1;
 								Mode = 1;
 							}
 
@@ -740,8 +742,8 @@ void CommandAddObjectLines(double LineThickNess, int32 Layer, int32 Mode)
 							}
 							else
 							{
-								NewObjectLine.X2 = (float) (RelX + ParamsFloat[0]);
-								NewObjectLine.Y2 = (float) (RelY + ParamsFloat[1]);
+								NewObjectLine.X2 = (float) (CurrentX2 + ParamsFloat[0]);
+								NewObjectLine.Y2 = (float) (CurrentY2 + ParamsFloat[1]);
 							}
 
 							CurrentX2 = NewObjectLine.X2;

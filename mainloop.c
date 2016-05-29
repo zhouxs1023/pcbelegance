@@ -1267,6 +1267,16 @@ int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction)
 					DivX = DivX * 4;
 					DivY = DivY * 4;
 					break;
+
+				case 5:
+					DivX = DivX * 5;
+					DivY = DivY * 5;
+					break;
+
+				case 6:
+					DivX = DivX * 6;
+					DivY = DivY * 6;
+					break;
 				}
 
 				if ((abs(DivX) > MaxDisplayDiv) || (abs(DivY) > MaxDisplayDiv))
@@ -1311,7 +1321,6 @@ int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction)
 		}
 
 		FirstRightButtonPressed = 0;
-		RightButtonPressed = 0;
 	}
 
 	return 0;

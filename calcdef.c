@@ -898,6 +898,16 @@ int32 ScanParameters(int32 NrParameters, LPSTR Str, int32 mode)
 		if (le == 0)
 			return -1;
 	}
+	else
+	if (Str[0] == '#')
+	{
+		ParametersRelative = 0;
+		memmove(&Str[0], &Str[1], le - 1);
+		le--;
+
+		if (le == 0)
+			return -1;
+	}
 
 	pos[0] = -1;
 

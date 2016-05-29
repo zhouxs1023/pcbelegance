@@ -2105,9 +2105,10 @@ int32 CommandAddPolygonLines(double LineThickNess, int32 Layer, int32 Mode, int3
 					AllocateSpecialMem(MEM_NET_SELECTED, 32 * 1024, (void **) &TextP);
 					*TextP = 0;
 
-					if (TextInputDialog2(TextP, SC(994, " (x1,x2,y2,x3,y3,x4,y4, .... )"), 0) == 1)
+					if (TextInputDialog2(TextP, SC(994, " (x1,y1,x2,y2,x3,y3,x4,y4, .... )"), 0) == 1)
 					{
-//            if (LineInputDialogLong(TextLine,"Add polygon points x1,x2,y2,x3,y3,x4,y4, .... )")==1) {
+						int32 polyParametersRelative = 0;
+
 						CheckInputMessages(200);
 						cnt = 0;
 						DrawPolygon2->NrVertices = 0;
@@ -2151,14 +2152,31 @@ int32 CommandAddPolygonLines(double LineThickNess, int32 Layer, int32 Mode, int3
 
 								if (((NrParams = ScanParameters(-1, str, 0)) >= 2) && ((NrParams & 1) == 0))
 								{
+									if (ParametersRelative)
+										polyParametersRelative = 1;
+
 									for (cnt2 = 0; cnt2 < NrParams / 2; cnt2++)
 									{
-										if (DrawPolygon2->NrVertices < 200)
+										if (!polyParametersRelative)
 										{
-											(*DrawPolygon2).Points[cnt].x = ParamsFloat[cnt2 * 2];
-											(*DrawPolygon2).Points[cnt].y = ParamsFloat[cnt2 * 2 + 1];
-											cnt++;
-											DrawPolygon2->NrVertices++;
+
+											if (DrawPolygon2->NrVertices < 200)
+											{
+												(*DrawPolygon2).Points[cnt].x = ParamsFloat[cnt2 * 2];
+												(*DrawPolygon2).Points[cnt].y = ParamsFloat[cnt2 * 2 + 1];
+												cnt++;
+												DrawPolygon2->NrVertices++;
+											}
+										}
+										else
+										{
+											if (DrawPolygon2->NrVertices < 200)
+											{
+												(*DrawPolygon2).Points[cnt].x = RelX + ParamsFloat[cnt2 * 2];
+												(*DrawPolygon2).Points[cnt].y = RelY + ParamsFloat[cnt2 * 2 + 1];
+												cnt++;
+												DrawPolygon2->NrVertices++;
+											}
 										}
 									}
 								}
@@ -8556,12 +8574,14 @@ void CommandAddObjectPolygon(double LineThickNess, int32 Layer, int32 Mode)
 				*TextP = 0;
 
 				if (LineThickNess == 0.0)
-					strcpy(str, SC(1019, "Add polygon points (x1,x2,y2,x3,y3,x4,y4, .... )"));
+					strcpy(str, SC(1019, "Add polygon points (x1,y1,x2,y2,x3,y3,x4,y4, .... )"));
 				else
-					strcpy(str, SC(1107, "Add polyline points (x1,x2,y2,x3,y3,x4,y4, .... )"));
+					strcpy(str, SC(1107, "Add polyline points (x1,y1,x2,y2,x3,y3,x4,y4, .... )"));
 
 				if (TextInputDialog2(TextP, str, 0) == 1)
 				{
+					int32 polyParametersRelative = 0;
+
 					CheckInputMessages(200);
 					cnt = 0;
 					DrawPolygon2->NrVertices = 0;
@@ -8605,14 +8625,30 @@ void CommandAddObjectPolygon(double LineThickNess, int32 Layer, int32 Mode)
 
 							if (((NrParams = ScanParameters(-1, str, 0)) >= 2) && ((NrParams & 1) == 0))
 							{
+								if (ParametersRelative)
+									polyParametersRelative = 1;
+
 								for (cnt2 = 0; cnt2 < NrParams / 2; cnt2++)
 								{
-									if (DrawPolygon2->NrVertices < 200)
+									if (!polyParametersRelative)
 									{
-										(*DrawPolygon2).Points[cnt].x = ParamsFloat[cnt2 * 2];
-										(*DrawPolygon2).Points[cnt].y = ParamsFloat[cnt2 * 2 + 1];
-										cnt++;
-										DrawPolygon2->NrVertices++;
+										if (DrawPolygon2->NrVertices < 200)
+										{
+											(*DrawPolygon2).Points[cnt].x = ParamsFloat[cnt2 * 2];
+											(*DrawPolygon2).Points[cnt].y = ParamsFloat[cnt2 * 2 + 1];
+											cnt++;
+											DrawPolygon2->NrVertices++;
+										}
+									}
+									else
+									{
+										if (DrawPolygon2->NrVertices < 200)
+										{
+											(*DrawPolygon2).Points[cnt].x = RelX + ParamsFloat[cnt2 * 2];
+											(*DrawPolygon2).Points[cnt].y = RelY + ParamsFloat[cnt2 * 2 + 1];
+											cnt++;
+											DrawPolygon2->NrVertices++;
+										}
 									}
 								}
 							}
@@ -9441,9 +9477,8 @@ void CommandCutFromPolygon(int32 ObjectType)
 					AllocateSpecialMem(MEM_NET_SELECTED, 32 * 1024, (void **) &TextP);
 					*TextP = 0;
 
-					if (TextInputDialog2(TextP, SC(1019, "Add polygon points (x1,x2,y2,x3,y3,x4,y4, .... )"), 0) == 1)
+					if (TextInputDialog2(TextP, SC(1019, "Add polygon points (x1,y1,x2,y2,x3,y3,x4,y4, .... )"), 0) == 1)
 					{
-//            if (LineInputDialogLong(TextLine,"Add polygon points x1,x2,y2,x3,y3,x4,y4, .... )")==1)
 						CheckInputMessages(200);
 						cnt = 0;
 						DrawPolygon2->NrVertices = 0;
@@ -9490,7 +9525,7 @@ void CommandCutFromPolygon(int32 ObjectType)
 									for (cnt2 = 0; cnt2 < NrParams / 2; cnt2++)
 									{
 										if (DrawPolygon2->NrVertices < 200)
-										{
+										{ //fixme
 											(*DrawPolygon2).Points[cnt].x = ParamsFloat[cnt2 * 2];
 											(*DrawPolygon2).Points[cnt].y = ParamsFloat[cnt2 * 2 + 1];
 											cnt++;
