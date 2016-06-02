@@ -3964,6 +3964,7 @@ void PlaceMovedObjects(double CurrentX, double CurrentY, double Rotation, int32 
 				Object5 = &((*Objects5)[res]);
 
 			DataBaseChanged = 1;
+			ZeroUnusedObjects(0);
 			Via = &((*Vias)[*IndexP]);
 			Via->Info |= OBJECT_NOT_VISIBLE;
 			Via->DeleteNr = (int16) LastActionNr;

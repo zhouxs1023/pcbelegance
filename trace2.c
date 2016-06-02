@@ -973,6 +973,8 @@ void DeleteAndUnDisplayObjectTrace(int32 ObjectNr, int32 RePaint)
 
 		if (ConnectObject)
 		{
+			ZeroUnusedObjects(0);
+
 			switch (ConnectObject->ObjectType)
 			{
 			case TRACE_HOR:
@@ -2537,12 +2539,14 @@ void SwapNetsTraces()
 						break;
 					}
 
+					ZeroUnusedObjects(0);
 					Trace->Info |= OBJECT_NOT_VISIBLE;
 					Trace->DeleteNr = (int16) LastActionNr;
 					ObjectNet1->NetNr = Net2;
 				}
 				else
 				{
+					ZeroUnusedObjects(0);
 					Trace->Info |= OBJECT_NOT_VISIBLE;
 					Trace->DeleteNr = (int16) LastActionNr;
 				}
@@ -2611,12 +2615,14 @@ void SwapNetsTraces()
 						break;
 					}
 
+					ZeroUnusedObjects(0);
 					Trace->Info |= OBJECT_NOT_VISIBLE;
 					Trace->DeleteNr = (int16) LastActionNr;
 					ObjectNet2->NetNr = Net1;
 				}
 				else
 				{
+					ZeroUnusedObjects(0);
 					Trace->Info = OBJECT_NOT_VISIBLE;
 					Trace->DeleteNr = (int16) LastActionNr;
 				}

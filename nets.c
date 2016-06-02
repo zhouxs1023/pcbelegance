@@ -2757,6 +2757,7 @@ void DeleteAndUndisplayConnectionsNet(int32 NetNr, int32 mode)
 					DrawConnection2(Connection);
 			}
 
+			ZeroUnusedObjects(0);
 			Connection->Info |= OBJECT_NOT_VISIBLE;
 			Connection->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -2887,6 +2888,7 @@ void DeleteNet(int32 NetNr)
 
 			if ((Trace->NetNr == NetNr) && (Trace->Info & OBJECT_NOT_VISIBLE) == 0)
 			{
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 			}
@@ -2898,6 +2900,7 @@ void DeleteNet(int32 NetNr)
 
 			if ((Trace->NetNr == NetNr) && (Trace->Info & OBJECT_NOT_VISIBLE) == 0)
 			{
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 			}
@@ -2909,6 +2912,7 @@ void DeleteNet(int32 NetNr)
 
 			if ((Trace->NetNr == NetNr) && (Trace->Info & OBJECT_NOT_VISIBLE) == 0)
 			{
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 			}
@@ -2920,6 +2924,7 @@ void DeleteNet(int32 NetNr)
 
 			if ((Trace->NetNr == NetNr) && (Trace->Info & OBJECT_NOT_VISIBLE) == 0)
 			{
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 			}
@@ -2933,6 +2938,7 @@ void DeleteNet(int32 NetNr)
 
 		if ((Via->NetNr == NetNr) && (Via->Info & OBJECT_NOT_VISIBLE) == 0)
 		{
+			ZeroUnusedObjects(0);
 			Via->Info |= OBJECT_NOT_VISIBLE;
 			Via->DeleteNr = (int16) LastActionNr;
 		}
@@ -2944,6 +2950,7 @@ void DeleteNet(int32 NetNr)
 
 		if (((Connection->Info & OBJECT_NOT_VISIBLE) == 0) && (Connection->NetNr == NetNr))
 		{
+			ZeroUnusedObjects(0);
 			Connection->Info |= OBJECT_NOT_VISIBLE;
 			Connection->DeleteNr = (int16) LastActionNr;
 		}
@@ -2956,6 +2963,7 @@ void DeleteNet(int32 NetNr)
 		if (((ObjectLine->Info & (OBJECT_NOT_VISIBLE)) == 0) && (ObjectLine->Layer < 32)
 		        && (ObjectLine->NetNr == NetNr))
 		{
+			ZeroUnusedObjects(0);
 			ObjectLine->Info |= OBJECT_NOT_VISIBLE;
 			ObjectLine->DeleteNr = (int16) LastActionNr;
 		}
@@ -2968,6 +2976,7 @@ void DeleteNet(int32 NetNr)
 		if (((ObjectArc->Info & (OBJECT_NOT_VISIBLE | OBJECT_FILLED)) == 0)
 		        && ((ObjectArc->Layer < 32) || (ObjectArc->Layer == DRILL_LAYER)) && (ObjectArc->NetNr == NetNr))
 		{
+			ZeroUnusedObjects(0);
 			ObjectArc->Info |= OBJECT_NOT_VISIBLE;
 			ObjectArc->DeleteNr = (int16) LastActionNr;
 		}

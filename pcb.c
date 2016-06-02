@@ -3018,6 +3018,7 @@ LRESULT CALLBACK PCBWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 			MouseChanged = 1;
 			FocusedAgain = 1;
 			LeftButtonPressed = 0;
+			LeftButtonDoublePressed = 0;
 			MousePosX = LOWORD(LParam);
 			MousePosY = HIWORD(LParam) + 1;
 			return DefWindowProc(Window, Message, WParam, LParam);

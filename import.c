@@ -1688,6 +1688,7 @@ int32 UpdateNetList(int32 mode)
 
 		if ((Comp->Info & (OBJECT_NOT_VISIBLE | COMPONENT_EXIST)) == 0)
 		{
+			ZeroUnusedObjects(0);
 			Comp->Info |= OBJECT_NOT_VISIBLE;
 			Comp->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;

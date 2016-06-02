@@ -5895,6 +5895,7 @@ int32 GetAreaFillToRebuild(int32 mode)
 
 	if (RebuildAreaFill(AreaFill, mode & 1) == 1)
 	{
+		ZeroUnusedObjects(0);
 		AreaFill = (AreaFillRecord *) & (AreaFillMem[(*AreaFills)[Found]]);
 		AreaFill->DeleteNr = (int16) LastActionNr;
 		AreaFill->Info |= OBJECT_NOT_VISIBLE;
@@ -6576,6 +6577,7 @@ int32 CommandAddToAreaFill(int32 mode)
 		SubPolygon = (PolygonRecord *) PolygonPos;
 	}
 
+	ZeroUnusedObjects(0);
 	AreaFill = (AreaFillRecord *) & (AreaFillMem[(*AreaFills)[Found]]);
 	AreaFill->Info &= ~(OBJECT_SELECTED);
 	AreaFill->Info |= OBJECT_NOT_VISIBLE;
@@ -7272,6 +7274,7 @@ void RemovePowerPlane(int32 Layer)
 
 		if (((AreaFill->Info & (OBJECT_NOT_VISIBLE)) == 0) && (AreaFill->Layer == Layer))
 		{
+			ZeroUnusedObjects(0);
 			AreaFill->Info |= OBJECT_NOT_VISIBLE;
 			AreaFill->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -7405,6 +7408,7 @@ int32 ChangeAreaFill(int32 mode)
 
 					if ((!IsLayerPowerPlane(AreaFill->Layer)) && (RebuildAreaFill(AreaFill, 0) == 1))
 					{
+						ZeroUnusedObjects(0);
 						AreaFill = (AreaFillRecord *) & (AreaFillMem[(*AreaFills)[cnt]]);
 						AreaFill->ThermalReliefThickness = AreaFill2->ThermalReliefThickness;
 						AreaFill->ThermalReliefDistance = AreaFill2->ThermalReliefDistance;
@@ -7493,6 +7497,7 @@ int32 ChangeClearanceAreaFill(double Clearance, int32 mode)
 
 				if ((RebuildAreaFill(AreaFill, 0) == 1))
 				{
+					ZeroUnusedObjects(0);
 					AreaFill = (AreaFillRecord *) & (AreaFillMem[(*AreaFills)[cnt]]);
 					AreaFill->Clearance = (float) OldClearance;
 					AreaFill->DeleteNr = (int16) LastActionNr;
@@ -7853,6 +7858,7 @@ int32 MergeAreafills(int32 mode)
 
 //    AreaFill->Info|=OBJECT_NOT_VISIBLE;
 //    AreaFill->DeleteNr=(int16)LastActionNr;
+		ZeroUnusedObjects(0);
 		for (cnt2 = 0; cnt2 < NrAreaFills; cnt2++)
 		{
 			AreaFill3 = (AreaFillRecord *) & (AreaFillMem[(*AreaFills)[MergeAreaFillNrs[cnt2]]]);

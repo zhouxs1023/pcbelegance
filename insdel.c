@@ -378,6 +378,7 @@ void DeleteObjectsSelected()
 				if ((Trace->NetNr >= 0) && (Trace->NetNr < Design.NrNets))
 					SelectedNets[Trace->NetNr] = 1;
 
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 				NrTracesDeleted++;
@@ -397,6 +398,7 @@ void DeleteObjectsSelected()
 				if ((Trace->NetNr >= 0) && (Trace->NetNr < Design.NrNets))
 					SelectedNets[Trace->NetNr] = 1;
 
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 				NrTracesDeleted++;
@@ -416,6 +418,7 @@ void DeleteObjectsSelected()
 				if ((Trace->NetNr >= 0) && (Trace->NetNr < Design.NrNets))
 					SelectedNets[Trace->NetNr] = 1;
 
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 				NrTracesDeleted++;
@@ -435,6 +438,7 @@ void DeleteObjectsSelected()
 				if ((Trace->NetNr >= 0) && (Trace->NetNr < Design.NrNets))
 					SelectedNets[Trace->NetNr] = 1;
 
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 				NrTracesDeleted++;
@@ -452,6 +456,7 @@ void DeleteObjectsSelected()
 
 		if ((ViaInfo & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			Via->Info |= OBJECT_NOT_VISIBLE;
 			Via->DeleteNr = (int16) LastActionNr;
 
@@ -510,6 +515,7 @@ void DeleteObjectsSelected()
 							DrawPolygon = (PolygonRecord *) PolygonPos;
 						}
 
+						ZeroUnusedObjects(0);
 						AreaFill->Info |= OBJECT_NOT_VISIBLE;
 						AreaFill->DeleteNr = (int16) LastActionNr;
 
@@ -544,6 +550,7 @@ void DeleteObjectsSelected()
 
 		if ((ObjectLine->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectLine->Info &= ~OBJECT_SELECTED;
 			ObjectLine->Info |= OBJECT_NOT_VISIBLE;
 			ObjectLine->DeleteNr = (int16) LastActionNr;
@@ -557,6 +564,7 @@ void DeleteObjectsSelected()
 
 		if ((ObjectRect->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectRect->Info &= ~OBJECT_SELECTED;
 			ObjectRect->Info |= OBJECT_NOT_VISIBLE;
 			ObjectRect->DeleteNr = (int16) LastActionNr;
@@ -583,6 +591,7 @@ void DeleteObjectsSelected()
 
 		if ((ObjectArc->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectArc->Info &= ~OBJECT_SELECTED;
 			ObjectArc->Info |= OBJECT_NOT_VISIBLE;
 			ObjectArc->DeleteNr = (int16) LastActionNr;
@@ -609,6 +618,7 @@ void DeleteObjectsSelected()
 
 		if ((ObjectText2->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectText2->Info &= ~OBJECT_SELECTED;
 			ObjectText2->Info |= OBJECT_NOT_VISIBLE;
 			ObjectText2->DeleteNr = (int16) LastActionNr;
@@ -622,6 +632,7 @@ void DeleteObjectsSelected()
 
 		if ((ObjectPolygon->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectPolygon->Info &= ~OBJECT_SELECTED;
 			ObjectPolygon->Info |= OBJECT_NOT_VISIBLE;
 			ObjectPolygon->DeleteNr = (int16) LastActionNr;

@@ -853,6 +853,7 @@ void MoveOneTrace2(int32 mode)
 					break;
 				}
 
+				ZeroUnusedObjects(0);
 				Trace->Info |= OBJECT_NOT_VISIBLE;
 				Trace->DeleteNr = (int16) LastActionNr;
 
