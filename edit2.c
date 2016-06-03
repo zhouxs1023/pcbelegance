@@ -365,11 +365,10 @@ void CommandAddPins(int32 Mode)
 			DrawTryingAddPins(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingAddPins(CurrentX, CurrentY, Mode);
 			CommandAddTryingPins();
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			DisplayObjectOnEscape = 0;
@@ -654,11 +653,10 @@ void CommandAddPowerPins(int32 Mode)
 				DrawTryingAddPowerPins(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingAddPowerPins(CurrentX, CurrentY, Mode);
 			CommandAddTryingPowerPins();
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			DisplayObjectOnEscape = 0;
@@ -982,11 +980,10 @@ void CommandAddPinBus(int32 Mode)
 				DrawTryingAddPinBus(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingAddPinBus(CurrentX, CurrentY, Mode);
 			CommandAddTryingPinBus();
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			DisplayObjectOnEscape = 0;
@@ -1327,11 +1324,10 @@ void CommandAddInstance(int32 Mode)
 				DrawTryingInstance(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingInstance(CurrentX, CurrentY, Mode);
 			CommandAddTryingInstance();
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			DisplayObjectOnEscape = 0;
@@ -2216,11 +2212,10 @@ void CommandAddGlobalConnection(int32 Mode)
 				DrawTryingGlobalConnection(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingGlobalConnection(CurrentX, CurrentY, Mode);
 			CommandAddTryingGlobalConnection(&NewGlobalConnection);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			DisplayObjectOnEscape = 0;
@@ -2526,11 +2521,10 @@ void AddWireLabel(int32 Mode)
 				DrawTryingWireLabels(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingWireLabels(CurrentX, CurrentY, Mode);
 			CommandAddTryingWireLabels(CurrentX, CurrentY);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			DisplayObjectOnEscape = 0;

@@ -483,7 +483,7 @@ Mode = 2  -> Copy objects
 			DrawSelectedObjects(CurrentX, CurrentY, 1);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 
 			CompPlaced = 1;
@@ -512,7 +512,6 @@ Mode = 2  -> Copy objects
 				LastActionNr++;
 			}
 
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 
@@ -1359,8 +1358,10 @@ void PlaceMovedComponents(double CurrentX, double CurrentY, int32 Mode, int32 co
 
 					if (Mode < 2)
 					{
+						ZeroUnusedObjects(0);
 						Wire->Info |= OBJECT_NOT_VISIBLE;
 						Wire->DeleteNr = (int16) LastActionNr;
+						DataBaseChanged = 1;
 					}
 					else
 					{
@@ -1403,8 +1404,10 @@ void PlaceMovedComponents(double CurrentX, double CurrentY, int32 Mode, int32 co
 
 					if (Mode < 2)
 					{
+						ZeroUnusedObjects(0);
 						Bus->Info |= OBJECT_NOT_VISIBLE;
 						Bus->DeleteNr = (int16) LastActionNr;
+						DataBaseChanged = 1;
 					}
 					else
 					{
@@ -2186,7 +2189,7 @@ void PlaceRotatedFlippedComponents(int32 Mode)
 					NewInstance.RefInfo ^= (1 << 8);
 					break;
 
-				case 4:
+				case 4://fixme
 					RotateFlipPoint2(&NewInstance.RefOriginX, &NewInstance.RefOriginY, CentreX, CentreY, Mode);
 					NewInstance.RefInfo &= ~0x0f;
 					NewInstance.RefInfo |= TextMirrorX[Alignment];

@@ -646,6 +646,36 @@ int32 DrawSpecialXorFunction(DrawXorFunctionRecord * DrawXorFunction, int32 mode
 // *******************************************************************************************************
 // *******************************************************************************************************
 
+int32 CheckLeftButton(void)
+{
+	static int32 press, unpress;
+
+	if (LeftButtonPressed)
+	{
+		unpress = 0;
+
+		if (press == 0)
+		{
+			press = 1;
+			return 1;
+		}
+	}
+	else
+	{
+		press = 0;
+
+		if (unpress == 0)
+			unpress = 1;
+	}
+
+	return 0;
+}
+
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+
 int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
 {
 	int32 DivX, DivY;
@@ -878,7 +908,7 @@ void MainLoop()
 		ZoomWindow();
 	}
 
-	if (LeftButtonPressed)
+	if (CheckLeftButton())
 	{
 		DrawButtonInfoOff(0);
 		DisplayInfoOff(0);

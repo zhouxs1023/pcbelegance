@@ -611,6 +611,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 			if ((Instance->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 			{
+				ZeroUnusedObjects(0);
 				Instance->Info |= OBJECT_NOT_VISIBLE;
 				Instance->DeleteNr = (int16) LastActionNr;
 				DataBaseChanged = 1;
@@ -653,6 +654,7 @@ void DeleteSelectedObjects(int32 Mode)
 		{
 			SetBackGroundActive(0);
 			DrawWire(Wire, (double) 0.0, (double) 0.0, 1);
+			ZeroUnusedObjects(0);
 			Wire->Info |= OBJECT_NOT_VISIBLE;
 			Wire->DeleteNr = (int16) LastActionNr;
 			x1 = Wire->X1;
@@ -731,6 +733,7 @@ void DeleteSelectedObjects(int32 Mode)
 		{
 			SetBackGroundActive(0);
 			DrawBus(Bus, (double) 0.0, (double) 0.0, 1);
+			ZeroUnusedObjects(0);
 			Bus->Info |= OBJECT_NOT_VISIBLE;
 			Bus->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -767,6 +770,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((Junction->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			Junction->Info |= OBJECT_NOT_VISIBLE;
 			Junction->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -780,6 +784,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((OnePinNet->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			OnePinNet->Info |= OBJECT_NOT_VISIBLE;
 			OnePinNet->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -793,6 +798,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((BusConnection->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			BusConnection->Info |= OBJECT_NOT_VISIBLE;
 			BusConnection->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -806,6 +812,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((GlobalConnection->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			GlobalConnection->Info |= OBJECT_NOT_VISIBLE;
 			GlobalConnection->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -821,6 +828,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((NetLabel->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			NetLabel->Info |= OBJECT_NOT_VISIBLE;
 			NetLabel->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -834,6 +842,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((ObjectLine->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectLine->Info |= OBJECT_NOT_VISIBLE;
 			ObjectLine->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -847,6 +856,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((ObjectRect->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectRect->Info |= OBJECT_NOT_VISIBLE;
 			ObjectRect->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -860,6 +870,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((ObjectCircle->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectCircle->Info |= OBJECT_NOT_VISIBLE;
 			ObjectCircle->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -873,6 +884,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((ObjectArc->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectArc->Info |= OBJECT_NOT_VISIBLE;
 			ObjectArc->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -886,6 +898,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((ObjectText->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			ObjectText->Info |= OBJECT_NOT_VISIBLE;
 			ObjectText->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -899,6 +912,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((Pin->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			Pin->Info |= OBJECT_NOT_VISIBLE;
 			Pin->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -912,6 +926,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((PowerPin->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			PowerPin->Info |= OBJECT_NOT_VISIBLE;
 			PowerPin->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -925,6 +940,7 @@ void DeleteSelectedObjects(int32 Mode)
 
 		if ((PinBus->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		{
+			ZeroUnusedObjects(0);
 			PinBus->Info |= OBJECT_NOT_VISIBLE;
 			PinBus->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;

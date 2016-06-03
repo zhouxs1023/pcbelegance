@@ -431,6 +431,7 @@ void CommandAddTryingWireBus(double CurrentX, double CurrentY, int32 Count, int3
 	{
 		if (FoundWireNr != -1)
 		{
+			ZeroUnusedObjects(0);
 			Wire = &((*Wires)[FoundWireNr]);
 			Wire->Info |= OBJECT_NOT_VISIBLE;
 			Wire->DeleteNr = (int16) LastActionNr;
@@ -438,6 +439,7 @@ void CommandAddTryingWireBus(double CurrentX, double CurrentY, int32 Count, int3
 
 		if (FoundBusNr != -1)
 		{
+			ZeroUnusedObjects(0);
 			Bus = &((*Busses)[FoundBusNr]);
 			Bus->Info |= OBJECT_NOT_VISIBLE;
 			Bus->DeleteNr = (int16) LastActionNr;
@@ -967,7 +969,7 @@ void CommandAddWires(int32 Mode)
 				DrawTryingWire(CurrentX, CurrentY, Mode | 0x10000);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			if ((FoundWireNr != -1) || (FoundBusNr != -1))
 				DrawTryingWire(CurrentX, CurrentY, Mode | 0x20000);
@@ -998,7 +1000,6 @@ void CommandAddWires(int32 Mode)
 			OldX = CurrentX;
 			OldY = CurrentY;
 			OldDir = -1;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			Count++;
 
@@ -1300,7 +1301,7 @@ void CommandAddJunction(int32 Mode)
 				DrawTryingJunction(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingJunction(CurrentX, CurrentY, Mode);
 			CommandAddTryingJunction();
@@ -1315,7 +1316,6 @@ void CommandAddJunction(int32 Mode)
 			Count++;
 			LastActionNr++;
 			DrawTryingJunction(CurrentX, CurrentY, Mode);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 		}
 
@@ -1593,7 +1593,7 @@ void CommandAddOnePinNet(int32 Mode)
 				DrawTryingOnePinNet(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingOnePinNet(CurrentX, CurrentY, Mode);
 			CommandAddTryingOnePinNet();
@@ -1608,7 +1608,6 @@ void CommandAddOnePinNet(int32 Mode)
 			Count++;
 			LastActionNr++;
 			DrawTryingOnePinNet(CurrentX, CurrentY, Mode);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 		}
 
@@ -1880,7 +1879,7 @@ void CommandAddBusConnection(int32 Mode)
 				DrawTryingBusConnection(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingBusConnection(CurrentX, CurrentY, Mode);
 			CommandAddTryingBusConnection(&NewBusConnection);
@@ -1903,7 +1902,6 @@ void CommandAddBusConnection(int32 Mode)
 			Count++;
 			LastActionNr++;
 			DrawTryingBusConnection(CurrentX, CurrentY, Mode);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 		}
 
@@ -2498,11 +2496,10 @@ void CommandAddNetLabel(int32 Mode)
 				DrawTryingNetLabel(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingNetLabel(CurrentX, CurrentY, Mode);
 			CommandAddTryingNetLabel(&NewNetLabel);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			DisplayObjectOnEscape = 0;
 			SelectionEsc = 1;
@@ -2875,7 +2872,7 @@ void CommandAddObjectRect(int32 Mode)
 				DrawTryingObjectRect(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectRect(CurrentX, CurrentY, Mode);
 
@@ -2893,7 +2890,6 @@ void CommandAddObjectRect(int32 Mode)
 			OldX = CurrentX;
 			OldY = CurrentY;
 			OldDir = -1;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			Mode += 2;
 
@@ -3190,7 +3186,7 @@ void CommandAddObjectCircle(int32 Mode)
 				DrawTryingObjectCircle(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectCircle(CurrentX, CurrentY, Mode);
 
@@ -3210,7 +3206,6 @@ void CommandAddObjectCircle(int32 Mode)
 			OldX = CurrentX;
 			OldY = CurrentY;
 			OldDir = -1;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 
 			if (DisplayObjectOnEscape)
@@ -3532,7 +3527,7 @@ void CommandAddObjectArc(int32 Mode)
 				DrawTryingObjectArc(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectArc(CurrentX, CurrentY, Mode);
 
@@ -3552,7 +3547,6 @@ void CommandAddObjectArc(int32 Mode)
 
 			OldX = CurrentX;
 			OldY = CurrentY;
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 
 			if (DisplayObjectOnEscape)
@@ -3830,14 +3824,13 @@ void CommandAddObjectText(int32 Mode)
 				DrawTryingObjectText(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 
 			DrawTryingObjectText(CurrentX, CurrentY, Mode);
 
 			CommandAddTryingObjectText(&NewObjectText);
 
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			DisplayObjectOnEscape = 0;
@@ -4136,11 +4129,10 @@ void CommandAddObjectTextNumbers(int32 Mode)
 				DrawTryingObjectNumbers(CurrentX, CurrentY, Mode);
 		}
 
-		if (LeftButtonPressed)
+		if (CheckLeftButton())
 		{
 			DrawTryingObjectNumbers(CurrentX, CurrentY, Mode);
 			CommandAddTryingObjectNumbers(Mode);
-			LeftButtonPressed = 0;
 			CheckInputMessages(0);
 			SelectionEsc = 1;
 			DisplayObjectOnEscape = 0;

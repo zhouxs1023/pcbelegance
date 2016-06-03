@@ -42,6 +42,8 @@ void CheckInputMessages(int32 DelayInMilleSeconds);
 
 void CheckForEscape(void);
 
+int32 CheckLeftButton(void);
+
 int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction);
 
 int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction);
