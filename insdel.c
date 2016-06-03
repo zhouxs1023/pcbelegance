@@ -409,6 +409,7 @@ void DeleteObjects()
 				DrawObjectWithClearance(Object, 0.0, 0.0, 0);
 			}
 
+			ZeroUnusedObjects(0);
 			Object->Info |= OBJECT_NOT_VISIBLE;
 			Object->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -438,6 +439,7 @@ void DeleteObjects()
 				DrawPolygonObjectWithClearance(ObjectPolygon, 0.0, 0.0, 0);
 			}
 
+			ZeroUnusedObjects(0);
 			ObjectPolygon->Info |= OBJECT_NOT_VISIBLE;
 			ObjectPolygon->DeleteNr = (int16) LastActionNr;
 			DataBaseChanged = 1;
@@ -488,12 +490,12 @@ int32 AddObject(ObjectRecord * Object)
 	}
 
 	DataBaseChanged = 1;
+	ZeroUnusedObjects(0);
 	Object->AddNr = (int16) LastActionNr;
 	Object->DeleteNr = 0;
 	Object3 = &((*Objects)[NrObjects]);
 	memmove(Object3, Object, sizeof(ObjectRecord));
 	GetObjectSize(Object3, &VisibleMinX, &VisibleMinY, &VisibleMaxX, &VisibleMaxY);
-	ZeroUnusedObjects(0);
 	NrObjects++;
 	return 1;
 }
@@ -534,11 +536,11 @@ int32 AddObjectPolygon2(int32 PolygonIndex)
 	NewObjectPolygon2 = (ObjectPolygonRecord *) ObjectPolygonP;
 	*ObjectPolygonPos = ObjectPolygonMemorySize;
 
+	ZeroUnusedObjects(0);
 	NewObjectPolygon2->AddNr = (int16) LastActionNr;
 	NewObjectPolygon2->DeleteNr = 0;
 	SetMinMaxObjectPolygon(NewObjectPolygon2, 0);
 
-	ZeroUnusedObjects(0);
 	NrObjectPolygons++;
 	ObjectPolygonMemorySize += ObjectPolygonLength;
 
@@ -585,11 +587,11 @@ int32 AddObjectPolygon(ObjectPolygonRecord * ObjectPolygon)
 	NewObjectPolygon2 = (ObjectPolygonRecord *) ObjectPolygonP;
 	*ObjectPolygonPos = ObjectPolygonMemorySize;
 
+	ZeroUnusedObjects(0);
 	NewObjectPolygon2->AddNr = (int16) LastActionNr;
 	NewObjectPolygon2->DeleteNr = 0;
 	SetMinMaxObjectPolygon(NewObjectPolygon2, 0);
 
-	ZeroUnusedObjects(0);
 	NrObjectPolygons++;
 	ObjectPolygonMemorySize += ObjectPolygonLength;
 
@@ -612,6 +614,7 @@ int32 AddObject2(ObjectRecord * Object)
 			return 0;
 	}
 
+	ZeroUnusedObjects(0);
 	Object->AddNr = (int16) LastActionNr;
 	Object->DeleteNr = 0;
 	Object3 = &((*Objects2)[NrObjects2]);

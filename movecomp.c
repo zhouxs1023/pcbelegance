@@ -2939,6 +2939,7 @@ void CopyObjectsToOtherLayer(int32 Layer, int32 mode)
 						PinObject.y1 = (float) ((ObjectPolygon->miny + ObjectPolygon->maxy) * 0.5);
 						PinObject.Layer = ObjectPolygon->Layer;
 						PinObject.PinNr = ObjectPolygon->PinNr;
+						ZeroUnusedObjects(0);
 						ObjectPolygon->DeleteNr = (int16) LastActionNr;
 						ObjectPolygon->Info |= OBJECT_NOT_VISIBLE;
 					}
@@ -4211,6 +4212,7 @@ int32 GetPolygonFromLines(int32 mode)
 		if (((Object->Info & (OBJECT_NOT_VISIBLE | OBJECT_SELECTED)) == OBJECT_SELECTED)
 		        && (Object->ObjectType == OBJECT_LINE) && (Object->Layer == Layer))
 		{
+			ZeroUnusedObjects(0);
 			Object->Info &= ~OBJECT_SELECTED;
 			Object->Info |= OBJECT_NOT_VISIBLE;
 			Object->DeleteNr = (int16) LastActionNr;

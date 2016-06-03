@@ -1994,6 +1994,7 @@ LRESULT CALLBACK GEOMWinProc(HWND Window, uint32 Message, WPARAM WParam, LPARAM 
 			MouseChanged = 1;
 			FocusedAgain = 1;
 			LeftButtonPressed = 0;
+			LeftButtonDoublePressed = 0;
 			MousePosX = LOWORD(LParam);
 			MousePosY = HIWORD(LParam) + 1;
 //          LeftPressedOk=1;
