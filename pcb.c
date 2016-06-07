@@ -4310,6 +4310,9 @@ void DecodeParameters(int32 mode)
 	char *FileName;
 	int32 cnt, lengte, pos;
 
+	DesignPath[0] = 0;
+	DesignFile[0] = 0;
+	ProjectPath[0] = 0;
 
 	pos = 0;
 	lengte = 1000;

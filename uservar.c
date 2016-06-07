@@ -70,6 +70,23 @@ int32 LoadUserVarFileName(int32 mode)
 			return -1;
 		}
 
+		if (DesignFile[0] != 0)
+		{
+			GetFilePartFromFileName(str, DesignFile);
+			CutExtensionFileName(str);
+		}
+		else
+		{
+			if (EditFile[0] != 0)
+				GetFilePartFromFileName(str, DesignPath);
+			else
+			{
+				LatestUserVarFileTimeForCache = 0;
+				UserVarFileCached = 0;
+				return -2;
+			}
+		}
+
 		sprintf(UserVarFileName, "%s\\%s.var", DesignPath, str);
 		sprintf(UserVarFileName2, "%s\\%s_new.var", DesignPath, str);
 //    MessageBox(NULL,UserVarFileName,"user var filename",MB_APPLMODAL+MB_OK);
