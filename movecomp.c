@@ -1924,7 +1924,71 @@ void PlaceMovedComponents(double CurrentX, double CurrentY, int32 Mode, int32 co
 		RePaint();
 }
 
+// ********************************************************************************************************
+// ********************************************************************************************************
+// ********************************************************************************************************
+// ********************************************************************************************************
 
+void FlipTextAlignment(float *x, float *y, int16 *RefInfo, int16 SymbolInfo, int32 length, int32 Mode)
+{
+	// Mode:
+	// 4 = flip x
+	// 8 = flip y
+
+	//int32 ObjectMirrorX = ((SymbolInfo & OBJECT_MIRRORX) >> 4);
+	//int32 ObjectMirrorY = ((SymbolInfo & OBJECT_MIRRORY) >> 5);
+	int32 Rotation = (SymbolInfo) & OBJECT_ROTATE90;
+	int32 TextRotation = (((*RefInfo >> 8) & 1) + Rotation) & 1;
+	int32 Alignment = *RefInfo & 0x0f;
+	char str[200];
+
+	if ( ((TextRotation == 0) && (Mode == 4) && (Rotation == 0)
+		|| (TextRotation == 1) && (Mode == 8) && (Rotation == 1)) )
+	{
+		switch (Alignment)
+		{
+		case ALIGN_LEFT_TOP:
+		case ALIGN_LEFT_CENTRE:
+		case ALIGN_LEFT_BOTTOM:
+			*x += length * DefFontSize * (float)CharWidthFactor;
+			*RefInfo &= ~0x0f;
+			*RefInfo |= TextMirrorX[Alignment];
+			break;
+
+		case ALIGN_RIGHT_TOP:
+		case ALIGN_RIGHT_CENTRE:
+		case ALIGN_RIGHT_BOTTOM:
+			*x -= length * DefFontSize * (float)CharWidthFactor;
+			*RefInfo &= ~0x0f;
+			*RefInfo |= TextMirrorX[Alignment];
+			break;
+		}
+	}
+
+	if ( ((TextRotation == 1) && (Mode == 8) && (Rotation == 0))
+		|| ((TextRotation == 0) && (Mode == 4) && (Rotation == 1)) )
+	{
+		switch (Alignment)
+		{
+		case ALIGN_LEFT_TOP:
+		case ALIGN_LEFT_CENTRE:
+		case ALIGN_LEFT_BOTTOM:
+			*y += length * DefFontSize * (float)CharWidthFactor;
+			*RefInfo &= ~0x0f;
+			*RefInfo |= TextMirrorX[Alignment];
+			break;
+
+		case ALIGN_RIGHT_TOP:
+		case ALIGN_RIGHT_CENTRE:
+		case ALIGN_RIGHT_BOTTOM:
+			*y -= length * DefFontSize * (float)CharWidthFactor;
+			*RefInfo &= ~0x0f;
+			*RefInfo |= TextMirrorX[Alignment];
+			break;
+		}
+	}
+
+}
 // ********************************************************************************************************
 // ********************************************************************************************************
 // ********************************************************************************************************
@@ -2189,16 +2253,14 @@ void PlaceRotatedFlippedComponents(int32 Mode)
 					NewInstance.RefInfo ^= (1 << 8);
 					break;
 
-				case 4://fixme
-					RotateFlipPoint2(&NewInstance.RefOriginX, &NewInstance.RefOriginY, CentreX, CentreY, Mode);
-					NewInstance.RefInfo &= ~0x0f;
-					NewInstance.RefInfo |= TextMirrorX[Alignment];
+				case 4:
+					FlipTextAlignment(&NewInstance.RefOriginX, &NewInstance.RefOriginY,	&NewInstance.RefInfo,
+										NewInstance.SymbolInfo, strlen(NewInstance.Reference), Mode);
 					break;
 
 				case 8:
-					RotateFlipPoint2(&NewInstance.RefOriginX, &NewInstance.RefOriginY, CentreX, CentreY, Mode);
-					NewInstance.RefInfo &= ~0x0f;
-					NewInstance.RefInfo |= TextMirrorY[Alignment];
+					FlipTextAlignment(&NewInstance.RefOriginX, &NewInstance.RefOriginY, &NewInstance.RefInfo,
+										NewInstance.SymbolInfo, strlen(NewInstance.Reference), Mode);
 					break;
 				}
 			}
@@ -2214,15 +2276,13 @@ void PlaceRotatedFlippedComponents(int32 Mode)
 					break;
 
 				case 4:
-					RotateFlipPoint2(&NewInstance.ValueOriginX, &NewInstance.ValueOriginY, CentreX, CentreY, Mode);
-					NewInstance.ValueInfo &= ~0x0f;
-					NewInstance.ValueInfo |= TextMirrorX[Alignment];
+					FlipTextAlignment(&NewInstance.ValueOriginX, &NewInstance.ValueOriginY, &NewInstance.ValueInfo,
+										NewInstance.SymbolInfo, strlen(NewInstance.Value), Mode);
 					break;
 
 				case 8:
-					RotateFlipPoint2(&NewInstance.ValueOriginX, &NewInstance.ValueOriginY, CentreX, CentreY, Mode);
-					NewInstance.ValueInfo &= ~0x0f;
-					NewInstance.ValueInfo |= TextMirrorY[Alignment];
+					FlipTextAlignment(&NewInstance.ValueOriginX, &NewInstance.ValueOriginY, &NewInstance.ValueInfo,
+										NewInstance.SymbolInfo, strlen(NewInstance.Value), Mode);
 					break;
 				}
 			}
