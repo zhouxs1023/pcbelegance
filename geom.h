@@ -83,4 +83,7 @@ void SetScrollPageSize(void);
 
 void SetScrollPosition(void);
 
+void SaveViewPos(void);
+
+
 #endif

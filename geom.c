@@ -502,6 +502,35 @@ void SetScrollPosition()
 // *******************************************************************************************************
 // *******************************************************************************************************
 
+void SaveViewPos(void)
+{
+	if (ViewPosPointer > 0)
+	{
+		if (ViewPosPointer == 20)
+		{
+			memmove(&ViewPos[0], &ViewPos[1], 19 * sizeof(ViewPosRecord));
+			ViewPosPointer--;
+		}
+
+		ViewPos[ViewPosPointer].Xoffset = Xoffset;
+		ViewPos[ViewPosPointer].Yoffset = Yoffset;
+		ViewPos[ViewPosPointer].Factor = Factor;
+		ViewPosPointer++;
+	}
+	else
+	{
+		ViewPos[ViewPosPointer].Xoffset = Xoffset;
+		ViewPos[ViewPosPointer].Yoffset = Yoffset;
+		ViewPos[ViewPosPointer].Factor = Factor;
+		ViewPosPointer++;
+	}
+}
+
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+
 
 void RedrawMainWindow()
 {
@@ -530,28 +559,7 @@ void RedrawMainWindow()
 	FillRect(OutputDisplay, &Rect, BackGroundBrush);
 
 	if (OkToAddViewPos)
-	{
-		if (ViewPosPointer > 0)
-		{
-			if (ViewPosPointer == 20)
-			{
-				memmove(&ViewPos[0], &ViewPos[1], 19 * sizeof(ViewPosRecord));
-				ViewPosPointer--;
-			}
-
-			ViewPos[ViewPosPointer].Xoffset = Xoffset;
-			ViewPos[ViewPosPointer].Yoffset = Yoffset;
-			ViewPos[ViewPosPointer].Factor = Factor;
-			ViewPosPointer++;
-		}
-		else
-		{
-			ViewPos[ViewPosPointer].Xoffset = Xoffset;
-			ViewPos[ViewPosPointer].Yoffset = Yoffset;
-			ViewPos[ViewPosPointer].Factor = Factor;
-			ViewPosPointer++;
-		}
-	}
+		SaveViewPos();
 
 	OkToAddViewPos = 1;
 	ViewMinX = PixelToRealOffX(minx - 1);

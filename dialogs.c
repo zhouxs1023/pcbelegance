@@ -3121,12 +3121,12 @@ int32 CALLBACK SelectNewGeomtrieDialog2(HWND Dialog, uint32 Message, WPARAM WPar
 	case WM_INITDIALOG:
 		SelectionEsc = 0;
 		SetWindowTextUTF8(Dialog, SC(124, "Select new geometry"));
-		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM) SC(125, "New geometry"));
-		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM) SC(126, "DIP"));
-		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM) SC(127, "QUAD flatpack"));
-		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM) SC(128, "BGA"));
-		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM) SC(129, "PGA"));
-		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM) SC(130, "SOIC"));
+		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM)SC(125, "New geometry"));
+		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM)SC(126, "Dual TH (DIP)"));
+		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM)SC(129, "Grid TH (PGA)"));
+		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM)SC(130, "Dual SM (SOIC)"));
+		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM)SC(127, "Quad SM (QFP)"));
+		SendDlgItemMessage(Dialog, IDC_LIST1, LB_ADDSTRING, 0, (LPARAM)SC(128, "Grid SM (BGA)"));
 		return about;
 
 	case WM_MOVE:

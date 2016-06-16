@@ -309,19 +309,19 @@ void GEOMCommand(int32 WParam, int32 LParam)
 				break;
 
 			case 2:
-				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_CREATE_QUAD, (LPARAM) NULL);
+				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_CREATE_PGA, (LPARAM)NULL);
 				break;
 
 			case 3:
-				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_CREATE_BGA, (LPARAM) NULL);
+				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_CREATE_SOIC, (LPARAM)NULL);
 				break;
 
 			case 4:
-				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_CREATE_PGA, (LPARAM) NULL);
+				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_CREATE_QUAD, (LPARAM) NULL);
 				break;
 
 			case 5:
-				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_CREATE_SOIC, (LPARAM) NULL);
+				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_CREATE_BGA, (LPARAM) NULL);
 				break;
 			}
 		}
@@ -727,6 +727,14 @@ void GEOMCommand(int32 WParam, int32 LParam)
 
 	case ID_ADD_RECT2_SILK_TOP:
 		CommandAddObjects(OBJECT_RECT, CurrentSilkscreenLine, SILKSCREEN_TOP_LAYER, 2 + LParam);
+		break;
+
+	case ID_ADD_RECT2_PLACE_OUTL:
+		CommandAddObjects(OBJECT_RECT, 0.0, PLACEMENT_OUTLINE_LAYER, 2 + LParam);
+		break;
+
+	case ID_ADD_RECT2_COMP_OUTL:
+		CommandAddObjects(OBJECT_RECT, CurrentCompOutLine, COMP_OUTLINE_LAYER, 2 + LParam);
 		break;
 
 // *****************************************************************************************

@@ -700,6 +700,7 @@ int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
 
 				if ((abs(DivX) > MaxDisplayDiv) || (abs(DivY) > MaxDisplayDiv))
 				{
+					OkToAddViewPos = 0;
 					DrawSpecialXorFunction(DrawXorFunction, 0);
 					ScrollAppWindow(DivX, DivY);
 					DrawSpecialXorFunction(DrawXorFunction, 1);
@@ -726,6 +727,10 @@ int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
 			{
 				FirstRightButtonPressed = 0;
 				return 1;
+			}
+			else
+			{
+				SaveViewPos();
 			}
 		}
 

@@ -51,6 +51,7 @@
 #include "movecomp.h"
 #include "graphics.h"
 #include "resource.h"
+#include "resource2.h"
 
 #define  BUTTON_INFO_TIMEOUT  40
 
@@ -1121,7 +1122,7 @@ void ButtonInfo()
 					case 9:
 						strcpy(str, SC(156, "Add line placement outline"));
 
-						if (GetKeyString(str2, ID_ADD_LINE_PLACE_OUTL, 0x21) == 1)
+						if (GetKeyString(str2, ID_ADD_LINE_OBJECT +	PLACEMENT_OUTLINE_LAYER, 0x21) == 1)
 							strcat(str, str2);
 
 						break;
@@ -1129,7 +1130,7 @@ void ButtonInfo()
 					case 10:
 						strcpy(str, SC(157, "Add rectangle placement outline"));
 
-						if (GetKeyString(str2, ID_ADD_RECT_PLACE_OUTL, 0x21) == 1)
+						if (GetKeyString(str2, ID_ADD_RECT2_OBJECT + PLACEMENT_OUTLINE_LAYER, 0x21) == 1)
 							strcat(str, str2);
 
 						break;
@@ -1137,7 +1138,7 @@ void ButtonInfo()
 					case 11:
 						strcpy(str, SC(158, "Add line component outline"));
 
-						if (GetKeyString(str2, ID_ADD_LINE_COMP_OUTL, 0x21) == 1)
+						if (GetKeyString(str2, ID_ADD_LINE_OBJECT +	COMP_OUTLINE_LAYER, 0x21) == 1)
 							strcat(str, str2);
 
 						break;
@@ -1145,7 +1146,7 @@ void ButtonInfo()
 					case 12:
 						strcpy(str, SC(159, "Add rectangle component outline"));
 
-						if (GetKeyString(str2, ID_ADD_RECT_COMP_OUTL, 0x21) == 1)
+						if (GetKeyString(str2, ID_ADD_RECT2_OBJECT + COMP_OUTLINE_LAYER, 0x21) == 1)
 							strcat(str, str2);
 
 						break;
@@ -1373,7 +1374,7 @@ void CheckButtonPressed(int32 mode)
 			{
 				DrawButtonInfoOff(0);
 				SetCursorPos(ClientStartX + ClientWindowDivX / 2, ClientStartY + ClientWindowDivY / 2);
-				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_ADD_RECT_PLACE_OUTL, (LPARAM) NULL);
+				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_ADD_RECT2_PLACE_OUTL, (LPARAM) NULL);
 			}
 
 			break;
@@ -1393,7 +1394,7 @@ void CheckButtonPressed(int32 mode)
 			{
 				DrawButtonInfoOff(0);
 				SetCursorPos(ClientStartX + ClientWindowDivX / 2, ClientStartY + ClientWindowDivY / 2);
-				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_ADD_RECT_COMP_OUTL, (LPARAM) NULL);
+				PostMessage(GEOMWindow, WM_COMMAND, (WPARAM) ID_ADD_RECT2_COMP_OUTL, (LPARAM) NULL);
 			}
 
 			break;
