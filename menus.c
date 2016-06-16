@@ -2235,7 +2235,7 @@ void TraceMenuPopUp(int32 mode)
 	OwnAppendMenu(PopUpMenu, MF_ENABLED | MF_STRING, ID_TRACE_FINISH, SC(702, "Finish trace"));
 
 	Net = &((*Nets)[CurrentDrawingNetNr]);
-	OwnAppendMenu(PopUpMenu, MF_ENABLED | MF_STRING, ID_HILITE_SINGLE_NET_ON_OFF, SC(703, "Highlight net on/off"));
+	OwnAppendMenu(PopUpMenu, MF_ENABLED | MF_STRING, ID_HIGHLIGHT_NET, SC(703, "Highlight net on/off"));
 
 	if (CurrentWorkingTrace.Info2 == 3)
 		OwnAppendMenu(PopUpMenu, MF_ENABLED | MF_STRING, ID_EDIT_DELETE, SC(704, "Delete trace"));

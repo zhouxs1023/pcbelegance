@@ -183,7 +183,7 @@ FunctionComponentValueOnOff         ,ID_VIEW_COMPVALUE_ON_OFF         ,0        
 FunctionSwitchViaClearanceOnOff     ,ID_SWITCH_VIAINFO_ON_OFF         ,Key_Ctrl_V            ,0, 1,-1,"FunctionSwitchViaClearanceOnOff"     ,
 FunctionSwitchTwoTracesOnOff        ,ID_SWITCH_TWO_TRACES_ON_OFF      ,(int32)'t'            ,0, 1,-1,"FunctionSwitchTwoTracesOnOff"        ,
 FunctionSwitchTryingClearanceOnOff  ,ID_SWITCH_TRYING_CLEAR_ON_OFF    ,0                     ,0, 1,-1,"FunctionSwitchTryingClearanceOnOff"  ,
-FunctionSwitchHilightNetOnOff       ,ID_HILITE_SINGLE_NET_ON_OFF      ,(int32)'h'            ,0, 1,-1,"FunctionSwitchHilightNetOnOff"       ,
+FunctionSwitchHilightNetOnOff       ,ID_HIGHLIGHT_NET                 ,(int32)'h'            ,0,-1,-1,"FunctionSwitchHilightNetOnOff"       ,
 FunctionEditGeometry                ,ID_EDIT_GEOMETRIE                ,(int32)'E'            ,0, 3,-1,"FunctionEditGeometry"                ,
 FunctionProtectComponent            ,ID_PROTECT_COMP                  ,(int32)'p'            ,0, 3,-1,"FunctionProtectComponent"            ,
 FunctionSwitchClearanceOnOff        ,ID_SWITCH_CLEARANCE_ON_OF        ,Key_Ctrl_Shift_C      ,0,-1,-1,"FunctionSwitchClearanceOnOff"        ,

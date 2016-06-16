@@ -938,22 +938,25 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 	if (FirstPaint)
 		return 0;
 
-	if ((MousePosX == 10000) || (mode == 1))
+	if (MousePosX == 10000)
 		return 2;
 
 	PosX = x = PixelToRealOffX(MousePosX);
 	PosY = y = PixelToRealOffY(DrawWindowMaxY - MousePosY);
 
-	if (DisplayInfoCursorX != -1)
+	if (mode == 0)
 	{
-		if ((abs(DisplayInfoCursorX - MousePosX) > 5) || (abs(DisplayInfoCursorY - MousePosY) > 5))
+		if (DisplayInfoCursorX != -1)
 		{
-			DisplayInfoCursorX = -1;
-			DisplayInfoCursorY = -1;
-			return 2;
-		}
+			if ((abs(DisplayInfoCursorX - MousePosX) > 5) || (abs(DisplayInfoCursorY - MousePosY) > 5))
+			{
+				DisplayInfoCursorX = -1;
+				DisplayInfoCursorY = -1;
+				return 2;
+			}
 
-		return 3;
+			return 3;
+		}
 	}
 
 	Layer = CurrentDrawingLayer;

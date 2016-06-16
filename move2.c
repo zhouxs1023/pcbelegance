@@ -353,7 +353,7 @@ void MoveSelectedSpecialObjects(int32 Mode, int32 Count)
 			if ((SnapMode & 1) == 0)
 				AppendMenuOwn(PopUpMenu, MF_ENABLED | MF_STRING, ID_CHANGE_SNAP_MODE_ON, SC(746, "Snap on"));
 			else
-				AppendMenuOwn(PopUpMenu, MF_ENABLED | MF_STRING, ID_CHANGE_SNAP_MODE_ON, SC(802, "Snap off"));
+				AppendMenuOwn(PopUpMenu, MF_ENABLED | MF_STRING, ID_CHANGE_SNAP_MODE_OFF, SC(802, "Snap off"));
 
 			OwnAppendMenu(PopUpMenu, MF_ENABLED | MF_STRING, ID_ESCAPE, SC(493, "Escape"));
 			TrackPopupMenu(PopUpMenu, TPM_RIGHTBUTTON, RealWindow.left + MousePosX + 5, RealWindow.top + MousePosY + 40,

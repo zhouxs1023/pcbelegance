@@ -2336,7 +2336,7 @@ void SwapNetsTraces()
 	int32 cnt, cnt2, Net1, Net2, Layer;
 	TraceRecord *Trace = NULL;
 	ViaRecord *Via, NewVia;
-	ObjectRecord *ObjectNet1, *ObjectNet2, *TestObject;
+	ObjectRecord *ObjectNet1, *ObjectNet2, *TestObject, TraceObject;
 
 	Net1 = -1;
 	Net2 = -1;
@@ -2476,27 +2476,11 @@ void SwapNetsTraces()
 		{
 			ObjectNet1 = &((*Objects2)[cnt]);
 
-			switch (ObjectNet1->ObjectType)
-			{
-			case TRACE_VER:
-				Trace = &((*VerTraces[ObjectNet1->Layer])[ObjectNet1->TraceNr]);
-				break;
-
-			case TRACE_HOR:
-				Trace = &((*HorTraces[ObjectNet1->Layer])[ObjectNet1->TraceNr]);
-				break;
-
-			case TRACE_DIAG1:
-				Trace = &((*Diag1Traces[ObjectNet1->Layer])[ObjectNet1->TraceNr]);
-				break;
-
-			case TRACE_DIAG2:
-				Trace = &((*Diag2Traces[ObjectNet1->Layer])[ObjectNet1->TraceNr]);
-				break;
-			}
-
 			if ((ObjectIsTrace(ObjectNet1)))
 			{
+				memmove(&TraceObject, ObjectNet1, sizeof(TraceObject));
+				TraceObject.NetNr = (int16) Net2;
+
 				switch (ObjectNet1->ObjectType)
 				{
 				case TRACE_VER:
@@ -2516,39 +2500,10 @@ void SwapNetsTraces()
 					break;
 				}
 
-				if (ObjectNet1->Info == 0)
+				if (AddTrace(&TraceObject))
 				{
-					AddTrace(ObjectNet1);
-
-					switch (ObjectNet1->ObjectType)
-					{
-					case TRACE_VER:
-						Trace = &((*VerTraces[ObjectNet1->Layer])[ObjectNet1->TraceNr]);
-						break;
-
-					case TRACE_HOR:
-						Trace = &((*HorTraces[ObjectNet1->Layer])[ObjectNet1->TraceNr]);
-						break;
-
-					case TRACE_DIAG1:
-						Trace = &((*Diag1Traces[ObjectNet1->Layer])[ObjectNet1->TraceNr]);
-						break;
-
-					case TRACE_DIAG2:
-						Trace = &((*Diag2Traces[ObjectNet1->Layer])[ObjectNet1->TraceNr]);
-						break;
-					}
-
-					ZeroUnusedObjects(0);
 					Trace->Info |= OBJECT_NOT_VISIBLE;
-					Trace->DeleteNr = (int16) LastActionNr;
-					ObjectNet1->NetNr = Net2;
-				}
-				else
-				{
-					ZeroUnusedObjects(0);
-					Trace->Info |= OBJECT_NOT_VISIBLE;
-					Trace->DeleteNr = (int16) LastActionNr;
+					Trace->DeleteNr = (int16)LastActionNr;
 				}
 			}
 			else
@@ -2557,12 +2512,12 @@ void SwapNetsTraces()
 
 				if (ObjectNet1->ObjectType == VIA_PUT_THROUGH_ROUND)
 				{
-					memmove(&NewVia, Via, sizeof(ViaRecord));
+					memmove(&NewVia, Via, sizeof(NewVia));
+					NewVia.NetNr = (int16)Net2;
 					AddVia(&NewVia);
 					Via = &((*Vias)[ObjectNet1->TraceNr]);
 					Via->Info |= OBJECT_NOT_VISIBLE;
 					Via->DeleteNr = (int16) LastActionNr;
-					NewVia.NetNr = (int16) Net2;
 				}
 			}
 		}
@@ -2573,6 +2528,9 @@ void SwapNetsTraces()
 
 			if ((ObjectIsTrace(ObjectNet2)))
 			{
+				memmove(&TraceObject, ObjectNet2, sizeof(TraceObject));
+				TraceObject.NetNr = (int16)Net1;
+
 				switch (ObjectNet2->ObjectType)
 				{
 				case TRACE_VER:
@@ -2592,39 +2550,10 @@ void SwapNetsTraces()
 					break;
 				}
 
-				if (ObjectNet2->Info == 0)
+				if (AddTrace(&TraceObject))
 				{
-					AddTrace(ObjectNet2);
-
-					switch (ObjectNet2->ObjectType)
-					{
-					case TRACE_VER:
-						Trace = &((*VerTraces[ObjectNet2->Layer])[ObjectNet2->TraceNr]);
-						break;
-
-					case TRACE_HOR:
-						Trace = &((*HorTraces[ObjectNet2->Layer])[ObjectNet2->TraceNr]);
-						break;
-
-					case TRACE_DIAG1:
-						Trace = &((*Diag1Traces[ObjectNet2->Layer])[ObjectNet2->TraceNr]);
-						break;
-
-					case TRACE_DIAG2:
-						Trace = &((*Diag2Traces[ObjectNet2->Layer])[ObjectNet2->TraceNr]);
-						break;
-					}
-
-					ZeroUnusedObjects(0);
 					Trace->Info |= OBJECT_NOT_VISIBLE;
-					Trace->DeleteNr = (int16) LastActionNr;
-					ObjectNet2->NetNr = Net1;
-				}
-				else
-				{
-					ZeroUnusedObjects(0);
-					Trace->Info = OBJECT_NOT_VISIBLE;
-					Trace->DeleteNr = (int16) LastActionNr;
+					Trace->DeleteNr = (int16)LastActionNr;
 				}
 			}
 			else
@@ -2633,12 +2562,12 @@ void SwapNetsTraces()
 
 				if (ObjectNet2->ObjectType == VIA_PUT_THROUGH_ROUND)
 				{
-					memmove(&NewVia, Via, sizeof(ViaRecord));
+					memmove(&NewVia, Via, sizeof(NewVia));
+					NewVia.NetNr = (int16)Net1;
 					AddVia(&NewVia);
 					Via = &((*Vias)[ObjectNet2->TraceNr]);
 					Via->Info |= OBJECT_NOT_VISIBLE;
 					Via->DeleteNr = (int16) LastActionNr;
-					NewVia.NetNr = (int16) Net1;
 				}
 			}
 		}

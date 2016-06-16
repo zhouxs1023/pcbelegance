@@ -213,7 +213,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 				case ID_SWITCH_VIAINFO_ON_OFF:
 				case ID_SWITCH_TWO_TRACES_ON_OFF:
 				case ID_SWITCH_TRYING_CLEAR_ON_OFF:
-				case ID_HILITE_SINGLE_NET_ON_OFF:
+				case ID_HIGHLIGHT_NET:
 				case ID_EDIT_DELETE:
 				case ID_SWITCH_NEAREST_LAYER:
 				case ID_EDIT_TRACE_CHECK_OFF:
@@ -1769,6 +1769,14 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 		RePaint();
 		break;
 
+	case ID_CHANGE_SNAP_MODE_ON:
+		SnapMode = 1;
+		break;
+
+	case ID_CHANGE_SNAP_MODE_OFF:
+		SnapMode = 0;
+		break;
+
 // ********************************************************************************************************
 // ********************************************************************************************************
 	case ID_SETTINGS_CHANGE_UNITS:
@@ -2636,7 +2644,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 	case ID_POLYGON_TO_SOURCE_CODE:
 		PolygonToSourceCode(0);
 		break;
-
+/*
 	case ID_HILITE_SINGLE_NET_ON_OFF:
 		Net = &((*Nets)[CurrentDrawingNetNr]);
 
@@ -2652,28 +2660,51 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 		}
 
 		break;
+*/
 
 	case ID_CHANGE_TRACE_WIDTH:
 		ChangeObjectTraceWidth();
 		break;
 
 	case ID_HIGHLIGHT_NET:
-		res = HighLightNet(0);
-
-		if (res != -1)
+		switch (SelectionMode)
 		{
-			Net = &((*Nets)[res]);
+		case ROUTING_MODE:
+			Net = &((*Nets)[CurrentDrawingNetNr]);
 
 			if ((Net->Info & OBJECT_HIGHLITED) == 0)
 			{
-				ChangeNetsHilite(res, 1);
+				ChangeNetsHilite(CurrentDrawingNetNr, 1);
 				Net->Info |= OBJECT_HIGHLITED;
 			}
 			else
 			{
-				ChangeNetsHilite(res, 0);
+				ChangeNetsHilite(CurrentDrawingNetNr, 0);
 				Net->Info &= ~OBJECT_HIGHLITED;
 			}
+
+			break;
+
+		case MOVING_TRACES_VIAS_MODE:
+			res = HighLightNet(0);
+
+			if (res != -1)
+			{
+				Net = &((*Nets)[res]);
+
+				if ((Net->Info & OBJECT_HIGHLITED) == 0)
+				{
+					ChangeNetsHilite(res, 1);
+					Net->Info |= OBJECT_HIGHLITED;
+				}
+				else
+				{
+					ChangeNetsHilite(res, 0);
+					Net->Info &= ~OBJECT_HIGHLITED;
+				}
+			}
+
+			break;
 		}
 
 		break;

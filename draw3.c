@@ -1981,21 +1981,31 @@ int32 DisplayInfo(int32 mode)
 	if (TimeOutInfo != -1)
 		ok = 1;
 
-	result = GetInfoStr(DisplayInfoStr, 0);
+	result = GetInfoStr(DisplayInfoStr, mode);
 
 	if ((result == 1) || (result == 3))
 	{
 		if (DisplayInfoStr[0] != 0)
 		{
-			if (DisplayInfoTimeOut == -1)
-				DisplayInfoTimeOut = TimerValue;
-			else
+			if (mode == 0)
 			{
-				if (TimerValue - DisplayInfoTimeOut > ButtonInfoTimeoutStart)
+				if (DisplayInfoTimeOut == -1)
+					DisplayInfoTimeOut = TimerValue;
+				else
 				{
-					if (TimeOutInfo == -1)
-						NewDisplayInfo(DisplayInfoStr, MousePosX, MousePosY);
+					if (TimerValue - DisplayInfoTimeOut > ButtonInfoTimeoutStart)
+					{
+						if (TimeOutInfo == -1)
+							NewDisplayInfo(DisplayInfoStr, MousePosX, MousePosY);
+					}
 				}
+			}
+			else
+			if (mode == 1)
+			{
+				if (TimeOutInfo == -1)
+					NewDisplayInfo(DisplayInfoStr, MousePosX, MousePosY);
+
 			}
 		}
 
@@ -2010,7 +2020,6 @@ int32 DisplayInfo(int32 mode)
 	if ((TimeOutInfo != -1) && (TimerValue > TimeOutInfo + ButtonInfoTimeout))
 	{
 		DisplayInfoOff(0);
-		GetInfoStr(NULL, 1);
 		return 1;
 	}
 
