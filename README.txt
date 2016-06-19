@@ -1,7 +1,7 @@
 PCB Elegance 3.51
 =================
 
-PCB Elegance is a colleciton of circuit board design tools for Microsoft Windows. Including schematic capture, board layout, and manufacturing file generation. It was commercial software from 1998-2012. In 2012 it was reased as open source software under the GPL.
+PCB Elegance is a collection of circuit board design tools for Microsoft Windows. Including schematic capture, board layout, and manufacturing file generation. It was commercial software from 1998-2012. In 2012 it was released as open source software under the GPL.
 
 PCB Elegance is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
