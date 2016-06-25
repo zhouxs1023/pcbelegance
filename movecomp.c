@@ -520,7 +520,7 @@ Mode = 2  -> Copy objects
 //    if (LeftButtonDoublePressed) {
 //
 //    }
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 			TrackPopupMenu(PopUpMenu, TPM_RIGHTBUTTON, RealWindow.left + MousePosX + 5, RealWindow.top + MousePosY + 40,
 			               0, SCHWindow, NULL);

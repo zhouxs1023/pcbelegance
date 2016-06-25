@@ -188,7 +188,7 @@ KeyRecord KeyFunctions[MaxFunctions] =
   FunctionGotoHigherSheet             ,ID_FILE_SHEETBACK                ,Key_PgUp              ,0,-1,"FunctionGotoHigherSheet"             ,
   FunctionEditSymbol                  ,ID_FILE_EDIT_SYMBOL              ,0                     ,0,-1,"FunctionEditSymbol"                  ,
   FunctionAddDimension                ,ID_ADD_DIMENSION                 ,(int32)'D'            ,0,-1,"FunctionAddDimension"                ,
-  FunctionAddComponent                ,ID_ADDCOMPONENT                  ,Key_Ctrl_D            ,0,-1,"FunctionAddComponent"                ,
+  FunctionAddComponent                ,ID_ADDCOMPONENT                  ,(int32)'k'            ,0,-1,"FunctionAddComponent"                ,
   FunctionViewOptions                 ,ID_VIEW_OPTIONS                  ,Key_Ctrl_A            ,0,-1,"FunctionViewOptions"                 ,
   FunctionGotoXY                      ,ID_EDIT_GOTOXY                   ,Key_Ctrl_G            ,0,-1,"FunctionGotoXY"                      ,
   FunctionCheck                       ,ID_EDIT_CHECK                    ,Key_Ctrl_E            ,0,-1,"FunctionCheck"                       ,

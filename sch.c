@@ -572,6 +572,35 @@ void SetScrollPosition()
 // ********************************************************************************************************
 // ********************************************************************************************************
 
+void SaveViewPos(void)
+{
+	if (ViewPosPointer > 0)
+	{
+		if (ViewPosPointer == 20)
+		{
+			memmove(&ViewPos[0], &ViewPos[1], 19 * sizeof(ViewPosRecord));
+			ViewPosPointer--;
+		}
+
+		ViewPos[ViewPosPointer].Xoffset = Xoffset;
+		ViewPos[ViewPosPointer].Yoffset = Yoffset;
+		ViewPos[ViewPosPointer].Factor = Factor;
+		ViewPosPointer++;
+	}
+	else
+	{
+		ViewPos[ViewPosPointer].Xoffset = Xoffset;
+		ViewPos[ViewPosPointer].Yoffset = Yoffset;
+		ViewPos[ViewPosPointer].Factor = Factor;
+		ViewPosPointer++;
+	}
+}
+
+// ********************************************************************************************************
+// ********************************************************************************************************
+// ********************************************************************************************************
+// ********************************************************************************************************
+
 void RedrawMainWindow()
 {
 	RECT Rect;
@@ -595,28 +624,7 @@ void RedrawMainWindow()
 	if (!ActiveViewGeometry)
 	{
 		if (OkToAddViewPos)
-		{
-			if (ViewPosPointer > 0)
-			{
-				if (ViewPosPointer == 20)
-				{
-					memmove(&ViewPos[0], &ViewPos[1], 19 * sizeof(ViewPosRecord));
-					ViewPosPointer--;
-				}
-
-				ViewPos[ViewPosPointer].Xoffset = Xoffset;
-				ViewPos[ViewPosPointer].Yoffset = Yoffset;
-				ViewPos[ViewPosPointer].Factor = Factor;
-				ViewPosPointer++;
-			}
-			else
-			{
-				ViewPos[ViewPosPointer].Xoffset = Xoffset;
-				ViewPos[ViewPosPointer].Yoffset = Yoffset;
-				ViewPos[ViewPosPointer].Factor = Factor;
-				ViewPosPointer++;
-			}
-		}
+			SaveViewPos();
 
 		OkToAddViewPos = 1;
 		ViewMinX = (double) PixelToRealOffX(minx - 1);
@@ -2664,7 +2672,7 @@ void LoadIniFile(LPSTR FileName)
 	}
 
 #ifdef _DEBUG
-	MousePanMultiply = 4;
+	MousePanMultiply = 2;
 #endif
 }
 

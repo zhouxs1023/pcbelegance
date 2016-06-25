@@ -679,10 +679,12 @@ int32 CheckLeftButton(void)
 int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
 {
 	int32 DivX, DivY;
+	static int32 FirstRightButtonDepressed;
 
 	if (RightButtonPressed)
 	{
 		FirstStartTimer2 = 0;
+		FirstRightButtonDepressed = 0;
 
 		if (FirstRightButtonPressed == 0)
 		{
@@ -736,94 +738,7 @@ int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction)
 
 				if ((abs(DivX) > MaxDisplayDiv) || (abs(DivY) > MaxDisplayDiv))
 				{
-					DrawSpecialXorFunction(DrawXorFunction, 0);
-					ScrollAppWindow(DivX, DivY);
-					DrawSpecialXorFunction(DrawXorFunction, 1);
-					MousePosXR = MousePosX;
-					MousePosYR = MousePosY;
-				}
-			}
-		}
-
-//    MenuPopUp();
-		CheckInputMessages(0);
-	}
-	else
-	{
-
-		if (FirstStartTimer2)
-			return 0;
-
-		RightButtonDivTime = GetDifferenceTimer2inMilliSeconds();
-		RightButtonPressed = 0;
-		FirstRightButtonPressed = 0;
-
-		if (RightButtonDivTime < 300)
-		{
-//      DrawCrossHairCursor(OldX,OldY,0);
-			return 1;
-		}
-	}
-
-	return 0;
-}
-
-// *******************************************************************************************************
-// *******************************************************************************************************
-// *******************************************************************************************************
-// *******************************************************************************************************
-
-int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction)
-{
-	int32 DivX, DivY;
-
-	if (RightButtonPressed)
-	{
-		FirstStartTimer2 = 0;
-		FirstRightButtonDepressed = 0;
-
-		if (FirstRightButtonPressed == 0)
-		{
-			FirstRightButtonPressed = 1;
-			SetTimer2();
-			MousePosXR = MousePosX;
-			MousePosYR = MousePosY;
-		}
-		else
-		{
-			if (MousePosX != 10000)
-			{
-				DivX = MousePosX - MousePosXR;
-				DivY = MousePosY - MousePosYR;
-
-				switch (MousePanMultiply)
-				{
-				case 0:
-					break;
-
-				case 1:
-					DivX = (DivX * 3) / 2;
-					DivY = (DivY * 3) / 2;
-					break;
-
-				case 2:
-					DivX = DivX * 2;
-					DivY = DivY * 2;
-					break;
-
-				case 3:
-					DivX = DivX * 3;
-					DivY = DivY * 3;
-					break;
-
-				case 4:
-					DivX = DivX * 4;
-					DivY = DivY * 4;
-					break;
-				}
-
-				if ((abs(DivX) > MaxDisplayDiv) || (abs(DivY) > MaxDisplayDiv))
-				{
+					OkToAddViewPos = 0;
 					DrawSpecialXorFunction(DrawXorFunction, 0);
 					ScrollAppWindow(DivX, DivY);
 					DrawSpecialXorFunction(DrawXorFunction, 1);
@@ -847,10 +762,16 @@ int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction)
 			RightButtonDivTime = GetDifferenceTimer2inMilliSeconds();
 
 			if (RightButtonDivTime < 300)
+			{
+				FirstRightButtonPressed = 0;
 				return 1;
+			}
+			else
+			{
+				SaveViewPos();
+			}
 		}
 
-		RightButtonPressed = 0;
 		FirstRightButtonPressed = 0;
 	}
 

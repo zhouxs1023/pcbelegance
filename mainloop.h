@@ -46,8 +46,6 @@ int32 CheckLeftButton(void);
 
 int32 CheckRightButton(DrawXorFunctionRecord * DrawXorFunction);
 
-int32 CheckRightButton2(DrawXorFunctionRecord * DrawXorFunction);
-
 void MainLoop(void);
 
 void MouseSelection(void);

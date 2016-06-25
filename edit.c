@@ -1319,7 +1319,7 @@ void CommandAddJunction(int32 Mode)
 			CheckInputMessages(0);
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingJunction(CurrentX, CurrentY, Mode);
@@ -1611,7 +1611,7 @@ void CommandAddOnePinNet(int32 Mode)
 			CheckInputMessages(0);
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingOnePinNet(CurrentX, CurrentY, Mode);
@@ -1905,7 +1905,7 @@ void CommandAddBusConnection(int32 Mode)
 			CheckInputMessages(0);
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingBusConnection(CurrentX, CurrentY, Mode);
@@ -2505,7 +2505,7 @@ void CommandAddNetLabel(int32 Mode)
 			SelectionEsc = 1;
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingNetLabel(CurrentX, CurrentY, Mode);
@@ -3836,7 +3836,7 @@ void CommandAddObjectText(int32 Mode)
 			DisplayObjectOnEscape = 0;
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingObjectText(CurrentX, CurrentY, Mode);
@@ -4138,7 +4138,7 @@ void CommandAddObjectTextNumbers(int32 Mode)
 			DisplayObjectOnEscape = 0;
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingObjectNumbers(CurrentX, CurrentY, Mode);

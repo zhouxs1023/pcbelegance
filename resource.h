@@ -3,6 +3,7 @@
 // Used by C:\notes\pcbeleg\software\sch\resource\sch.rc
 //
 #define IDHELP                          9
+#define IDHELP3                         11
 #define IDR_OWNFONT1                    1500
 #define IDSKIP                          1600
 #define BITMAP_BUTTON_SCH               2000

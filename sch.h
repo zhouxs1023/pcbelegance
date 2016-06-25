@@ -104,4 +104,6 @@ void SetScrollPosition(void);
 
 void ScrollAppWindow(int32 DivX, int32 DivY);
 
+void SaveViewPos(void);
+
 #endif

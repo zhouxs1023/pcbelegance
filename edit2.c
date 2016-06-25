@@ -97,18 +97,18 @@ void DrawTryingAddPins(double CurrentX, double CurrentY, int32 Mode)
 
 		break;
 
-	case 2:
+	case 3:
 		for (cnt = 0; cnt < NrAddPins; cnt++)
 		{
 			hulp = NewPins[cnt].X;
-			NewPins[cnt].X = NewPins[cnt].Y;
+			NewPins[cnt].X = -NewPins[cnt].Y;
 			NewPins[cnt].Y = (float) -hulp;
 			hulp = NewPins[cnt].NameX;
-			NewPins[cnt].NameX = NewPins[cnt].NameY;
+			NewPins[cnt].NameX = -NewPins[cnt].NameY;
 			NewPins[cnt].NameY = (int16) - hulp;
 			NewPins[cnt].NameInfo = (int16) ((TextMirrorX[NewPins[cnt].NameInfo & 0x0f]) + (1 << 8));
 			hulp = NewPinText[cnt].X;
-			NewPinText[cnt].X = NewPinText[cnt].Y;
+			NewPinText[cnt].X = -NewPinText[cnt].Y;
 			NewPinText[cnt].Y = (float) -hulp;
 			NewPinText[cnt].TextMode = (int16) ((TextMirrorX[NewPinText[cnt].TextMode & 0x0f]) + (1 << 8));
 			NewPinText[cnt].Rotation = 90.0;
@@ -117,7 +117,7 @@ void DrawTryingAddPins(double CurrentX, double CurrentY, int32 Mode)
 
 		break;
 
-	case 3:
+	case 2:
 		for (cnt = 0; cnt < NrAddPins; cnt++)
 		{
 			hulp = NewPins[cnt].X;
@@ -374,7 +374,7 @@ void CommandAddPins(int32 Mode)
 			DisplayObjectOnEscape = 0;
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingAddPins(CurrentX, CurrentY, Mode);
@@ -662,7 +662,7 @@ void CommandAddPowerPins(int32 Mode)
 			DisplayObjectOnEscape = 0;
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingAddPowerPins(CurrentX, CurrentY, Mode);
@@ -989,7 +989,7 @@ void CommandAddPinBus(int32 Mode)
 			DisplayObjectOnEscape = 0;
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingAddPinBus(CurrentX, CurrentY, Mode);
@@ -1333,7 +1333,7 @@ void CommandAddInstance(int32 Mode)
 			DisplayObjectOnEscape = 0;
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingInstance(OldX, OldY, Mode);
@@ -2221,7 +2221,7 @@ void CommandAddGlobalConnection(int32 Mode)
 			DisplayObjectOnEscape = 0;
 		}
 
-		if (CheckRightButton2(&DrawXorFunction) == 1)
+		if (CheckRightButton(&DrawXorFunction) == 1)
 		{
 //    if (RightButtonPressed) {
 			DrawTryingGlobalConnection(CurrentX, CurrentY, Mode);

@@ -857,6 +857,8 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 		SetDialogItemText(Dialog, IDC_RADIO12, SC(54, "Analog"));
 		SetDialogItemText(Dialog, IDC_RADIO13, SC(55, "Pin name is powernet"));
 		SetDialogItemText(Dialog, IDC_CHECK1, SC(56, "Pin name not visible"));
+		SetDialogItemText(Dialog, IDC_BUTTON1, SC(525, "Auto name"));
+		SetDialogItemText(Dialog, IDC_BUTTON2, SC(526, "Auto text"));
 
 		switch (DialogMode)
 		{
@@ -1015,44 +1017,20 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 				divy = AddPinDialogDivY;
 				NrAddPins = 0;
 
-				AutoNumbering = 0;
-
-				if ((SendDlgItemMessage(Dialog, IDC_EDIT6, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM) & NumberString)
-				        > 0) && (sscanf(NumberString, "%i", &StartNumber) == 1) && (StartNumber >= 0)
-				        &&
-				        (SendDlgItemMessage(Dialog, IDC_EDIT7, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM) & NumberString)
-				         > 0) && (sscanf(NumberString, "%i", &IncNumber) == 1) && (IncNumber != 0)
-				        &&
-				        (SendDlgItemMessage(Dialog, IDC_EDIT8, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM) & NumberString)
-				         > 0) && (sscanf(NumberString, "%i", &NrOfPins) == 1) && (NrOfPins > 0))
-					AutoNumbering = 1;
-
-				if (AutoNumbering)
+				for (cnt = 0; cnt < 25; cnt++)
 				{
-					if (PowerPin)
+					res = GetDialogTextLine(Dialog, IDC_EDIT1, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
+
+					if (res > 0)
 					{
-						MessageBoxUTF8(SCHWindow, SC(480, "Powerpins and auto numbering can not be combined"),
-						               SC(38, "Error"), MB_APPLMODAL | MB_OK);
-						return about;
-					}
 
-					memset(DialogTextLine, 0, MAX_LENGTH_STRING - 50);
-
-					if ((res =
-					            SendDlgItemMessageUTF8(Dialog, IDC_EDIT1, WM_GETTEXT, MAX_LENGTH_STRING - 50,
-					                                   (LPARAM) DialogTextLine)) > 0)
-					{
-						DialogTextLine[res] = 0;
-
-						while ((res > 0) && ((DialogTextLine[res - 1] == ' ')))
+						// ******************************************************************************************
+						while ((res > 0) && (DialogTextLine[res - 1] == ' '))
 						{
 							DialogTextLine[res - 1] = 0;
 							res--;
 						}
-					}
 
-					if (DialogTextLine[0] != 0)
-					{
 						if (CheckPinName(DialogTextLine, PowerPin) == -1)
 						{
 							sprintf(sel, SC(63, "Pin name ( %s ) is not valid"), DialogTextLine);
@@ -1060,42 +1038,36 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 							return about;
 						}
 
-						strcpy(PinName, DialogTextLine);
-					}
-					else
-						PinName[0] = 0;
+						AddedPins[NrAddPins].X = (float) OX;
+						AddedPins[NrAddPins].Y = (float) OY;
+						AddedPins[NrAddPins].NameX = (float) (OX + 1.0);
+						AddedPins[NrAddPins].NameY = (float) OY;
+						AddedPins[NrAddPins].ConnectionType = (int16) LastPinConnectionType;
+						memset(&AddedPinText[NrAddPins], 0, sizeof(ObjectTextRecord));
+						memmove(&AddedPins[NrAddPins].Name, &DialogTextLine, sizeof(AddedPins[NrAddPins].Name) - 1);
 
-					PinTextName[0] = 0;
+						// ******************************************************************************************
 
-					if ((res =
-					            SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_GETTEXT, MAX_LENGTH_STRING - 50,
-					                                   (LPARAM) DialogTextLine)) > 0)
-					{
-						DialogTextLine[res] = 0;
+						memset(&PinTextName, 0, MAX_LENGTH_STRING - 50);
+						res = GetDialogTextLine(Dialog, IDC_EDIT2, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
 
-						while ((res > 0) && ((DialogTextLine[res - 1] == ' ') || (isdigit(DialogTextLine[res - 1]))))
+						while ((res > 0) && (DialogTextLine[res - 1] == ' '))
 						{
 							DialogTextLine[res - 1] = 0;
 							res--;
 						}
 
 						strcpy(PinTextName, DialogTextLine);
-					}
 
-// ******************************************************************************************
+						// ******************************************************************************************
 
-					memset(&LabelName, 0, MAX_LENGTH_STRING - 50);
+						memset(&LabelName, 0, MAX_LENGTH_STRING - 50);
 
-					if (!PowerPin)
-					{
-						if ((res =
-						            SendDlgItemMessageUTF8(Dialog, IDC_EDIT3, WM_GETTEXT, MAX_LENGTH_STRING - 50,
-						                                   (LPARAM) DialogTextLine)) > 0)
+						if (!PowerPin)
 						{
-							DialogTextLine[res] = 0;
+							res = GetDialogTextLine(Dialog, IDC_EDIT3, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
 
-							while ((res > 0)
-							        && ((DialogTextLine[res - 1] == ' ') || (isdigit(DialogTextLine[res - 1]))))
+							while ((res > 0) && (DialogTextLine[res - 1] == ' '))
 							{
 								DialogTextLine[res - 1] = 0;
 								res--;
@@ -1103,58 +1075,45 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 
 							strcpy(LabelName, DialogTextLine);
 						}
-					}
 
-					NrOfPins = min(NrOfPins, 200);
-					cnt2 = StartNumber;
-					memset(&NewLabelName, 0, sizeof(NewLabelName));
-
-					for (cnt = 0; cnt < NrOfPins; cnt++)
-					{
-						AddedPins[NrAddPins].X = (float) OX;
-						AddedPins[NrAddPins].Y = (float) OY;
-						AddedPins[NrAddPins].NameX = (float) (OX + 1.0);
-						AddedPins[NrAddPins].NameY = (float) OY;
-						AddedPins[NrAddPins].ConnectionType = (int16) LastPinConnectionType;
-						sprintf(NewPinName, "%s%d", PinName, cnt2);
-						sprintf(NewPinTextName, "%s%d", PinTextName, cnt2);
-						memset(&AddedPinText[NrAddPins], 0, sizeof(ObjectTextRecord));
-						memmove(&AddedPins[NrAddPins].Name, &NewPinName, sizeof(AddedPins[NrAddPins].Name) - 1);
+						// ******************************************************************************************
 
 						if (LabelName[0] == 0)
 						{
 							if (!PowerPin)
 							{
 								if (PinTextName[0] == 0)
-									sprintf(NewLabelName, "_%s", AddedPins[NrAddPins].Name);
+								{
+									LabelName[0] = '_';
+									strcat(LabelName, AddedPins[NrAddPins].Name);
+								}
 								else
 								{
-									NewPinTextName[sizeof(AddedPinText[0].Text) - 1] = 0;
+									PinTextName[sizeof(AddedPinText[0].Text) - 1] = 0;
 
-									if (CheckLabelName(NewPinTextName) == -1)
+									if (CheckLabelName(PinTextName) == -1)
 									{
 										sprintf(sel, SC(64, "Pin text ( %s ) is not valid for use as a label name"),
-										        NewPinTextName);
+											    PinTextName);
 										MessageBoxUTF8(SCHWindow, sel, SC(38, "Error"), MB_APPLMODAL | MB_OK);
 										return about;
 									}
 
-									strcpy(AddedPinText[NrAddPins].Text, NewPinTextName);
-									strcpy(NewLabelName, NewPinTextName);
+									strcpy(AddedPinText[NrAddPins].Text, PinTextName);
+									strcpy(LabelName, PinTextName);
 								}
 							}
 							else
-								strcpy(NewLabelName, AddedPins[NrAddPins].Name);
+								strcpy(LabelName, AddedPins[NrAddPins].Name);
 						}
 						else
 						{
 							PinTextName[sizeof(AddedPinText[0].Text) - 1] = 0;
-							sprintf(NewLabelName, "%s%d", LabelName, cnt2);
 							strcpy(AddedPinText[NrAddPins].Text, PinTextName);
 
-							if (CheckLabelName(NewLabelName) == -1)
+							if (CheckLabelName(LabelName) == -1)
 							{
-								sprintf(sel, SC(65, "Label name ( %s ) is not valid"), NewLabelName);
+								sprintf(sel, SC(65, "Label name ( %s ) is not valid"), LabelName);
 								MessageBoxUTF8(SCHWindow, sel, SC(38, "Error"), MB_APPLMODAL | MB_OK);
 								return about;
 							}
@@ -1166,133 +1125,13 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 						AddedPinText[NrAddPins].TextMode = ALIGN_LEFT_CENTRE;
 						AddedPinText[NrAddPins].Thickness = (float) 0.1;
 						memset(&AddedPins[NrAddPins].Label, 0, sizeof(&AddedPins[NrAddPins].Label));
-						memmove(&AddedPins[NrAddPins].Label, &NewLabelName, sizeof(AddedPins[NrAddPins].Label) - 1);
+						memmove(&AddedPins[NrAddPins].Label, &LabelName, sizeof(AddedPins[NrAddPins].Label) - 1);
 						OX += divx;
 						OY += divy;
 						NrAddPins++;
-						cnt2 += IncNumber;
-
-						if (cnt2 < 0)
-							break;
 					}
 				}
-				else
-				{
-					for (cnt = 0; cnt < 24; cnt++)
-					{
-						res = GetDialogTextLine(Dialog, IDC_EDIT1, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
-
-						if (res > 0)
-						{
-
-							// ******************************************************************************************
-							while ((res > 0) && (DialogTextLine[res - 1] == ' '))
-							{
-								DialogTextLine[res - 1] = 0;
-								res--;
-							}
-
-							if (CheckPinName(DialogTextLine, PowerPin) == -1)
-							{
-								sprintf(sel, SC(63, "Pin name ( %s ) is not valid"), DialogTextLine);
-								MessageBoxUTF8(SCHWindow, sel, SC(38, "Error"), MB_APPLMODAL | MB_OK);
-								return about;
-							}
-
-							AddedPins[NrAddPins].X = (float) OX;
-							AddedPins[NrAddPins].Y = (float) OY;
-							AddedPins[NrAddPins].NameX = (float) (OX + 1.0);
-							AddedPins[NrAddPins].NameY = (float) OY;
-							AddedPins[NrAddPins].ConnectionType = (int16) LastPinConnectionType;
-							memset(&AddedPinText[NrAddPins], 0, sizeof(ObjectTextRecord));
-							memmove(&AddedPins[NrAddPins].Name, &DialogTextLine, sizeof(AddedPins[NrAddPins].Name) - 1);
-
-							// ******************************************************************************************
-
-							memset(&PinTextName, 0, MAX_LENGTH_STRING - 50);
-							res = GetDialogTextLine(Dialog, IDC_EDIT2, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
-
-							while ((res > 0) && (DialogTextLine[res - 1] == ' '))
-							{
-								DialogTextLine[res - 1] = 0;
-								res--;
-							}
-
-							strcpy(PinTextName, DialogTextLine);
-
-							// ******************************************************************************************
-
-							memset(&LabelName, 0, MAX_LENGTH_STRING - 50);
-
-							if (!PowerPin)
-							{
-								res = GetDialogTextLine(Dialog, IDC_EDIT3, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
-
-								while ((res > 0) && (DialogTextLine[res - 1] == ' '))
-								{
-									DialogTextLine[res - 1] = 0;
-									res--;
-								}
-
-								strcpy(LabelName, DialogTextLine);
-							}
-
-							// ******************************************************************************************
-
-							if (LabelName[0] == 0)
-							{
-								if (!PowerPin)
-								{
-									if (PinTextName[0] == 0)
-									{
-										LabelName[0] = '_';
-										strcat(LabelName, AddedPins[NrAddPins].Name);
-									}
-									else
-									{
-										PinTextName[sizeof(AddedPinText[0].Text) - 1] = 0;
-
-										if (CheckLabelName(PinTextName) == -1)
-										{
-											sprintf(sel, SC(64, "Pin text ( %s ) is not valid for use as a label name"),
-											        PinTextName);
-											MessageBoxUTF8(SCHWindow, sel, SC(38, "Error"), MB_APPLMODAL | MB_OK);
-											return about;
-										}
-
-										strcpy(AddedPinText[NrAddPins].Text, PinTextName);
-										strcpy(LabelName, PinTextName);
-									}
-								}
-								else
-									strcpy(LabelName, AddedPins[NrAddPins].Name);
-							}
-							else
-							{
-								PinTextName[sizeof(AddedPinText[0].Text) - 1] = 0;
-								strcpy(AddedPinText[NrAddPins].Text, PinTextName);
-
-								if (CheckLabelName(LabelName) == -1)
-								{
-									sprintf(sel, SC(65, "Label name ( %s ) is not valid"), LabelName);
-									MessageBoxUTF8(SCHWindow, sel, SC(38, "Error"), MB_APPLMODAL | MB_OK);
-									return about;
-								}
-							}
-
-							AddedPinText[NrAddPins].X = (float) (OX + 4.5);
-							AddedPinText[NrAddPins].Y = (float) OY;
-							AddedPinText[NrAddPins].FontHeight = (float) 1.0;
-							AddedPinText[NrAddPins].TextMode = ALIGN_LEFT_CENTRE;
-							AddedPinText[NrAddPins].Thickness = (float) 0.1;
-							memset(&AddedPins[NrAddPins].Label, 0, sizeof(&AddedPins[NrAddPins].Label));
-							memmove(&AddedPins[NrAddPins].Label, &LabelName, sizeof(AddedPins[NrAddPins].Label) - 1);
-							OX += divx;
-							OY += divy;
-							NrAddPins++;
-						}
-					}
-				}
+				
 
 				EndDialog(Dialog, 1);
 				break;
@@ -1323,7 +1162,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 
 				if (!PowerPin)
 				{
-					res = GetDialogTextLine(Dialog, IDC_EDIT1, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
+					res = GetDialogTextLine(Dialog, IDC_EDIT3, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
 
 					if (res > 0)
 						strcpy(LabelName, DialogTextLine);
@@ -1439,7 +1278,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 				divy = AddPinDialogDivY;
 				NrAddPins = 0;
 
-				for (cnt = 0; cnt < 24; cnt++)
+				for (cnt = 0; cnt < 25; cnt++)
 				{
 					res = GetDialogTextLine(Dialog, IDC_EDIT3, cnt, DialogTextLine, MAX_LENGTH_STRING - 50);
 
@@ -1530,6 +1369,190 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 					EndDialog(Dialog, 2);
 
 				break;
+			}
+
+			return about;
+
+		case IDC_BUTTON1:
+			if (DialogMode != 0)
+				return about;
+
+			PinChanged = 0;
+
+			if (!EditingSheetSymbol)
+				LastPinConnectionType = GetConnectionRadioButtons(Dialog, 0);
+			else
+				LastPinConnectionType = GetConnectionRadioButtons(Dialog, 1);
+
+			PowerPin = 0;
+
+			if (LastPinConnectionType == POWER_CONNECTION)
+				PowerPin = 1;
+
+			AutoNumbering = 0;
+
+			if ((SendDlgItemMessage(Dialog, IDC_EDIT6, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM)& NumberString)
+						> 0) && (sscanf(NumberString, "%i", &StartNumber) == 1) && (StartNumber >= 0)
+				&&
+				(SendDlgItemMessage(Dialog, IDC_EDIT7, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM)& NumberString)
+						 > 0) && (sscanf(NumberString, "%i", &IncNumber) == 1) && (IncNumber != 0)
+				&&
+				(SendDlgItemMessage(Dialog, IDC_EDIT8, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM)& NumberString)
+						 > 0) && (sscanf(NumberString, "%i", &NrOfPins) == 1) && (NrOfPins > 0))
+				AutoNumbering = 1;
+
+			if (AutoNumbering)
+			{
+				char repeatBuf[MAX_LENGTH_STRING * 25];
+
+				if (PowerPin)
+				{
+					MessageBoxUTF8(SCHWindow, SC(480, "Powerpins and auto numbering can not be combined"),
+						SC(38, "Error"), MB_APPLMODAL | MB_OK);
+					return about;	
+				}
+
+				memset(DialogTextLine, 0, MAX_LENGTH_STRING - 50);
+
+				if ((res =
+					SendDlgItemMessageUTF8(Dialog, IDC_EDIT1, WM_GETTEXT, MAX_LENGTH_STRING - 50,
+					(LPARAM)DialogTextLine)) > 0)
+				{
+					DialogTextLine[res] = 0;
+
+					while ((res > 0) && ((DialogTextLine[res - 1] == ' ')))
+					{
+						DialogTextLine[res - 1] = 0;
+						res--;
+					}
+				}
+
+				if (DialogTextLine[0] != 0)
+				{
+					if (CheckPinName(DialogTextLine, PowerPin) == -1)
+					{
+						sprintf(sel, SC(63, "Pin name ( %s ) is not valid"), DialogTextLine);
+						MessageBoxUTF8(SCHWindow, sel, SC(38, "Error"), MB_APPLMODAL | MB_OK);
+						return about;
+					}
+
+					strcpy(PinName, DialogTextLine);
+				}
+				else
+					PinName[0] = 0;
+
+				NrOfPins = min(NrOfPins, 25);
+				cnt2 = StartNumber;
+				memset(&NewPinName, 0, sizeof(NewPinName));
+				repeatBuf[0] = 0;
+
+				for (cnt = 0; cnt < NrOfPins; cnt++)
+				{
+					sprintf(NewPinName, "%s%d\r\n", PinName, cnt2);
+					strcat(repeatBuf, NewPinName);
+
+					NrAddPins++;
+					cnt2 += IncNumber;
+
+					if (cnt2 < 0)
+						break;
+				}
+
+				repeatBuf[strlen(repeatBuf) - 2] = 0; //remove last '\r\n'
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT1, WM_SETTEXT, 0, (LPARAM)repeatBuf);
+
+			}
+
+			return about;
+
+		case IDC_BUTTON2:
+			if (DialogMode != 0)
+				return about;
+
+			PinChanged = 0;
+
+			if (!EditingSheetSymbol)
+				LastPinConnectionType = GetConnectionRadioButtons(Dialog, 0);
+			else
+				LastPinConnectionType = GetConnectionRadioButtons(Dialog, 1);
+
+			PowerPin = 0;
+
+			if (LastPinConnectionType == POWER_CONNECTION)
+				PowerPin = 1;
+
+			AutoNumbering = 0;
+
+			if ((SendDlgItemMessage(Dialog, IDC_EDIT6, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM)& NumberString)
+					> 0) && (sscanf(NumberString, "%i", &StartNumber) == 1) && (StartNumber >= 0)
+				&&
+				(SendDlgItemMessage(Dialog, IDC_EDIT7, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM)& NumberString)
+				> 0) && (sscanf(NumberString, "%i", &IncNumber) == 1) && (IncNumber != 0)
+				&&
+				(SendDlgItemMessage(Dialog, IDC_EDIT8, WM_GETTEXT, MAX_LENGTH_STRING - 50, (LPARAM)& NumberString)
+						 > 0) && (sscanf(NumberString, "%i", &NrOfPins) == 1) && (NrOfPins > 0))
+				AutoNumbering = 1;
+
+			if (AutoNumbering)
+			{
+				char repeatBuf[MAX_LENGTH_STRING * 25];
+
+				if (PowerPin)
+				{
+					MessageBoxUTF8(SCHWindow, SC(480, "Powerpins and auto numbering can not be combined"),
+						SC(38, "Error"), MB_APPLMODAL | MB_OK);
+					return about;
+				}
+
+				memset(DialogTextLine, 0, MAX_LENGTH_STRING - 50);
+
+				if ((res =
+					SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_GETTEXT, MAX_LENGTH_STRING - 50,
+					(LPARAM)DialogTextLine)) > 0)
+				{
+					DialogTextLine[res] = 0;
+
+					while ((res > 0) && ((DialogTextLine[res - 1] == ' ')))
+					{
+						DialogTextLine[res - 1] = 0;
+						res--;
+					}
+				}
+
+				if (DialogTextLine[0] != 0)
+				{
+					if (CheckLabelName(DialogTextLine, PowerPin) == -1)
+					{
+						sprintf(sel, SC(64, "Pin text ( %s ) is not valid for use as a label name"), DialogTextLine);
+						MessageBoxUTF8(SCHWindow, sel, SC(38, "Error"), MB_APPLMODAL | MB_OK);
+						return about;
+					}
+
+					strcpy(PinTextName, DialogTextLine);
+				}
+				else
+					PinTextName[0] = 0;
+
+				NrOfPins = min(NrOfPins, 25);
+				cnt2 = StartNumber;
+				memset(&NewPinTextName, 0, sizeof(NewPinTextName));
+				repeatBuf[0] = 0;
+
+				for (cnt = 0; cnt < NrOfPins; cnt++)
+				{
+					sprintf(NewPinTextName, "%s%d\r\n", PinTextName, cnt2);
+					strcat(repeatBuf, NewPinTextName);
+
+					NrAddPins++;
+					cnt2 += IncNumber;
+
+					if (cnt2 < 0)
+						break;
+				}
+
+				repeatBuf[strlen(repeatBuf) - 2] = 0; //remove last '\r\n'
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM)repeatBuf);
+
 			}
 
 			return about;
