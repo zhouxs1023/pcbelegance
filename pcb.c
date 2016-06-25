@@ -3365,7 +3365,13 @@ void LoadIniFile()
 								GridSize = Value1;
 
 								if (GridSize < 10.0)
-									GridSize = 5 * 2540.0;
+								{
+									if (Units == 0)
+										GridSize = 5 * 2540.0;
+									else
+										GridSize = 0.1 * 10e4;
+
+								}
 							}
 						}
 
@@ -3377,7 +3383,12 @@ void LoadIniFile()
 								CompGridSize = Value1;
 
 								if (CompGridSize < 10.0)
-									CompGridSize = 5 * 2540.0;
+								{
+									if (Units == 0)
+										CompGridSize = 5 * 2540.0;
+									else
+										CompGridSize = 0.1 * 10e4;
+								}
 							}
 						}
 
@@ -3389,7 +3400,12 @@ void LoadIniFile()
 								TraceGridSize = Value1;
 
 								if (TraceGridSize < 10.0)
-									TraceGridSize = 5 * 2540.0;
+								{
+									if (Units == 0)
+										TraceGridSize = 5 * 2540.0;
+									else
+										TraceGridSize = 0.1 * 10e4;
+								}
 							}
 						}
 
@@ -3401,7 +3417,12 @@ void LoadIniFile()
 								AreafillGridSize = Value1;
 
 								if (AreafillGridSize < 10.0)
-									AreafillGridSize = 5 * 2540.0;
+								{
+									if (Units == 0)
+										AreafillGridSize = 5 * 2540.0;
+									else
+										AreafillGridSize = 0.1 * 10e4;
+								}
 							}
 						}
 
@@ -3917,6 +3938,14 @@ void WriteIniFile()
 
 	if (CurrentDrawingLayer == -1)
 		ok = 1;
+
+	if (GerberInfo.GerberNumberMode == 0)
+	{
+		if (Units == 0)
+			GerberInfo.GerberNumberMode = 4;
+		else
+			GerberInfo.GerberNumberMode = 4 + 8;
+	}
 
 	sprintf(str1, "GerberNumberMode=%i", GerberInfo.GerberNumberMode);
 	WriteLn(fp, str1);

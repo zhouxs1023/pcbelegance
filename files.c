@@ -2670,6 +2670,90 @@ void SetWindowName(int32 mode)
 // *******************************************************************************************************
 // *******************************************************************************************************
 
+void InitBoardValues(int32 mode)
+{
+	// mode 0 = change file
+	// mode 1 = new design
+
+	if (Units == 0)
+	{
+		NewDesign.BoardOriginX = (1000 * 2540.0);
+		NewDesign.BoardOriginY = (1000 * 2540.0);
+		NewDesign.BoardWidth = (4000 * 2540.0);
+		NewDesign.BoardHeight = (2000 * 2540.0);
+		NewDesign.StandardTraceWidth = (8 * 2540.0);
+		NewDesign.StandardClearance = (8 * 2540.0);
+		NewDesign.MaximumClearance = (8 * 2540.0);
+		NewDesign.PowerPlaneBorder = (50 * 2540.0);
+		NewDesign.SilkScreenWidth = (8 * 2540.0);
+		NewDesign.BoardOutlineWidth = (8 * 2540.0);
+		CurrentVia.ThickNess = (40 * 2540.0);
+		CurrentVia.DrillThickNess = (0.4 * 10e4);
+		CurrentVia.Clearance = (8 * 2540.0);
+		CurrentVia.ThermalInner = (40 * 2540.0);
+		CurrentVia.SoldMask = (43 * 2540.0);
+		TraceWidthUser[0] = (8.0 * 2540.0);
+		ClearanceWidthUser[0] = (8.0 * 2540.0);
+
+		if (mode == 1)
+		{
+			GridSize = (5 * 2540.0);
+			UserGridSize = (25 * 2540.0);
+			TraceGridSize = (5 * 2540.0);
+			AreafillGridSize = (5 * 2540.0);
+			CompGridSize = (5 * 2540.0);
+		}
+	}
+	else
+	{
+		NewDesign.BoardOriginX = (20 * 10e4);
+		NewDesign.BoardOriginY = (20 * 10e4);
+		NewDesign.BoardWidth = (100 * 10e4);
+		NewDesign.BoardHeight = (50 * 10e4);
+		NewDesign.StandardTraceWidth = (0.2 * 10e4);
+		NewDesign.StandardClearance = (0.2 * 10e4);
+		NewDesign.MaximumClearance = (0.2 * 10e4);
+		NewDesign.PowerPlaneBorder = (1.0 * 10e4);
+		NewDesign.SilkScreenWidth = (0.2 * 10e4);
+		NewDesign.BoardOutlineWidth = (0.25 * 10e4);
+		CurrentVia.ThickNess = (1.0 * 10e4);
+		CurrentVia.DrillThickNess = (0.4 * 10e4);
+		CurrentVia.Clearance = (0.2 * 10e4);
+		CurrentVia.ThermalInner = (1.0 * 10e4);
+		CurrentVia.SoldMask = (1.08 * 10e4);
+		TraceWidthUser[0] = (0.2 * 10e4);
+		ClearanceWidthUser[0] = (0.2 * 10e4);
+
+		if (mode == 1)
+		{
+			GridSize = (0.2 * 10e4);
+			UserGridSize = (1.0 * 10e4);
+			TraceGridSize = (0.2 * 10e4);
+			AreafillGridSize = (0.2 * 10e4);
+			CompGridSize = (0.2 * 10e4);
+		}
+	}
+
+	if (mode == 0)
+	{
+		Design.BoardOriginX = NewDesign.BoardOriginX;
+		Design.BoardOriginY = NewDesign.BoardOriginY;
+		Design.BoardWidth = NewDesign.BoardWidth;
+		Design.BoardHeight = NewDesign.BoardHeight;
+		Design.StandardTraceWidth = NewDesign.StandardTraceWidth;
+		Design.StandardClearance = NewDesign.StandardClearance;
+		Design.MaximumClearance = NewDesign.MaximumClearance;
+		Design.PowerPlaneBorder = NewDesign.PowerPlaneBorder;
+		Design.SilkScreenWidth = NewDesign.SilkScreenWidth;
+		Design.BoardOutlineWidth = NewDesign.BoardOutlineWidth;
+	}
+}
+
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+
 int32 InitNewDesign(int32 mode)
 {
 	DesignRecord OldDesign;
@@ -2860,16 +2944,7 @@ void ChangeFile(LPSTR FileName, int32 mode)
 	DeAllocateMemDesign();
 
 	res = 0;
-	Design.BoardOriginX = 25.4e5;
-	Design.BoardOriginY = 25.4e5;
-	Design.BoardWidth = (4000 * 2540);
-	Design.BoardHeight = (2000 * 2540);
-	Design.StandardTraceWidth = (10 * 2540);
-	Design.StandardClearance = (10 * 2540);
-	Design.MaximumClearance = (10 * 2540);
-	Design.PowerPlaneBorder = (50 * 2540);
-	Design.SilkScreenWidth = (10 * 2540);
-
+	InitBoardValues(0);
 //  InitNewDesign(0);
 
 	if (EditFile[0] != 0)

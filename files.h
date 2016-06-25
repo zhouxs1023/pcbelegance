@@ -53,4 +53,7 @@ void ChangeFile(LPSTR FileName, int32 mode);
 
 void LoadDesignIniFile(void);
 
+void InitBoardValues(int32 mode);
+
+
 #endif

@@ -1193,6 +1193,8 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 			}
 		}
 
+		InitBoardValues(1);
+
 		if (NewDesignDialog() != -1)
 		{
 			DeAllocateMemDesign();

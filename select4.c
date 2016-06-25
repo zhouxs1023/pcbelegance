@@ -925,8 +925,8 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 	            0.0, x3, y3, x4, y4, lengte, dikte, ThickNess;
 	char str[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING], str3[MAX_LENGTH_STRING], str4[MAX_LENGTH_STRING],
 	     str5[MAX_LENGTH_STRING], str6[MAX_LENGTH_STRING], str7[MAX_LENGTH_STRING], str8[MAX_LENGTH_STRING],
-	     str9[MAX_LENGTH_STRING], LayerStr[MAX_LENGTH_STRING], PropertyID[MAX_LENGTH_STRING],
-	     PropertyValue[MAX_LENGTH_STRING];
+	     str9[MAX_LENGTH_STRING], LayerStr[MAX_LENGTH_STRING], PropertyID[MAX_LENGTH_STRING], 
+		 PropertyValue[MAX_LENGTH_STRING];
 	ObjectRecord *Object, NewObject;
 	CompRecord *Comp;
 	TraceRecord *Trace = NULL;
@@ -1149,7 +1149,13 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 					Comp = (CompRecord *) & (CompsMem[(*Comps)[Found]]);
 					NrCompProperties = GetCompProperties(Comp, NULL, NULL, 0x40);
 					strcpy(str4, "\r\n");
-					strcat(str4, SC(1215, "\f\r\nProperties\r\n\r\n"));
+					strcat(str4, SC(1215, "\f\r\nProperties,\r\n"));
+					if ((Comp->Value) && (Comp->Value[0]))
+					{
+						sprintf(str5, SC(1345, "Value : %s\r\n"), Comp->Value);
+						strcat(str4, str5);
+					}
+
 					sprintf(str5, SC(1229, "Geometry : %s\r\n"), Comp->ShapeName);
 					strcat(str4, str5);
 
@@ -1177,12 +1183,12 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 					if ((NetNr >= 0) && (NetNr < Design.NrNets))
 					{
 						Net = &((*Nets)[NetNr]);
-						sprintf(str7, SC(1214, "\fNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
+						sprintf(str7, SC(1214, "\f\r\nNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
 						NrNetProperties = GetNetProperties(Net, NULL, NULL, 0x40);
 
 						if (NrNetProperties > 0)
 						{
-							strcat(str7, SC(1213, "Properties :\r\n"));
+							strcat(str7, SC(1213, "Properties,\r\n"));
 
 							for (cnt2 = 0; cnt2 < NrNetProperties; cnt2++)
 							{
@@ -1198,7 +1204,7 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 
 					sprintf(InfoStr,
 					        SC(1216,
-					           "Component pin\r\n\f\r\n%s - %s\r\nPad : %s\r\nClearance : %s\r\nLayer : %s%s\r\n%s"),
+					           "Component pin\r\n\f\r\n%s - %s\r\nPad : %s\r\nClearance : %s\r\nLayer : %s%s%s"),
 					        Comp->Name, str, str3, str8, str6, str4, str7);
 					DisplayInfoCursorX = MousePosX;
 					DisplayInfoCursorY = MousePosY;
@@ -1242,12 +1248,12 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 					if ((Via->NetNr >= 0) && (Via->NetNr < Design.NrNets))
 					{
 						Net = &((*Nets)[Via->NetNr]);
-						sprintf(str4, SC(1214, "\fNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
+						sprintf(str4, SC(1214, "\f\r\nNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
 						NrNetProperties = GetNetProperties(Net, NULL, NULL, 0x40);
 
 						if (NrNetProperties > 0)
 						{
-							strcat(str5, SC(1213, "Properties :\r\n"));
+							strcat(str5, SC(1213, "Properties,\r\n"));
 
 							for (cnt2 = 0; cnt2 < NrNetProperties; cnt2++)
 							{
@@ -1399,12 +1405,12 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 			if ((Trace->NetNr >= 0) && (Trace->NetNr < Design.NrNets))
 			{
 				Net = &((*Nets)[Trace->NetNr]);
-				sprintf(str4, SC(1214, "\fNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
+				sprintf(str4, SC(1214, "\f\r\nNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
 				NrNetProperties = GetNetProperties(Net, NULL, NULL, 0x40);
 
 				if (NrNetProperties > 0)
 				{
-					strcat(str5, SC(1213, "Properties :\r\n"));
+					strcat(str5, SC(1213, "Properties,\r\n"));
 
 					for (cnt2 = 0; cnt2 < NrNetProperties; cnt2++)
 					{
@@ -1551,12 +1557,12 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 				if ((Trace->NetNr >= 0) && (Trace->NetNr < Design.NrNets))
 				{
 					Net = &((*Nets)[Trace->NetNr]);
-					sprintf(str4, SC(1214, "\fNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
+					sprintf(str4, SC(1214, "\f\r\nNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
 					NrNetProperties = GetNetProperties(Net, NULL, NULL, 0x40);
 
 					if (NrNetProperties > 0)
 					{
-						strcat(str5, SC(1213, "Properties :\r\n"));
+						strcat(str5, SC(1213, "Properties,\r\n"));
 
 						for (cnt2 = 0; cnt2 < NrNetProperties; cnt2++)
 						{
@@ -1620,12 +1626,12 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 				if ((NetNr >= 0) && (NetNr < Design.NrNets))
 				{
 					Net = &((*Nets)[NetNr]);
-					sprintf(str4, SC(1214, "\fNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
+					sprintf(str4, SC(1214, "\f\r\nNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
 					NrNetProperties = GetNetProperties(Net, NULL, NULL, 0x40);
 
 					if (NrNetProperties > 0)
 					{
-						strcat(str5, SC(1213, "Properties :\r\n"));
+						strcat(str5, SC(1213, "Properties,\r\n"));
 
 						for (cnt2 = 0; cnt2 < NrNetProperties; cnt2++)
 						{
@@ -1743,12 +1749,12 @@ int32 GetInfoStr(LPSTR InfoStr, int32 mode)
 					if ((Layer != DRILL_UNPLATED_LAYER) && (NetNr >= 0) && (NetNr < Design.NrNets))
 					{
 						Net = &((*Nets)[NetNr]);
-						sprintf(str4, SC(1214, "\fNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
+						sprintf(str4, SC(1214, "\f\r\nNet : %s [ %d ]\r\n"), Net->Name, Net->NrPins);
 						NrNetProperties = GetNetProperties(Net, NULL, NULL, 0x40);
 
 						if (NrNetProperties > 0)
 						{
-							strcat(str5, SC(1213, "Properties :\r\n"));
+							strcat(str5, SC(1213, "Properties,\r\n"));
 
 							for (cnt2 = 0; cnt2 < NrNetProperties; cnt2++)
 							{

@@ -7217,6 +7217,9 @@ void AddPowerPlane(int32 Layer)
 		BoardAreaFill->maxx = xmax;
 		BoardAreaFill->maxy = ymax;
 		break;
+
+	case -2:
+		return;
 	}
 
 	AllocateMemAreaFillMemoryTemp(3172);

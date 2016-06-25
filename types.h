@@ -862,6 +862,7 @@ typedef struct
 	int32 PlotBoardOutlineSingle;
 	int32 BitmapExportSaveMode;
 	int32 ReverseLayerNumbering;
+	int32 GerbvProject;
 	double ScaleFactor, PenSizes[16], PenSpeed, Xoffset, Yoffset, BitmapExportResolution, AreaFillPen1, AreaFillPen2;
 	char TextLine[8][MAX_LENGTH_STRING];
 	char PcbMaterial[MAX_LENGTH_STRING];

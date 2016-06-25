@@ -139,7 +139,7 @@ extern ObjectRecord DrawTrace1, DrawTrace2, LimitObject, TraceObject1, TraceObje
 
 extern ValueRecord NewValue;
 
-extern ViaRecord CurrentVia, DefaultVia;
+extern ViaRecord CurrentVia;
 
 extern double DisplX, DisplY;
 

@@ -138,7 +138,7 @@ ObjectRecord LimitObject, TraceObject1, TraceObject2, DrawTrace1, DrawTrace2, Cu
              ConnectionObject1, ConnectionObject2, OverlapObject, LastAddedObject, LayerPlotObjects[33],
              FoundObjects1[MaxFoundObjects], FoundObjects2[MaxFoundObjects];
 ValueRecord NewValue;
-ViaRecord CurrentVia, DefaultVia;
+ViaRecord CurrentVia;
 
 double Xoffset, Yoffset, Factor, RelX, RelY, CurrentTraceWidth, CurrentClearance, TextMinX, TextMinY, TextMaxX,
        TextMaxY, TraceWidthUser[10], ClearanceWidthUser[10];
@@ -3248,6 +3248,7 @@ void MemoryMain()
 	ComponentConnectionMode = 1;
 
 	SelectionMode = MOVE_COMPONENTS_MODE;
+
 	GridSize = (25.0 * 2540.0);
 	UserGridSize = (25.0 * 2540.0);
 	ScrollSize = 150;
@@ -3282,10 +3283,6 @@ void MemoryMain()
 	CurrentVia.DrillThickNess = (18.0 * 2540.0);
 	CurrentVia.Clearance = (6.0 * 2540.0);
 	CurrentVia.ThermalInner = (32.0 * 2540.0);
-	DefaultVia.ThickNess = (32.0 * 2540.0);
-	DefaultVia.DrillThickNess = (18.0 * 2540.0);
-	DefaultVia.Clearance = (6.0 * 2540.0);
-	DefaultVia.ThermalInner = (32.0 * 2540.0);
 	CurrentTraceWidth = (6.0 * 2540.0);
 	CurrentClearance = (6.0 * 2540.0);
 
@@ -3448,7 +3445,7 @@ void MemoryMain()
 	CurrentVia.ThermalInner = (50 * 2540.0);
 	CurrentVia.SoldMask = (54 * 2540.0);
 
-	GerberInfo.GerberNumberMode = 4;
+	GerberInfo.GerberNumberMode = 0;
 	GerberInfo.GerberOutputMode = 1;
 	GerberInfo.ReverseLayerNumbering = 1;
 	GerberInfo.AutoApertureGeneration = 1;

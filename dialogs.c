@@ -75,7 +75,7 @@ int32 BitmapExportResolutions[20] = { 300, 400, 508, 600, 1000, 1016, 1200, 2000
 
 double TempTraceWidth, TempClearance, RotationCentreX, RotationCentreY, RotationValue, OldValue1, OldValue2, OldValue3;
 
-char DialogTextLine[2048], GerberLayerStr[30][128], GeometryLibNames[64][160], SearchString2[MAX_LENGTH_STRING],
+char DialogTextLine[2048], GerberLayerStr[26+16][128], GeometryLibNames[64][160], SearchString2[MAX_LENGTH_STRING],
      TempGeometrieName[MAX_LENGTH_STRING], GeometrieEditor[MAX_LENGTH_STRING];
 
 uint8 *SelectedNets, *SelectedComponents;
@@ -2931,6 +2931,14 @@ void InitPlotLayers(int32 ReverseLayerNumbering, int32 mode)
 void SetgerberOutputMode(HWND Dialog)
 {
 	SendDlgItemMessageOwn(Dialog, IDC_LIST2, LB_RESETCONTENT, 0, 0);
+
+	if (GerberInfo.GerberNumberMode == 0)
+	{
+		if (Units == 0)
+			GerberInfo.GerberNumberMode = 4;
+		else
+			GerberInfo.GerberNumberMode = 4 + 8;
+	}
 
 	if ((GerberInfo.GerberNumberMode & 8) == 0)
 	{	// Mils

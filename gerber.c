@@ -73,6 +73,13 @@ typedef struct
 	int32 Mirror;
 } AperturePolygonUsageRecord;
 
+typedef struct
+{
+	int32 Layer;
+	int32 Visible;
+	uint32 ColourRed, ColourGreen, ColourBlue;
+} GerbvProjectRecord;
+
 AperTureArray *AperTures, *AperTures2, *DrillAperTures;
 HGLOBAL AperTuresGlobal, DrillAperTuresGlobal;
 AperTureArray *LoadedAperTures;
@@ -106,6 +113,8 @@ double SpecialLineThickNess, TextPen;
 double AreafillPenSize1, AreafillPenSize2, PowerPlanePenSize1, PowerPlanePenSize2;
 
 char GerberListFilename[MAX_LENGTH_STRING];
+char GerbvProjectFilename[MAX_LENGTH_STRING];
+
 
 
 extern double LastGerberX, LastGerberY, CurrentPlotPenSize, DesignBoardOriginX, DesignBoardOriginY, DesignBoardWidth,
@@ -161,6 +170,156 @@ int32 PenPlotOutput(int32 mode)
 	RedrawInfoStr(1);
 	SetNormalCursor();
 	return 0;
+}
+
+// ******************************************************************************************************************************
+// ******************************************************************************************************************************
+// ******************************************************************************************************************************
+// ******************************************************************************************************************************
+
+void GerbvProjectOutput(void)
+{
+	int32 Layer, NrLayers = 0, Found = 0, cnt, cnt2;
+	char str[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING], FilePart[MAX_LENGTH_STRING];
+	// *INDENT-OFF*
+	GerbvProjectRecord GerbvProjectObj[] = 
+	{
+		COMP_OUTLINE_LAYER_TOP,		0,	65535,	32639,	29555,
+		SILKSCREEN_TOP_REFS,		0,	54741,	65021,	13107,
+		SILKSCREEN_TOP_VALUES,		0,	54741,	65021,	13107,
+		SILKSCREEN_TOP,				0,	54741,	65021,	13107,
+		PASTE_MASK_TOP,				0,	30069,	62194,	26471,
+		SOLD_MASK_TOP,				0,	65535,	50629,	13107,
+		ROUTING_KEEPOUT_LAYER + 15,	0,	53713,	6939,	26728,
+		15,							0,	49601,	0,		57568,
+		ROUTING_KEEPOUT_LAYER + 14,	0,	53713,	6939,	26728,
+		14,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 13,	0,	53713,	6939,	26728,
+		13,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 12,	0,	53713,	6939,	26728,
+		12,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 11,	0,	53713,	6939,	26728,
+		11,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 10,	0,	53713,	6939,	26728,
+		10,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 9,	0,	53713,	6939,	26728,
+		9,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 8,	0,	53713,	6939,	26728,
+		8,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 7,	0,	53713,	6939,	26728,
+		7,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 6,	0,	53713,	6939,	26728,
+		6,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 5,	0,	53713,	6939,	26728,
+		5,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 4,	0,	53713,	6939,	26728,
+		4,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 3,	0,	53713,	6939,	26728,
+		3,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 2,	0,	53713,	6939,	26728,
+		2,							0,	49601,	24000,	57568,
+		ROUTING_KEEPOUT_LAYER + 1,	0,	53713,	6939,	26728,
+		1,							0,	49601,	24000,	57568,
+		COMP_OUTLINE_LAYER_BOTTOM,	0,	65535,	32639,	29555,
+		SILKSCREEN_BOTTOM_REFS,		0,	0,		50115,	50115,
+		SILKSCREEN_BOTTOM_VALUES,	0,	0,		50115,	50115,
+		SILKSCREEN_BOTTOM,			0,	0,		50115,	50115,
+		PASTE_MASK_BOTTOM,			0,	30069,	62194,	26471,
+		SOLD_MASK_BOTTOM,			0,	53713,	6939,	26728,
+		ROUTING_KEEPOUT_LAYER,		0,	53713,	6939,	26728,
+		0,							1,	47802,	47802,	47802,
+		DRILL_LAYER,				0,	29555,	29555,	57054,
+		BOARD_OUTLINE_LAYER,		1,	65535,	32639,	29555,
+		INFO_LAYER,					0,	65535,	32639,	29555,
+		INFO_LAYER2,				0,	65535,	32639,	29555,
+		INFO_LAYER3,				0,	65535,	32639,	29555,
+		INFO_LAYER4,				0,	65535,	32639,	29555,
+	};
+	int32 NrGerbvProjectObj = sizeof(GerbvProjectObj) / sizeof(GerbvProjectRecord);
+	// *INDENT-ON*
+
+	sprintf(str, "(gerbv-file-version! \"2.0A\")");
+	AppendStringToTextFileUTF8(GerbvProjectFilename, str);
+	sprintf(str, "(set-render-type! 3)");
+	AppendStringToTextFileUTF8(GerbvProjectFilename, str);
+
+	for (cnt = 0; cnt < NrGerbvProjectObj; cnt++)
+	{
+		Layer = GerbvProjectObj[cnt].Layer;
+
+		for (cnt2 = 0; cnt2 < NrGerberLayers; cnt2++)
+		{
+			if (GerberLayers[cnt2] == Layer)
+			{
+				Found = 1;
+				break;
+			}
+		}
+
+		if ((Found == 1) && (Layer == DRILL_LAYER))
+		{
+			Found = 0;
+			sprintf(str, "(define-layer! %d ", NrLayers++);
+			GetFilePartFromFileName(FilePart, EditFile);
+			CutExtensionFileName(FilePart);
+
+			if (GerberInfo.DrillOutputOption == 0)
+				sprintf(str2, "(cons \'filename \"%s.drl\")", FilePart);
+			else
+				sprintf(str2, "(cons \'filename \"%s.ncd\")", FilePart);
+
+			strcat(str, str2);
+
+			if (GerbvProjectObj[cnt].Visible)
+				sprintf(str2, "(cons \'visible #t)");
+			else
+				sprintf(str2, "(cons \'visible #f)");
+
+			strcat(str, str2);
+			sprintf(str2, "(cons \'color #(%d %d %d))",
+				GerbvProjectObj[cnt].ColourRed, GerbvProjectObj[cnt].ColourGreen,
+				GerbvProjectObj[cnt].ColourBlue);
+			strcat(str, str2);
+			sprintf(str2, "(cons \'attribs (list (list \'autodetect \'Boolean 0) ");
+			strcat(str, str2);
+			sprintf(str2, "(list \'zero_supression \'Enum 0) ");
+			strcat(str, str2);
+
+			if ((GerberInfo.GerberNumberMode & 8) == 0)
+				sprintf(str2, "(list \'units \'Enum 0) "); //inch
+			else
+				sprintf(str2, "(list \'units \'Enum 1) "); //mm
+
+			strcat(str, str2);
+			sprintf(str2, "(list \'digits \'Integer %d))))", GerberInfo.GerberNumberMode & 7);
+			strcat(str, str2);
+			AppendStringToTextFileUTF8(GerbvProjectFilename, str);
+		}
+
+		if ( (Found == 1) || ((Layer == DRILL_LAYER) && (GerberInfo.DrillAsGerber == 1)) )
+		{
+			Found = 0;
+
+			if (!GerberInfo.ReverseLayerNumbering)
+				GetLayerTextObjects(Layer, str2, 64 + 5);
+			else
+				GetLayerTextObjects(Layer, str2, 64 + 16 + 5);
+
+			sprintf(str, "(define-layer! %d (cons \'filename \"%s.ger\")", NrLayers++, str2);
+
+			if (GerbvProjectObj[cnt].Visible)
+				sprintf(str2, "(cons \'visible #t)");
+			else
+				sprintf(str2, "(cons \'visible #f)");
+
+			strcat(str, str2);
+			sprintf(str2, "(cons \'color #(%d %d %d)))",
+				GerbvProjectObj[cnt].ColourRed, GerbvProjectObj[cnt].ColourGreen,
+				GerbvProjectObj[cnt].ColourBlue);
+			strcat(str, str2);
+			AppendStringToTextFileUTF8(GerbvProjectFilename, str);
+		}
+	}
 }
 
 // *******************************************************************************************************
@@ -225,7 +384,7 @@ void OutputGerberDrill()
 			sprintf(GerberListFilename, "%s\\pcb\\gerber\\GerberFiles.txt", DesignPath);
 			DeleteFileUTF8(GerberListFilename);
 
-			if ((NrGerberLayers > 1) || (GerberLayers[0] != DRILL_LAYER))
+			if ((NrGerberLayers > 1) || (GerberLayers[0] != DRILL_LAYER) || (GerberInfo.DrillAsGerber == 1))
 			{
 				if (GerberInfo.GerberOutputMode == 0)
 					GerberOutput(0);
@@ -237,6 +396,13 @@ void OutputGerberDrill()
 			{
 				if ((Layer = GerberLayers[cnt3]) == DRILL_LAYER)
 					DrillOutput();
+			}
+
+			//if (GerberInfo.GerbvProject == 1)
+			{
+				sprintf(GerbvProjectFilename, "%s\\pcb\\gerber\\GerbvProject.gvp", DesignPath);
+				DeleteFileUTF8(GerbvProjectFilename);
+				GerbvProjectOutput();
 			}
 		}
 
