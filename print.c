@@ -772,7 +772,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 		SetDialogItemTextUTF8(Dialog, IDC_STATIC1, SC(413, "Plot options"));
 		SetDialogItemTextUTF8(Dialog, IDC_STATIC2, SC(414, "Bitmap resolution"));
 		SetDialogItemTextUTF8(Dialog, IDC_STATIC3, SC(415, "User"));
-		SetDialogItemTextUTF8(Dialog, IDD_UNITS, SC(416, "mils/mm/µm"));
+		SetDialogItemTextUTF8(Dialog, IDD_UNITS, SC(416, "thou/mm/µm"));
 		SetWindowTextUTF8(Dialog, SC(417, "Bitmap output"));
 
 		TempUnits = 1;
@@ -802,7 +802,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 			if (TempUnits == 0)
 			{
 				SetDialogFloatValue(Dialog, IDC_EDIT2, (double) (BitmapExportResolution / 2540.0), 4);
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "mils"));
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "thou"));
 			}
 			else
 			{
@@ -884,7 +884,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 			{
 			case 0:
 				value1 /= 2540.0;
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "mils"));
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "thou"));
 				SetDialogFloatValue(Dialog, IDC_EDIT2, value1, 4);
 				break;
 
@@ -928,7 +928,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 			{
 			case 0:
 				value1 /= 2540.0;
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "mils"));
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "thou"));
 				SetDialogFloatValue(Dialog, IDC_EDIT2, value1, 4);
 				break;
 
