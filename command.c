@@ -166,7 +166,7 @@ void SCHCommand(HWND hwnd, WPARAM WParam, int32 LParam)
 				if ((Instance->Info & 4) == 4)
 				{
 					NrObjects = 0;
-					InstanceToObject(Instance, 0.0, 0.0, 1);
+					InstanceToObject(Instance, 0.0, 0.0, 0);
 					cnt4 = 0;
 
 					for (cnt2 = 0; cnt2 < NrObjects; cnt2++)
@@ -193,6 +193,7 @@ void SCHCommand(HWND hwnd, WPARAM WParam, int32 LParam)
 											{
 												AddRedefinedPinBus(&NewRedefinedPinBus);
 												RedefinedPinBus->Info |= OBJECT_NOT_VISIBLE;
+												break;
 											}
 										}
 									}
@@ -206,6 +207,7 @@ void SCHCommand(HWND hwnd, WPARAM WParam, int32 LParam)
 			}
 		}
 
+		RePaint();
 		return;
 	}
 
@@ -223,7 +225,7 @@ void SCHCommand(HWND hwnd, WPARAM WParam, int32 LParam)
 				if ((Instance->Info & 4) == 4)
 				{
 					NrObjects = 0;
-					InstanceToObject(Instance, 0.0, 0.0, 1);
+					InstanceToObject(Instance, 0.0, 0.0, 0);
 					cnt4 = 0;
 
 					for (cnt2 = 0; cnt2 < NrObjects; cnt2++)
@@ -240,8 +242,16 @@ void SCHCommand(HWND hwnd, WPARAM WParam, int32 LParam)
 								strcpy(NewRedefinedPinBus.Name, Object->Text2);
 								NewRedefinedPinBus.Info2 = (int16) Object->Info3;
 
-								if (PinBusReorderDialog(&NewRedefinedPinBus, 0) == 1)
-									AddRedefinedPinBus(&NewRedefinedPinBus);
+								if (strchr(NewRedefinedPinBus.Reference, '?') == 0)
+								{
+									if (PinBusReorderDialog(&NewRedefinedPinBus, 0) == 1)
+										AddRedefinedPinBus(&NewRedefinedPinBus);
+								}
+								else
+								{
+									MessageBoxUTF8(SCHWindow, SC(528, "Reference must be set before pinbus reorder"),
+										SC(38, "Error"), MB_APPLMODAL | MB_OK);
+								}
 							}
 
 							cnt4++;
@@ -251,6 +261,7 @@ void SCHCommand(HWND hwnd, WPARAM WParam, int32 LParam)
 			}
 		}
 
+		RePaint();
 		return;
 	}
 

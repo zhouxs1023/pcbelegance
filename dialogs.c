@@ -1403,7 +1403,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 
 			if (AutoNumbering)
 			{
-				char repeatBuf[MAX_LENGTH_STRING * 25];
+				char RepeatBuf[MAX_LENGTH_STRING * 25];
 
 				if (PowerPin)
 				{
@@ -1444,12 +1444,12 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 				NrOfPins = min(NrOfPins, 25);
 				cnt2 = StartNumber;
 				memset(&NewPinName, 0, sizeof(NewPinName));
-				repeatBuf[0] = 0;
+				RepeatBuf[0] = 0;
 
 				for (cnt = 0; cnt < NrOfPins; cnt++)
 				{
 					sprintf(NewPinName, "%s%d\r\n", PinName, cnt2);
-					strcat(repeatBuf, NewPinName);
+					strcat(RepeatBuf, NewPinName);
 
 					NrAddPins++;
 					cnt2 += IncNumber;
@@ -1458,8 +1458,8 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 						break;
 				}
 
-				repeatBuf[strlen(repeatBuf) - 2] = 0; //remove last '\r\n'
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT1, WM_SETTEXT, 0, (LPARAM)repeatBuf);
+				RepeatBuf[strlen(RepeatBuf) - 2] = 0; //remove last '\r\n'
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT1, WM_SETTEXT, 0, (LPARAM)RepeatBuf);
 
 			}
 
@@ -1495,7 +1495,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 
 			if (AutoNumbering)
 			{
-				char repeatBuf[MAX_LENGTH_STRING * 25];
+				char RepeatBuf[MAX_LENGTH_STRING * 25];
 
 				if (PowerPin)
 				{
@@ -1536,12 +1536,12 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 				NrOfPins = min(NrOfPins, 25);
 				cnt2 = StartNumber;
 				memset(&NewPinTextName, 0, sizeof(NewPinTextName));
-				repeatBuf[0] = 0;
+				RepeatBuf[0] = 0;
 
 				for (cnt = 0; cnt < NrOfPins; cnt++)
 				{
 					sprintf(NewPinTextName, "%s%d\r\n", PinTextName, cnt2);
-					strcat(repeatBuf, NewPinTextName);
+					strcat(RepeatBuf, NewPinTextName);
 
 					NrAddPins++;
 					cnt2 += IncNumber;
@@ -1550,8 +1550,8 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 						break;
 				}
 
-				repeatBuf[strlen(repeatBuf) - 2] = 0; //remove last '\r\n'
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM)repeatBuf);
+				RepeatBuf[strlen(RepeatBuf) - 2] = 0; //remove last '\r\n'
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM)RepeatBuf);
 
 			}
 
