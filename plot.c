@@ -2583,7 +2583,7 @@ int32 CompPositionOutput(int32 mode)
 	switch (CompPosOutput.Units & 3)
 	{
 	case 0:
-		WriteLn(fp, "# Units: mils");
+		WriteLn(fp, "# Units: thou");
 		break;
 
 	case 1:
@@ -3352,7 +3352,7 @@ void WriteLayerInfo()
 
 	res = FindMinMaxBoard(&minx, &miny, &maxx, &maxy, 0);
 
-	sprintf(str, "%s: %11.4f ,%11.4f  mils", str2, (maxx - minx) / 2540, (maxy - miny) / 2540);
+	sprintf(str, "%s: %11.4f ,%11.4f  thou", str2, (maxx - minx) / 2540, (maxy - miny) / 2540);
 	WriteLn(fp, str);
 	sprintf(str, "%s: %12.5f,%12.5f inch", str2, (maxx - minx) / 2540000, (maxy - miny) / 2540000);
 	WriteLn(fp, str);
@@ -3362,7 +3362,7 @@ void WriteLayerInfo()
 	sprintf(str2, SC(976, "PCB origin (x,y)"));
 	strcat(str2, "                                      ");
 	str2[36] = 0;
-	sprintf(str, "%s: %11.4f ,%11.4f  mils", str2, Design.BoardOriginX / 2540, Design.BoardOriginY / 2540);
+	sprintf(str, "%s: %11.4f ,%11.4f  thou", str2, Design.BoardOriginX / 2540, Design.BoardOriginY / 2540);
 	WriteLn(fp, str);
 	sprintf(str, "%s: %12.5f,%12.5f inch", str2, Design.BoardOriginX / 2540000, Design.BoardOriginY / 2540000);
 	WriteLn(fp, str);
@@ -3402,14 +3402,14 @@ void WriteLayerInfo()
 	sprintf(str, SC(981, "Minimal Trace width"));
 	strcat(str, "                                      ");
 	str[36] = 0;
-	sprintf(str2, SC(982, ": %.0f mils (%.4f mm)"), Design.StandardTraceWidth / 2540,
+	sprintf(str2, SC(982, ": %.0f thou (%.4f mm)"), Design.StandardTraceWidth / 2540,
 	        Design.StandardTraceWidth / 100000);
 	strcat(str, str2);
 	WriteLn(fp, str);
 	sprintf(str, SC(983, "Minimal Clearance"));
 	strcat(str, "                                      ");
 	str[36] = 0;
-	sprintf(str2, SC(982, ": %.0f mils (%.4f mm)"), Design.StandardClearance / 2540, Design.StandardClearance / 100000);
+	sprintf(str2, SC(982, ": %.0f thou (%.4f mm)"), Design.StandardClearance / 2540, Design.StandardClearance / 100000);
 	strcat(str, str2);
 	WriteLn(fp, str);
 
@@ -4575,7 +4575,7 @@ void WriteDrillApertureFile(int32 fp, int32 mode)
 		sprintf(str2, SC(986, ";Drill tools [ %s ]"), FileName);
 		WriteLn(fp, str2);
 		WriteLn(fp, ";");
-		strcpy(str2, SC(987, ";  Tool nr   Type      Diam mm     mils        Nr drills"));
+		strcpy(str2, SC(987, ";  Tool nr   Type      Diam mm     thou        Nr drills"));
 		WriteLn(fp, str2);
 		WriteLn(fp, ";-------------------------------------------------------");
 	}

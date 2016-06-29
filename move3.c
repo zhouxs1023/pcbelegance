@@ -2548,7 +2548,7 @@ int32 CALLBACK CopyArrayDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(820, "Nr copies Y"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(821, "Distance X"));
 		SetDialogItemText(Dialog, IDC_STATIC4, SC(822, "Nr copies X"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetWindowTextOwn(Dialog, SC(823, "Copy array objects"));
 		SetDialogValue(Dialog, IDC_EDIT2, CopyArrayDistanceValueX);
 		SetDialogValue(Dialog, IDC_EDIT1, CopyArrayDistanceValueY);
@@ -2558,8 +2558,8 @@ int32 CALLBACK CopyArrayDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 
 		if (TempUnits == 0)
 		{
-			SendDlgItemMessageOwn(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
-			SendDlgItemMessageOwn(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
+			SendDlgItemMessageOwn(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
+			SendDlgItemMessageOwn(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
 		}
 		else
 		{
@@ -2584,8 +2584,8 @@ int32 CALLBACK CopyArrayDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 
 			if (TempUnits == 0)
 			{
-				SendDlgItemMessageOwn(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
-				SendDlgItemMessageOwn(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
+				SendDlgItemMessageOwn(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
+				SendDlgItemMessageOwn(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
 			}
 			else
 			{
@@ -2681,7 +2681,7 @@ int32 CALLBACK CopyArrayRotationDialog2(HWND Dialog, UINT Message, WPARAM WParam
 		SetDialogItemText(Dialog, IDC_RADIO1, SC(832, "Rotate around user centre"));
 		SetDialogItemText(Dialog, IDC_RADIO2, SC(204, "Rotate around coordinate centre"));
 		SetDialogItemText(Dialog, IDC_CHECK1, SC(833, "Rotate individual objects"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetWindowTextOwn(Dialog, SC(823, "Copy array objects"));
 		SetDialogValue(Dialog, IDC_EDIT1, CopyArrayRotationCentreX);
 		SetDialogValue(Dialog, IDC_EDIT2, CopyArrayRotationCentreY);
@@ -2704,7 +2704,7 @@ int32 CALLBACK CopyArrayRotationDialog2(HWND Dialog, UINT Message, WPARAM WParam
 		TempUnits = Units;
 
 		if (TempUnits == 0)
-			SendDlgItemMessageOwn(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
+			SendDlgItemMessageOwn(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
 		else
 			SendDlgItemMessageOwn(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(131, "mm"));
 
@@ -2739,7 +2739,7 @@ int32 CALLBACK CopyArrayRotationDialog2(HWND Dialog, UINT Message, WPARAM WParam
 				SetDialogValue(Dialog, IDC_EDIT2, Value2);
 
 				if (TempUnits == 0)
-					SendDlgItemMessageOwn(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
+					SendDlgItemMessageOwn(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
 				else
 					SendDlgItemMessageOwn(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(131, "mm"));
 			}

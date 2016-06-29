@@ -307,7 +307,7 @@ int32 GetSpecialValue(LPSTR str, float *Value, int32 mode)
 		{
 			strcpy(str2, (LPSTR) & str[lengte - 4]);
 
-			if (stricmpOwn(str2, SC(130, "mils")) == 0)
+			if (stricmpOwn(str2, SC(130, "thou")) == 0)
 			{
 				*Value *= 2540.0;
 				return 1;
@@ -1101,7 +1101,7 @@ int32 CALLBACK ApertureDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		SetDialogItemText(Dialog, IDHELP, SC(156, "Help"));
 		SetDialogItemText(Dialog, IDOK, SC(479, "Read apertures"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(157, "Cancel"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(480, "Mils/mm/inch"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(480, "thou/mm/inch"));
 		SetDialogItemText(Dialog, IDD_HINT, SC(481, "Hint by program"));
 // ************************************************************************************************
 		TabStops[0] = 20;
@@ -1136,7 +1136,7 @@ int32 CALLBACK ApertureDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		SetApertureColumns(Dialog);
 
 		InitAperturesColumn(Dialog);
-		TempGerberInfo.AperTureUnits = SetNextUnits(TempGerberInfo.AperTureUnits, 16 + 0);	// mils/mm/inch
+		TempGerberInfo.AperTureUnits = SetNextUnits(TempGerberInfo.AperTureUnits, 16 + 0);	// thou/mm/inch
 		SetUnitText(Dialog, IDC_EDIT2, TempGerberInfo.AperTureUnits);
 		SendDlgItemMessageOwn(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) (LPSTR) TempGerberInfo.GerberApertureFileName);
 		return about;
@@ -1152,7 +1152,7 @@ int32 CALLBACK ApertureDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		switch (LOWORD(WParam))
 		{
 		case IDD_UNITS:
-			TempGerberInfo.AperTureUnits = SetNextUnits(TempGerberInfo.AperTureUnits, 0);	// mils/mm/inch
+			TempGerberInfo.AperTureUnits = SetNextUnits(TempGerberInfo.AperTureUnits, 0);	// thou/mm/inch
 			SetUnitText(Dialog, IDC_EDIT2, TempGerberInfo.AperTureUnits);
 			break;
 
@@ -2182,7 +2182,7 @@ void SetGerberParameters(HWND Dialog)
 
 	switch (TempGerberInfo.Units)
 	{
-	case 0:					// mils
+	case 0:					// thou
 		TempGerberInfo.XDigits1 = -1;
 		TempGerberInfo.YDigits1 = -1;
 		TempGerberInfo.XDigits2 = -1;
@@ -2297,7 +2297,7 @@ int32 CALLBACK GerberDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LP
 		SetDialogItemText(Dialog, IDHELP, SC(156, "Help"));
 		SetDialogItemText(Dialog, IDOK, SC(155, "OK"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(157, "Cancel"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(488, "Mils/mm/inch/0.01mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(488, "thou/mm/inch/0.01mm"));
 		SetDialogItemText(Dialog, IDD_HINT, SC(481, "Hint by program"));
 
 // ********************************************************************

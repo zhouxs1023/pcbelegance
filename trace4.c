@@ -88,7 +88,7 @@ void InitInfoStr(double CurrentX, double CurrentY, int32 mode)
 		switch (Units)
 		{
 		case 0:
-			sprintf(str, SC(1064, "Length %.1f mils   Angle %.1f"), Length, Angle);
+			sprintf(str, SC(1064, "Length %.1f thou   Angle %.1f"), Length, Angle);
 			break;
 
 		case 1:

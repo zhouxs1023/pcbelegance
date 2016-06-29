@@ -544,7 +544,7 @@ int32 GetUnitsValue(int32 Units, double value, LPSTR str, int32 mode)
 			StripAppendingZeros(str, 0);
 
 			if ((mode & 2) == 2)
-				strcat(str, SC(126, " mils"));
+				strcat(str, SC(126, " thou"));
 		}
 		else
 		{
@@ -664,7 +664,7 @@ int32 GetUnitsValue2(int32 Units, double value, LPSTR str, int32 mode)
 		StripAppendingZeros(str, 0);
 
 		if ((mode & 2) == 2)
-			strcat(str, SC(126, " mils"));
+			strcat(str, SC(126, " thou"));
 
 		break;
 
@@ -710,7 +710,7 @@ int32 GetUnitText(int32 Units, LPSTR str, int32 mode)
 	switch (Units)
 	{
 	case UNITS_MILS:
-		strcpy(str, SC(130, "mils"));
+		strcpy(str, SC(130, "thou"));
 		break;
 
 	case UNITS_MM:
@@ -730,7 +730,7 @@ int32 GetUnitText(int32 Units, LPSTR str, int32 mode)
 		break;
 
 	case UNITS_0_1MILS:
-		strcpy(str, SC(135, "0.1 mils"));
+		strcpy(str, SC(135, "0.1 thou"));
 		break;
 
 	case UNITS_0_1MM:
@@ -767,19 +767,19 @@ int32 SetNextUnits(int32 Units, int32 mode)
 	*/
 	switch (mode & 15)
 	{
-	case 0:					// mils/mm/inch
+	case 0:					// thou/mm/inch
 		if (Units >= UNITS_0_01MM)
 			Units = UNITS_MILS;
 
 		break;
 
-	case 1:					// mils/mm
+	case 1:					// thou/mm
 		if (Units >= UNITS_INCH)
 			Units = UNITS_MILS;
 
 		break;
 
-	case 2:					// mils/mm/inch/0.01mm/0.1mils
+	case 2:					// thou/mm/inch/0.01mm/0.1thou
 		if (Units == UNITS_HPGL)
 			Units = UNITS_0_1MILS;
 
@@ -791,7 +791,7 @@ int32 SetNextUnits(int32 Units, int32 mode)
 
 		break;
 
-	case 3:					// mils/mm/µm
+	case 3:					// thou/mm/µm
 		if (Units == UNITS_INCH)
 			Units = UNITS_MICRON;
 
@@ -809,7 +809,7 @@ int32 SetNextUnits(int32 Units, int32 mode)
 
 		break;
 
-	case 4:					// mils/mm/inch/0.01mm
+	case 4:					// thou/mm/inch/0.01mm
 		if (Units == UNITS_HPGL)
 			Units = UNITS_MILS;
 
@@ -821,7 +821,7 @@ int32 SetNextUnits(int32 Units, int32 mode)
 
 		break;
 
-	case 5:					// mils/mm/inch/0.01mm/0.1mm
+	case 5:					// thou/mm/inch/0.01mm/0.1mm
 		if (Units == UNITS_HPGL)
 			Units = UNITS_0_1MM;
 
@@ -2766,7 +2766,7 @@ void SendDlgItemUnits(HWND Dialog, int32 Control, int32 Units)
 	switch (Units)
 	{
 	case 0:
-		SendDlgItemMessageOwn(Dialog, Control, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
+		SendDlgItemMessageOwn(Dialog, Control, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
 		break;
 
 	case 1:

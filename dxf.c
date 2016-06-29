@@ -621,7 +621,7 @@ int32 ImportDXF(int32 Layer)
 	LineNr = 0;
 //  Units=2; // inch
 	Units = 1;					// mm
-//  Units=0; // mils
+//  Units=0; // thou
 	Found = 0;
 	Nesting = 0;
 	NrBlocks = 0;

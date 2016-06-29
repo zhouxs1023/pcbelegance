@@ -128,7 +128,7 @@ int32 CALLBACK ErrorDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 			GetLayerTextObjects(Layer, str4, 1);
 
 			if (Units == 0)
-				sprintf(str3, SC(904, "%.1f,%.1f mils"), Object1->x1 / 2540.0, Object1->y1 / 2540.0);
+				sprintf(str3, SC(904, "%.1f,%.1f thou"), Object1->x1 / 2540.0, Object1->y1 / 2540.0);
 			else
 				sprintf(str3, SC(905, "%.4f,%.4f mm"), Object1->x1 / 100000.0, Object1->y1 / 100000.0);
 
@@ -225,7 +225,7 @@ int32 CALLBACK ErrorDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 			Layer = Object2->Layer;
 
 			if (Units == 0)
-				sprintf(str3, SC(904, "%.1f,%.1f mils"), Object2->x1 / 2540.0, Object2->y1 / 2540.0);
+				sprintf(str3, SC(904, "%.1f,%.1f thou"), Object2->x1 / 2540.0, Object2->y1 / 2540.0);
 			else
 				sprintf(str3, SC(905, "%.4f,%.4f mm"), Object2->x1 / 100000.0, Object2->y1 / 100000.0);
 
@@ -283,7 +283,7 @@ int32 CALLBACK ErrorDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 				{
 					if (Units == 0)
 					{
-						sprintf(str3, SC(904, "%.1f,%.1f mils"), (Object2->x1 - Object2->x2 * 0.5) / 2540.0,
+						sprintf(str3, SC(904, "%.1f,%.1f thou"), (Object2->x1 - Object2->x2 * 0.5) / 2540.0,
 						        (Object2->y1 - Object2->y2 * 0.5) / 2540.0);
 					}
 					else

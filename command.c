@@ -425,7 +425,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 
 		if (Units == 0)
 		{
-			sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f mils)"), Net->Name, CurrentTraceWidth / 2540.0,
+			sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f thou)"), Net->Name, CurrentTraceWidth / 2540.0,
 			        CurrentClearance / 2540.0);
 		}
 		else
@@ -449,7 +449,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 
 		if (Units == 0)
 		{
-			sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f mils)"), Net->Name, CurrentTraceWidth / 2540.0,
+			sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f thou)"), Net->Name, CurrentTraceWidth / 2540.0,
 			        CurrentClearance / 2540.0);
 		}
 		else
@@ -1937,7 +1937,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 
 			if (TraceLength > -1)
 			{
-				sprintf(str, SC(151, "%.1f mils   =  %.4f mm"), TraceLength / 2540, TraceLength / 100000);
+				sprintf(str, SC(151, "%.1f thou   =  %.4f mm"), TraceLength / 2540, TraceLength / 100000);
 				sprintf(str2, SC(152, "Trace length net %s"), Net->Name);
 				MessageBoxOwn(PCBWindow, str, str2, MB_APPLMODAL | MB_OK);
 			}
@@ -1987,7 +1987,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 
 		if (Units == 0)
 		{
-			sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f mils)"), Net->Name, CurrentTraceWidth / 2540.0,
+			sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f thou)"), Net->Name, CurrentTraceWidth / 2540.0,
 			        CurrentClearance / 2540.0);
 		}
 		else
@@ -2016,7 +2016,7 @@ void PCBCommand(WPARAM WParam, LPARAM LParam)
 
 			if (Units == 0)
 			{
-				sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f mils)"), Net->Name, CurrentTraceWidth / 2540.0,
+				sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f thou)"), Net->Name, CurrentTraceWidth / 2540.0,
 				        CurrentClearance / 2540.0);
 			}
 			else

@@ -5598,7 +5598,7 @@ int32 CALLBACK ComponentImportDialog2(HWND Dialog, UINT Message, WPARAM WParam, 
 		SetDialogItemText(Dialog, IDHELP, SC(156, "Help"));
 		SetDialogItemText(Dialog, IDOK, SC(155, "OK"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(157, "Cancel"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(488, "Mils/mm/inch/0.01mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(488, "thou/mm/inch/0.01mm"));
 		SetDialogItemText(Dialog, IDC_BUTTON1, SC(852, "Component: Reference/Value/X/Y/Rotation/Layer"));
 		SetDialogItemText(Dialog, IDC_BUTTON2, SC(853, "Component: Reference/X/Y/Rotation/Layer"));
 		SetDialogItemText(Dialog, IDC_BUTTON3, SC(1197, "Component: Reference/Layer/geometry/Value/X/Y/Rotation"));
@@ -5681,7 +5681,7 @@ int32 CALLBACK ComponentImportDialog2(HWND Dialog, UINT Message, WPARAM WParam, 
 		switch (LOWORD(WParam))
 		{
 		case IDD_UNITS:
-			ImportComponentInfo.Units = SetNextUnits(ImportComponentInfo.Units, 4);	// mils/mm/inch/0.01mm
+			ImportComponentInfo.Units = SetNextUnits(ImportComponentInfo.Units, 4);	// thou/mm/inch/0.01mm
 			SetUnitText(Dialog, IDC_EDIT2, ImportComponentInfo.Units);
 			break;
 

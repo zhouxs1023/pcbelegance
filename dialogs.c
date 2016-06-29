@@ -578,7 +578,7 @@ int32 CALLBACK TextInputDialog1(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(181, "Text height"));
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(182, "Line thickness"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(183, "Rotation"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 
 		switch (DialogMode & 0x0f)
 		{
@@ -640,8 +640,8 @@ int32 CALLBACK TextInputDialog1(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 
 				if (TempUnits == 0)
 				{
-					SendDlgItemMessageOwn(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
-					SendDlgItemMessageOwn(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
+					SendDlgItemMessageOwn(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
+					SendDlgItemMessageOwn(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
 				}
 				else
 				{
@@ -731,7 +731,7 @@ int32 CALLBACK TextInputDialog4(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(182, "Line thickness"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(183, "Rotation"));
 		SetDialogItemText(Dialog, IDC_BUTTON1, SC(1344, "Add Font"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 
 		switch (DialogMode)
 		{
@@ -818,8 +818,8 @@ int32 CALLBACK TextInputDialog4(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 
 			if (TempUnits == 0)
 			{
-				SendDlgItemMessageOwn(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
-				SendDlgItemMessageOwn(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "mils"));
+				SendDlgItemMessageOwn(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
+				SendDlgItemMessageOwn(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(130, "thou"));
 			}
 			else
 			{
@@ -1198,7 +1198,7 @@ int32 CALLBACK ValueDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LPa
 	case WM_INITDIALOG:
 		SelectionEsc = 0;
 		SetDialogItemText(Dialog, IDOK, SC(155, "OK"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(157, "Cancel"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(192, "Value"));
 
@@ -1369,7 +1369,7 @@ int32 CALLBACK RotationDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		SetDialogItemText(Dialog, IDC_RADIO2, SC(202, "Rotate around selection centre"));
 		SetDialogItemText(Dialog, IDC_RADIO3, SC(203, "Rotate around user centre "));
 		SetDialogItemText(Dialog, IDC_RADIO4, SC(204, "Rotate around coordinate centre"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogValue(Dialog, IDC_EDIT3, RotationCentreX);
 		SetDialogValue(Dialog, IDC_EDIT4, RotationCentreY);
 		sprintf(str, "%.2f", RotationValue);
@@ -1988,7 +1988,7 @@ int32 CALLBACK AreaFillDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPAR
 		SetDialogItemText(Dialog, IDC_STATIC8, SC(1086, "PCB"));
 		SetDialogItemText(Dialog, IDC_STATIC9, SC(216, "Thickness"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(217, "Add thermal reliefs"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Do not add thermal reliefs"));
 		SetDialogItemText(Dialog, IDC_STATIC4, SC(91, "Vias"));
 		SetWindowTextOwn(Dialog, SC(218, "Areafills"));
@@ -2247,7 +2247,7 @@ int32 CALLBACK AreaFillDialogBody2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 		SetDialogItemText(Dialog, IDOK, SC(155, "OK"));
 		SetDialogItemText(Dialog, IDHELP, SC(156, "Help"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(157, "Cancel"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(1090, "Thermal relief"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(1091, "Add thermal reliefs"));
 		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Do not add thermal reliefs"));
@@ -2374,7 +2374,7 @@ int32 CALLBACK NewDesignDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPA
 		SetDialogItemText(Dialog, IDOK, SC(155, "OK"));
 		SetDialogItemText(Dialog, IDHELP, SC(156, "Help"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(157, "Cancel"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(224, "PCB size"));
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(225, "Width"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(226, "Height"));
@@ -2941,7 +2941,7 @@ void SetgerberOutputMode(HWND Dialog)
 	}
 
 	if ((GerberInfo.GerberNumberMode & 8) == 0)
-	{	// Mils
+	{	// thou
 		TempUnits = UNITS_INCH;
 		SendDlgItemMessageOwn(Dialog, IDC_LIST2, LB_ADDSTRING, 0, (LPARAM) (LPSTR) "2  2");
 		SendDlgItemMessageOwn(Dialog, IDC_LIST2, LB_ADDSTRING, 0, (LPARAM) (LPSTR) "2  3");
@@ -3067,7 +3067,7 @@ int32 CALLBACK GerberDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 //      SetDialogItemText(Dialog,IDC_STATIC13               ,SC(1288,"Areafill option for hatch fill"));
 		SetDialogItemText(Dialog, IDD_CLEAR, SC(273, "Clear all"));
 		SetDialogItemText(Dialog, IDD_SETALL, SC(274, "Set all"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetWindowTextOwn(Dialog, SC(275, "Gerber output"));
 
 		if (GerberInfo.PlotBoardOutline)
@@ -3448,7 +3448,7 @@ int32 CALLBACK PlotDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 		SetDialogItemText(Dialog, IDOK, SC(155, "OK"));
 		SetDialogItemText(Dialog, IDHELP, SC(156, "Help"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(157, "Cancel"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(276, "Pen sizes"));
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(277, "Size pen 1"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(278, "Size pen 2"));
@@ -3842,7 +3842,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 		SetDialogItemText(Dialog, IDC_RADIO7, SC(1088, "Compressed"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(293, "Plot board outline on each layer"));
 		SetDialogItemText(Dialog, IDC_CHECK1, SC(272, "Mirror X"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(294, "mils/mm/µm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(294, "thou/mm/µm"));
 		SetDialogItemText(Dialog, IDD_CLEAR, SC(273, "Clear all"));
 		SetDialogItemText(Dialog, IDD_SETALL, SC(274, "Set all"));
 		SetWindowTextOwn(Dialog, SC(295, "Bitmap output"));
@@ -4754,7 +4754,7 @@ int32 CALLBACK ComponentPlacement2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 							if (stricmpOwn(UnitsStr, "inch") == 0)
 								MultFactor = 2540000.0;
 
-							if ((stricmpOwn(UnitsStr, "mils") == 0) || (stricmpOwn(UnitsStr, "mil") == 0))
+							if ((stricmpOwn(UnitsStr, "thou") == 0) || (stricmpOwn(UnitsStr, "mil") == 0))
 								MultFactor = 2540.0;
 
 							x *= MultFactor;
@@ -6002,7 +6002,7 @@ int32 CALLBACK CompPositionOutputDialog2(HWND Dialog, UINT Message, WPARAM WPara
 		SetDialogItemText(Dialog, IDC_RADIO3, SC(192, "Value"));
 		SetDialogItemText(Dialog, IDC_RADIO4, SC(1280, "Part number"));
 		SetDialogItemText(Dialog, IDC_RADIO5, SC(1282, "Add extra column for not placed components"));
-		SendDlgItemMessageOwn(Dialog, IDC_COMBO1, CB_ADDSTRING, 0, (LPARAM) SC(130, "mils"));
+		SendDlgItemMessageOwn(Dialog, IDC_COMBO1, CB_ADDSTRING, 0, (LPARAM) SC(130, "thou"));
 		SendDlgItemMessageOwn(Dialog, IDC_COMBO1, CB_ADDSTRING, 0, (LPARAM) SC(131, "mm"));
 		SendDlgItemMessageOwn(Dialog, IDC_COMBO1, CB_ADDSTRING, 0, (LPARAM) SC(132, "inch"));
 

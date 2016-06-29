@@ -1314,7 +1314,7 @@ void DrawTraceFromGuide(double PointX, double PointY)
 
 		if (Units == 0)
 		{
-			sprintf(InfoStr, SC(141, "%s  [ %d ]   (%.1f,%.1f mils)"), Net->Name, cnt2, CurrentTraceWidth / 2540.0,
+			sprintf(InfoStr, SC(141, "%s  [ %d ]   (%.1f,%.1f thou)"), Net->Name, cnt2, CurrentTraceWidth / 2540.0,
 			        CurrentClearance / 2540.0);
 		}
 		else
@@ -1702,7 +1702,7 @@ void DrawTraceFromTrace(double PointX, double PointY)
 
 	if (Units == 0)
 	{
-		sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f mils)"), Net->Name, CurrentTraceWidth / 2540.0,
+		sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f thou)"), Net->Name, CurrentTraceWidth / 2540.0,
 		        CurrentClearance / 2540.0);
 	}
 	else
@@ -2132,7 +2132,7 @@ void DrawTraceFromPinOrVia(double PointX, double PointY)
 
 	if (Units == 0)
 	{
-		sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f mils)"), Net->Name, CurrentTraceWidth / 2540.0,
+		sprintf(InfoStr, SC(141, "%s     (%.1f,%.1f thou)"), Net->Name, CurrentTraceWidth / 2540.0,
 		        CurrentClearance / 2540.0);
 	}
 	else

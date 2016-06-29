@@ -3172,7 +3172,7 @@ void PrintValue(double value, LPSTR ValueStr, int32 mode)
 		sprintf(ValueStr, "%.1f", value / 2540.0);
 
 		if (mode == 1)
-			strcat(ValueStr, SC(1036, "  mils"));
+			strcat(ValueStr, SC(1036, "  thou"));
 	}
 	else
 	{

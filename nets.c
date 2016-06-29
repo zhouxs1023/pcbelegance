@@ -4263,7 +4263,7 @@ int32 ChangeDesignRulesPcb(int32 mode)
 			{
 				sprintf(str,
 				        SC(803,
-				           "Do you want to change the clearance of all the traces/vias/areafills and nets to %.1f mils\r\n\r\n"),
+				           "Do you want to change the clearance of all the traces/vias/areafills and nets to %.1f thou\r\n\r\n"),
 				        NewDesign.StandardClearance / 2540.0);
 			}
 			else
@@ -4375,7 +4375,7 @@ int32 ChangeDesignRulesPcb(int32 mode)
 		{
 			if (Units == 0)
 			{
-				sprintf(str, SC(805, "Do you want to change the width of all silkscreen lines to %.1f mils\r\n\r\n"),
+				sprintf(str, SC(805, "Do you want to change the width of all silkscreen lines to %.1f thou\r\n\r\n"),
 				        NewDesign.SilkScreenWidth / 2540.0);
 			}
 			else
@@ -4434,7 +4434,7 @@ int32 ChangeDesignRulesPcb(int32 mode)
 		{
 			if (Units == 0)
 			{
-				sprintf(str, SC(807, "Do you want to change the width of all board outline lines to %.1f mils\r\n\r\n"),
+				sprintf(str, SC(807, "Do you want to change the width of all board outline lines to %.1f thou\r\n\r\n"),
 				        NewDesign.BoardOutlineWidth / 2540.0);
 			}
 			else
@@ -4492,7 +4492,7 @@ int32 ChangeDesignRulesPcb(int32 mode)
 		{
 			if (Units == 0)
 			{
-				sprintf(str, SC(809, "Do you want to change the width of all the traces and nets to %.1f mils\r\n\r\n"),
+				sprintf(str, SC(809, "Do you want to change the width of all the traces and nets to %.1f thou\r\n\r\n"),
 				        NewDesign.StandardTraceWidth / 2540.0);
 			}
 			else

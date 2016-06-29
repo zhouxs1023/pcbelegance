@@ -2444,7 +2444,7 @@ int32 CALLBACK PcbSettingsOptionsDialog(HWND Dialog, UINT Message, WPARAM WParam
 		SetDialogItemText(Dialog, IDC_RADIO2, SC(795, "Appending"));
 		SetDialogItemText(Dialog, IDC_RADIO3, SC(1331, "Use mouse scroll wheel for zoom in/out"));
 		SetDialogItemText(Dialog, IDC_RADIO4, SC(1332, "Press the Alt key and the mouse scroll wheel for zoom in/out"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_BUTTON1, SC(1149, "Set"));
 		SetDialogItemText(Dialog, IDC_BUTTON2, SC(1149, "Set"));
 		SetDialogItemText(Dialog, IDC_BUTTON3, SC(1149, "Set"));
@@ -2842,7 +2842,7 @@ int32 CALLBACK PcbSettingsChangeDesignRulesDialog(HWND Dialog, UINT Message, WPA
 		SetDialogItemText(Dialog, IDHELP, SC(156, "Help"));
 		SetDialogItemText(Dialog, IDAPPLY, SC(1320, "Apply"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(157, "Cancel"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(170, "Trace width"));
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(211, "Clearance"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(230, "Silkscreen width"));
@@ -3023,7 +3023,7 @@ int32 CALLBACK PcbSettingsViaDialog(HWND Dialog, UINT Message, WPARAM WParam, LP
 		SetDialogItemText(Dialog, IDD_VIA_SET_DEF08, SC(1142, "Set via definition 8"));
 		SetDialogItemText(Dialog, IDD_VIA_SET_DEF09, SC(1143, "Set via definition 9"));
 		SetDialogItemText(Dialog, IDD_VIA_SET_DEF10, SC(1144, "Set via definition 19"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 
 		switch (DialogMode)
 		{
@@ -3627,7 +3627,7 @@ int32 CALLBACK PcbSettingsNetTypeDialog(HWND Dialog, UINT Message, WPARAM WParam
 		SetDialogItemText(Dialog, IDC_STATIC8, SC(211, "Clearance"));
 		SetDialogItemText(Dialog, IDC_RADIO1, SC(1098, "Sort by netname"));
 		SetDialogItemText(Dialog, IDC_RADIO2, SC(1099, "Sort by trace width"));
-		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "mils/mm"));
+		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDD_SELECTALL, SC(160, "Select all"));
 		SetDialogItemText(Dialog, IDD_DESELECTALL, SC(161, "Deselect all"));
 		SetDialogItemText(Dialog, IDC_BUTTON1, SC(1327, "Set only net(s) design rule"));

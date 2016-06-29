@@ -2159,7 +2159,7 @@ void TraceMenuPopUp(int32 mode)
 
 	for (cnt = 0; cnt < NrTraceWidths; cnt++)
 	{
-		sprintf(str, SC(692, "%.1f mils\t= %.4f mm"), TraceWidths[cnt] / 2540.0, TraceWidths[cnt] / 100000.0);
+		sprintf(str, SC(692, "%.1f thou\t= %.4f mm"), TraceWidths[cnt] / 2540.0, TraceWidths[cnt] / 100000.0);
 		OwnAppendMenu(PopUpMenu1, MF_ENABLED | MF_STRING, ID_TRACE_WIDTH + cnt, str);
 
 		if (InRange(TraceWidths[cnt], CurrentTraceWidth))
@@ -2171,7 +2171,7 @@ void TraceMenuPopUp(int32 mode)
 
 	for (cnt = 0; cnt < NrClearanceWidths; cnt++)
 	{
-		sprintf(str, SC(692, "%.1f mils\t= %.4f mm"), ClearanceWidths[cnt] / 2540.0, ClearanceWidths[cnt] / 100000.0);
+		sprintf(str, SC(692, "%.1f thou\t= %.4f mm"), ClearanceWidths[cnt] / 2540.0, ClearanceWidths[cnt] / 100000.0);
 		OwnAppendMenu(PopUpMenu2, MF_ENABLED | MF_STRING, ID_CLEARANCE_WIDTH + cnt, str);
 
 		if (InRange(ClearanceWidths[cnt], CurrentClearance))
@@ -2473,8 +2473,8 @@ void MakeMainMenu()
 // *****************************************************************************************
 	PCBMenu3 = CreateMenu();
 	OwnAppendMenu(PCBMenu, MF_ENABLED | MF_POPUP, (UINT) PCBMenu3, SC(1085, "Units"));
-	OwnAppendMenu(PCBMenu3, MENU_ID, ID_SETTINGS_UNITS_MILS, SC(747, "Mils"));
-	OwnAppendMenu(PCBMenu3, MENU_ID, ID_SETTINGS_UNITS_MM, SC(748, "Mm"));
+	OwnAppendMenu(PCBMenu3, MENU_ID, ID_SETTINGS_UNITS_MILS, SC(747, "thou"));
+	OwnAppendMenu(PCBMenu3, MENU_ID, ID_SETTINGS_UNITS_MM, SC(748, "mm"));
 
 // *****************************************************************************************
 	PCBMenu4 = CreateMenu();
