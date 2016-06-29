@@ -2215,9 +2215,9 @@ int32 CheckPads(int32 mode)
 		if (Units == 0)
 		{
 			if (SaveError)
-				MessageDialog(SC(223, "MESSAGE\tLAYER\tORIGIN (mils)"), 2);
+				MessageDialog(SC(223, "MESSAGE\tLAYER\tORIGIN (thou)"), 2);
 			else
-				MessageDialog(SC(223, "MESSAGE\tLAYER\tORIGIN (mils)"), 3);
+				MessageDialog(SC(223, "MESSAGE\tLAYER\tORIGIN (thou)"), 3);
 		}
 		else
 		{
@@ -2531,7 +2531,7 @@ int32 CheckPads(int32 mode)
 	if (MessageBufPos != 0)
 	{
 		if (Units == 0)
-			MessageDialog(SC(223, "MESSAGE\tLAYER\tORIGIN (mils)"), 3);
+			MessageDialog(SC(223, "MESSAGE\tLAYER\tORIGIN (thou)"), 3);
 		else
 			MessageDialog(SC(224, "MESSAGE\tLAYER\tORIGIN (mm)"), 3);
 

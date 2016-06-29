@@ -427,7 +427,7 @@ int32 CALLBACK TextInputDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, L
 			case 0:
 				sprintf(sel, "%.1f", WorkingObject->x2 / 2540.0);
 				SendDlgItemMessage(Dialog, IDD_GEOM_UN1, LB_DELETESTRING, 0, 0);
-				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN1, LB_ADDSTRING, 0, (LPARAM) (LPSTR) SC(41, "mils"));
+				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN1, LB_ADDSTRING, 0, (LPARAM) (LPSTR) SC(41, "thou"));
 				break;
 
 			case 1:
@@ -438,7 +438,7 @@ int32 CALLBACK TextInputDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, L
 			}
 
 			SendDlgItemMessage(Dialog, IDD_TEXTINPUT_EDIT2, WM_SETTEXT, 0, (LPARAM) & sel);
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDC_STATIC1, SC(44, "Text height"));
 		}
 
@@ -520,7 +520,7 @@ int32 CALLBACK TextInputDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, L
 				case 0:
 					sprintf(sel, "%.1f", WorkingObject->x2 / 2540.0);
 					SendDlgItemMessage(Dialog, IDD_GEOM_UN1, LB_DELETESTRING, 0, 0);
-					SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN1, LB_ADDSTRING, 0, (LPARAM) (LPSTR) SC(41, "mils"));
+					SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN1, LB_ADDSTRING, 0, (LPARAM) (LPSTR) SC(41, "thou"));
 					break;
 
 				case 1:
@@ -866,7 +866,7 @@ int32 CALLBACK LineInputDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPAR
 		SendDlgItemMessageUTF8(Dialog, IDD_LINEINPUT_EDIT1, WM_SETTEXT, 0, (LPARAM) & (WorkingObject2->Text));
 
 		if (Units == 0)
-			SendDlgItemMessageUTF8(Dialog, IDD_LINEINPUT_EDIT2, WM_SETTEXT, 0, (LPARAM) SC(41, "mils"));
+			SendDlgItemMessageUTF8(Dialog, IDD_LINEINPUT_EDIT2, WM_SETTEXT, 0, (LPARAM) SC(41, "thou"));
 		else
 			SendDlgItemMessageUTF8(Dialog, IDD_LINEINPUT_EDIT2, WM_SETTEXT, 0, (LPARAM) SC(42, "mm"));
 
@@ -1049,7 +1049,7 @@ int32 SetDialogFloatValue(HWND Dialog, int32 DialogMode, int32 DialogControl, do
 
 	switch (TempUnits)
 	{
-	case 0:					// mils
+	case 0:					// thou
 		value = value / 2540;
 		sprintf(DialogTextLine, "%.1f", value);
 		break;
@@ -1480,7 +1480,7 @@ void ChangeDialogUnits(HWND Dialog, int32 DialogMode, int32 DialogControl, int32
 
 				switch (NewUnits)
 				{
-				case 0:		// mils -> mm
+				case 0:		// thou -> mm
 					value *= (float) 0.0254;
 					break;
 				}
@@ -1492,7 +1492,7 @@ void ChangeDialogUnits(HWND Dialog, int32 DialogMode, int32 DialogControl, int32
 
 				switch (NewUnits)
 				{
-				case 1:		//  mm -> mils
+				case 1:		//  mm -> thou
 					value /= (float) 0.0254;
 					break;
 				}
@@ -1563,7 +1563,7 @@ void SetUnitsCreateGeom(HWND Dialog, int32 DialogMode, int32 OldUnits, int32 New
 	switch (NewUnits)
 	{
 	case 0:
-		strcpy(str, SC(41, "mils"));
+		strcpy(str, SC(41, "thou"));
 		break;
 
 	case 1:
@@ -1951,7 +1951,7 @@ int32 CALLBACK CreateGeomDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPA
 			SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 			SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 			SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDD_GEOM_USE_DEFAULT_RULES,
 			                  SC(450, "Use default rules for solder paste/mask and clearance"));
 			break;
@@ -1977,7 +1977,7 @@ int32 CALLBACK CreateGeomDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPA
 			SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 			SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 			SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDD_GEOM_USE_DEFAULT_RULES,
 			                  SC(451, "Use default rules for solder paste/mask, inner/anti power pad and clearance"));
 			break;
@@ -2002,7 +2002,7 @@ int32 CALLBACK CreateGeomDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPA
 			SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 			SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 			SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDD_GEOM_USE_DEFAULT_RULES,
 			                  SC(451, "Use default rules for solder paste/mask, inner/anti power pad and clearance"));
 			break;
@@ -2026,7 +2026,7 @@ int32 CALLBACK CreateGeomDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPA
 			SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 			SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 			SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDD_GEOM_USE_DEFAULT_RULES,
 			                  SC(450, "Use default rules for solder paste/mask and clearance"));
 			break;
@@ -2053,7 +2053,7 @@ int32 CALLBACK CreateGeomDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPA
 			SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 			SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 			SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDD_GEOM_USE_DEFAULT_RULES,
 			                  SC(451, "Use default rules for solder paste/mask, inner/anti power pad and clearance"));
 			break;
@@ -2077,7 +2077,7 @@ int32 CALLBACK CreateGeomDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPA
 			SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 			SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 			SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDD_GEOM_USE_DEFAULT_RULES,
 			                  SC(450, "Use default rules for solder paste/mask and clearance"));
 			break;
@@ -2098,7 +2098,7 @@ int32 CALLBACK CreateGeomDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPA
 			SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 			SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 			SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDD_GEOM_USE_DEFAULT_RULES,
 			                  SC(450, "Use default rules for solder paste/mask and clearance"));
 			break;
@@ -2120,7 +2120,7 @@ int32 CALLBACK CreateGeomDialog2(HWND Dialog, uint32 Message, WPARAM WParam, LPA
 			SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 			SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 			SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-			SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+			SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 			SetDialogItemText(Dialog, IDD_GEOM_USE_DEFAULT_RULES,
 			                  SC(450, "Use default rules for solder paste/mask and clearance"));
 			break;
@@ -2760,12 +2760,12 @@ void FillValuesDialog(HWND Dialog, int32 Units)
 
 	if (Units == 0)
 	{
-		SendDlgItemMessage(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-		SendDlgItemMessage(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-		SendDlgItemMessage(Dialog, IDC_EDIT6, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-		SendDlgItemMessage(Dialog, IDC_EDIT8, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-		SendDlgItemMessage(Dialog, IDC_EDIT10, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-		SendDlgItemMessage(Dialog, IDC_EDIT12, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
+		SendDlgItemMessage(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+		SendDlgItemMessage(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+		SendDlgItemMessage(Dialog, IDC_EDIT6, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+		SendDlgItemMessage(Dialog, IDC_EDIT8, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+		SendDlgItemMessage(Dialog, IDC_EDIT10, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+		SendDlgItemMessage(Dialog, IDC_EDIT12, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
 	}
 	else
 	{
@@ -2787,7 +2787,7 @@ void FillValuesDialog(HWND Dialog, int32 Units)
 	for (cnt = 0; cnt < NrTraceWidths; cnt++)
 	{
 		if (Units == 0)
-			sprintf(str, SC(115, "%.1f mils"), TraceWidths[cnt] / 2540.0);
+			sprintf(str, SC(115, "%.1f thou"), TraceWidths[cnt] / 2540.0);
 		else
 			sprintf(str, SC(116, "%.4f mm"), TraceWidths[cnt] / 100000.0);
 
@@ -2805,7 +2805,7 @@ void FillValuesDialog(HWND Dialog, int32 Units)
 	for (cnt = 0; cnt < NrTraceClearances; cnt++)
 	{
 		if (Units == 0)
-			sprintf(str, SC(115, "%.1f mils"), TraceClearances[cnt] / 2540.0);
+			sprintf(str, SC(115, "%.1f thou"), TraceClearances[cnt] / 2540.0);
 		else
 			sprintf(str, SC(116, "%.4f mm"), TraceClearances[cnt] / 100000.0);
 
@@ -2823,7 +2823,7 @@ void FillValuesDialog(HWND Dialog, int32 Units)
 	for (cnt = 0; cnt < NrCompOutLines; cnt++)
 	{
 		if (Units == 0)
-			sprintf(str, SC(115, "%.1f mils"), CompOutLines[cnt] / 2540.0);
+			sprintf(str, SC(115, "%.1f thou"), CompOutLines[cnt] / 2540.0);
 		else
 			sprintf(str, SC(116, "%.4f mm"), CompOutLines[cnt] / 100000.0);
 
@@ -2840,7 +2840,7 @@ void FillValuesDialog(HWND Dialog, int32 Units)
 	for (cnt = 0; cnt < NrSilkscreenLines; cnt++)
 	{
 		if (Units == 0)
-			sprintf(str, SC(115, "%.1f mils"), SilkscreenLines[cnt] / 2540.0);
+			sprintf(str, SC(115, "%.1f thou"), SilkscreenLines[cnt] / 2540.0);
 		else
 			sprintf(str, SC(116, "%.4f mm"), SilkscreenLines[cnt] / 100000.0);
 
@@ -2857,7 +2857,7 @@ void FillValuesDialog(HWND Dialog, int32 Units)
 	for (cnt = 0; cnt < NrInfoLines; cnt++)
 	{
 		if (Units == 0)
-			sprintf(str, SC(115, "%.1f mils"), InfoLines[cnt] / 2540.0);
+			sprintf(str, SC(115, "%.1f thou"), InfoLines[cnt] / 2540.0);
 		else
 			sprintf(str, SC(116, "%.4f mm"), InfoLines[cnt] / 100000.0);
 
@@ -2874,7 +2874,7 @@ void FillValuesDialog(HWND Dialog, int32 Units)
 	for (cnt = 0; cnt < NrBoardOutLines; cnt++)
 	{
 		if (Units == 0)
-			sprintf(str, SC(115, "%.1f mils"), BoardOutLines[cnt] / 2540.0);
+			sprintf(str, SC(115, "%.1f thou"), BoardOutLines[cnt] / 2540.0);
 		else
 			sprintf(str, SC(116, "%.4f mm"), BoardOutLines[cnt] / 100000.0);
 
@@ -2912,7 +2912,7 @@ int32 CALLBACK AssignValuesDialog2(HWND Dialog, uint32 Message, WPARAM WParam, L
 		SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
 		SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
-		SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+		SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(118, "Trace width"));
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(119, "Clearance width"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(120, "Line width component outline"));
@@ -3192,7 +3192,7 @@ int32 CALLBACK GridDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, LPARAM
 		SetDialogValue(Dialog, IDC_EDIT1, TempGridSize);
 
 		if (Units == 0)
-			SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
+			SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
 		else
 			SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(42, "mm"));
 
@@ -3216,7 +3216,7 @@ int32 CALLBACK GridDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, LPARAM
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(132, "User grid"));
 		SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-		SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+		SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 		return about;
 
 	case WM_MOVE:
@@ -3292,7 +3292,7 @@ int32 CALLBACK GridDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, LPARAM
 			SetDialogValue(Dialog, IDC_EDIT1, TempGridSize);
 
 			if (Units == 0)
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
 			else
 				SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(42, "mm"));
 
@@ -3575,7 +3575,7 @@ int32 CALLBACK DeafultPadRulesDialogBody(HWND Dialog, uint32 Message, WPARAM WPa
 		SetWindowTextUTF8(Dialog, SC(429, "Default pad rules"));
 		SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-		SetDialogItemText(Dialog, ID_UNITS, SC(43, "mils/mm"));
+		SetDialogItemText(Dialog, ID_UNITS, SC(43, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(430, "Paste mask SMD"));
 		SetDialogItemText(Dialog, IDC_STATIC2, SC(431, "Solder mask SMD"));
 		SetDialogItemText(Dialog, IDC_STATIC3, SC(432, "Solder mask (against pad)"));
@@ -3595,13 +3595,13 @@ int32 CALLBACK DeafultPadRulesDialogBody(HWND Dialog, uint32 Message, WPARAM WPa
 //      SetDialogValue(Dialog,IDC_EDIT6,DefaultRuleClearance);
 		if (Units == 0)
 		{
-			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN1, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN5, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN6, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-//        SendDlgItemMessage(Dialog,IDD_GEOM_UN6,WM_SETTEXT,0,(LPARAM)(LPSTR)SC(41,"mils"));
+			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN1, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN5, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+			SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN6, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+//        SendDlgItemMessage(Dialog,IDD_GEOM_UN6,WM_SETTEXT,0,(LPARAM)(LPSTR)SC(41,"thou"));
 		}
 		else
 		{
@@ -3641,13 +3641,13 @@ int32 CALLBACK DeafultPadRulesDialogBody(HWND Dialog, uint32 Message, WPARAM WPa
 //          SetDialogValue(Dialog,IDC_EDIT6,value6);
 			if (Units == 0)
 			{
-				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN1, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN5, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN6, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "mils"));
-//            SendDlgItemMessage(Dialog,IDD_GEOM_UN6,WM_SETTEXT,0,(LPARAM)(LPSTR)SC(41,"mils"));
+				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN1, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN2, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN3, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN4, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN5, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+				SendDlgItemMessageUTF8(Dialog, IDD_GEOM_UN6, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(41, "thou"));
+//            SendDlgItemMessage(Dialog,IDD_GEOM_UN6,WM_SETTEXT,0,(LPARAM)(LPSTR)SC(41,"thou"));
 			}
 			else
 			{

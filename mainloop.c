@@ -934,15 +934,15 @@ void DisplayCursorPosition()
 		Length = CalcLengthLine(0.0, 0.0, x3, y3);
 //      sprintf(str,"%i,%i",MousePosX,MousePosY);
 		sprintf(str, SC(274, "(x,y) %.4f,%.4f mm"), x4, y4);
-		sprintf(str2, SC(275, "(grid x,y) %.2f,%.2f mils"), x2, y2);
-		sprintf(str3, SC(276, "(rel x,y) %.2f,%.2f [%.1f %.1f] mils"), x3, y3, Length, Angle);
+		sprintf(str2, SC(275, "(grid x,y) %.2f,%.2f thou"), x2, y2);
+		sprintf(str3, SC(276, "(rel x,y) %.2f,%.2f [%.1f %.1f] thou"), x3, y3, Length, Angle);
 		/*
 		      strcpy(str3,"                ");
 		      for (cnt=0;cnt<16;cnt++) {
 		        str3[cnt]=cnt+112;
 		      }
 		*/
-//      sprintf(str3,"(rel x,y) %.2f,%.2f mils",x3,y3);
+//      sprintf(str3,"(rel x,y) %.2f,%.2f thou",x3,y3);
 		break;
 
 	case 1:

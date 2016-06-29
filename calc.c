@@ -1885,7 +1885,7 @@ int32 CalcDistanceBetweenObjects(int32 mode)
 
 	if (Units == 0)
 	{
-		sprintf(str, SC(2, "Minimum distance is \t%.1f mils\r\nMinimum center distance is \t%.1f mils"),
+		sprintf(str, SC(2, "Minimum distance is \t%.1f thou\r\nMinimum center distance is \t%.1f thou"),
 		        MinDistance / 2540.0, MinCenterDistance / 2540.0);
 	}
 	else

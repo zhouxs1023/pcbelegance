@@ -2130,8 +2130,8 @@ void MakeMainMenu()
 // *****************************************************************************************
 	GEOMMenu3 = CreateMenu();
 	OwnAppendMenu(GEOMMenu, MF_ENABLED | MF_POPUP, (uint32) GEOMMenu3, SC(438, "Units"));
-	OwnAppendMenu(GEOMMenu3, MENU_ID, ID_SETTINGS_UNITS_MILS, SC(374, "Mils"));
-	OwnAppendMenu(GEOMMenu3, MENU_ID, ID_SETTINGS_UNITS_MM, SC(375, "Mm"));
+	OwnAppendMenu(GEOMMenu3, MENU_ID, ID_SETTINGS_UNITS_MILS, SC(374, "thou"));
+	OwnAppendMenu(GEOMMenu3, MENU_ID, ID_SETTINGS_UNITS_MM, SC(375, "mm"));
 
 // *****************************************************************************************
 	GEOMMenu4 = CreateMenu();

@@ -2217,7 +2217,7 @@ void ObjectsInfo()
 		return;
 
 	if (Units == 0)
-		MessageDialog(SC(427, "OBJECT TYPE\tLAYER\tPIN NAME\tORIGIN (mils)\tSIZE (mils)\tTHICKN\tCLEAR"), 0);
+		MessageDialog(SC(427, "OBJECT TYPE\tLAYER\tPIN NAME\tORIGIN (thou)\tSIZE (thou)\tTHICKN\tCLEAR"), 0);
 	else
 		MessageDialog(SC(428, "OBJECT TYPE\tLAYER\tPIN NAME\tORIGIN (mm)\tSIZE (mm)\tTHICKN\tCLEAR"), 0);
 

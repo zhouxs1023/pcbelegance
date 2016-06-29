@@ -1243,7 +1243,7 @@ void GEOMCommand(int32 WParam, int32 LParam)
 		switch (Units)
 		{
 		case 0:
-			sprintf(InfoStr, SC(33, "Length %.2f mils  Angle %.2f"), LineLength, LineAngle);
+			sprintf(InfoStr, SC(33, "Length %.2f thou  Angle %.2f"), LineLength, LineAngle);
 			break;
 
 		case 1:

@@ -1474,7 +1474,7 @@ int32 GetUnitsValue(int32 Units, double value, LPSTR str, int32 mode)
 			StripAppendingZeros(str, 0);
 
 			if ((mode & 2) == 2)
-				strcat(str, SC(25, " mils"));
+				strcat(str, SC(25, " thou"));
 		}
 		else
 		{

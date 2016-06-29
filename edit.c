@@ -3393,7 +3393,7 @@ int32 ChangeGeometryHeight(int32 mode)
 	switch (Units)
 	{
 	case 0:
-		sprintf(TypeObject.Text, "%.1f mils", Shape.ShapeHeight / 2540.0);
+		sprintf(TypeObject.Text, "%.1f thou", Shape.ShapeHeight / 2540.0);
 		break;
 
 	case 1:

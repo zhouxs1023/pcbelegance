@@ -766,7 +766,7 @@ void DrawMeasurementLine(double x1, double y1, double x2, double y2, int32 mode)
 	{
 //    x1=fabs((CurrentX-CurrentX2)/2540.0);
 //    y1=fabs((CurrentY-CurrentY2)/2540.0);
-		sprintf(str, "%.2f mils", length / 2540.0);
+		sprintf(str, "%.2f thou", length / 2540.0);
 	}
 	else
 		sprintf(str, "%.4f mm", length / 100000.0);
