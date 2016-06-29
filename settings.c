@@ -3919,7 +3919,7 @@ int32 CALLBACK PcbSettingsNetTypeDialog(HWND Dialog, UINT Message, WPARAM WParam
 					for (cnt = 0; cnt < TotalNetCount; cnt++)
 					{
 						if (NetInfo[cnt])
-							SendDlgItemMessage(Dialog, IDC_LIST3, LB_SETSEL, cnt, -1);
+							SendDlgItemMessage(Dialog, IDC_LIST3, LB_SETSEL, 1, cnt);
 					}
 
 					SendDlgItemMessage(Dialog, IDC_LIST3, LB_SETTOPINDEX, max(0, First - 18), 0);
@@ -3969,7 +3969,7 @@ int32 CALLBACK PcbSettingsNetTypeDialog(HWND Dialog, UINT Message, WPARAM WParam
 				for (cnt = 0; cnt < TotalNetCount; cnt++)
 				{
 					if (NetInfo[cnt])
-						SendDlgItemMessage(Dialog, IDC_LIST3, LB_SETSEL, cnt, -1);
+						SendDlgItemMessage(Dialog, IDC_LIST3, LB_SETSEL, 1, cnt);
 				}
 
 				SendDlgItemMessage(Dialog, IDC_LIST3, LB_SETTOPINDEX, max(0, First - 18), 0);

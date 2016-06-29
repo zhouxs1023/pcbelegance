@@ -398,7 +398,7 @@ void OutputGerberDrill()
 					DrillOutput();
 			}
 
-			//if (GerberInfo.GerbvProject == 1)
+			if (GerberInfo.GerbvProject == 1)
 			{
 				sprintf(GerbvProjectFilename, "%s\\pcb\\gerber\\GerbvProject.gvp", DesignPath);
 				DeleteFileUTF8(GerbvProjectFilename);

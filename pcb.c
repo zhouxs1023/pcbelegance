@@ -3356,6 +3356,18 @@ void LoadIniFile()
 								GerberInfo.GerberNumberMode = Value;
 						}
 
+						if (stricmp(str1, "GerbvProject") == 0)
+						{
+							if (sscanf(str2, "%i", &Value) == 1)
+							{
+								if (Value == 0)
+									GerberInfo.GerbvProject = 0;
+								
+								if (Value == 1)
+									GerberInfo.GerbvProject = 1;
+							}
+						}
+
 						if (stricmp(str1, "GridSize") == 0)
 						{
 							if (sscanf(str2, "%f", &Value1) == 1)
@@ -3948,6 +3960,8 @@ void WriteIniFile()
 	}
 
 	sprintf(str1, "GerberNumberMode=%i", GerberInfo.GerberNumberMode);
+	WriteLn(fp, str1);
+	sprintf(str1, "GerbvProject=%i", GerberInfo.GerbvProject);
 	WriteLn(fp, str1);
 	sprintf(str1, "CurrentDrawingLayer=%i", CurrentDrawingLayer);
 	WriteLn(fp, str1);

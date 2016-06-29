@@ -3447,6 +3447,7 @@ void MemoryMain()
 
 	GerberInfo.GerberNumberMode = 0;
 	GerberInfo.GerberOutputMode = 1;
+	GerberInfo.GerbvProject = 1;
 	GerberInfo.ReverseLayerNumbering = 1;
 	GerberInfo.AutoApertureGeneration = 1;
 	GerberInfo.PenSizes[0] = 30000.0;

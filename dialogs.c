@@ -3062,6 +3062,7 @@ int32 CALLBACK GerberDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 		SetDialogItemText(Dialog, IDC_CHECK1, SC(270, "Output neutral file"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(271, "Plot board outline"));
 		SetDialogItemText(Dialog, IDC_CHECK4, SC(272, "Mirror X"));
+		SetDialogItemText(Dialog, IDC_CHECK5, SC(1346, "Create Gerbv project file"));
 		SetDialogItemText(Dialog, IDC_STATIC13, "Areafill option for hatch fill");
 //      SetDialogItemText(Dialog,IDC_STATIC13               ,SC(1288,"Areafill option for hatch fill"));
 		SetDialogItemText(Dialog, IDD_CLEAR, SC(273, "Clear all"));
@@ -3077,6 +3078,9 @@ int32 CALLBACK GerberDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 
 		if (GerberInfo.PlotMode & 1)
 			SendDlgItemMessageOwn(Dialog, IDC_CHECK7, BM_SETCHECK, 1, 0);
+
+		if (GerberInfo.GerbvProject)
+			SendDlgItemMessageOwn(Dialog, IDC_CHECK8, BM_SETCHECK, 1, 0);
 
 		GerberInfo.Xoffset = 0.0;
 		GerberInfo.Yoffset = 0.0;
@@ -3219,6 +3223,11 @@ int32 CALLBACK GerberDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 
 			if (SendDlgItemMessageOwn(Dialog, IDC_CHECK6, BM_GETCHECK, 0, 0) == 1)
 				GerberInfo.DrillAsGerber = 1;
+
+			GerberInfo.GerbvProject = 0;
+
+			if (SendDlgItemMessageOwn(Dialog, IDC_CHECK8, BM_GETCHECK, 0, 0) == 1)
+				GerberInfo.GerbvProject = 1;
 
 			NrGerberLayers = 0;
 
