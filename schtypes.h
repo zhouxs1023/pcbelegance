@@ -76,11 +76,11 @@
 #define INFO_CIRCLE                             0x2400
 
 
-#define STANDARD_OBJECT_LINE                    0x1000  // 4096
-#define STANDARD_OBJECT_RECT                    0x1200  // 4608
-#define STANDARD_OBJECT_CIRCLE                  0x1300  // 4864
-#define STANDARD_OBJECT_ARC                     0x1400  // 5120
-#define STANDARD_OBJECT_TEXT                    0x1500  // 5376
+#define STANDARD_OBJECT_LINE                    0x1000	// 4096
+#define STANDARD_OBJECT_RECT                    0x1200	// 4608
+#define STANDARD_OBJECT_CIRCLE                  0x1300	// 4864
+#define STANDARD_OBJECT_ARC                     0x1400	// 5120
+#define STANDARD_OBJECT_TEXT                    0x1500	// 5376
 
 #define INSTANCE_REF_TEXT                       0x3000
 #define INSTANCE_REF_VALUE                      0x3100
@@ -132,22 +132,22 @@
 #define PDFCharWidthFactor                      0.8
 
 
-#define DefMaxNrWires                           1024        // 28
-#define DefMaxNrBusses                          128         // 28
-#define DefMaxNrJunctions                       512         // 16
-#define DefMaxNrOnePinNets                      256         // 16
-#define DefMaxNrBusConnections                  256         // 16
-#define DefMaxNrNetLabels                       1024        // 64
+#define DefMaxNrWires                           1024	// 28
+#define DefMaxNrBusses                          128	// 28
+#define DefMaxNrJunctions                       512	// 16
+#define DefMaxNrOnePinNets                      256	// 16
+#define DefMaxNrBusConnections                  256	// 16
+#define DefMaxNrNetLabels                       1024	// 64
 
-#define DefMaxNrObjectLines                     256         // 24
-#define DefMaxNrObjectCircles                   128         // 20
-#define DefMaxNrObjectRects                     128         // 24
-#define DefMaxNrObjectArcs                      64          // 40
-#define DefMaxNrObjectTexts                     128         // 84
+#define DefMaxNrObjectLines                     256	// 24
+#define DefMaxNrObjectCircles                   128	// 20
+#define DefMaxNrObjectRects                     128	// 24
+#define DefMaxNrObjectArcs                      64	// 40
+#define DefMaxNrObjectTexts                     128	// 84
 
-#define DefMaxNrSheetSymbols                    128         // 16
-#define DefMaxNrInstances                       1024        // 272
-#define DefMaxSymbolsMemory                     32*1024     // 65536
+#define DefMaxNrSheetSymbols                    128	// 16
+#define DefMaxNrInstances                       1024	// 272
+#define DefMaxSymbolsMemory                     32*1024	// 65536
 //                                                          -----------
 //                                                             120k
 
@@ -223,250 +223,229 @@
 // *******************************************************************************************************
 // *******************************************************************************************************
 
-typedef struct {
-          char  Identification[32],EditingPerson[32];
-          int32 FileVersion,Revision;
-          float BoardCentreX,BoardCentreY,
-                BoardWidth,BoardHeight;
-          int32 NrSymbols,NrInstances,NrWires,NrBusses,
-                NrBusConnections,NrNetLabels,
-                NrJunctions,NrGlobalConnections,
-                NrObjectLines,NrObjectCircles,
-                NrObjectRects,NrObjectArcs,
-                NrObjectTexts,SymbolsMem,
-                NrRedefinedPinBusses;
-          float ArrowLength,DimensionHeight;
-          int32 NrOnePinNets;
-          int32 AnnotateStartNumber;
-          int32 SheetInfo;
-          uint8 Unused[216];
-          char  LastInstCode[8];
-          struct SchDesignDateStruct {
-                int32 Year;
-                uint8  Month,Day,Hour,Minutes;
-          } SchDesignDate ;
-        } SchDesignRecord ;
+typedef struct
+{
+	char Identification[32], EditingPerson[32];
+	int32 FileVersion, Revision;
+	float BoardCentreX, BoardCentreY, BoardWidth, BoardHeight;
+	int32 NrSymbols, NrInstances, NrWires, NrBusses, NrBusConnections, NrNetLabels, NrJunctions, NrGlobalConnections,
+	      NrObjectLines, NrObjectCircles, NrObjectRects, NrObjectArcs, NrObjectTexts, SymbolsMem, NrRedefinedPinBusses;
+	float ArrowLength, DimensionHeight;
+	int32 NrOnePinNets;
+	int32 AnnotateStartNumber;
+	int32 SheetInfo;
+	uint8 Unused[216];
+	char LastInstCode[8];
+	struct SchDesignDateStruct
+	{
+		int32 Year;
+		uint8 Month, Day, Hour, Minutes;
+	} SchDesignDate;
+} SchDesignRecord;
 
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 NrPins,PackagePartNr;
-          int16 RefInfo,ValueInfo,SymbolInfo;
-          int32 Code1,Code2,Code3,Error,PlacingOption;
-          float OriginX,OriginY,
-                RefOriginX,RefOriginY,
-                ValueOriginX,ValueOriginY,
-                BoardPosMinX,BoardPosMinY,BoardPosMaxX,BoardPosMaxY;
-          char  Reference[8],
-                InstCode[8],
-                SymbolName[32],
-                Value[32],
-                PartNr[128],
-                Geometry[32],
-                PartDescription[64],
-                Properties[256];
-        } InstanceRecord ;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 NrPins, PackagePartNr;
+	int16 RefInfo, ValueInfo, SymbolInfo;
+	int32 Code1, Code2, Code3, Error, PlacingOption;
+	float OriginX, OriginY, RefOriginX, RefOriginY, ValueOriginX, ValueOriginY, BoardPosMinX, BoardPosMinY,
+	      BoardPosMaxX, BoardPosMaxY;
+	char Reference[8], InstCode[8], SymbolName[32], Value[32], PartNr[128], Geometry[32], PartDescription[64],
+	     Properties[256];
+} InstanceRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 NrPins,PackagePartNr;
-          int16 RefInfo,ValueInfo,SymbolInfo;
-          int32 Code1,Code2,Code3,Error,PlacingOption;
-          float OriginX,OriginY,
-                RefOriginX,RefOriginY,
-                ValueOriginX,ValueOriginY,
-                BoardPosMinX,BoardPosMinY,BoardPosMaxX,BoardPosMaxY;
-          char  Reference[8],
-                InstCode[8],
-                SymbolName[32],
-                Value[32],
-                PartNr[32],
-                Geometry[32],
-                PartDescription[64];
-        } OldOldInstanceRecord ;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 NrPins, PackagePartNr;
+	int16 RefInfo, ValueInfo, SymbolInfo;
+	int32 Code1, Code2, Code3, Error, PlacingOption;
+	float OriginX, OriginY, RefOriginX, RefOriginY, ValueOriginX, ValueOriginY, BoardPosMinX, BoardPosMinY,
+	      BoardPosMaxX, BoardPosMaxY;
+	char Reference[8], InstCode[8], SymbolName[32], Value[32], PartNr[32], Geometry[32], PartDescription[64];
+} OldOldInstanceRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 NrPins,PackagePartNr;
-          int16 RefInfo,ValueInfo,SymbolInfo;
-          int32 Code1,Code2,Code3,Error,PlacingOption;
-          float OriginX,OriginY,
-                RefOriginX,RefOriginY,
-                ValueOriginX,ValueOriginY,
-                BoardPosMinX,BoardPosMinY,BoardPosMaxX,BoardPosMaxY;
-          char  Reference[8],
-                InstCode[8],
-                SymbolName[32],
-                Value[32],
-                PartNr[32],
-                Geometry[32],
-                PartDescription[64],
-                Properties[256];
-        } OldInstanceRecord ;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 NrPins, PackagePartNr;
+	int16 RefInfo, ValueInfo, SymbolInfo;
+	int32 Code1, Code2, Code3, Error, PlacingOption;
+	float OriginX, OriginY, RefOriginX, RefOriginY, ValueOriginX, ValueOriginY, BoardPosMinX, BoardPosMinY,
+	      BoardPosMaxX, BoardPosMaxY;
+	char Reference[8], InstCode[8], SymbolName[32], Value[32], PartNr[32], Geometry[32], PartDescription[64],
+	     Properties[256];
+} OldInstanceRecord;
 
 typedef InstanceRecord InstancesArray[DefMaxNrInstances];
 
-typedef struct {
-          int32 Pos,Length;
-          int16 Info,AddNr,DeleteNr,LocalSymbol;
-          int32 Code1,Code2,Code3,Code4;
-          char  SymbolName[32];
-        } SymbolsPosRecord;
+typedef struct
+{
+	int32 Pos, Length;
+	int16 Info, AddNr, DeleteNr, LocalSymbol;
+	int32 Code1, Code2, Code3, Code4;
+	char SymbolName[32];
+} SymbolsPosRecord;
 
 typedef SymbolsPosRecord SymbolsPosArray[DefMaxNrSheetSymbols];
 
-typedef struct {
-          char  SymbolIdent[8];
-          int32 MemSize,Revision,
-                NrPins,NrPowerPins,
-                NrPinBusses,NrPartsPerPackage,
-                NrSubPinDefs,
-                NrObjectLines,NrObjectCircles,
-                NrObjectRects,NrObjectArcs,
-                NrObjectTexts,Info;
-          float OriginX,OriginY,
-                RefOriginX,RefOriginY,
-                ValueOriginX,ValueOriginY;
-          char  Name[32],
-                InterfaceName[32],
-                InitialReference[8],
-                Description[64];
-        } SymbolRecord ;
+typedef struct
+{
+	char SymbolIdent[8];
+	int32 MemSize, Revision, NrPins, NrPowerPins, NrPinBusses, NrPartsPerPackage, NrSubPinDefs, NrObjectLines,
+	      NrObjectCircles, NrObjectRects, NrObjectArcs, NrObjectTexts, Info;
+	float OriginX, OriginY, RefOriginX, RefOriginY, ValueOriginX, ValueOriginY;
+	char Name[32], InterfaceName[32], InitialReference[8], Description[64];
+} SymbolRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 NameInfo,ConnectionType,
-                SwapInfo;
-          float X,Y,NameX,NameY;
-          char  Name[12];
-          char  Label[24];
-        } PinRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 NameInfo, ConnectionType, SwapInfo;
+	float X, Y, NameX, NameY;
+	char Name[12];
+	char Label[24];
+} PinRecord;
 
 typedef PinRecord PinsArray[DefMaxNrPins];
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 NameInfo;
-          float NameX,NameY;
-          char  NetName[32];
-          char  Text[128];
-        } PowerPinRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 NameInfo;
+	float NameX, NameY;
+	char NetName[32];
+	char Text[128];
+} PowerPinRecord;
 
 typedef PowerPinRecord PowerPinsArray[DefMaxNrPowerPins];
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 NameInfo,SwapInfo,
-                ConnectionType,NrPins,Dummy;
-          float X,Y,NameX,NameY;
-          char  Label[32];
-          char  Text[372];
-        } PinBusRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 NameInfo, SwapInfo, ConnectionType, NrPins, Dummy;
+	float X, Y, NameX, NameY;
+	char Label[32];
+	char Text[372];
+} PinBusRecord;
 
 typedef PinBusRecord PinBusArray[DefMaxNrPinBusses];
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr,Info2;
-          int32 Unused[6];
-          char  Reference[32];
-          char  Name[32];
-          uint8  Order[64];
-        } RedefinedPinBusRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr, Info2;
+	int32 Unused[6];
+	char Reference[32];
+	char Name[32];
+	uint8 Order[64];
+} RedefinedPinBusRecord;
 
 typedef RedefinedPinBusRecord RedefinedPinBusArray[DefMaxNrPinBusses];
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 ConnectionType;
-          float X,Y;
-          float NameX,NameY;
-          int16 NameInfo,NetNr;
-          char  Text[28];
-        } GlobalConnectionRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 ConnectionType;
+	float X, Y;
+	float NameX, NameY;
+	int16 NameInfo, NetNr;
+	char Text[28];
+} GlobalConnectionRecord;
 
 typedef GlobalConnectionRecord GlobalConnectionsArray[DefMaxNrGlobalConnections];
 
 
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr,LineMode;
-          float Thickness;
-          float Dummy;
-          float X1,Y1,X2,Y2;
-        } SchObjectLineRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr, LineMode;
+	float Thickness;
+	float Dummy;
+	float X1, Y1, X2, Y2;
+} SchObjectLineRecord;
 
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr,LineMode;
-          float Thickness;
-          float Dummy;
-          float CentreX,CentreY,Width,Height;
-        } SchObjectRectRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr, LineMode;
+	float Thickness;
+	float Dummy;
+	float CentreX, CentreY, Width, Height;
+} SchObjectRectRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr,LineMode;
-          int32 CircleMode;
-          float Thickness;
-          float Dummy;
-          float CentreX,CentreY,Diam;
-        } SchObjectCircleRecord;
-
-
-typedef struct {
-          int16 Info,AddNr,DeleteNr,LineMode;
-          float Dummy;
-          float Thickness;
-          float CentreX,CentreY,StartDiffX,StartDiffY,
-                EndDiffX,EndDiffY,Width,Height;
-        } SchObjectArcRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr, LineMode;
+	int32 CircleMode;
+	float Thickness;
+	float Dummy;
+	float CentreX, CentreY, Diam;
+} SchObjectCircleRecord;
 
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr,TextMode;
-          float Rotation;
-          float Thickness;
-          float Dummy;
-          float X,Y,FontHeight;
-          char  Text[256];
-        } SchObjectTextRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr, LineMode;
+	float Dummy;
+	float Thickness;
+	float CentreX, CentreY, StartDiffX, StartDiffY, EndDiffX, EndDiffY, Width, Height;
+} SchObjectArcRecord;
 
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 ObjectType,LineMode,Dummy;
-          float X1,Y1,X2,Y2;
-        } SchOldObjectLineRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr, TextMode;
+	float Rotation;
+	float Thickness;
+	float Dummy;
+	float X, Y, FontHeight;
+	char Text[256];
+} SchObjectTextRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 ObjectType,LineMode,Dummy;
-          float CentreX,CentreY,Width,Height;
-        } SchOldObjectRectRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 ObjectType,LineMode,CircleMode;
-          float CentreX,CentreY,Diam;
-        } SchOldObjectCircleRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 ObjectType, LineMode, Dummy;
+	float X1, Y1, X2, Y2;
+} SchOldObjectLineRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 ObjectType,LineMode,Dummy;
-          float CentreX,CentreY,StartDiffX,StartDiffY,
-                EndDiffX,EndDiffY,Width,Height;
-        } SchOldObjectArcRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 ObjectType, LineMode, Dummy;
+	float CentreX, CentreY, Width, Height;
+} SchOldObjectRectRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 ObjectType,TextMode,Dummy;
-          float X,Y,FontHeight;
-          char  Text[32];
-        } SchOldObjectTextRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 ObjectType, LineMode, CircleMode;
+	float CentreX, CentreY, Diam;
+} SchOldObjectCircleRecord;
 
-typedef struct {
-          int16 Info,AddNr,DeleteNr;
-          int16 ObjectType;
-        } ObjectInfoRecord;
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 ObjectType, LineMode, Dummy;
+	float CentreX, CentreY, StartDiffX, StartDiffY, EndDiffX, EndDiffY, Width, Height;
+} SchOldObjectArcRecord;
+
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 ObjectType, TextMode, Dummy;
+	float X, Y, FontHeight;
+	char Text[32];
+} SchOldObjectTextRecord;
+
+typedef struct
+{
+	int16 Info, AddNr, DeleteNr;
+	int16 ObjectType;
+} ObjectInfoRecord;
 
 
 /*
@@ -493,85 +472,86 @@ PinConnectionLogic :
 
 */
 
-typedef struct {
-          float X1,Y1,X2,Y2;
-          int32 NetLabelPointer;
-          int16 NetNr,Info,
-                AddNr,DeleteNr;
-        } WireRecord ;
+typedef struct
+{
+	float X1, Y1, X2, Y2;
+	int32 NetLabelPointer;
+	int16 NetNr, Info, AddNr, DeleteNr;
+} WireRecord;
 
 typedef WireRecord WiresArray[DefMaxNrWires];
 
-typedef struct {
-          float X1,Y1,X2,Y2;
-          int32 NetLabelPointer;
-          int16 NetNr,Info,
-                AddNr,DeleteNr;
-        } BusRecord ;
+typedef struct
+{
+	float X1, Y1, X2, Y2;
+	int32 NetLabelPointer;
+	int16 NetNr, Info, AddNr, DeleteNr;
+} BusRecord;
 
 typedef BusRecord BussesArray[DefMaxNrBusses];
 
 
-typedef struct {
-          float X,Y;
-          int16 NetNr,Info,
-                AddNr,DeleteNr;
-        } JunctionRecord ;
+typedef struct
+{
+	float X, Y;
+	int16 NetNr, Info, AddNr, DeleteNr;
+} JunctionRecord;
 
 typedef JunctionRecord JunctionsArray[DefMaxNrJunctions];
 
-typedef struct {
-          float X,Y;
-          int16 Test,Info,
-                AddNr,DeleteNr;
-        } OnePinNetRecord ;
+typedef struct
+{
+	float X, Y;
+	int16 Test, Info, AddNr, DeleteNr;
+} OnePinNetRecord;
 
 typedef OnePinNetRecord OnePinNetsArray[DefMaxNrOnePinNets];
 
-typedef struct {
-          float X,Y,TextX,TextY;
-          int16 NetNr,Alignment,
-                Info,Dummy,
-                AddNr,DeleteNr;
-        } BusConnectionRecord ;
+typedef struct
+{
+	float X, Y, TextX, TextY;
+	int16 NetNr, Alignment, Info, Dummy, AddNr, DeleteNr;
+} BusConnectionRecord;
 
 typedef BusConnectionRecord BusConnectionsArray[DefMaxNrBusConnections];
 
-typedef struct {
-          float ConnectX,ConnectY;
-          float TextX,TextY;
-          int16 Alignment,LabelType,
-                Info,NetNr,
-                AddNr,DeleteNr;
-          char  Name[36];
-        } NetLabelRecord ;
+typedef struct
+{
+	float ConnectX, ConnectY;
+	float TextX, TextY;
+	int16 Alignment, LabelType, Info, NetNr, AddNr, DeleteNr;
+	char Name[36];
+} NetLabelRecord;
 
 typedef NetLabelRecord NetLabelsArray[DefMaxNrNetLabels];
 
-typedef struct {
-          int32 ObjectType,Alignment,Info,Info2,Info3,Info4,Info5,NetNr,PinInfo,PinNr;
-          double x1,y1,x2,y2,x3,y3,x4,y4,minx,miny,maxx,maxy,Thickness;
-          InstanceRecord *Instance;
-          LPSTR Text1;
-          LPSTR Text2;
-          LPSTR Text3;
-        } SchObjectRecord ;
+typedef struct
+{
+	int32 ObjectType, Alignment, Info, Info2, Info3, Info4, Info5, NetNr, PinInfo, PinNr;
+	double x1, y1, x2, y2, x3, y3, x4, y4, minx, miny, maxx, maxy, Thickness;
+	InstanceRecord *Instance;
+	LPSTR Text1;
+	LPSTR Text2;
+	LPSTR Text3;
+} SchObjectRecord;
 
-typedef struct {
-          int32 ObjectType,Alignment,Info,Info2,Info3,Info4,ObjectNr;
-          double x1,y1,x2,y2;
-          InstanceRecord *Instance;
-          LPSTR Text1;
-          LPSTR Text2;
-        } Object2Record ;
+typedef struct
+{
+	int32 ObjectType, Alignment, Info, Info2, Info3, Info4, ObjectNr;
+	double x1, y1, x2, y2;
+	InstanceRecord *Instance;
+	LPSTR Text1;
+	LPSTR Text2;
+} Object2Record;
 
 typedef Object2Record Object2Array[DefMaxNrObjects];
 
-typedef struct {
-          float x1,y1,x2,y2;
-          int16 ObjectType,SheetNr;
-          int32 FirstObjectNr,BusNr,NetNr;
-        } Object5Record ;
+typedef struct
+{
+	float x1, y1, x2, y2;
+	int16 ObjectType, SheetNr;
+	int32 FirstObjectNr, BusNr, NetNr;
+} Object5Record;
 
 typedef Object5Record Object5Array[DefMaxNrObjects];
 
@@ -583,52 +563,57 @@ typedef SubPinDefsType SubPinDefsArray[100];
 
 /***********************************************************************/
 
-typedef struct {
-          int32 x1,y1,x2,y2;
-        } PolyLineRecord;
+typedef struct
+{
+	int32 x1, y1, x2, y2;
+} PolyLineRecord;
 
 typedef PolyLineRecord PolyLineArray[16];
 
-typedef struct {
-          double Xoffset,Yoffset,Factor,DisplX,DisplY;
-          HWND  WindowHandle;
-          char  WindowName[80];
-        } WindowSheetRecord;
+typedef struct
+{
+	double Xoffset, Yoffset, Factor, DisplX, DisplY;
+	HWND WindowHandle;
+	char WindowName[80];
+} WindowSheetRecord;
 
-typedef struct {
-          double x1,y1;
-          int32 Start,Step,Count;
-        } ObjectNumbersRecord;
+typedef struct
+{
+	double x1, y1;
+	int32 Start, Step, Count;
+} ObjectNumbersRecord;
 
 typedef char SearchSymbolResultsArray[512][128];
 
-typedef struct {
-          int32  ObjectType,Alignment,Info,Info2,Layer;
-          double x1,y1,x2,y2,x3,y3,x4,y4,Rotation,Thickness,
-                 Clearance,minx,miny,maxx,maxy;
-          char   Text[176];
-        } StandardObjectRecord ;
+typedef struct
+{
+	int32 ObjectType, Alignment, Info, Info2, Layer;
+	double x1, y1, x2, y2, x3, y3, x4, y4, Rotation, Thickness, Clearance, minx, miny, maxx, maxy;
+	char Text[176];
+} StandardObjectRecord;
 
 typedef StandardObjectRecord StandardObjectArray[4096];
 
-typedef struct {
-          int32 Info,Info1,Info2,Code1,Code2;
-          char  Name[48];
-          TVINSERTSTRUCT TreeItemInfo;
-          HTREEITEM TreeItem;
-        } CompSelectRecord;
+typedef struct
+{
+	int32 Info, Info1, Info2, Code1, Code2;
+	char Name[48];
+	TVINSERTSTRUCT TreeItemInfo;
+	HTREEITEM TreeItem;
+} CompSelectRecord;
 
 typedef CompSelectRecord CompSelectArray[MaxCompSelect];
 
-typedef struct {
-          int32 Index;
-          char  Name[16];
-        } SubPinDefsNameRecord;
+typedef struct
+{
+	int32 Index;
+	char Name[16];
+} SubPinDefsNameRecord;
 
-typedef struct {
-          char  ID[32];
-          char  Value[64];
-        } UserVarRecord;
+typedef struct
+{
+	char ID[32];
+	char Value[64];
+} UserVarRecord;
 
 #endif
-
