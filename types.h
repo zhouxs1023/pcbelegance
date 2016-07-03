@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: types.h 
+ * File: types.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,84 +30,65 @@
 #include "windows.h"
 #include "owntypes.h"
 
-typedef struct {
-          char  SymbolIdent[8];
-          int32 MemSize,Revision,
-                NrPins,NrPowerPins,
-                NrPinBusses,NrPartsPerPackage,
-                NrSubPinDefs,
-                NrObjectLines,NrObjectCircles,
-                NrObjectRects,NrObjectArcs,
-                NrObjectTexts,Info;
-          float OriginX,OriginY,
-                RefOriginX,RefOriginY,
-                ValueOriginX,ValueOriginY;
-          char  Name[32],
-                InterfaceName[32],
-                InitialReference[8],
-                Description[64];
-/*
+typedef struct
+{
+	char SymbolIdent[8];
+	int32 MemSize, Revision, NrPins, NrPowerPins, NrPinBusses, NrPartsPerPackage, NrSubPinDefs, NrObjectLines,
+	      NrObjectCircles, NrObjectRects, NrObjectArcs, NrObjectTexts, Info;
+	float OriginX, OriginY, RefOriginX, RefOriginY, ValueOriginX, ValueOriginY;
+	char Name[32], InterfaceName[32], InitialReference[8], Description[64];
+	/*
 
-If more then one NrPartsPerPackage define the substitute pins
+	If more then one NrPartsPerPackage define the substitute pins
 
-Part1-Info Part2-Info ..
-PinName1-SubSymbol PinName1-Part1 PinName1-Part2 ..
-PinName2-SubSymbol PinName2-Part1 PinName2-Part2 ..
-etc
+	Part1-Info Part2-Info ..
+	PinName1-SubSymbol PinName1-Part1 PinName1-Part2 ..
+	PinName2-SubSymbol PinName2-Part1 PinName2-Part2 ..
+	etc
 
-int16     Part1-Info;
-char      PinName2-SubSymbol[10];
-char      PinName1-Part1[10];
+	int16     Part1-Info;
+	char      PinName2-SubSymbol[10];
+	char      PinName1-Part1[10];
 
-*/
-        } SymbolRecord ;
+	*/
+} SymbolRecord;
 
 
-typedef struct {
-          char  Identification[32];
-          char  ShapeName[32];
-          int32 Revision;
-          int32 CompOutLineOffset,
-                PinOffset,
-                SilkScreenOffset,
-                PasteSoldMaskOffset;
-          int32 NrPlacementOutLines,
-                NrCompOutLines,
-                NrPins,
-                NrSilkScreenOutLines,
-                NrPasteSoldMaskObjects;
-          float InsertionX,InsertionY,
-                ShapeHeight,
-                PasteMaskCompSide,SoldMaskCompSide,
-                PasteMaskSoldSide,SoldMaskSoldSide,
-                ShapeNameHeight,
-                ShapeNameOriginX,
-                ShapeNameOriginY;
-          int16 Info,AddNr,DeleteNr,Dummy;
-          int32 ShapeNameRotation;
-        } ShapeRecord ;
+typedef struct
+{
+	char Identification[32];
+	char ShapeName[32];
+	int32 Revision;
+	int32 CompOutLineOffset, PinOffset, SilkScreenOffset, PasteSoldMaskOffset;
+	int32 NrPlacementOutLines, NrCompOutLines, NrPins, NrSilkScreenOutLines, NrPasteSoldMaskObjects;
+	float InsertionX, InsertionY, ShapeHeight, PasteMaskCompSide, SoldMaskCompSide, PasteMaskSoldSide, SoldMaskSoldSide,
+	      ShapeNameHeight, ShapeNameOriginX, ShapeNameOriginY;
+	int16 Info, AddNr, DeleteNr, Dummy;
+	int32 ShapeNameRotation;
+} ShapeRecord;
 
 
-typedef struct {
-          char  Identification[32],EditingPerson[32];
-          int32 FileVersion,Revision,
-                NrLibEntries,MaxNrLibEntries;
-        } LibRecord ;
+typedef struct
+{
+	char Identification[32], EditingPerson[32];
+	int32 FileVersion, Revision, NrLibEntries, MaxNrLibEntries;
+} LibRecord;
 
-typedef struct {
-          char  Text[32];
-          int32 Pos,Length;
-        } LibNameRecord ;
+typedef struct
+{
+	char Text[32];
+	int32 Pos, Length;
+} LibNameRecord;
 
 
 /***********************************************************************/
 
-typedef struct {
-          int32 OtherInfos[32];
-          int32 FileTypes[32],FileInfos[32];
-          HWND  WindowHandles[32];
-          char  FileNames[32][80];
-        } ProjectInfoRecord ;
+typedef struct
+{
+	int32 OtherInfos[32];
+	int32 FileTypes[32], FileInfos[32];
+	HWND WindowHandles[32];
+	char FileNames[32][80];
+} ProjectInfoRecord;
 
 #endif
-
