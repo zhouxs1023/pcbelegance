@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: stdafx.h 
+ * File: stdafx.h
  *
  *
  * This program is free software; you can redistribute it and/or modify

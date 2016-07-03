@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: line2.h 
+ * File: line2.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,17 +29,16 @@
 
 #include "owntypes.h"
 
-void DrawLine(int32 x1,int32 y1,int32 x2,int32 y2);
+void DrawLine(int32 x1, int32 y1, int32 x2, int32 y2);
 
-void DrawHorLine(int32 x1,int32 y1,int32 x2,int32 Height,int32 mode);
+void DrawHorLine(int32 x1, int32 y1, int32 x2, int32 Height, int32 mode);
 
-void DrawVerLine(int32 x1,int32 y1,int32 y2,int32 Height,int32 mode);
+void DrawVerLine(int32 x1, int32 y1, int32 y2, int32 Height, int32 mode);
 
-void DrawDiag1Line(int32 x1,int32 y1,int32 x2,int32 Height,int32 mode);
+void DrawDiag1Line(int32 x1, int32 y1, int32 x2, int32 Height, int32 mode);
 
-void DrawDiag2Line(int32 x1,int32 y1,int32 x2,int32 Height,int32 mode);
+void DrawDiag2Line(int32 x1, int32 y1, int32 x2, int32 Height, int32 mode);
 
-void DrawLine2(int32 x1,int32 y1,int32 x2,int32 y2,int32 Height,int32 mode);
+void DrawLine2(int32 x1, int32 y1, int32 x2, int32 y2, int32 Height, int32 mode);
 
 #endif
-

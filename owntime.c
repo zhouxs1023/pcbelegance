@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: owntime.c 
+ * File: owntime.c
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -32,12 +32,10 @@
 
 #define MAX_PERFORMANCE_COUNT   256
 
-int64 Counter0,Counter1,Counter2,Counter3,
-      Counter4,Counter5,Counter6,Counter7,
-      CurrentFrequency;   // pointer to counter value
+int64 Counter0, Counter1, Counter2, Counter3, Counter4, Counter5, Counter6, Counter7, CurrentFrequency;	// pointer to counter value
 
-char   PerformanceStrings[MAX_PERFORMANCE_COUNT][64];
-int32  PerformanceCount=0;
+char PerformanceStrings[MAX_PERFORMANCE_COUNT][64];
+int32 PerformanceCount = 0;
 
 // *******************************************************************************************************
 // *******************************************************************************************************
@@ -45,9 +43,8 @@ int32  PerformanceCount=0;
 // *******************************************************************************************************
 
 void SetTimer0()
-
 {
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter0);
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter0);
 }
 
 
@@ -57,20 +54,16 @@ void SetTimer0()
 // *******************************************************************************************************
 
 int32 CheckTimeOutTimer0(int32 ulNrMilliSeconds)
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=((Counter-Counter0)*1000)/CurrentFrequency;
-  if (hulp<(int64)ulNrMilliSeconds)
-  {
-    return 0;
-  }
-  else
-  {
-    return 1;
-  }
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = ((Counter - Counter0) * 1000) / CurrentFrequency;
+
+	if (hulp < (int64) ulNrMilliSeconds)
+		return 0;
+	else
+		return 1;
 }
 
 // *******************************************************************************************************
@@ -79,14 +72,13 @@ int32 CheckTimeOutTimer0(int32 ulNrMilliSeconds)
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer0inMilliSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter0)*1000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter0) * 1000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -95,14 +87,13 @@ int32 GetDifferenceTimer0inMilliSeconds()
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer0inMicroSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter0)*1000000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter0) * 1000000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -111,9 +102,8 @@ int32 GetDifferenceTimer0inMicroSeconds()
 // *******************************************************************************************************
 
 void SetTimer1()
-
 {
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter1);
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter1);
 }
 
 
@@ -123,20 +113,16 @@ void SetTimer1()
 // *******************************************************************************************************
 
 int32 CheckTimeOutTimer1(int32 ulNrMilliSeconds)
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=((Counter-Counter1)*1000)/CurrentFrequency;
-  if (hulp<(int64)ulNrMilliSeconds)
-  {
-    return 0;
-  }
-  else
-  {
-    return 1;
-  }
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = ((Counter - Counter1) * 1000) / CurrentFrequency;
+
+	if (hulp < (int64) ulNrMilliSeconds)
+		return 0;
+	else
+		return 1;
 }
 
 // *******************************************************************************************************
@@ -145,14 +131,13 @@ int32 CheckTimeOutTimer1(int32 ulNrMilliSeconds)
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer1inMilliSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter1)*1000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter1) * 1000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -161,14 +146,13 @@ int32 GetDifferenceTimer1inMilliSeconds()
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer1inMicroSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter1)*1000000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter1) * 1000000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -177,9 +161,8 @@ int32 GetDifferenceTimer1inMicroSeconds()
 // *******************************************************************************************************
 
 void SetTimer2()
-
 {
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter2);
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter2);
 }
 
 
@@ -189,20 +172,16 @@ void SetTimer2()
 // *******************************************************************************************************
 
 int32 CheckTimeOutTimer2(int32 ulNrMilliSeconds)
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=((Counter-Counter2)*1000)/CurrentFrequency;
-  if (hulp<(int64)ulNrMilliSeconds)
-  {
-    return 0;
-  }
-  else
-  {
-    return 1;
-  }
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = ((Counter - Counter2) * 1000) / CurrentFrequency;
+
+	if (hulp < (int64) ulNrMilliSeconds)
+		return 0;
+	else
+		return 1;
 }
 
 // *******************************************************************************************************
@@ -211,14 +190,13 @@ int32 CheckTimeOutTimer2(int32 ulNrMilliSeconds)
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer2inMilliSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter2)*1000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter2) * 1000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -227,14 +205,13 @@ int32 GetDifferenceTimer2inMilliSeconds()
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer2inMicroSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter2)*1000000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter2) * 1000000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -243,9 +220,8 @@ int32 GetDifferenceTimer2inMicroSeconds()
 // *******************************************************************************************************
 
 void SetTimer3()
-
 {
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter3);
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter3);
 }
 
 
@@ -255,20 +231,16 @@ void SetTimer3()
 // *******************************************************************************************************
 
 int32 CheckTimeOutTimer3(int32 ulNrMilliSeconds)
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=((Counter-Counter3)*1000)/CurrentFrequency;
-  if (hulp<(int64)ulNrMilliSeconds)
-  {
-    return FALSE;
-  }
-  else
-  {
-    return TRUE;
-  }
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = ((Counter - Counter3) * 1000) / CurrentFrequency;
+
+	if (hulp < (int64) ulNrMilliSeconds)
+		return FALSE;
+	else
+		return TRUE;
 }
 
 // *******************************************************************************************************
@@ -277,14 +249,13 @@ int32 CheckTimeOutTimer3(int32 ulNrMilliSeconds)
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer3inMilliSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter3)*1000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter3) * 1000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -293,14 +264,13 @@ int32 GetDifferenceTimer3inMilliSeconds()
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer3inMicroSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter3)*1000000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter3) * 1000000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -309,9 +279,8 @@ int32 GetDifferenceTimer3inMicroSeconds()
 // *******************************************************************************************************
 
 void SetTimer4()
-
 {
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter4);
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter4);
 }
 
 
@@ -321,20 +290,16 @@ void SetTimer4()
 // *******************************************************************************************************
 
 int32 CheckTimeOutTimer4(int32 ulNrMilliSeconds)
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=((Counter-Counter4)*1000)/CurrentFrequency;
-  if (hulp<(int64)ulNrMilliSeconds)
-  {
-    return FALSE;
-  }
-  else
-  {
-    return TRUE;
-  }
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = ((Counter - Counter4) * 1000) / CurrentFrequency;
+
+	if (hulp < (int64) ulNrMilliSeconds)
+		return FALSE;
+	else
+		return TRUE;
 }
 
 // *******************************************************************************************************
@@ -343,14 +308,13 @@ int32 CheckTimeOutTimer4(int32 ulNrMilliSeconds)
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer4inMilliSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter4)*1000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter4) * 1000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -359,14 +323,13 @@ int32 GetDifferenceTimer4inMilliSeconds()
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer4inMicroSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter4)*1000000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter4) * 1000000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -375,9 +338,8 @@ int32 GetDifferenceTimer4inMicroSeconds()
 // *******************************************************************************************************
 
 void SetTimer5()
-
 {
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter5);
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter5);
 }
 
 
@@ -387,20 +349,16 @@ void SetTimer5()
 // *******************************************************************************************************
 
 int32 CheckTimeOutTimer5(int32 ulNrMilliSeconds)
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=((Counter-Counter5)*1000)/CurrentFrequency;
-  if (hulp<(int64)ulNrMilliSeconds)
-  {
-    return FALSE;
-  }
-  else
-  {
-    return TRUE;
-  }
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = ((Counter - Counter5) * 1000) / CurrentFrequency;
+
+	if (hulp < (int64) ulNrMilliSeconds)
+		return FALSE;
+	else
+		return TRUE;
 }
 
 // *******************************************************************************************************
@@ -409,14 +367,13 @@ int32 CheckTimeOutTimer5(int32 ulNrMilliSeconds)
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer5inMilliSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter5)*1000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter5) * 1000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -425,14 +382,13 @@ int32 GetDifferenceTimer5inMilliSeconds()
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer5inMicroSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter5)*1000000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter5) * 1000000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -441,9 +397,8 @@ int32 GetDifferenceTimer5inMicroSeconds()
 // *******************************************************************************************************
 
 void SetTimer6()
-
 {
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter6);
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter6);
 }
 
 
@@ -453,20 +408,16 @@ void SetTimer6()
 // *******************************************************************************************************
 
 int32 CheckTimeOutTimer6(int32 ulNrMilliSeconds)
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=((Counter-Counter6)*1000)/CurrentFrequency;
-  if (hulp<(int64)ulNrMilliSeconds)
-  {
-    return FALSE;
-  }
-  else
-  {
-    return TRUE;
-  }
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = ((Counter - Counter6) * 1000) / CurrentFrequency;
+
+	if (hulp < (int64) ulNrMilliSeconds)
+		return FALSE;
+	else
+		return TRUE;
 }
 
 // *******************************************************************************************************
@@ -475,14 +426,13 @@ int32 CheckTimeOutTimer6(int32 ulNrMilliSeconds)
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer6inMilliSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter6)*1000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter6) * 1000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -491,14 +441,13 @@ int32 GetDifferenceTimer6inMilliSeconds()
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer6inMicroSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter6)*1000000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter6) * 1000000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -507,9 +456,8 @@ int32 GetDifferenceTimer6inMicroSeconds()
 // *******************************************************************************************************
 
 void SetTimer7()
-
 {
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter7);
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter7);
 }
 
 
@@ -519,20 +467,16 @@ void SetTimer7()
 // *******************************************************************************************************
 
 int32 CheckTimeOutTimer7(int32 ulNrMilliSeconds)
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=((Counter-Counter7)*1000)/CurrentFrequency;
-  if (hulp<(int64)ulNrMilliSeconds)
-  {
-    return FALSE;
-  }
-  else
-  {
-    return TRUE;
-  }
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = ((Counter - Counter7) * 1000) / CurrentFrequency;
+
+	if (hulp < (int64) ulNrMilliSeconds)
+		return FALSE;
+	else
+		return TRUE;
 }
 
 // *******************************************************************************************************
@@ -541,14 +485,13 @@ int32 CheckTimeOutTimer7(int32 ulNrMilliSeconds)
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer7inMilliSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter7)*1000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter7) * 1000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 // *******************************************************************************************************
@@ -557,14 +500,13 @@ int32 GetDifferenceTimer7inMilliSeconds()
 // *******************************************************************************************************
 
 int32 GetDifferenceTimer7inMicroSeconds()
-
 {
-  int64 Counter,hulp;
+	int64 Counter, hulp;
 
-  QueryPerformanceCounter((LARGE_INTEGER *)&Counter);
-  hulp=(Counter-Counter7)*1000000;
-  hulp/=CurrentFrequency;
-  return (int32)hulp;
+	QueryPerformanceCounter((LARGE_INTEGER *) & Counter);
+	hulp = (Counter - Counter7) * 1000000;
+	hulp /= CurrentFrequency;
+	return (int32) hulp;
 }
 
 
@@ -574,9 +516,8 @@ int32 GetDifferenceTimer7inMicroSeconds()
 // *******************************************************************************************************
 
 void InitTimers()
-
 {
-  QueryPerformanceFrequency((LARGE_INTEGER *)&CurrentFrequency);
+	QueryPerformanceFrequency((LARGE_INTEGER *) & CurrentFrequency);
 }
 
 // *******************************************************************************************************
@@ -585,11 +526,12 @@ void InitTimers()
 // *******************************************************************************************************
 
 void AddPerformanceValue(LPSTR String)
-
 {
-  if (PerformanceCount>=MAX_PERFORMANCE_COUNT) return;
-  sprintf(PerformanceStrings[PerformanceCount++],"%s   [  %d  ms  ]\r\n",String,
-          GetDifferenceTimer0inMilliSeconds());
+	if (PerformanceCount >= MAX_PERFORMANCE_COUNT)
+		return;
+
+	sprintf(PerformanceStrings[PerformanceCount++], "%s   [  %d  ms  ]\r\n", String,
+	        GetDifferenceTimer0inMilliSeconds());
 }
 
 // *******************************************************************************************************
@@ -598,13 +540,15 @@ void AddPerformanceValue(LPSTR String)
 // *******************************************************************************************************
 
 void AddPerformanceValue2(LPSTR String)
-
 {
-  float value;
-  if (PerformanceCount>=MAX_PERFORMANCE_COUNT) return;
-  value=(float)GetDifferenceTimer0inMicroSeconds()/1000;
+	float value;
+
+	if (PerformanceCount >= MAX_PERFORMANCE_COUNT)
+		return;
+
+	value = (float) GetDifferenceTimer0inMicroSeconds() / 1000;
 //  sprintf(PerformanceStrings[PerformanceCount++],"%s   [  %.3f  µs  ]\r\n",String,value);
-  sprintf(PerformanceStrings[PerformanceCount++],"%s   [  %.3f  ms  ]\r\n",String,value);
+	sprintf(PerformanceStrings[PerformanceCount++], "%s   [  %.3f  ms  ]\r\n", String, value);
 }
 
 // *******************************************************************************************************
@@ -613,13 +557,11 @@ void AddPerformanceValue2(LPSTR String)
 // *******************************************************************************************************
 
 void WritePerformanceStrings()
-
 {
-  int32  cnt;
+	int32 cnt;
 
-  for (cnt=0;cnt<PerformanceCount;cnt++) {
-    OutputDebugString(PerformanceStrings[cnt]);
-  }
+	for (cnt = 0; cnt < PerformanceCount; cnt++)
+		OutputDebugString(PerformanceStrings[cnt]);
 }
 
 // *******************************************************************************************************
@@ -628,9 +570,8 @@ void WritePerformanceStrings()
 // *******************************************************************************************************
 
 void ResetPerformanceStrings()
-
 {
-  PerformanceCount=0;
+	PerformanceCount = 0;
 }
 
 // *******************************************************************************************************

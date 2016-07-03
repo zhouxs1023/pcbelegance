@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: calcdiag.h 
+ * File: calcdiag.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,15 +30,14 @@
 
 #include "owntypes.h"
 
-int32    DiagTestCircle(double x1,double y1,double x2);
+int32 DiagTestCircle(double x1, double y1, double x2);
 
-int32    DiagTestRect(double Xmin,double Ymin,double Xmax,double Ymax);
+int32 DiagTestRect(double Xmin, double Ymin, double Xmax, double Ymax);
 
-int32    DiagTestRect2(double x1,double y1,double x2,double y2);
+int32 DiagTestRect2(double x1, double y1, double x2, double y2);
 
-int32    DiagTestDiag1(double x1,double y1,double x2,double y2);
+int32 DiagTestDiag1(double x1, double y1, double x2, double y2);
 
-int32    DiagTestDiag2(double x1,double y1,double x2,double y2);
+int32 DiagTestDiag2(double x1, double y1, double x2, double y2);
 
 #endif
-

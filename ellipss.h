@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: ellipss.h 
+ * File: ellipss.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,10 +29,8 @@
 
 #include "owntypes.h"
 
-void ellips2(int32 xm,int32 ym,int32 a,int32 b,int32 EllipssType);
+void ellips2(int32 xm, int32 ym, int32 a, int32 b, int32 EllipssType);
 
-void SpecialArc(int32 xm,int32 ym,int32 a,int32 b,
-                int32 x1,int32 y1,int32 x2,int32 y2);
+void SpecialArc(int32 xm, int32 ym, int32 a, int32 b, int32 x1, int32 y1, int32 x2, int32 y2);
 
 #endif
-

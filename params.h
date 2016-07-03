@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: params.h 
+ * File: params.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -34,14 +34,15 @@
 #define MAX_OPTION_STRING_LENGTH   200
 #define MAX_PARAM_STRING_LENGTH    400
 
-typedef struct {
-          char Option[MAX_OPTION_STRING_LENGTH];
-          char Parameter[MAX_PARAM_STRING_LENGTH];
-        } ParameterRecord;
+typedef struct
+{
+	char Option[MAX_OPTION_STRING_LENGTH];
+	char Parameter[MAX_PARAM_STRING_LENGTH];
+} ParameterRecord;
 
 
-extern ParameterRecord      Parameters[MAX_PARAMETERS];
-extern int32                NrParams;
+extern ParameterRecord Parameters[MAX_PARAMETERS];
+extern int32 NrParams;
 
 int32 GetParameters(LPSTR CommandLine);
 

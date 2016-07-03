@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: owntime.h 
+ * File: owntime.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -105,4 +105,3 @@ void WritePerformanceStrings(void);
 void ResetPerformanceStrings();
 
 #endif
-

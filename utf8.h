@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: utf8.h 
+ * File: utf8.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -35,37 +35,37 @@
 
 #ifdef UC
 
-int32 SetWindowTextUTF8(HWND hWnd,LPSTR lpString);
+int32 SetWindowTextUTF8(HWND hWnd, LPSTR lpString);
 
-LRESULT SendDlgItemMessageUTF8(HWND hDlg,int32 nIDDlgItem,uint32 Msg,WPARAM wParam,LPARAM lParam);
+LRESULT SendDlgItemMessageUTF8(HWND hDlg, int32 nIDDlgItem, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
-LRESULT SendDlgItemBigMessageUTF8(HWND hDlg,int32 nIDDlgItem,uint32 Msg,WPARAM wParam,LPARAM lParam);
+LRESULT SendDlgItemBigMessageUTF8(HWND hDlg, int32 nIDDlgItem, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
-void SetDialogItemTextUTF8(HWND Dialog,int32 DlgItem,LPSTR Text);
+void SetDialogItemTextUTF8(HWND Dialog, int32 DlgItem, LPSTR Text);
 
-int32 MessageBoxUTF8(HWND Window,LPSTR Text,LPSTR Caption,uint32 MessageBoxType);
+int32 MessageBoxUTF8(HWND Window, LPSTR Text, LPSTR Caption, uint32 MessageBoxType);
 
-LRESULT SendMessageUTF8(HWND hWnd,uint32 Msg,WPARAM wParam,LPARAM lParam);
+LRESULT SendMessageUTF8(HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam);
 
-int32 TextOutUTF8(HDC hdc,int32 nXStart,int32 nYStart,LPSTR lpString,int32 cbString);
+int32 TextOutUTF8(HDC hdc, int32 nXStart, int32 nYStart, LPSTR lpString, int32 cbString);
 
-int32 AppendMenuUTF8(HMENU Menu,uint32 MenuOptions,uint32 MenuId,LPSTR Text);
+int32 AppendMenuUTF8(HMENU Menu, uint32 MenuOptions, uint32 MenuId, LPSTR Text);
 
-int32 ModifyMenuUTF8(HMENU hMnu,uint32 uPosition,uint32 uFlags,uint32 uIDNewItem,LPSTR lpNewItem);
+int32 ModifyMenuUTF8(HMENU hMnu, uint32 uPosition, uint32 uFlags, uint32 uIDNewItem, LPSTR lpNewItem);
 
-int32 strcmpUTF8(LPSTR Src,LPSTR Dest);
+int32 strcmpUTF8(LPSTR Src, LPSTR Dest);
 
-int32 stricmpUTF8(LPSTR Src,LPSTR Dest);
+int32 stricmpUTF8(LPSTR Src, LPSTR Dest);
 
-int32 strnicmpUTF8(LPSTR Src,LPSTR Dest,int32 count);
+int32 strnicmpUTF8(LPSTR Src, LPSTR Dest, int32 count);
 
 int32 struprUTF8(LPSTR Src);
 
 int32 strlwrUTF8(LPSTR Src);
 
-HANDLE FindFirstFileUTF8(LPSTR Src,WIN32_FIND_DATAW *FindFileData);
+HANDLE FindFirstFileUTF8(LPSTR Src, WIN32_FIND_DATAW * FindFileData);
 
-int32 ConvertFileNameFromCommandLineUTF8(LPSTR Src,LPSTR Dest);
+int32 ConvertFileNameFromCommandLineUTF8(LPSTR Src, LPSTR Dest);
 
 #define   SetWindowTextOwn            SetWindowTextUTF8
 #define   SendDlgItemMessageOwn       SendDlgItemMessageUTF8
@@ -95,10 +95,8 @@ int32 ConvertFileNameFromCommandLineUTF8(LPSTR Src,LPSTR Dest);
 
 #endif
 
-int32 Utf8ToUnicode(char *utf8,uint16 *unicode16,int32 MaxUCLength);
+int32 Utf8ToUnicode(char *utf8, uint16 * unicode16, int32 MaxUCLength);
 
-int32 UnicodeToUtf8(uint16 *unicode16,char *utf8,int32 MaxUtf8Length);
+int32 UnicodeToUtf8(uint16 * unicode16, char *utf8, int32 MaxUtf8Length);
 
-#endif  // _UTF8_
-
-
+#endif // _UTF8_

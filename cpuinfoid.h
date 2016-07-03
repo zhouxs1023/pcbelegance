@@ -13,8 +13,8 @@
 ////////////
 // Error Rate
 //////////////////////////////////////////
-#define ERROR_RATE_MAX	1.005 
-#define ERROR_RATE_MIN	0.995 
+#define ERROR_RATE_MAX	1.005
+#define ERROR_RATE_MIN	0.995
 
 ////////////
 // URL
@@ -29,20 +29,20 @@
 
 #ifdef _X86_64
 #define		CRYSTAL_CPUID_PRODUCT		"CrystalCPUID Pure x64 Edition"	// Max 32
-#define		CRYSTAL_CPUID_VERSION		"4.8.0"					// Max 16
-#define		CRYSTAL_CPUID_STATUS		""						// Alpha or Beta
-#define		CRYSTAL_CPUID_DATE			"2006/5/21"				// Max 10
-#else if
-#define		CRYSTAL_CPUID_PRODUCT		"CrystalCPUID"			// Max 32
-#define		CRYSTAL_CPUID_VERSION		"4.8.0"					// Max 16
-#define		CRYSTAL_CPUID_STATUS		""						// Alpha or Beta
-#define		CRYSTAL_CPUID_DATE			"2006/5/21"				// Max 10
+#define		CRYSTAL_CPUID_VERSION		"4.8.0"	// Max 16
+#define		CRYSTAL_CPUID_STATUS		""	// Alpha or Beta
+#define		CRYSTAL_CPUID_DATE			"2006/5/21"	// Max 10
+#else	/* if */
+#define		CRYSTAL_CPUID_PRODUCT		"CrystalCPUID"	// Max 32
+#define		CRYSTAL_CPUID_VERSION		"4.8.0"	// Max 16
+#define		CRYSTAL_CPUID_STATUS		""	// Alpha or Beta
+#define		CRYSTAL_CPUID_DATE			"2006/5/21"	// Max 10
 #endif
-#define		CRYSTAL_CPUID_AUTHOR		"hiyohiyo"				// Max 24
+#define		CRYSTAL_CPUID_AUTHOR		"hiyohiyo"	// Max 24
 
 // If you modify CrystalCPUID. Please write your name this section.
-//#define		CRYSTAL_CPUID_MODIFIED		"YOUR NAME"		// Max 24
-#define		CRYSTAL_CPUID_MODIFIED		""						// Max 24
+//#define       CRYSTAL_CPUID_MODIFIED      "YOUR NAME"     // Max 24
+#define		CRYSTAL_CPUID_MODIFIED		""	// Max 24
 
 ////////////
 // CpuInfo.dll Status
@@ -62,7 +62,7 @@
 #define		CPU_BASE					0x1000
 
 // String //
-#define		CPU_NAME_SYS_INFO			0x1001	// SysInfo.dll Set CPU Name 
+#define		CPU_NAME_SYS_INFO			0x1001	// SysInfo.dll Set CPU Name
 #define		CPU_FSB_MODE				0x1002	// ""=SDR "DDR" "QDR"
 #define		CPU_VENDOR_STRING			0x1003	// OriginalVendorString
 #define		CPU_VENDOR_NAME				0x1004	// Vendor Name
@@ -112,8 +112,8 @@
 #define		CPU_MODEL_EX				0x1035
 #define		CPU_BRAND_ID				0x1036
 #define		CPU_FEATURE					0x1037	// CPUID EAX=0x00000001  EDX
-#define		CPU_FEATURE_EX				0x1038	// CPUID EAX=0x80000001  EDX			
-#define		CPU_CACHE_L1I				0x1039	
+#define		CPU_FEATURE_EX				0x1038	// CPUID EAX=0x80000001  EDX
+#define		CPU_CACHE_L1I				0x1039
 #define		CPU_CACHE_L1T				0x103A	// NetBurst micro-ops
 #define		CPU_CACHE_L1D				0x103B
 #define		CPU_CACHE_L2				0x103C
@@ -124,7 +124,7 @@
 #define		CPU_RDMSR_EAX_1				0x1040
 #define		CPU_RDMSR_EAX_2				0x1041
 #define		CPU_FSB_MULTIPLIER			0x1042
-#define		CPU_CACHE_L1U				0x1043	
+#define		CPU_CACHE_L1U				0x1043
 #define		CPU_VERSION					0x1044	// CPUID EAX=0x00000001  EAX
 #define		CPU_VERSION_EX				0x1045	// CPUID EAX=0x80000001  EAX
 #define		CPU_FLAG_BRAND				0x1046
@@ -147,7 +147,7 @@
 #define		CPU_EX_FAMILY				0x10A0
 #define		CPU_EX_MODEL				0x10A1
 #define		CPU_EX_STEPPING				0x10A2
-#define		CPU_FEATURE_EX_ECX			0x10A3	// CPUID EAX=0x80000001  ECX			
+#define		CPU_FEATURE_EX_ECX			0x10A3	// CPUID EAX=0x80000001  ECX
 
 // flag //
 #define		CPU_FLAG_MMX				0x1050
@@ -175,7 +175,7 @@
 #define		CPU_FLAG_EIST				0x1093
 #define		CPU_FLAG_VT					0x1094
 #define		CPU_FLAG_EIST_CORRECT		0x1095
-// for Transmeta // 
+// for Transmeta //
 #define		CPU_TM_NAME_STRING			0x1060
 #define		CPU_TM_CLOCK				0x1061
 #define		CPU_TM_NOMINAL_CLOCK		0x1062
@@ -264,7 +264,7 @@
 #define		ATHLON_64				   13
 #define		MOBILE_ATHLON_64		   14
 
-#define		CYRIX3					   20 // CYRIX3 = SAMUEL
+#define		CYRIX3					   20	// CYRIX3 = SAMUEL
 #define		SAMUEL					   20
 #define		SAMUEL2					   21
 #define		EZRA					   22
@@ -275,9 +275,9 @@
 ////////////
 // LongHole (VIA C3 Multiplier Change)
 //////////////////////////////////////////
-#define		LONG_HAUL_LEVEL_1			1 // Samuel  & Samuel2 & Ezra
-#define		LONG_HAUL_LEVEL_2			2 // Ezra-T & VIA C3 Nehemiah
-#define		LONG_HAUL_LEVEL_3			3 // Ester
+#define		LONG_HAUL_LEVEL_1			1	// Samuel  & Samuel2 & Ezra
+#define		LONG_HAUL_LEVEL_2			2	// Ezra-T & VIA C3 Nehemiah
+#define		LONG_HAUL_LEVEL_3			3	// Ester
 
 ////////////
 // Love Hammer (AMD K7/K8 Multiplier Change)

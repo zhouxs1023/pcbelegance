@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: own_process.h 
+ * File: own_process.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,62 +31,65 @@
 #include "owntypes.h"
 
 
-typedef struct {
-            char   Name[96];
-            char   ClassName[64];
-            HWND   WindowHandle;
-            HWND   Parent;
-            uint32 Style;
-            uint32 ExStyle;
-            ATOM   atomWindowType;
-            WNDCLASS Class;
-            uint32 TopWindow;
-            int32  WindowCount;
-            int32  Level;
-            int32  SizeX;
-            int32  SizeY;
-            uint32 Status;
-            int32  ProcessID;
-            int32  PosX;
-            int32  PosY;
-        } WindowInfoRecord;
+typedef struct
+{
+	char Name[96];
+	char ClassName[64];
+	HWND WindowHandle;
+	HWND Parent;
+	uint32 Style;
+	uint32 ExStyle;
+	ATOM atomWindowType;
+	WNDCLASS Class;
+	uint32 TopWindow;
+	int32 WindowCount;
+	int32 Level;
+	int32 SizeX;
+	int32 SizeY;
+	uint32 Status;
+	int32 ProcessID;
+	int32 PosX;
+	int32 PosY;
+} WindowInfoRecord;
 
 
-typedef struct {
-            char   ExeName[96];
-            int32  ProcessID;
-            int32  ParentProcessID;
-            int32  UsedTime;
-            int32  NrThreads;
-            int32  MinMemUsedInKb;
-            int32  MaxMemUsedInKb;
-        } ProcessInfoRecord;
+typedef struct
+{
+	char ExeName[96];
+	int32 ProcessID;
+	int32 ParentProcessID;
+	int32 UsedTime;
+	int32 NrThreads;
+	int32 MinMemUsedInKb;
+	int32 MaxMemUsedInKb;
+} ProcessInfoRecord;
 
 
-typedef struct {
-            int32  ProcessID;
-            int32  StartAddress;
-            int32  Length;
-            int32  LockCount;
-        } ProcessHeapInfoRecord;
+typedef struct
+{
+	int32 ProcessID;
+	int32 StartAddress;
+	int32 Length;
+	int32 LockCount;
+} ProcessHeapInfoRecord;
 
 
-int32 GetWindowProperties(WindowInfoRecord **OwnWindowInfo,int32 mode);
+int32 GetWindowProperties(WindowInfoRecord ** OwnWindowInfo, int32 mode);
 
-void GetWindowPropertiesToFile(LPSTR Filename,int32 mode);
+void GetWindowPropertiesToFile(LPSTR Filename, int32 mode);
 
 int32 GetProcessListToFile(LPSTR Filename);
 
-void GetProcessPropertiesToFile(LPSTR Filename,int32 mode);
+void GetProcessPropertiesToFile(LPSTR Filename, int32 mode);
 
-int32 GetProcessHeapProperties(int32 ProcessID,ProcessHeapInfoRecord **OwnProcessHeapInfo);
+int32 GetProcessHeapProperties(int32 ProcessID, ProcessHeapInfoRecord ** OwnProcessHeapInfo);
 
 int32 GetProcessPidFromExefile(LPSTR Filename);
 
-int32 GetProcessProperties(ProcessInfoRecord **OwnProcessInfo);
+int32 GetProcessProperties(ProcessInfoRecord ** OwnProcessInfo);
 
-int32 DummyReadProcessMemory(int32 pid,int32 NrMegaBytes,int32 mode);
+int32 DummyReadProcessMemory(int32 pid, int32 NrMegaBytes, int32 mode);
 
-void GetCPUID(uint32 op,uint32 *EAX,uint32 *EBX,uint32 *ECX,uint32 *EDX);
+void GetCPUID(uint32 op, uint32 * EAX, uint32 * EBX, uint32 * ECX, uint32 * EDX);
 
 #endif // _PROCESS_H

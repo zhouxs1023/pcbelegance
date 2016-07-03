@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: date.h 
+ * File: date.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,26 +30,22 @@
 #include  "owntypes.h"
 #include  "windows.h"
 
-int32 GetDayOfWeek(int32 Day,int32 Month,int32 Year);
+int32 GetDayOfWeek(int32 Day, int32 Month, int32 Year);
 
-int32 GetDayOfYear(int32 Day,int32 Month,int32 Year);
+int32 GetDayOfYear(int32 Day, int32 Month, int32 Year);
 
-int32 GateDateOfDayOfYear(int32 DayOfYear,int32 Year,int32 *Day,int32 *Month);
+int32 GateDateOfDayOfYear(int32 DayOfYear, int32 Year, int32 * Day, int32 * Month);
 
 
-int32 NextDays(int32 Day,int32 Month,int32 Year,
-               int32 *NextDay,int32 *NextMonth,int32 *NextYear,
-               int32 NrDays);
+int32 NextDays(int32 Day, int32 Month, int32 Year, int32 * NextDay, int32 * NextMonth, int32 * NextYear, int32 NrDays);
 
 
 int32 DaysAfter1900FromFileName(LPSTR FileName);
 
-uint32 SecondsAfter1970(uint32 year, uint32 mon,
-                        uint32 day, uint32 hour,
-                        uint32 min, uint32 sec);
+uint32 SecondsAfter1970(uint32 year, uint32 mon, uint32 day, uint32 hour, uint32 min, uint32 sec);
 
-int32 ConvertSecondsAfter1970(uint32 SecondsAfter1970,int32 *year,int32 *month,int32 *day,
-                              int32 *hour,int32 *minutes,int32 *seconds);
+int32 ConvertSecondsAfter1970(uint32 SecondsAfter1970, int32 * year, int32 * month, int32 * day, int32 * hour,
+                              int32 * minutes, int32 * seconds);
 
 uint32 GetCurrentSecondsAfter1970(void);
 

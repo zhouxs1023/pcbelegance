@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: debug.h 
+ * File: debug.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,9 +30,8 @@
 #include "windows.h"
 #include "owntypes.h"
 
-int32 AddToDebugLog(char *Str,int32 mode);
+int32 AddToDebugLog(char *Str, int32 mode);
 
 int32 InitDebugLog(int32 mode);
 
 #endif
-

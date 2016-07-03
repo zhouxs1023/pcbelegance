@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: owntypes.h 
+ * File: owntypes.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,14 +29,14 @@
 
 #ifndef GCC_COMP
 
-#pragma warning( disable : 4100 )  // Disable warning messages : unreferenced formal parameter
-#pragma warning( disable : 4057 )  // xxxx differs in indirection to slightly different base types from xxxx
-#pragma warning( disable : 4706 )  // assignment within conditional expression
-#pragma warning( disable : 4127 )  // conditional expression is constant
+#pragma warning( disable : 4100 )	// Disable warning messages : unreferenced formal parameter
+#pragma warning( disable : 4057 )	// xxxx differs in indirection to slightly different base types from xxxx
+#pragma warning( disable : 4706 )	// assignment within conditional expression
+#pragma warning( disable : 4127 )	// conditional expression is constant
 #pragma warning( disable : 4201 )
 
 #ifndef _DEBUG
-#pragma warning( disable : 4711 )  // function 'xxxxx' selected for automatic inline expansion
+#pragma warning( disable : 4711 )	// function 'xxxxx' selected for automatic inline expansion
 #endif
 
 #pragma warning( disable : 4996 )
@@ -81,21 +81,21 @@
 
 #endif
 
-typedef unsigned char                           uint8;
-typedef unsigned char                           BYTE;
-typedef char                                    int8;
+typedef unsigned char uint8;
+typedef unsigned char BYTE;
+typedef char int8;
 
-typedef short                                   int16;
-typedef int                                     int32;
+typedef short int16;
+typedef int int32;
 #ifndef GCC_COMP
-typedef __int64                                 int64;
-typedef unsigned __int64                        uint64;
+typedef __int64 int64;
+typedef unsigned __int64 uint64;
 #else
-typedef long long                               int64;
-typedef unsigned long long                      uint64;
+typedef long long int64;
+typedef unsigned long long uint64;
 #endif
-typedef unsigned int                            uint32;
-typedef unsigned short                          uint16;
+typedef unsigned int uint32;
+typedef unsigned short uint16;
 
 #ifndef min
 
@@ -109,10 +109,10 @@ typedef unsigned short                          uint16;
 
 #endif
 
-typedef int                                     GraphicsInt;
+typedef int GraphicsInt;
 
 #ifndef BOOL
-typedef int                                     BOOL;
+typedef int BOOL;
 #endif
 
 #ifndef FALSE
@@ -125,4 +125,3 @@ typedef int                                     BOOL;
 
 
 #endif
-

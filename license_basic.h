@@ -110,36 +110,36 @@
 // *******************************************************************************************************
 // *******************************************************************************************************
 
-extern uint32   ProgramSpecialCRC;
-extern int32    ProgramSpecialCRCPosition;
-extern int32    ProgramSpecialCRCPosition2;
-extern int32    ProgramSpecialLength;
-extern uint32   crc32_table[256];
+extern uint32 ProgramSpecialCRC;
+extern int32 ProgramSpecialCRCPosition;
+extern int32 ProgramSpecialCRCPosition2;
+extern int32 ProgramSpecialLength;
+extern uint32 crc32_table[256];
 
-void Blowfish_encipher(uint32 *xl, uint32 *xr);
+void Blowfish_encipher(uint32 * xl, uint32 * xr);
 
-void Blowfish_decipher(uint32 *xl, uint32 *xr);
+void Blowfish_decipher(uint32 * xl, uint32 * xr);
 
-int32 InitializeBlowfish(uint8 *Key);
+int32 InitializeBlowfish(uint8 * Key);
 
-int32 EncryptBlock(uint8 *Block,int32 BlockSize);
+int32 EncryptBlock(uint8 * Block, int32 BlockSize);
 
-int32 DecryptBlock(uint8 *Block,int32 BlockSize);
+int32 DecryptBlock(uint8 * Block, int32 BlockSize);
 
-int32 CheckCRC(LPSTR FileName,int32 *FileCheck1);
+int32 CheckCRC(LPSTR FileName, int32 * FileCheck1);
 
 int32 CheckCRC2(LPSTR FileName);
 
 int32 GetCRC2(void);
 
-void ScrambleMessage(LPSTR SrcString,LPSTR DestVar);
+void ScrambleMessage(LPSTR SrcString, LPSTR DestVar);
 
-void DeScrambleMessage(uint8 *Src,uint8 *Dest);
+void DeScrambleMessage(uint8 * Src, uint8 * Dest);
 
 void SpecialExit(void);
 
 uint32 CalcCrcFile(LPSTR Filename);
 
-int32 ScrambleZipFile(LPSTR FileName,LPSTR NewFile,LPSTR PassWord);
+int32 ScrambleZipFile(LPSTR FileName, LPSTR NewFile, LPSTR PassWord);
 
 #endif

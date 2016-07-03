@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: rect.h 
+ * File: rect.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,15 +30,14 @@
 #include "windows.h"
 #include "owntypes.h"
 
-void RectangleXor(HDC Display,int32 x1,int32 y1,int32 x2,int32 y2);
+void RectangleXor(HDC Display, int32 x1, int32 y1, int32 x2, int32 y2);
 
-void RectangleXor2(HDC Display,int32 x,int32 y,int32 width,int32 height);
+void RectangleXor2(HDC Display, int32 x, int32 y, int32 width, int32 height);
 
-void rect2(int32 x,int32 y,int32 width,int32 height);
+void rect2(int32 x, int32 y, int32 width, int32 height);
 
-void rect3(int32 x,int32 y,int32 width,int32 height);
+void rect3(int32 x, int32 y, int32 width, int32 height);
 
-void rect4(int32 x,int32 y,int32 width,int32 height);
+void rect4(int32 x, int32 y, int32 width, int32 height);
 
 #endif
-
