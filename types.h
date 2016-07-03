@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: types.h 
+ * File: types.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,15 +29,14 @@
 
 #include "windows.h"
 
-typedef short                                   int16;
-typedef int                                     int32;
+typedef short int16;
+typedef int int32;
 
 #ifndef GCC_COMP
 
-#pragma warning( disable : 4101 )  // Disable warning messages 4101 (unreferenced local variable)
+#pragma warning( disable : 4101 )	// Disable warning messages 4101 (unreferenced local variable)
 #pragma warning( disable : 4996 )
 
 #endif
 
 #endif
-

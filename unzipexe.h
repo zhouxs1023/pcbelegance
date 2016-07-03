@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: unzipexe.h 
+ * File: unzipexe.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -27,7 +27,7 @@
 #define _UZEXAMPL_H
 
 #include <windows.h>
-#include <assert.h>    /* required for all Windows applications */
+#include <assert.h>				/* required for all Windows applications */
 #include <stdlib.h>
 #include <stdio.h>
 #include <commdlg.h>
@@ -43,8 +43,7 @@
 
 /* Defines */
 
-typedef int (WINAPI * _DLL_UNZIP)(int, char **, int, char **,
-                                  LPDCL, LPUSERFUNCTIONS);
+typedef int (WINAPI * _DLL_UNZIP) (int, char **, int, char **, LPDCL, LPUSERFUNCTIONS);
 
 /* Global variables */
 
@@ -53,14 +52,13 @@ extern LPDCL lpDCL;
 
 extern HINSTANCE hUnzipDll;
 
-extern int hFile;                 /* file handle             */
+extern int hFile;				/* file handle             */
 
 /* Global functions */
 
 int WINAPI DisplayBuf(LPSTR, unsigned long);
 
 /* Procedure Calls */
-void WINAPI ReceiveDllMessage(unsigned long, unsigned long, unsigned,
-    unsigned, unsigned, unsigned, unsigned, unsigned,
-    char, LPSTR, LPSTR, unsigned long, char);
+void WINAPI ReceiveDllMessage(unsigned long, unsigned long, unsigned, unsigned, unsigned, unsigned, unsigned, unsigned,
+                              char, LPSTR, LPSTR, unsigned long, char);
 #endif /* _UZEXAMPL_H */
