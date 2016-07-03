@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2012  Herman Morsink Vollenbroek
  *
- * File: types.h 
+ * File: types.h
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,4 +31,3 @@
 #include "owntypes.h"
 
 #endif
-
