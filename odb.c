@@ -45,9 +45,8 @@
 #include "utf8.h"
 #include "resource.h"
 #include "dialogs.h"
-#include "demo.h"
 #include "ctype.h"
-
+#include "../functionsc/version.h"
 
 typedef struct
 {
@@ -2187,7 +2186,7 @@ int32 ExportToOdb(int32 mode)
 	sprintf(Filename, "%s\\steps\\%s\\eda\\data", OdbDir, JobName);
 	DeleteFileUTF8(Filename);
 	MessageBufPos = 0;
-	sprintf(str, "HDR PCB elegance %d.%d database", PROGRAM_VERSION / 100, (PROGRAM_VERSION % 100) / 10);
+	sprintf(str, "HDR PCB elegance %d.%d database", VER_VERSION / 100, (VER_VERSION % 100) / 10);
 	AddToMessageBuf(str);
 	strcpy(str, "LYR");
 	strcpy(str4, "#   ");
@@ -3002,7 +3001,7 @@ int32 ExportToOdb(int32 mode)
 	sprintf(str3, "SAVE_DATE=%d%02d%02d.%02d%02d%02d", CurrentDate.wYear, CurrentDate.wMonth, CurrentDate.wDay,
 	        CurrentDate.wHour, CurrentDate.wMinute, CurrentDate.wSecond);
 	AppendStringToTextFileUTF8(str, str3);
-	sprintf(str3, "SAVE_APP=PCB ELEGANCE %d.%d", PROGRAM_VERSION / 100, (PROGRAM_VERSION % 100) / 10);
+	sprintf(str3, "SAVE_APP=PCB ELEGANCE %d.%d", VER_VERSION / 100, (VER_VERSION % 100) / 10);
 	AppendStringToTextFileUTF8(str, str3);
 //  AppendStringToTextFileUTF8(str,"SAVE_USER=GW2ODB");
 

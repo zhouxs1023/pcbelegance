@@ -34,7 +34,6 @@
 #include "select3.h"
 #include "resource.h"
 #include "pcb.h"
-#include "demo.h"
 #include "io.h"
 #include "import.h"
 #include "files2.h"
@@ -52,6 +51,7 @@
 #include "print.h"
 #include "dialogs.h"
 #include "ctype.h"
+#include "../functionsc/version.h"
 
 int32 NetDialogMode, NetsSelected, DialogResult, DialogMode, CurrentFontNr, ErrorNr, TempUnits, NetSelected,
       SelectedColorNr, OldValue4, OldValue5, NrTempGerberLayers, LayerCodes[64], LayerInfo[64], PlotLayers[512],
@@ -1989,7 +1989,7 @@ int32 CALLBACK AreaFillDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPAR
 		SetDialogItemText(Dialog, IDC_STATIC9, SC(216, "Thickness"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(217, "Add thermal reliefs"));
 		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
-		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Do not add thermal reliefs"));
+		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Add thermal reliefs"));
 		SetDialogItemText(Dialog, IDC_STATIC4, SC(91, "Vias"));
 		SetWindowTextOwn(Dialog, SC(218, "Areafills"));
 
@@ -2026,7 +2026,7 @@ int32 CALLBACK AreaFillDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPAR
 		if (DialogAreaFill->Info & AREAFILL_WITH_THERMAL_RELIEF)
 			SendDlgItemMessageOwn(Dialog, IDC_CHECK2, BM_SETCHECK, 1, 0);
 
-		if (DialogAreaFill->Info & AREAFILL_WITH_NO_VIA_THERMAL_RELIEF)
+		if (!(DialogAreaFill->Info & AREAFILL_WITH_NO_VIA_THERMAL_RELIEF))
 			SendDlgItemMessageOwn(Dialog, IDC_CHECK3, BM_SETCHECK, 1, 0);
 
 		return about;
@@ -2116,10 +2116,10 @@ int32 CALLBACK AreaFillDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPAR
 				DialogAreaFill->ThermalReliefDistance = (float) value2;
 			}
 
-			DialogAreaFill->Info &= ~AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
+			DialogAreaFill->Info |= AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
 
 			if (SendDlgItemMessageOwn(Dialog, IDC_CHECK3, BM_GETCHECK, 0, 0))
-				DialogAreaFill->Info |= AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
+				DialogAreaFill->Info &= ~AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
 
 			if (NetSelected != -1)
 				EndDialog(Dialog, 1);
@@ -2201,20 +2201,17 @@ int32 AreaFillDialog(AreaFillRecord * AreaFill, int32 mode)
 	switch (DialogMode)
 	{
 	case 0:
-		res =
-		    OwnDialogBox(PCBClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_AREAFILL_INPOWER35), PCBWindow,
+		res = OwnDialogBox(PCBClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_AREAFILL_INPOWER35), PCBWindow,
 		                 (DLGPROC) AreaFillDialogBody);
 		break;
 
 	case 1:
-		res =
-		    OwnDialogBox(PCBClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_AREAFILL35), PCBWindow,
+		res = OwnDialogBox(PCBClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_AREAFILL35), PCBWindow,
 		                 (DLGPROC) AreaFillDialogBody);
 		break;
 
 	case 2:
-		res =
-		    OwnDialogBox(PCBClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_AREAFILL_POWER35), PCBWindow,
+		res = OwnDialogBox(PCBClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_AREAFILL_POWER35), PCBWindow,
 		                 (DLGPROC) AreaFillDialogBody);
 		break;
 	}
@@ -2250,7 +2247,7 @@ int32 CALLBACK AreaFillDialogBody2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(1090, "Thermal relief"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(1091, "Add thermal reliefs"));
-		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Do not add thermal reliefs"));
+		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Add thermal reliefs"));
 		SetDialogItemText(Dialog, IDC_STATIC4, SC(91, "Vias"));
 		SetWindowTextOwn(Dialog, SC(1089, "Change areafill"));
 		TempUnits = Units;
@@ -2263,7 +2260,7 @@ int32 CALLBACK AreaFillDialogBody2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 		if (DialogAreaFill->Info & AREAFILL_WITH_THERMAL_RELIEF)
 			SendDlgItemMessageOwn(Dialog, IDC_CHECK2, BM_SETCHECK, 1, 0);
 
-		if (DialogAreaFill->Info & AREAFILL_WITH_NO_VIA_THERMAL_RELIEF)
+		if (!(DialogAreaFill->Info & AREAFILL_WITH_NO_VIA_THERMAL_RELIEF))
 			SendDlgItemMessageOwn(Dialog, IDC_CHECK3, BM_SETCHECK, 1, 0);
 
 		return about;
@@ -2283,7 +2280,7 @@ int32 CALLBACK AreaFillDialogBody2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 //          DialogAreaFill->Clearance=value2;
 			if (SendDlgItemMessageOwn(Dialog, IDC_CHECK2, BM_GETCHECK, 0, 0))
 			{
-				DialogAreaFill->Info |= (AREAFILL_WITH_THERMAL_RELIEF | AREAFILL_WITH_NO_VIA_THERMAL_RELIEF);
+				DialogAreaFill->Info |= AREAFILL_WITH_THERMAL_RELIEF;
 
 				if ((value1 = GetDialogValue(Dialog, IDC_EDIT7)) < 100.0)
 				{
@@ -2303,10 +2300,10 @@ int32 CALLBACK AreaFillDialogBody2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 			else
 				DialogAreaFill->Info &= ~AREAFILL_WITH_THERMAL_RELIEF;
 
-			DialogAreaFill->Info &= ~AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
+			DialogAreaFill->Info |= AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
 
 			if (SendDlgItemMessageOwn(Dialog, IDC_CHECK3, BM_GETCHECK, 0, 0))
-				DialogAreaFill->Info |= AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
+				DialogAreaFill->Info &= ~AREAFILL_WITH_NO_VIA_THERMAL_RELIEF;
 
 			EndDialog(Dialog, 1);
 			return about;
@@ -4586,8 +4583,8 @@ int32 CALLBACK AboutDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		SetWindowTextUTF8(Dialog, SC(801, "About layout editor"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(1287, "Layout editor PCB Elegance"));
 		SetDialogItemText(Dialog, IDOK, SC(155, "OK"));
-		sprintf(str, SC(309, "Build version %i.%i.%i  [ %s ]"), PROGRAM_VERSION / 100, PROGRAM_VERSION % 100,
-		        BUILD_VERSION, TIME_STRING);
+		sprintf(str, SC(309, "Build version %i.%i.%i  [ %s ]"), VER_VERSION / 100, VER_VERSION % 100,
+			VER_BUILD, VER_DATE_STR);
 #ifdef GCC_COMP
 		strcat(str, "\r\n\r\nCompiled with mingw (gcc 4.9.2)");
 #endif

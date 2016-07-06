@@ -2804,7 +2804,7 @@ void SetDialogValue(HWND Dialog, int32 Control, double value)
 	char str[MAX_LENGTH_STRING];
 
 	if (TempUnits == 0)
-		sprintf(str, "%.3f", value / 2540.0);
+		sprintf(str, "%.1f", value / 2540.0);
 	else
 		sprintf(str, "%.4f", value / 100000.0);
 

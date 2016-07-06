@@ -29,7 +29,6 @@
 
 #include "calc.h"
 #include "direct.h"
-#include "demo.h"
 #include "calcdef.h"
 #include "calc4.h"
 #include "command.h"
@@ -76,6 +75,7 @@
 #include "params.h"
 #include "uservar.h"
 #include "own_process.h"
+#include "../functionsc/version.h"
 
 
 #define WANT_GETLONGPATHNAME_WRAPPER
@@ -247,9 +247,9 @@ static ProgramInfoRecord ProgramInfo = { {
 		0xe2, 0x03, 0x29, 0x6e, 0x74, 0x5f, 0x9a, 0x3b,
 		0xe6, 0x81, 0xc8, 0x40, 0xdd, 0x62, 0xb5, 0x1f
 	},
-	TIME_STRING,
-	PROGRAM_VERSION,
-	BUILD_VERSION,
+	VER_DATE_STR,
+	VER_VERSION,
+	VER_BUILD,
 #ifndef SSE2
 	0,
 #else

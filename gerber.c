@@ -61,7 +61,7 @@
 #include "plot.h"
 #include "owntime.h"
 #include "ctype.h"
-#include "demo.h"
+#include "../functionsc/version.h"
 
 #define  MAX_APERTURE_POLYGON_DEFS        1024
 
@@ -578,7 +578,7 @@ int32 GerberOutput(int32 mode)
 			GetFilePartFromFileName(str3, EditFile);
 			sprintf(str, "G04 Layout %s *", str3);
 			WriteGerberString(str, 1);
-			sprintf(str, "G04 Designed with PCB elegance %d.%d *", PROGRAM_VERSION / 100, PROGRAM_VERSION % 100);
+			sprintf(str, "G04 Designed with PCB elegance %d.%d *", VER_VERSION / 100, VER_VERSION % 100);
 			WriteGerberString(str, 1);
 			sprintf(str, "G04 *");
 			WriteGerberString(str, 1);

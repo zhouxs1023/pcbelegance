@@ -163,7 +163,6 @@
     <ClInclude Include="..\circle.h" />
     <ClInclude Include="..\command.h" />
     <ClInclude Include="..\ddmb.h" />
-    <ClInclude Include="..\demo.h" />
     <ClInclude Include="..\dialogs.h" />
     <ClInclude Include="..\draw.h" />
     <ClInclude Include="..\draw2.h" />
@@ -221,6 +220,57 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resource\pcb.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resource\align.bmp" />
+    <Image Include="..\resource\align2.bmp" />
+    <Image Include="..\resource\align3.bmp" />
+    <Image Include="..\resource\bitmapc_1.bmp" />
+    <Image Include="..\resource\bitmapc_2.bmp" />
+    <Image Include="..\resource\bitmapc_3.bmp" />
+    <Image Include="..\resource\bitmapc_4.bmp" />
+    <Image Include="..\resource\bitmapc_6.bmp" />
+    <Image Include="..\resource\bitmapc_8.bmp" />
+    <Image Include="..\resource\bitmapc_9.bmp" />
+    <Image Include="..\resource\bitmapc_c.bmp" />
+    <Image Include="..\resource\bitmapc_f.bmp" />
+    <Image Include="..\resource\bitmap_buttons.bmp" />
+    <Image Include="..\resource\bitmap_circle.bmp" />
+    <Image Include="..\resource\bitmap_cross1.bmp" />
+    <Image Include="..\resource\bitmap_cross2.bmp" />
+    <Image Include="..\resource\bitmap_dimension1.bmp" />
+    <Image Include="..\resource\bitmap_dimension2.bmp" />
+    <Image Include="..\resource\bitmap_drill.bmp" />
+    <Image Include="..\resource\bitmap_left.bmp" />
+    <Image Include="..\resource\bitmap_line2.bmp" />
+    <Image Include="..\resource\bitmap_line3.bmp" />
+    <Image Include="..\resource\bitmap_line4.bmp" />
+    <Image Include="..\resource\bitmap_pcb.bmp" />
+    <Image Include="..\resource\bitmap_plot.bmp" />
+    <Image Include="..\resource\bitmap_right.bmp" />
+    <Image Include="..\resource\bitmap_thermal.bmp" />
+    <Image Include="..\resource\brush.bmp" />
+    <Image Include="..\resource\brush2.bmp" />
+    <Image Include="..\resource\brush3.bmp" />
+    <Image Include="..\resource\brush4.bmp" />
+    <Image Include="..\resource\copy_array1.bmp" />
+    <Image Include="..\resource\copy_array2.bmp" />
+    <Image Include="..\resource\hatch1.bmp" />
+    <Image Include="..\resource\hatch2.bmp" />
+    <Image Include="..\resource\hatch3.bmp" />
+    <Image Include="..\resource\hatch4.bmp" />
+    <Image Include="..\resource\hor_trace.bmp" />
+    <Image Include="..\resource\icon1.ico" />
+    <Image Include="..\resource\info.bmp" />
+    <Image Include="..\resource\polyline.bmp" />
+    <Image Include="..\resource\powerplane.bmp" />
+    <Image Include="..\resource\rectangle.bmp" />
+    <Image Include="..\resource\singledual.bmp" />
+    <Image Include="..\resource\ver_trace.bmp" />
+    <Image Include="..\resource\via.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\resource\font2.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

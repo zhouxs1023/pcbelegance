@@ -2907,13 +2907,6 @@ void ChangeFile(LPSTR FileName, int32 mode)
 
 			if (FileExistsUTF8(str) == 0)
 				strcpy(IniFile, str);
-			else
-			{
-				sprintf(str, "%s\\pcb\\pcb.ini", DesignPath);
-
-				if (FileExistsUTF8(str) == 0)
-					strcpy(IniFile, str);
-			}
 		}
 
 		if (IniFile[0] == 0)

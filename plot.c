@@ -63,8 +63,9 @@
 #include "dialogs.h"
 #include "owntime.h"
 #include "font.h"
-#include "demo.h"
 #include "ctype.h"
+#include "../functionsc/version.h"
+
 
 #define COMP_OUTPUT_POS_VALUE         8
 #define COMP_OUTPUT_POS_X             35
@@ -3127,7 +3128,7 @@ void WriteLayerInfo()
 	sprintf(str, SC(957, "Layout  %s   Date: %s"), FileName, str2);
 	WriteLn(fp, str);
 	WriteLn(fp, "");
-	sprintf(str, "Designed with PCB elegance %d.%d", PROGRAM_VERSION / 100, PROGRAM_VERSION % 100);
+	sprintf(str, "Designed with PCB elegance %d.%d", VER_VERSION / 100, VER_VERSION % 100);
 	WriteLn(fp, str);
 	WriteLn(fp, "");
 	WriteLn(fp, "---------------------------------------------------------------------");

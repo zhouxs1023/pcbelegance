@@ -58,7 +58,7 @@
 #include "font.h"
 #include "own_zlib.h"
 #include "ctype.h"
-#include "demo.h"
+#include "../functionsc/version.h"
 
 //#define  Mult2(Nr) ( (((Nr))>(0)) ? ((int32)(Factor*(Nr))) : ((int32)(Factor*(Nr))) )
 #define  Mult2(Nr) ( (((Nr))>(0)) ? ((int32)(Factor*(Nr)+0.5)) : ((int32)(Factor*(Nr)-0.5)) )
@@ -5771,7 +5771,7 @@ int32 ExportToPDF(int32 PaperSize, int32 Orientation, int32 FitToPage, int32 mod
 		WriteToFile(fp, str);
 	}
 
-	sprintf(str, "/Producer (PCB elegance %d.%d)\r\n", PROGRAM_VERSION / 100, PROGRAM_VERSION % 100);
+	sprintf(str, "/Producer (PCB elegance %d.%d)\r\n", VER_VERSION / 100, VER_VERSION % 100);
 	WriteToFile(fp, str);
 
 	WriteToFile(fp, ">>\r\n");
