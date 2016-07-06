@@ -35,13 +35,15 @@
 #include "stdio.h"
 #include "shlobj.h"
 #include "shlwapi.h"
+#include "utf8.h"
 
 
 char *p1, *p2, *p3, regel[MAX_LENGTH_STRING], str1[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING], str3[MAX_LENGTH_STRING],
      str4[MAX_LENGTH_STRING], CurrentDir[MAX_LENGTH_STRING], ExecutableName[MAX_LENGTH_STRING],
      TempDir[MAX_LENGTH_STRING], ExecutableDir[MAX_LENGTH_STRING];
+char InstallDir[MAX_LENGTH_STRING], ProjectDir[MAX_LENGTH_STRING];
 uint32 TimerObject, ClipID3, TimerIdentifier = 0x12345678;
-int32 TimerValue, ExitValue, ok, StartSetup, EndSetup;
+int32 TimerValue, ExitValue, ok, StartSetup, EndSetup, InstallDirFromExeDir;
 HWND UNINSTALLWindow;
 
 
@@ -86,6 +88,7 @@ int32 CALLBACK QuitDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LPar
 	switch (Message)
 	{
 	case WM_INITDIALOG:
+
 		SendDlgItemMessage(Dialog, IDC_EDIT1, WM_SETTEXT, 0, (LPARAM) (LPSTR) CurrentDir);
 		x = GetSystemMetrics(SM_CXMAXIMIZED) / 2;
 		y = GetSystemMetrics(SM_CYMAXIMIZED) / 2;
@@ -95,6 +98,32 @@ int32 CALLBACK QuitDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LPar
 		y -= (DialogWindowRect.bottom - DialogWindowRect.top) / 2;
 		MoveWindow(Dialog, x, y, DialogWindowRect.right - DialogWindowRect.left,
 		           DialogWindowRect.bottom - DialogWindowRect.top, 1);
+
+		if (InstallDirFromExeDir == 0)
+		{
+			if (strcmp(InstallDir, ProjectDir) != 0)
+			{
+				SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0,
+					(LPARAM)"Are you sure to uninstall PCB Elegance?\n\n"
+					"The project directory will not be deleted.\n\n"
+					"Project path:\n%s", ProjectDir);
+			}
+			else
+			{
+				SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0,
+					(LPARAM)"Are you sure to uninstall PCB Elegance?\n\n"
+					"Projects and libraries stored in the program directory "
+					"will also be deleted.\n\nProgram path:\n%s", InstallDir); 
+			}
+		}
+		else
+		{
+			SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0,
+				(LPARAM)"Are you sure to uninstall PCB Elegance?\n\n"
+				"If you have stored projects and libraries in the program directory, "
+				"they will also be deleted.\n\nProgram path:\n%s", InstallDir);
+		}
+
 		return about;
 
 	case WM_MOVE:
@@ -127,41 +156,9 @@ int32 CALLBACK QuitDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LPar
 
 int32 DeletePcbElegance()
 {
-	char str[MAX_LENGTH_STRING], InstallDir[MAX_LENGTH_STRING], ProjectDir[MAX_LENGTH_STRING],
-	     StartMenuPath[MAX_LENGTH_STRING], DesktopPath[MAX_LENGTH_STRING];
-	int32 res, KeySize;
-	HKEY Key;
-
-	InstallDir[0] = 0;
-	ProjectDir[0] = 0;
-
-	sprintf(str, ".DEFAULT\\Software\\PCB Elegance");
-
-	if ((res = RegOpenKeyEx(HKEY_USERS, str, 0, KEY_ALL_ACCESS, &Key)) == ERROR_SUCCESS)
-	{
-		KeySize = 100;
-
-		if ((res =
-		            RegQueryValueEx(Key, "InstallDir", 0, NULL, (LPBYTE) & InstallDir, (PDWORD) & KeySize)) == ERROR_SUCCESS)
-			ok = 1;
-
-		KeySize = 100;
-
-		if ((res =
-		            RegQueryValueEx(Key, "ProjectDir", 0, NULL, (LPBYTE) & ProjectDir, (PDWORD) & KeySize)) == ERROR_SUCCESS)
-			ok = 1;
-
-		if (ProjectDir[0] == 0)
-			strcpy(ProjectDir, InstallDir);
-
-		RegCloseKey(Key);
-	}
-
-	if (InstallDir[0] == 0)
-	{
-		strcpy(ProjectDir, ExecutableDir);
-		strcpy(InstallDir, ExecutableDir);
-	}
+	char str[MAX_LENGTH_STRING], StartMenuPath[MAX_LENGTH_STRING], DesktopPath[MAX_LENGTH_STRING],
+		Files[40][MAX_LENGTH_STRING];
+	int32 res, argc, cnt;
 
 	StartMenuPath[0] = 0;
 
@@ -179,8 +176,8 @@ int32 DeletePcbElegance()
 		DeleteFile(str);
 	}
 
-	if (strcmp(InstallDir, ProjectDir))
-		DeleteDirectory(ProjectDir);
+	
+
 
 	RegDeleteKey(HKEY_USERS, ".DEFAULT\\Software\\PCB Elegance");
 	RegDeleteKey(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\PCB Elegance");
@@ -196,7 +193,39 @@ int32 DeletePcbElegance()
 
 void Start()
 {
-	int32 res;
+	char str[MAX_LENGTH_STRING];
+	int32 res, KeySize;
+	HKEY Key;
+
+
+	sprintf(str, ".DEFAULT\\Software\\PCB Elegance");
+
+	if ((res = RegOpenKeyEx(HKEY_USERS, str, 0, KEY_ALL_ACCESS, &Key)) == ERROR_SUCCESS)
+	{
+		KeySize = sizeof(InstallDir) - 1;
+
+		if ((res =
+			RegQueryValueEx(Key, "InstallDir", 0, NULL, (LPBYTE)& InstallDir, (PDWORD)& KeySize)) == ERROR_SUCCESS)
+			ok = 1;
+
+		KeySize = sizeof(ProjectDir) - 1;
+
+		if ((res =
+			RegQueryValueEx(Key, "ProjectDir", 0, NULL, (LPBYTE)& ProjectDir, (PDWORD)& KeySize)) == ERROR_SUCCESS)
+			ok = 1;
+
+		if (ProjectDir[0] == 0)
+			strcpy(ProjectDir, InstallDir);
+
+		RegCloseKey(Key);
+	}
+
+	if (InstallDir[0] == 0)
+	{
+		strcpy(ProjectDir, ExecutableDir);
+		strcpy(InstallDir, ExecutableDir);
+		InstallDirFromExeDir = 1;
+	}
 
 	res = DialogBox(UNINSTALLClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG4), UNINSTALLWindow, (DLGPROC) QuitDialog2);
 

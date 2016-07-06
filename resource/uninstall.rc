@@ -10,18 +10,17 @@
 #define APSTUDIO_HIDDEN_SYMBOLS
 #include "winresrc.h"
 #undef APSTUDIO_HIDDEN_SYMBOLS
+#include "../../functionsc/version.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -29,20 +28,21 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE
+1 TEXTINCLUDE 
 BEGIN
     "..\\resource.h\0"
 END
 
-2 TEXTINCLUDE
+2 TEXTINCLUDE 
 BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""winresrc.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""../../functionsc/version.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE
+3 TEXTINCLUDE 
 BEGIN
     "\r\n"
     "\0"
@@ -56,16 +56,17 @@ END
 // Dialog
 //
 
-IDD_DIALOG4 DIALOGEX 0, 0, 239, 74
+IDD_DIALOG4 DIALOGEX 0, 0, 239, 130
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Uninstall"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Ok",IDOK,147,53,50,14
-    PUSHBUTTON      "Exit uninstall",ID_EXIT_UNINSTALL,43,54,50,14
-    LTEXT           "Are you sure to uninstall PCB elegance",IDC_STATIC2,59,20,160,11
-    CONTROL         102,IDC_STATIC1,"Static",SS_BITMAP,24,18,21,20
+    PUSHBUTTON      "Ok",IDOK,147,109,50,14
+    PUSHBUTTON      "Exit uninstall",ID_EXIT_UNINSTALL,43,109,50,14
+    LTEXT           "uninstall",IDC_STATIC2,59,20,160,81
+    CONTROL         IDB_BITMAP1,IDC_STATIC1,"Static",SS_BITMAP,24,18,21,20
 END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -76,14 +77,15 @@ END
 // remains consistent on all systems.
 ICON_1                  ICON                    "icon1.ico"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,51,0,0
- PRODUCTVERSION 3,51,0,0
+ FILEVERSION VER_FILEVERSION
+ PRODUCTVERSION VER_FILEVERSION
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -100,11 +102,11 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "www.pcbelegance.com"
             VALUE "FileDescription", "Uninstall pcb elegance"
-            VALUE "FileVersion", "3, 51, 0, 0"
+            VALUE "FileVersion", VER_FILEVERSION_STR
             VALUE "InternalName", "uninstall_pcb_elegance"
             VALUE "OriginalFilename", "uninstall.exe"
             VALUE "ProductName", "De-installation  PCB elegance"
-            VALUE "ProductVersion", "3, 51, 0, 0"
+            VALUE "ProductVersion", VER_FILEVERSION_STR
         END
     END
     BLOCK "VarFileInfo"
@@ -113,12 +115,14 @@ BEGIN
     END
 END
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Bitmap
 //
 
 IDB_BITMAP1             BITMAP                  "bitmap1.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -133,12 +137,12 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 232
         TOPMARGIN, 7
-        BOTTOMMARGIN, 67
+        BOTTOMMARGIN, 123
     END
 END
 #endif    // APSTUDIO_INVOKED
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
