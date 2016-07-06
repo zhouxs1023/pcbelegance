@@ -10,18 +10,18 @@
 #define APSTUDIO_HIDDEN_SYMBOLS
 #include "winresrc.h"
 #undef APSTUDIO_HIDDEN_SYMBOLS
+#include "../../functionsc/version.h"
+
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -39,7 +39,8 @@ BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""winresrc.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "\0"
+	"#include ""../../functionsc/version.h""\r\n"
+	"\0"
 END
 
 3 TEXTINCLUDE 
@@ -59,12 +60,13 @@ END
 // remains consistent on all systems.
 ICON1                   ICON                    "..\\resource\\ICON1.ICO"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
 //
 
-IDD_DIALOG_DIR DIALOG  0, 0, 309, 63
+IDD_DIALOG_DIR DIALOG 0, 0, 309, 63
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Merco unzip tool"
 FONT 8, "MS Sans Serif"
@@ -84,10 +86,10 @@ BEGIN
     PUSHBUTTON      "No",IDNO,223,203,50,14,NOT WS_TABSTOP
     PUSHBUTTON      "Yes",IDYES,283,203,50,14,NOT WS_TABSTOP
     EDITTEXT        ID_MESSAGE_EDIT1,6,31,323,133,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | NOT WS_TABSTOP
-    CONTROL         105,IDC_STATIC11,"Static",SS_BITMAP,7,3,27,27
+    CONTROL         IDB_BITMAP_SETUP,IDC_STATIC11,"Static",SS_BITMAP,7,3,27,27
     LTEXT           "Please read the following Licence Agreement. Press the  PAGE DOWN key to see the rest of the agreement.",IDC_STATIC1,41,8,273,20
     LTEXT           "Do you accept all the terms of the preceding Licence Agreement ? If you choose No, Setup will close. To proceed with the installation, you have to accept this agreement.",IDC_STATIC2,7,169,273,29
-    CONTROL         108,IDC_STATIC12,"Static",SS_BITMAP,0,198,347,1
+    CONTROL         IDB_BITMAP_BLACKLINE,IDC_STATIC12,"Static",SS_BITMAP,0,198,347,1
 END
 
 IDD_DIALOG_QUIT DIALOGEX 100, 145, 226, 124
@@ -102,7 +104,7 @@ BEGIN
     LTEXT           "To continue, click Back. If you really want to quit click Exit Setup.",IDC_STATIC3,14,70,198,21
 END
 
-IDD_DIALOG_PROGRESS DIALOG  0, 0, 243, 33
+IDD_DIALOG_PROGRESS DIALOG 0, 0, 243, 33
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_CHILD | WS_CAPTION | WS_SYSMENU
 CAPTION "Progress"
 FONT 8, "MS Sans Serif"
@@ -110,7 +112,7 @@ BEGIN
     CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,10,8,221,15
 END
 
-IDD_DIALOG_FINISHED DIALOG  100, 145, 226, 124
+IDD_DIALOG_FINISHED DIALOG 100, 145, 226, 124
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Setup completed"
 FONT 8, "MS Sans Serif"
@@ -125,8 +127,8 @@ IDD_DIALOG_LANGUAGE DIALOGEX 0, 0, 214, 98
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         106,IDC_STATIC10,"Static",SS_BITMAP,11,11,56,29
-    CONTROL         107,IDC_STATIC11,"Static",SS_BITMAP,11,48,56,30
+    CONTROL         IDB_BITMAP_ENGLISH,IDC_STATIC10,"Static",SS_BITMAP,11,11,56,29
+    CONTROL         IDB_BITMAP_GERMAN,IDC_STATIC11,"Static",SS_BITMAP,11,48,56,30
     CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,120,20,17,12
     CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,120,56,12,12
     LTEXT           "English",IDC_STATIC12,71,21,46,12,0,WS_EX_RIGHT
@@ -137,23 +139,28 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,157,32,50,14
 END
 
-IDD_DIALOG_INSTALL DIALOGEX 0, 0, 333, 183
+IDD_DIALOG_INSTALL DIALOGEX 0, 0, 333, 250
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Merco unzip tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,276,11,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,276,28,50,14
-    EDITTEXT        IDC_EDIT1,30,122,200,13,ES_AUTOHSCROLL
-    GROUPBOX        "Directory to extract",IDC_STATIC1,7,7,254,169
-    CONTROL         "Radio1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,20,229,14
-    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,14,96,12,12
-    EDITTEXT        IDC_EDIT2,30,153,200,13,ES_AUTOHSCROLL
-    GROUPBOX        "",IDC_STATIC10,7,85,254,91
-    LTEXT           "Static",IDC_STATIC2,32,110,198,11
-    LTEXT           "Static",IDC_STATIC3,32,141,198,11
-    EDITTEXT        IDC_EDIT3,30,60,200,13,ES_AUTOHSCROLL
-    LTEXT           "Static",IDC_STATIC4,32,48,198,11
+    EDITTEXT        IDC_EDIT1,28,128,200,13,ES_AUTOHSCROLL
+    GROUPBOX        "Directory to extract",IDC_STATIC1,7,7,254,236
+    CONTROL         "Radio1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,13,17,229,14
+    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,13,100,158,12
+	CONTROL         "",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,13,187,229,13
+    EDITTEXT        IDC_EDIT2,28,159,200,13,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC2,29,116,198,11
+    LTEXT           "Static",IDC_STATIC3,29,147,198,11
+    EDITTEXT        IDC_EDIT3,28,74,200,13,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC4,29,62,198,11
+    GROUPBOX        "",IDC_STATIC10,7,93,254,91
+    EDITTEXT        IDC_EDIT4,28,219,200,13,ES_AUTOHSCROLL
+    CONTROL         "Static",IDC_STATIC5,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,29,206,198,11
+    EDITTEXT        IDC_EDIT5,28,46,200,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Static",IDC_STATIC6,29,33,198,11
 END
 
 
@@ -164,14 +171,15 @@ END
 
 IDR_LICENCE             LICENCE                 "..\\resource\\pcb_lic_limited351.txt"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,51,0,0
- PRODUCTVERSION 3,51,0,0
+ FILEVERSION VER_FILEVERSION
+ PRODUCTVERSION VER_FILEVERSION
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -188,11 +196,11 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "www.pcbelegance.com"
             VALUE "FileDescription", "Install pcb elegance"
-            VALUE "FileVersion", "3, 51, 0, 0"
+            VALUE "FileVersion", VER_FILEVERSION_STR
             VALUE "InternalName", "install_pcb_elegance"
             VALUE "OriginalFilename", "install_pcb_elegance.exe"
             VALUE "ProductName", "Installation  PCB elegance"
-            VALUE "ProductVersion", "3, 5, 1,0"
+            VALUE "ProductVersion", VER_FILEVERSION_STR
         END
     END
     BLOCK "VarFileInfo"
@@ -208,7 +216,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_DIALOG_DIR, DIALOG
     BEGIN
@@ -224,6 +232,18 @@ BEGIN
         BOTTOMMARGIN, 217
     END
 
+    IDD_DIALOG_QUIT, DIALOG
+    BEGIN
+    END
+
+    IDD_DIALOG_PROGRESS, DIALOG
+    BEGIN
+    END
+
+    IDD_DIALOG_FINISHED, DIALOG
+    BEGIN
+    END
+
     IDD_DIALOG_LANGUAGE, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -237,7 +257,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 326
         TOPMARGIN, 7
-        BOTTOMMARGIN, 176
+        BOTTOMMARGIN, 243
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -249,9 +269,23 @@ END
 //
 
 IDB_BITMAP_INTRO        BITMAP                  "..\\resource\\SchemaLayout.bmp"
+
 IDB_BITMAP_SETUP        BITMAP                  "..\\resource\\setup.bmp"
+
 IDB_BITMAP_BLACKLINE    BITMAP                  "..\\resource\\blackline.bmp"
-#endif    // English (U.S.) resources
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DIALOG_INSTALL AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

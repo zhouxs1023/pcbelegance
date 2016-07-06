@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by e:\pcbeleg35\install_pcb_elegance\resource\install_pcb_elegance.rc
+// Used by install_pcb_elegance.rc
 //
 #define IDHELP                          9
 #define IDR_MENU1                       100
@@ -24,6 +24,8 @@
 #define IDC_STATIC2                     601
 #define IDC_STATIC3                     602
 #define IDC_STATIC4                     603
+#define IDC_STATIC5                     604
+#define IDC_STATIC6                     605
 #define IDC_STATIC10                    609
 #define IDC_STATIC11                    610
 #define IDC_STATIC12                    611
@@ -46,12 +48,13 @@
 #define IDR_LICENCE                     2000
 #define IDC_RADIO1                      2005
 #define IDC_RADIO2                      2006
+#define IDC_RADIO3                      2007
 
 // Next default values for new objects
-//
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        111
+#define _APS_NEXT_RESOURCE_VALUE        112
 #define _APS_NEXT_COMMAND_VALUE         1000
 #define _APS_NEXT_CONTROL_VALUE         2006
 #define _APS_NEXT_SYMED_VALUE           3000

@@ -101,6 +101,15 @@
   <ItemGroup>
     <ResourceCompile Include="..\resource\install_pcb_elegance.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resource\blackline.bmp" />
+    <Image Include="..\resource\ICON1.ICO" />
+    <Image Include="..\resource\SchemaLayout.bmp" />
+    <Image Include="..\resource\setup.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\resource\pcb_lic_limited351.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
