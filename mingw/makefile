@@ -37,6 +37,7 @@ DEFINES           +=-D UNZIPLIB
 DEFINES           +=-D DLL
 DEFINES           +=-D WINDLL
 DEFINES           +=-D _MBCS
+DEFINES           +=-D WINVER=0x0501 -D _WIN32_IE=0x0500 -D _WIN32_WINNT=0x0501
 
 #DEFINES           +=-D DEBUG_LOG
 
