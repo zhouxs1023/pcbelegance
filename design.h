@@ -65,6 +65,8 @@
 #define RGB_LightOrange                         RGB(223,188,96 )
 #define RGB_Violet                              RGB(128,0  ,128)
 
+#define PCB_ELEG_ENVIRONMENT_STRING             "PCB_ELEG_ENVIRONMENT"
+
 
 LRESULT FAR PASCAL SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LParam);
 

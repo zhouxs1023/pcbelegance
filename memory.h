@@ -66,7 +66,7 @@ extern int32 Created, Painting, DCInUse, MouseChanged, Focused, LeftButtonPresse
        FillObjects, DrawClearances, DrawSpecial, DrawCompPlacement, DrawCompOutline, DrawViaClearances, DrawCompReference,
        DrawCompValue, CompRotationChanged, OkToSwitchDrawingLayers, OkToAddViewPos, CurrentDrawingNetHilited,
        DrawViaInfoForTryingTrace, DesignActive, UsingPartNumbers, DisableOnePinNetCheck, DrawTraceUsingGuide, IncDeleteNr,
-       DrawTraceLimitInfo;
+       DrawTraceLimitInfo, UseGerbv;
 
 extern ObjectRecord DrawWire1, DrawWire2, LimitObject, WireObject1, WireObject2, CurrentWorkingWire, NullObject;
 
@@ -129,6 +129,8 @@ extern char *MessageBuf;
 extern char *ObjectTextBuf;
 extern char ExcludeInBOMID[MAX_LENGTH_STRING];
 extern char ExcludeInBOMValue[MAX_LENGTH_STRING];
+extern char GerbvPath[MAX_LENGTH_STRING];
+
 
 extern LPSTR PWindowStr;
 

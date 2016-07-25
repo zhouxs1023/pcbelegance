@@ -116,7 +116,6 @@
     <ClInclude Include="..\change.h" />
     <ClInclude Include="..\check.h" />
     <ClInclude Include="..\command.h" />
-    <ClInclude Include="..\demo.h" />
     <ClInclude Include="..\design.h" />
     <ClInclude Include="..\files.h" />
     <ClInclude Include="..\help.h" />
@@ -134,6 +133,25 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resource\design.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resource\bitmap_all.bmp" />
+    <Image Include="..\resource\bitmap_annotate.bmp" />
+    <Image Include="..\resource\bitmap_backannotate.bmp" />
+    <Image Include="..\resource\bitmap_bom.bmp" />
+    <Image Include="..\resource\bitmap_down.bmp" />
+    <Image Include="..\resource\bitmap_geometry.bmp" />
+    <Image Include="..\resource\bitmap_gerber.bmp" />
+    <Image Include="..\resource\bitmap_layout.bmp" />
+    <Image Include="..\resource\bitmap_netlist.bmp" />
+    <Image Include="..\resource\bitmap_schematic.bmp" />
+    <Image Include="..\resource\bitmap_symbol.bmp" />
+    <Image Include="..\resource\bitmap_up.bmp" />
+    <Image Include="..\resource\icon1.ico" />
+    <Image Include="..\resource\info.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\resource\cursor1.cur" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

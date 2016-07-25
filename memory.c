@@ -66,7 +66,8 @@ int32 Created, Painting, DCInUse, MouseChanged, Focused, LeftButtonPressed, Righ
       InsertTwoTracesFromDrawing, EditingSheetSymbol, ReDrawing, DrawSCH, DrawTraceUsingGuide, Printing, EditingSymbol,
       FileChanged, MouseTraceDrawing, UndoRedoActive, SelectionActive, SelectionEsc, ExecuteZoom, TraceMode,
       EmptyBrushActive, FillObjects, DrawCompPlacement, DrawCompOutline, DesignActive, UsingPartNumbers,
-      DisableOnePinNetCheck, DrawCompReference, DrawCompValue, CompRotationChanged, OkToAddViewPos, IncDeleteNr;
+      DisableOnePinNetCheck, DrawCompReference, DrawCompValue, CompRotationChanged, OkToAddViewPos, IncDeleteNr,
+	  UseGerbv;
 
 ObjectRecord DrawWire1, DrawWire2, LimitObject, WireObject1, WireObject2, CurrentWorkingWire, NullObject;
 
@@ -117,6 +118,8 @@ char SymbolDirs[8][MAX_LENGTH_STRING];
 char LastDesigns[TotalNrDesigns][MAX_LENGTH_STRING];
 char GeometryLibraries[16][MAX_LENGTH_STRING];
 char SchematicSymbolLibraries[16][MAX_LENGTH_STRING];
+char GerbvPath[MAX_LENGTH_STRING];
+
 
 char *MessageBuf;
 char *ObjectTextBuf;
@@ -1911,6 +1914,7 @@ void MemoryMain()
 	InsertTwoTracesFromDrawing = 1;
 	OkToAddViewPos = 1;
 	UsingPartNumbers = 0;
+	SaveSymbolsLocally = 1;
 
 	SelectionMode = 0;
 	CurrentNet = 0;

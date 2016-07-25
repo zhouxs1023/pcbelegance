@@ -34,7 +34,6 @@
 #include "io.h"
 #include "time.h"
 #include "help.h"
-#include "demo.h"
 #include "files2.h"
 #include "nets.h"
 #include "direct.h"
@@ -49,6 +48,8 @@
 #include "utf8.h"
 #include "instance.h"
 #include "owntime.h"
+#include "menus.h"
+#include "../functionsc/version.h"
 
 typedef struct
 {
@@ -1358,6 +1359,45 @@ void LoadSchematicIniFile(int32 mode)
 // *******************************************************************************************************
 // *******************************************************************************************************
 
+int32 CheckProjectPath(char* NewProjectPath)
+{
+	int32 fp, res, result;
+	char str[MAX_LENGTH_STRING];
+
+	if (DirectoryExists(NewProjectPath) != 0)
+	{
+		sprintf(str, SC(18, "Can not find project directory  %s\n\nCreate the directory ?"), NewProjectPath);
+		res = MessageBoxUTF8(NULL, str, SC(19, "Error"), MB_APPLMODAL | MB_YESNOCANCEL);
+
+		if (res == IDYES)
+			CreateDirectoryUTF8(NewProjectPath);
+		else
+			return -1;
+	}
+
+	CutBackSlashDir(NewProjectPath);
+	sprintf(str, "%s\\test.xxx", NewProjectPath);
+
+	if (((fp = FileOpenWriteUTF8(str)) <= 0) || (FileWrite(fp, &fp, 4, &result) < 0))
+	{
+		sprintf(str, SC(20, "Can not create a test file  %s\\test.xxx\r\n\r\n"), NewProjectPath);
+		strcat(str, SC(21, "Maybe the current user does not have the rights to create files\r\n"));
+		strcat(str, SC(22, "in the PCB elegance main directory"));
+		MessageBoxUTF8(NULL, str, SC(19, "Error"), MB_APPLMODAL | MB_OK);
+		return -1;
+	}
+
+	FileClose(fp);
+	DeleteFileUTF8(str);
+	return 0;
+}
+
+
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+
 int32 CALLBACK TextInputDialog2(HWND Dialog, WORD Message, WORD WParam, int32 LParam)
 {
 	int32 about, TextChanged, res;
@@ -1802,6 +1842,157 @@ int32 ProjectDialog(int32 Mode)
 	return res;
 }
 
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+
+int32 CALLBACK ConfigurePathsDialog2(HWND Dialog, WORD Message, WORD WParam, int32 LParam)
+{
+	int32 about, res, PathOk, KeyInfo;
+	char str[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING], NewProjectPath[MAX_LENGTH_STRING];
+	HKEY Key;
+
+	about = 1;
+
+	switch (Message)
+	{
+	case WM_INITDIALOG:
+		SetWindowTextUTF8(Dialog, SC(280, "Configure Paths"));
+		SetDialogItemTextUTF8(Dialog, IDC_STATIC1, SC(282, "Project directory"));
+		SetDialogItemTextUTF8(Dialog, IDC_STATIC2, SC(283, "Path - This may require administrator privileges to set"));
+		SetDialogItemTextUTF8(Dialog, IDC_STATIC3, SC(284, "Gerber viewer"));
+		SetDialogItemTextUTF8(Dialog, IDC_STATIC4, SC(285, "Path"));
+		SetDialogItemTextUTF8(Dialog, IDC_RADIO1, SC(286, "Viewplot (default)"));
+		SetDialogItemTextUTF8(Dialog, IDC_RADIO2, SC(287, "Gerbv"));
+		SetDialogItemTextUTF8(Dialog, IDOK, SC(36, "OK"));
+		SetDialogItemTextUTF8(Dialog, IDCANCEL, SC(37, "Cancel"));
+		SetDialogItemTextUTF8(Dialog, IDHELP, SC(45, "Help"));
+		SetDialogItemTextUTF8(Dialog, IDC_BUTTON1, SC(288, "Set"));
+
+		SendDlgItemMessageUTF8(Dialog, IDC_EDIT1, WM_SETTEXT, 0, (LPARAM)& ProjectPath);
+		SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM)& GerbvPath);
+
+		if (UseGerbv == 1)
+			SendDlgItemMessage(Dialog, IDC_RADIO2, BM_SETCHECK, 1, 0);
+		else
+			SendDlgItemMessage(Dialog, IDC_RADIO1, BM_SETCHECK, 1, 0);
+
+		return about;
+
+	case WM_MOVE:
+		break;
+
+	case WM_COMMAND:
+		switch (WParam)
+		{
+		case IDC_BUTTON1:
+			if ((res =
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT1, WM_GETTEXT, MAX_LENGTH_STRING - 50,
+				(LPARAM)DialogTextLine)) != 0)
+			{
+				PathOk = 0;
+				NewProjectPath[0] = 0;
+				strcpy(NewProjectPath, DialogTextLine);
+
+				if (CheckProjectPath(NewProjectPath) != 0)
+					PathOk = -2;
+
+				sprintf(str, "Software\\PCB Elegance");
+
+				if ((res = RegCreateKeyEx(HKEY_LOCAL_MACHINE, str, 0, "", REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS,
+					NULL, &Key, (LPDWORD)& KeyInfo)) != ERROR_SUCCESS)
+					PathOk = -2;
+
+				if ((res = RegSetValueEx(Key, "ProjectDir", 0, REG_EXPAND_SZ, (BYTE *)& NewProjectPath,
+					strlen(NewProjectPath) + 1)) != ERROR_SUCCESS)
+					PathOk = -2;
+
+				if (RegCloseKey(Key) != ERROR_SUCCESS)
+					PathOk = -2;
+
+				if (PathOk == 0)
+				{
+					if (DesignActive)
+					{
+						CloseOpenFiles(0);
+						SaveDesignIniFile();
+						SetWindowName(NULL, 0);
+						sprintf(str, SC(9, "Design %s closed\r\n"), DesignFile);
+						AddMessage(str);
+						AddMessage(SeparatorString);
+					}
+
+					DesignActive = 0;
+					strcpy(ProjectPath, NewProjectPath);
+					SendDlgItemMessageUTF8(Dialog, IDC_EDIT1, WM_SETTEXT, 0, (LPARAM)& ProjectPath);
+					strcpy(DesignPath, ProjectPath);
+					sprintf(UserIniFile, "%s\\user.ini", ProjectPath);
+					NrDesigns = 0;
+					LoadUserIniFile();
+					UpdateFileMenu(1);
+				}
+			}
+			return about;
+
+		case IDOK:
+
+			if (SendDlgItemMessage(Dialog, IDC_RADIO1, BM_GETCHECK, 0, 0) == 1)
+				UseGerbv = 0;
+
+			if (SendDlgItemMessage(Dialog, IDC_RADIO2, BM_GETCHECK, 0, 0) == 1)
+			{
+				if ((res = SendDlgItemMessageUTF8(Dialog, IDC_EDIT2, WM_GETTEXT, MAX_LENGTH_STRING - 50,
+					(LPARAM)DialogTextLine)) != 0)
+				{
+					strcpy(str, DialogTextLine);
+					if ((FileExistsUTF8(str) != -1) && (strstr(str, ".exe") != 0))
+					{ // Gerbv found
+						strcpy(GerbvPath, str);
+						UseGerbv = 1;
+					}
+					else
+					{
+						sprintf(str2, SC(289, "Cannot find Gerbv at this location %s"), str);
+						MessageBoxUTF8(NULL, str2, SC(19, "Error"), MB_APPLMODAL | MB_OK);
+						return about;
+					}
+				}
+			}
+
+
+			EndDialog(Dialog, 1);
+			return about;
+
+		case IDHELP:
+			Help("configure_paths.htm", 0);
+			break;
+
+		case IDCANCEL:
+			memset(DialogTextLine, 0, MAX_LENGTH_STRING);
+			EndDialog(Dialog, 2);
+			return about;
+		}
+
+		break;
+	}
+
+	about = 0;
+	return about;
+}
+
+int32 ConfigurePathsDialog(int32 Mode)
+{
+	int32 res;
+
+	//  DialogMode=Mode;
+	res = DialogBox(DESIGNClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_PATHS), DESIGNWindow, (DLGPROC)ConfigurePathsDialog2);
+
+	if (res == 1)
+		SaveUserIniFile(1);
+
+	return res;
+}
 
 // *******************************************************************************************************
 // *******************************************************************************************************
@@ -2183,8 +2374,8 @@ int32 CALLBACK AboutDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		SetDialogItemTextUTF8(Dialog, IDOK, SC(36, "OK"));
 
 		SelectionEsc = 0;
-		sprintf(str, SC(65, "Build version %i.%i.%i  [ %s ]"), PROGRAM_VERSION / 100, PROGRAM_VERSION % 100,
-		        BUILD_VERSION, TIME_STRING);
+		sprintf(str, SC(65, "Build version %i.%i.%i  [ %s ]"), VER_VERSION / 100, VER_VERSION % 100,
+			VER_BUILD, VER_DATE_STR);
 #ifdef GCC_COMP
 		strcat(str, "\r\n\r\nCompiled with mingw (gcc 4.9.2)");
 #endif
@@ -3127,7 +3318,7 @@ void PrintAllSheets(int32 mode)
 		WriteToFile(fp, str);
 	}
 
-	sprintf(str, "/Producer (PCB elegance %d.%d)\n", PROGRAM_VERSION / 100, PROGRAM_VERSION % 100);
+	sprintf(str, "/Producer (PCB elegance %d.%d)\n", VER_VERSION / 100, VER_VERSION % 100);
 	WriteToFile(fp, str);
 	WriteToFile(fp, ">>\n");
 	WriteToFile(fp, "endobj\n");
@@ -3491,6 +3682,10 @@ void SaveUserIniFile(int32 mode)
 	WriteLn(fp, Line);
 	sprintf(Line, "WindowStartY=%i", WindowStartY);
 	WriteLn(fp, Line);
+	sprintf(Line, "UseGerbv=%i", UseGerbv);
+	WriteLn(fp, Line);
+	sprintf(Line, "GerbvPath=\"%s\"", GerbvPath);
+	WriteLn(fp, Line);
 	WriteLn(fp, "");
 
 	strcpy(Line, "[LastDesigns]");
@@ -3610,6 +3805,20 @@ void LoadUserIniFile()
 						{
 							if (sscanf(str2, "%i", &Value) == 1)
 								WindowStartY = Value;
+						}
+
+						if (stricmp(str1, "UseGerbv") == 0)
+						{
+							if (sscanf(str2, "%i", &Value) == 1)
+								UseGerbv = Value;
+						}
+
+						if (stricmp(str1, "GerbvPath") == 0)
+						{
+							if ((FileExistsUTF8(str2) != -1) && (strstr(str2, ".exe") != 0))
+							{ // Gerbv found
+								strcpy(GerbvPath, str2);
+							}
 						}
 
 					}

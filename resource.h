@@ -1,10 +1,12 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
-// Used by design.rc
+// Microsoft Visual C++ generated include file.
+// Used by C:\notes\pcbeleg\software\design\resource\design.rc
 //
 #define IDHELP                          9
 #define ICON1                           100
 #define IDC_CURSOR1                     128
+#define IDD_DIALOG_PATHS                131
+#define IDR_MENU2                       133
 #define BITMAP_ALL                      1000
 #define BITMAP_ALL_OLD                  1001
 #define BITMAP_ANNOTATE                 1002
@@ -75,7 +77,6 @@
 #define IDC_LIST1                       3400
 #define IDC_LIST2                       3401
 #define IDC_LIST3                       3402
-#define IDC_STATIC                      3580
 #define IDC_STATIC1                     3500
 #define IDC_STATIC2                     3501
 #define IDC_STATIC3                     3502
@@ -133,6 +134,7 @@
 #define ID_EDIT_VARS                    4033
 #define ID_CHECK_FOR_UPDATES            4034
 #define ID_MANUAL                       4035
+#define ID_EDIT_CONFIGUREPATHS          4036
 #define ID_DESIGNS                      4400
 #define ID_SHEET_OPEN_TOP_SHEET         4500
 #define ID_SYMBOL_OPEN                  4700
@@ -149,10 +151,10 @@
 #define ID_GLOBAL_FILE_SAVE             23000
 
 // Next default values for new objects
-//
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        130
+#define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         4101
 #define _APS_NEXT_CONTROL_VALUE         3115
 #define _APS_NEXT_SYMED_VALUE           5100

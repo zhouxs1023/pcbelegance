@@ -2712,7 +2712,7 @@ double GetValueFromCompValue(LPSTR CompValueStr, int32 mode)
 
 void ConvertTabToComma(LPSTR str)
 {
-	int32 cnt;
+	uint32 cnt;
 
 	for (cnt = 0; cnt < strlen(str); cnt++)
 	{

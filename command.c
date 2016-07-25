@@ -646,6 +646,10 @@ void DESIGNCommand(HWND hwnd, WPARAM WParam, LPARAM LParam)
 
 		break;
 
+	case ID_EDIT_CONFIGUREPATHS:
+		ConfigurePathsDialog(0);
+		break;
+
 	case ID_EDIT_CHECK:
 		if (!DesignActive)
 		{
@@ -1027,17 +1031,36 @@ void DESIGNCommand(HWND hwnd, WPARAM WParam, LPARAM LParam)
 			break;
 		}
 
-		sprintf(str3, "%s\\viewplot.ini", DesignPath);
-		sprintf(str2, "%s\\pcb\\gerber\\GerberFiles.txt", DesignPath);
-		sprintf(ExeFile, "%s\\viewplot.exe", ExePath);
+		if ((UseGerbv == 1) && (FileExistsUTF8(GerbvPath) == 0) && (strstr(GerbvPath, ".exe") != 0))
+		{
+			
+			sprintf(str3, "%s\\pcb\\gerber\\GerbvProject.gvp", DesignPath);
 
-		if (FileExistsUTF8(ExeFile) != 0)
-			break;
+			if (FileExistsUTF8(str3) != 0)
+			{
+				sprintf(str2, SC(281, "Gerbv project file not found!"));
+				MessageBoxUTF8(NULL, str2, SC(19, "Error"), MB_APPLMODAL | MB_OK);
+				break;
+			}
 
-		if (FileExistsUTF8(str2) == 0)
-			sprintf(ExeParams, "\"%s\\viewplot.exe\" /x \"%s\" /b /y \"%s\"", ExePath, str2, str3);
+			sprintf(ExeFile, "%s", GerbvPath);
+			sprintf(ExeParams, "\"%s\" -p \"%s\"", GerbvPath, str3);
+
+		}
 		else
-			sprintf(ExeParams, "\"%s\\viewplot.exe\" /b /y \"%s\"", ExePath, str3);
+		{
+			sprintf(str3, "%s\\viewplot.ini", DesignPath);
+			sprintf(str2, "%s\\pcb\\gerber\\GerberFiles.txt", DesignPath);
+			sprintf(ExeFile, "%s\\viewplot.exe", ExePath);
+
+			if (FileExistsUTF8(ExeFile) != 0)
+				break;
+
+			if (FileExistsUTF8(str2) == 0)
+				sprintf(ExeParams, "\"%s\\viewplot.exe\" /x \"%s\" /b /y \"%s\"", ExePath, str2, str3);
+			else
+				sprintf(ExeParams, "\"%s\\viewplot.exe\" /b /y \"%s\"", ExePath, str3);
+		}
 
 		StartupInfo.cb = sizeof(StartupInfo);
 		StartupInfo.wShowWindow = SW_SHOW;

@@ -93,4 +93,9 @@ void SaveDesignIniFile(void);
 
 int32 AddMessage(LPSTR str);
 
+int32 CheckProjectPath(char* NewProjectPath);
+
+int32 ConfigurePathsDialog(int32 Mode);
+
+
 #endif

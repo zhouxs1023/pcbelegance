@@ -1161,7 +1161,7 @@ void MakeNewProject(int32 mode)
 
 	sprintf(FileName, "%s\\geom.ini", ExePath);
 	sprintf(FileName2, "%s\\geom.ini", ProjectPath);
-	sprintf(FileName3, "%s\\pcb\\shapes\\geom.ini", DesignPath);
+	sprintf(FileName3, "%s\\geom.ini", DesignPath);
 
 	if (FileExistsUTF8(FileName) == 0)
 	{
@@ -1173,7 +1173,7 @@ void MakeNewProject(int32 mode)
 
 	sprintf(FileName, "%s\\pcb.ini", ExePath);
 	sprintf(FileName2, "%s\\pcb.ini", ProjectPath);
-	sprintf(FileName3, "%s\\pcb\\pcb.ini", DesignPath);
+	sprintf(FileName3, "%s\\pcb.ini", DesignPath);
 
 	if (FileExistsUTF8(FileName) == 0)
 	{

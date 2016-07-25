@@ -63,7 +63,6 @@
 #define MEMORYMAPPEDSTRING                      "MMFILE_PCB_ELEGANCE"
 #define DefSharedMemoryLength                   16384
 
-#define PCB_ELEG_ENVIRONMENT_STRING             "PCB_ELEG_ENVIRONMENT"
 
 typedef struct
 {
@@ -1246,11 +1245,13 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd, 
 {
 
 	MSG M;
-	int32 fp, ok, res, result;
+	int32 ok, res, KeySize;
 	uint32 EAX, EBX, ECX, EDX, FlagSSE2 = 0;
 	char vendor[40];
 	DWORD WindowStyle;
 	char str[MAX_LENGTH_STRING], *env;
+	HKEY Key;
+
 
 	/*
 	  MessageBoxUTF8(0,lpszCmd,SC(8,"Message"),MB_APPLMODAL|MB_OK);
@@ -1309,33 +1310,30 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd, 
 	}
 
 	if (ProjectPath[0] == 0)
+	{
+		sprintf(str, "Software\\PCB Elegance");
+
+		if ((res = RegOpenKeyEx(HKEY_LOCAL_MACHINE, str, 0, KEY_QUERY_VALUE, &Key)) == ERROR_SUCCESS)
+		{
+			KeySize = sizeof(ProjectPath) - 1;
+
+			if ((res = RegQueryValueEx(Key, "ProjectDir", 0, NULL, (LPBYTE)str, (PDWORD)& KeySize))
+				== ERROR_SUCCESS)
+			{
+				strcpy(ProjectPath, str);
+				ok = 1;
+			}
+
+			RegCloseKey(Key);
+		}
+	}
+
+	if (ProjectPath[0] == 0)
 		strcpy(ProjectPath, ExePath);
 
-	if (DirectoryExists(ProjectPath) != 0)
-	{
-		sprintf(str, SC(18, "Can not find project directory  %s\n\nCreate the directory ?"), ProjectPath);
-		res = MessageBoxUTF8(NULL, str, SC(19, "Error"), MB_APPLMODAL | MB_YESNOCANCEL);
-
-		if (res == IDYES)
-			CreateDirectoryUTF8(ProjectPath);
-		else
-			return -1;
-	}
-
-	CutBackSlashDir(ProjectPath);
-	sprintf(str, "%s\\test.xxx", ProjectPath);
-
-	if (((fp = FileOpenWriteUTF8(str)) <= 0) || (FileWrite(fp, &fp, 4, &result) < 0))
-	{
-		sprintf(str, SC(20, "Can not create a test file  %s\\test.xxx\r\n\r\n"), ProjectPath);
-		strcat(str, SC(21, "Maybe the current user does not have the rights to create files\r\n"));
-		strcat(str, SC(22, "in the PCB elegance main directory"));
-		MessageBoxUTF8(NULL, str, SC(19, "Error"), MB_APPLMODAL | MB_OK);
+	if (CheckProjectPath(ProjectPath) != 0)
 		return -1;
-	}
 
-	FileClose(fp);
-	DeleteFileUTF8(str);
 	strcpy(DesignPath, ProjectPath);
 	sprintf(UserIniFile, "%s\\user.ini", ProjectPath);
 

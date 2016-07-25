@@ -102,9 +102,6 @@ void UpdateFileMenu(int32 mode)
 	HMENU FileMenu, MainMenu;
 	int32 cnt, res, NrItems;
 
-	if (NrDesigns == 0)
-		return;
-
 	MainMenu = GetMenu(DESIGNWindow);
 	FileMenu = GetSubMenu(MainMenu, 0);
 //  res=AppendMenuUTF8(FileMenu,MF_ENABLED|MF_SEPARATOR,0,0);
@@ -117,11 +114,7 @@ void UpdateFileMenu(int32 mode)
 	for (cnt = NrItems + TotalNrDesigns + 1; cnt >= NrItems; cnt--)
 		res = DeleteMenu(FileMenu, cnt, MF_BYPOSITION);
 
-	/*
-	  for (cnt=0;cnt<TotalNrDesigns;cnt++) {
-	    res=DeleteMenu(FileMenu,ID_DESIGNS+cnt,MF_BYCOMMAND);
-	  }
-	*/
+
 	for (cnt = 0; cnt < NrDesigns; cnt++)
 		res = AppendMenuUTF8(FileMenu, MF_ENABLED | MF_STRING, ID_DESIGNS + cnt, LastDesigns[cnt]);
 
@@ -172,6 +165,8 @@ void MakeMainMenu()
 	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_CHANGE_INSTANCES, SC(263, "Change symbols"));
 	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_EDIT_CREATEGATEPINSWAPINFO, SC(168, "Create gate/pin swap info"));
 	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_EDIT_VARS, SC(276, "Edit user variables file"));
+	AppendMenuUTF8(DESIGNMenu2, MF_ENABLED | MF_SEPARATOR, 0, 0);
+	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_EDIT_CONFIGUREPATHS, SC(280, "Configure paths"));
 #ifdef _DEBUG
 	AppendMenuUTF8(DESIGNMenu2, MENU_ID, ID_WRITE_SCHEMATICS, "Write schematics");
 #endif
