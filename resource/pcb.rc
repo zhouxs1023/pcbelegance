@@ -907,7 +907,7 @@ BEGIN
     PUSHBUTTON      "Help",IDHELP,246,9,50,14
     EDITTEXT        IDC_EDIT1,4,96,111,36,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN
     EDITTEXT        IDC_EDIT3,124,96,129,36,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN
-    GROUPBOX        "Layers",IDC_STATIC9,255,26,166,346
+    GROUPBOX        "Layers",IDC_STATIC9,255,26,166,347
     GROUPBOX        "Gerber output format",IDC_STATIC1,4,142,249,76
     LISTBOX         IDC_LIST2,15,169,49,42,LBS_NOINTEGRALHEIGHT | WS_TABSTOP
     LTEXT           "Number format",IDC_STATIC2,17,159,70,10
@@ -918,14 +918,14 @@ BEGIN
     CONTROL         "Output neutral file",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,231,94,10
     GROUPBOX        "Mirror",IDC_STATIC4,139,219,114,27
     CONTROL         "Mirror X",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,145,232,66,8
-    CONTROL         "Plot board outline on each layer",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,264,157,11
-    GROUPBOX        "Options",IDC_STATIC10,258,251,166,122
+    CONTROL         "Plot board outline on each layer",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,264,149,11
+    GROUPBOX        "Options",IDC_STATIC10,255,251,166,122
     PUSHBUTTON      "thou/mm",IDD_UNITS,113,186,50,14
     EDITTEXT        IDC_EDIT6,79,186,26,13,ES_AUTOHSCROLL
     GROUPBOX        "Drill option",IDC_STATIC8,4,248,249,29
     CONTROL         "Include drill tools in drill file (NCD)",IDC_CHECK3,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,262,160,11
-    CONTROL         "Reverse layer numbering",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,280,157,11
+    CONTROL         "Reverse layer numbering",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,280,146,11
     GROUPBOX        "PCB",IDC_STATIC11,4,278,249,95
     RTEXT           "Material",IDC_STATIC5,33,289,51,12
     RTEXT           "Thickness",IDC_STATIC6,34,304,51,12
@@ -933,7 +933,7 @@ BEGIN
     EDITTEXT        IDC_EDIT2,88,287,159,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,88,302,159,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,88,317,159,12,ES_AUTOHSCROLL
-    CONTROL         "Output drill data as gerber file",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,296,157,11
+    CONTROL         "Output drill data as gerber file",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,296,149,11
     EDITTEXT        IDC_EDIT7,88,332,159,37,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN
     RTEXT           "Extra",IDC_STATIC12,9,334,76,12
     EDITTEXT        IDC_EDIT8,387,337,22,12,ES_AUTOHSCROLL
@@ -941,10 +941,10 @@ BEGIN
     EDITTEXT        IDC_EDIT10,360,337,27,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT11,360,354,27,12,ES_AUTOHSCROLL
     CONTROL         "On",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,338,34,11
-    GROUPBOX        "Areafill option for hatch fill",IDC_STATIC13,258,326,166,47
+    GROUPBOX        "Areafill option for hatch fill",IDC_STATIC13,255,326,166,47
     LTEXT           "Small pen",IDC_STATIC15,310,339,46,13,0,WS_EX_RIGHT
     LTEXT           "Thick pen",IDC_STATIC16,306,355,49,13,0,WS_EX_RIGHT
-    CONTROL         "Create Gerbv project file",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,312,157,11
+    CONTROL         "Create Gerbv project file",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,263,312,149,11
 END
 
 IDD_DIALOG_PLOT35 DIALOGEX 6, 19, 429, 247
@@ -1431,8 +1431,8 @@ BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""winresrc.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-	"#include ""../../functionsc/version.h""\r\n"
-	"\0"
+    "#include ""../../functionsc/version.h""\r\n"
+    "\0"
 END
 
 3 TEXTINCLUDE 
@@ -1670,7 +1670,7 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "CompanyName", "www.pcbelegance.com"
+            VALUE "CompanyName", "www.pcbelegance.org"
             VALUE "FileDescription", "Layout editor"
             VALUE "FileVersion", VER_FILEVERSION_STR
             VALUE "InternalName", "Pcb"

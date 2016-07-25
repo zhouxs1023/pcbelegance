@@ -1138,6 +1138,12 @@ void AddSpecialObjectsFromAsciiFile(int32 Layer, int32 mode)
 					UnitMult = 2540.0;
 				}
 
+				if (stricmpOwn(str2, SC(1347, "THOU")) == 0)
+				{
+					CurrentUnits = 0;
+					UnitMult = 2540.0;
+				}
+
 				if (stricmpOwn(str2, SC(817, "INCH")) == 0)
 				{
 					CurrentUnits = 2;

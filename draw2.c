@@ -4001,12 +4001,12 @@ void DrawOutlineComp(CompRecord * Comp, double OffsetX, double OffsetY, double R
 								continue;
 						}
 					}
-
-					if (TempBackGroundActive)
-						SetBackGroundActive(0);
-
-					DrawObject(Object, Mode | 1);
 				}
+
+				if (TempBackGroundActive)
+					SetBackGroundActive(0);
+
+				DrawObject(Object, Mode | 1);
 			}
 
 			SetROP2(OutputDisplay, R2_COPYPEN);
@@ -4646,12 +4646,12 @@ void DrawReferenceComp(CompRecord * Comp, double OX, double OY, double Rotation,
 		*/
 		InitDrawingObject(0, COMP_REF_LAYER, Mult(Comp->CompNamePenThickNess), DRAW_WITH_PEN_AND_NOT_FILLED);
 
-		if ((Mode == 0) && ((Comp->TextVisibility & 1) == 1))
+		if (((Mode == 0x200) || (Mode == 0)) && ((Comp->TextVisibility & 1) == 1))
 			SetROP2(OutputDisplay, SelectColorMode);
 
 		DrawStrWithRotation(x2, y2, h2, RotationAngle2, 0, Mirror, Comp->Name);
 
-		if ((Mode == 0) && ((Comp->TextVisibility & 1) == 1))
+		if (((Mode == 0x200) || (Mode == 0)) && ((Comp->TextVisibility & 1) == 1))
 			SetROP2(OutputDisplay, R2_COPYPEN);
 	}
 }
@@ -4814,12 +4814,12 @@ void DrawValueComp(CompRecord * Comp, double OX, double OY, double Rotation, int
 		*/
 		InitDrawingObject(0, COMP_VALUE_LAYER, Mult(Comp->CompValuePenThickNess), DRAW_WITH_PEN_AND_NOT_FILLED);
 
-		if ((Mode == 0) && ((Comp->TextVisibility & 0x10) == 0x10))
+		if (((Mode == 0x200) || (Mode == 0)) && ((Comp->TextVisibility & 0x10) == 0x10))
 			SetROP2(OutputDisplay, SelectColorMode);
 
 		DrawStrWithRotation(x2, y2, h2, RotationAngle2, 0, Mirror, Comp->Value);
 
-		if ((Mode == 0) && ((Comp->TextVisibility & 0x10) == 0x10))
+		if (((Mode == 0x200) || (Mode == 0)) && ((Comp->TextVisibility & 0x10) == 0x10))
 			SetROP2(OutputDisplay, R2_COPYPEN);
 	}
 }

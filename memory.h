@@ -38,7 +38,7 @@
 extern int32 ClientWindowDivX, ClientWindowDivY, NrParams, RepeatMode, LastAction, CurrentDirection, PreviousDirection,
        CurrentGuideNr, SystemBusyMode, DrawDrillMode, RepeatModeActive, SaveSymbolsLocally, ButtonInfoTimeout,
        ButtonInfoTimeoutStart, PopupDisplayVisible, StartWithMaximumView, ZoomInOutProcessed, FastPaint, MoveCompAutoZoom,
-       ZoomMode, MousePanMultiply, DrawLayerCode[32], DrawCode;
+       ZoomMode, MousePanMultiply, DrawLayerCode[32], DrawCode, RepeatModeBusy;
 extern double CurrentDrawX1, CurrentDrawY1, CurrentDrawX2, CurrentDrawY2, CurrentX2, CurrentY2, ViewOffsetX,
        ViewOffsetY, ViewScale, VisibleMaxX, VisibleMinX, VisibleMaxY, VisibleMinY, SearchMinX, SearchMinY, SearchMaxX,
        SearchMaxY, SearchX1, SearchY1, SearchX2, SearchY2, ConnectionX1, ConnectionY1, ConnectionX2, ConnectionY2,

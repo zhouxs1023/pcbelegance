@@ -1918,7 +1918,7 @@ int32 CALLBACK LineInputDialogLong2(HWND Dialog, UINT Message, WPARAM WParam, LP
 		switch (LOWORD(WParam))
 		{
 		case IDOK:
-			memset(WorkingTextLong, 0, sizeof(WorkingTextLong));
+			*WorkingTextLong = 0;
 			res = SendDlgItemBigMessageOwn(Dialog, IDD_LINEINPUT_EDIT1, WM_GETTEXT, 2047, (LPARAM) DialogTextLine);
 
 			if (res > 0)
@@ -1989,7 +1989,7 @@ int32 CALLBACK AreaFillDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPAR
 		SetDialogItemText(Dialog, IDC_STATIC9, SC(216, "Thickness"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(217, "Add thermal reliefs"));
 		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
-		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Add thermal reliefs"));
+		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Add thermal reliefs to vias"));
 		SetDialogItemText(Dialog, IDC_STATIC4, SC(91, "Vias"));
 		SetWindowTextOwn(Dialog, SC(218, "Areafills"));
 
@@ -2247,7 +2247,7 @@ int32 CALLBACK AreaFillDialogBody2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 		SetDialogItemText(Dialog, IDD_UNITS, SC(172, "thou/mm"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(1090, "Thermal relief"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(1091, "Add thermal reliefs"));
-		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Add thermal reliefs"));
+		SetDialogItemText(Dialog, IDC_CHECK3, SC(1158, "Add thermal reliefs to vias"));
 		SetDialogItemText(Dialog, IDC_STATIC4, SC(91, "Vias"));
 		SetWindowTextOwn(Dialog, SC(1089, "Change areafill"));
 		TempUnits = Units;
@@ -2909,6 +2909,9 @@ void InitPlotLayers(int32 ReverseLayerNumbering, int32 mode)
 		if ((LayerString = GetLayerString(DRILL_LAYER)) != NULL)
 			SetPlotLayer(DRILL_LAYER, 1);
 
+		if ((LayerString = GetLayerString(BOARD_OUTLINE_LAYER)) != NULL)
+			SetPlotLayer(BOARD_OUTLINE_LAYER, 1);
+
 		for (cnt = 0; cnt < Design.NrBoardLayers; cnt++)
 		{
 			if ((LayerString = GetLayerString(cnt)) != NULL)
@@ -3059,7 +3062,7 @@ int32 CALLBACK GerberDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 		SetDialogItemText(Dialog, IDC_CHECK1, SC(270, "Output neutral file"));
 		SetDialogItemText(Dialog, IDC_CHECK2, SC(271, "Plot board outline"));
 		SetDialogItemText(Dialog, IDC_CHECK4, SC(272, "Mirror X"));
-		SetDialogItemText(Dialog, IDC_CHECK5, SC(1346, "Create Gerbv project file"));
+		SetDialogItemText(Dialog, IDC_CHECK8, SC(1346, "Create Gerbv project file"));
 		SetDialogItemText(Dialog, IDC_STATIC13, "Areafill option for hatch fill");
 //      SetDialogItemText(Dialog,IDC_STATIC13               ,SC(1288,"Areafill option for hatch fill"));
 		SetDialogItemText(Dialog, IDD_CLEAR, SC(273, "Clear all"));
@@ -4751,7 +4754,8 @@ int32 CALLBACK ComponentPlacement2(HWND Dialog, UINT Message, WPARAM WParam, LPA
 							if (stricmpOwn(UnitsStr, "inch") == 0)
 								MultFactor = 2540000.0;
 
-							if ((stricmpOwn(UnitsStr, "thou") == 0) || (stricmpOwn(UnitsStr, "mil") == 0))
+							if ((stricmpOwn(UnitsStr, "thou") == 0) || (stricmpOwn(UnitsStr, "mil") == 0)
+								|| (stricmpOwn(UnitsStr, "mils") == 0))
 								MultFactor = 2540.0;
 
 							x *= MultFactor;

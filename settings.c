@@ -656,6 +656,7 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 	COLORREF NewColor, TempGridColor;
 	int32 DialogPixelsX, DialogPixelsY;
 	RECT Rect;
+	int32 Selection;
 
 	res3 = 0;
 	about = 1;
@@ -831,9 +832,9 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 		case IDC_RADIO14:
 		case IDC_RADIO15:
 		case IDC_RADIO16:
-			if ((res = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
+			if ((Selection = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
 			{
-				SelectedObjectCode = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETITEMDATA, res, 0);
+				SelectedObjectCode = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETITEMDATA, Selection, 0);
 				Index = LOWORD(WParam) - IDC_RADIO1;
 				PCBObjectCodes[SelectedObjectCode] = Index << 8;
 				DeleteGraphicObjects();
@@ -843,7 +844,8 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 				CheckInputMessages(0);
 				CheckInputMessages(0);
 				SendMessageOwn(Dialog, WM_INITDIALOG, 0, 0);
-				SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_SETCURSEL, res, 0);
+				SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_SETCURSEL, Selection, 0);
+				SendMessageOwn(Dialog, WM_COMMAND, IDD_COLOR_LIST1, 0);
 			}
 			else
 			{
@@ -857,9 +859,9 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 			SendDlgItemMessageOwn(Dialog, IDC_RADIO17, BM_SETCHECK, 1, 0);
 			SendDlgItemMessageOwn(Dialog, IDC_RADIO18, BM_SETCHECK, 0, 0);
 
-			if ((res = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
+			if ((Selection = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
 			{
-				SelectedObjectCode = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETITEMDATA, res, 0);
+				SelectedObjectCode = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETITEMDATA, Selection, 0);
 				Index = LOWORD(WParam) - IDC_RADIO17;
 				PCBColors2[SelectedObjectCode] = (COLORREF) 0x01000000;
 				DeleteGraphicObjects();
@@ -868,8 +870,10 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 				SendMessage(PcbSettingsTabInfo[PcbSettingsFocusWindowNr].ControlList, WM_SETFOCUS, 0, 0);
 				CheckInputMessages(0);
 				CheckInputMessages(0);
-				SelectColorInList = res;
+				SelectColorInList = Selection;
 				SendMessageOwn(Dialog, WM_INITDIALOG, 0, 0);
+				SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_SETCURSEL, Selection, 0);
+				SendMessageOwn(Dialog, WM_COMMAND, IDD_COLOR_LIST1, 0);
 			}
 			else
 			{
@@ -880,10 +884,10 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 			break;
 
 		case ID_CHANGE_COLOR:
-			if ((res = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
+			if ((Selection = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
 			{
-				SelectColorInList = res;
-				res2 = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETITEMDATA, res, 0);
+				SelectColorInList = Selection;
+				res2 = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETITEMDATA, Selection, 0);
 				NewColor = GetNewColor(0, PCBColors[res2], Dialog);
 
 				if (NewColor != -1)
@@ -1057,6 +1061,8 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 					CheckInputMessages(0);
 					CheckInputMessages(0);
 					SendMessageOwn(Dialog, WM_INITDIALOG, 0, 0);
+					SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_SETCURSEL, Selection, 0);
+					SendMessageOwn(Dialog, WM_COMMAND, IDD_COLOR_LIST1, 0);
 				}
 			}
 
@@ -1066,9 +1072,9 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 			SendDlgItemMessageOwn(Dialog, IDC_RADIO17, BM_SETCHECK, 0, 0);
 			SendDlgItemMessageOwn(Dialog, IDC_RADIO18, BM_SETCHECK, 1, 0);
 
-			if ((res = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
+			if ((Selection = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
 			{
-				res2 = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETITEMDATA, res, 0);
+				res2 = SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_GETITEMDATA, Selection, 0);
 				NewColor = GetNewColor(0, PCBColors2[res2], Dialog);
 
 				if (NewColor != -1)
@@ -1234,6 +1240,8 @@ int32 CALLBACK PcbSettingsColorDialog(HWND Dialog, UINT Message, WPARAM WParam, 
 					CheckInputMessages(0);
 					CheckInputMessages(0);
 					SendMessageOwn(Dialog, WM_INITDIALOG, 0, 0);
+					SendDlgItemMessageOwn(Dialog, IDD_COLOR_LIST1, LB_SETCURSEL, Selection, 0);
+					SendMessageOwn(Dialog, WM_COMMAND, IDD_COLOR_LIST1, 0);
 				}
 			}
 

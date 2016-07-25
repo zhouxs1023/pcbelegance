@@ -92,7 +92,7 @@ extern ProjectInfoRecord *ProjectInfo;
 
 int32 LoadGatePinSwapInfo(int32 mode);
 
-void LoadIniFile(void);
+void LoadIniFile(LPSTR FileName, int32 mode);
 
 
 // *******************************************************************************************************
@@ -2857,13 +2857,15 @@ int32 CheckFile(LPSTR FileName, int32 mode)
 
 void ChangeFile(LPSTR FileName, int32 mode)
 {
-	char str[MAX_LENGTH_STRING], FileName2[MAX_LENGTH_STRING];
+	char str[MAX_LENGTH_STRING], FileName2[MAX_LENGTH_STRING], ProjectIniFile[MAX_LENGTH_STRING];
 	int32 res, CheckResult;
 
 	CheckResult = CheckFile(FileName, mode);
 
 	if (CheckResult == -1)
 		return;
+
+	ProjectIniFile[0] = 0;
 
 	if (EditFile[0] != 0)
 	{
@@ -2909,16 +2911,18 @@ void ChangeFile(LPSTR FileName, int32 mode)
 				strcpy(IniFile, str);
 		}
 
-		if (IniFile[0] == 0)
+		if (FoundProjectPath)
 		{
-			if (FoundProjectPath)
-			{
-				sprintf(str, "%s\\pcb.ini", ProjectPath);
+			sprintf(str, "%s\\pcb.ini", ProjectPath);
 
-				if (FileExistsUTF8(str) == 0)
+			if (FileExistsUTF8(str) == 0)
+			{
+				strcpy(ProjectIniFile, str);
+				if (IniFile[0] == 0)
 					strcpy(IniFile, str);
 			}
 		}
+
 	}
 	else
 	{
@@ -2927,12 +2931,22 @@ void ChangeFile(LPSTR FileName, int32 mode)
 			sprintf(str, "%s\\pcb.ini", ProjectPath);
 
 			if (FileExistsUTF8(str) == 0)
+			{
 				strcpy(IniFile, str);
+				strcpy(ProjectIniFile, str);
+			}
 		}
 	}
 
-	if (IniFile[0])
-		LoadIniFile();
+	// load [Settings]
+	if (IniFile[0] != 0)
+		LoadIniFile(IniFile, 1);
+
+	// load [Keys]
+	if (ProjectIniFile[0] != 0)
+		LoadIniFile(ProjectIniFile, 2);
+	else
+		LoadIniFile(IniFile, 2);
 
 	DeAllocateMemDesign();
 

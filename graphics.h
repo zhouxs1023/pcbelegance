@@ -247,6 +247,29 @@
 #define RGB_LightOrange                         RGB(223,188,96 )
 #define RGB_Violet                              RGB(238,130,238)
 
+// New colours
+#define RGB_AzureBlue                           RGB( 45, 91,255)
+#define RGB_StrongPink                          RGB(255,128,255)
+#define RGB_TealBlue                            RGB( 47,154,159)
+#define RGB_BrownOrange                         RGB(168,116, 45)
+#define RGB_IndigoBlue                          RGB( 87, 24,254)
+#define RGB_HeliotropePink                      RGB(191, 75,254)
+#define RGB_LightAzureBlue                      RGB(128,214,255)
+#define RGB_LightStrongPink                     RGB(255,191,255)
+#define RGB_VenetianRed                         RGB(180, 30, 30)
+#define RGB_PumpkinOrange                       RGB(255,128, 64)
+#define RGB_ScarletRed                          RGB(222, 47,  3)
+#define RGB_IndianRed                           RGB(182, 78, 80)
+#define RGB_LightAzureBlue2                     RGB(168,216,255)
+#define RGB_MauveViolet                         RGB(223,188,252)
+#define RGB_PeachOrange                         RGB(255,207,106)
+#define RGB_AmberOrange                         RGB(251,202, 55)
+#define RGB_DarkAmberOrange                     RGB(232,175,  4)
+#define RGB_DarkYellow                          RGB(210,210,  0)
+#define RGB_MidDarkGray                         RGB( 82, 82, 82)
+#define RGB_LightSepiaBrown                     RGB(121, 90, 49)
+#define RGB_SepiaBrown                          RGB( 92, 69, 37)
+#define RGB_Yellow3                             RGB(160,160,  0)
 
 // ****************************************************************************************************
 // ****************************************************************************************************

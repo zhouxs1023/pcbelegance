@@ -3414,9 +3414,34 @@ void WriteLayerInfo()
 	strcat(str, str2);
 	WriteLn(fp, str);
 
+	int32 Extra1Count;
+	int32 StrCount = 0;
+	int32 LineChars = 0;
+	
 	if (GerberInfo.Extra1[0] != 0)
 	{
-		strcpy(str, GerberInfo.Extra1);
+		for (Extra1Count = 0; Extra1Count < min(sizeof(str), sizeof(GerberInfo.Extra1)); Extra1Count++)
+		{
+			if (GerberInfo.Extra1[Extra1Count] == ':')
+			{
+				for (cnt3 = LineChars; cnt3 < 36; cnt3++)
+				{
+					str[StrCount++] = ' ';
+				}
+			}
+			
+			str[StrCount] = GerberInfo.Extra1[Extra1Count];
+
+			if (str[StrCount] == 0)
+				break;
+
+			LineChars++;
+			if (str[StrCount] == '\n')
+				LineChars = 0;
+
+			StrCount++;
+		}
+
 		WriteLn(fp, str);
 	}
 

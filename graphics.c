@@ -1824,10 +1824,10 @@ void LoadDefaultColors()
 {
 	int32 cnt;
 
-	PCBColors[ViewLayer1ObjectNr] = RGB_Red;
-	PCBColors[ViewLayer2ObjectNr] = RGB_Blue;
-	PCBColors[ViewLayer3ObjectNr] = RGB_Pink;
-	PCBColors[ViewLayer4ObjectNr] = RGB_Orange;
+	PCBColors[ViewLayer1ObjectNr] = RGB_StrongPink;
+	PCBColors[ViewLayer2ObjectNr] = RGB_AzureBlue;
+	PCBColors[ViewLayer3ObjectNr] = RGB_TealBlue;
+	PCBColors[ViewLayer4ObjectNr] = RGB_BrownOrange;
 	PCBColors[ViewLayer5ObjectNr] = RGB_DarkGreen;
 	PCBColors[ViewLayer6ObjectNr] = RGB_Magenta;
 	PCBColors[ViewLayer7ObjectNr] = RGB_Magenta;
@@ -1856,10 +1856,10 @@ void LoadDefaultColors()
 	PCBColors[ViewLayer14HilitedObjectNr] = MakeHiliteColor2(PCBColors[ViewLayer14ObjectNr]);	//  RGB_LightMagenta;
 	PCBColors[ViewLayer15HilitedObjectNr] = MakeHiliteColor2(PCBColors[ViewLayer15ObjectNr]);	//  RGB_LightMagenta;
 	PCBColors[ViewLayer16HilitedObjectNr] = MakeHiliteColor2(PCBColors[ViewLayer16ObjectNr]);	//  RGB_LightMagenta;
-	PCBColors[ViewLayer1InNetObjectNr] = RGB_Red;
-	PCBColors[ViewLayer2InNetObjectNr] = RGB_Blue;
-	PCBColors[ViewLayer3InNetObjectNr] = RGB_Pink;
-	PCBColors[ViewLayer4InNetObjectNr] = RGB_Orange;
+	PCBColors[ViewLayer1InNetObjectNr] = RGB_StrongPink;
+	PCBColors[ViewLayer2InNetObjectNr] = RGB_AzureBlue;
+	PCBColors[ViewLayer3InNetObjectNr] = RGB_TealBlue;
+	PCBColors[ViewLayer4InNetObjectNr] = RGB_BrownOrange;
 	PCBColors[ViewLayer5InNetObjectNr] = RGB_DarkGreen;
 	PCBColors[ViewLayer6InNetObjectNr] = RGB_Magenta;
 	PCBColors[ViewLayer7InNetObjectNr] = RGB_Magenta;
@@ -1892,22 +1892,22 @@ void LoadDefaultColors()
 	PCBColors[ConnectionsHilitedObjectNr] = RGB_Green;
 	PCBColors[NetPinsObjectNr] = RGB_Yellow;
 	PCBColors[NetPinsObject2Nr] = RGB_Red;
-	PCBColors[SilkScreenTopObjectNr] = RGB_Magenta;
-	PCBColors[SilkScreenBottomObjectNr] = RGB_Magenta3;
+	PCBColors[SilkScreenTopObjectNr] = RGB_ScarletRed;
+	PCBColors[SilkScreenBottomObjectNr] = RGB_IndianRed;
 	PCBColors[ReferenceObjectNr] = RGB_LightGray;
-	PCBColors[CompValueObjectNr] = RGB_DarkGreen;
-	PCBColors[ShapePlacementOutLineTopObjectNr] = RGB_LightBrown;
-	PCBColors[ShapePlacementOutLineBottomObjectNr] = RGB_DarkBrown;
+	PCBColors[CompValueObjectNr] = RGB_DarkYellow;
+	PCBColors[ShapePlacementOutLineTopObjectNr] = RGB_LightSepiaBrown;
+	PCBColors[ShapePlacementOutLineBottomObjectNr] = RGB_SepiaBrown;
 	PCBColors[ShapeCompOutLineTopObjectNr] = RGB_LightGray;
-	PCBColors[ShapeCompOutLineBottomObjectNr] = RGB_DarkGray;
-	PCBColors[ShapePinsTopObjectNr] = RGB_DarkCyan;
-	PCBColors[ShapePinsBottomObjectNr] = RGB_Gray;
+	PCBColors[ShapeCompOutLineBottomObjectNr] = RGB_MidDarkGray;
+	PCBColors[ShapePinsTopObjectNr] = RGB_IndigoBlue;
+	PCBColors[ShapePinsBottomObjectNr] = RGB_HeliotropePink;
 	PCBColors[ShapePinsInnerObjectNr] = RGB_DarkGray;
 	PCBColors[ShapePinsTopHilitedObjectNr] = MakeHiliteColor2(PCBColors[ShapePinsTopObjectNr]);
 	PCBColors[ShapePinsBottomHilitedObjectNr] = MakeHiliteColor2(PCBColors[ShapePinsBottomObjectNr]);
 	PCBColors[ShapePinsInnerHilitedObjectNr] = MakeHiliteColor2(PCBColors[ShapePinsInnerObjectNr]);
-	PCBColors[ShapePinsDrillObjectNr] = RGB_DarkRed;
-	PCBColors[ShapePinsDrillUnplatedObjectNr] = RGB_DarkBlue;
+	PCBColors[ShapePinsDrillObjectNr] = RGB_VenetianRed;
+	PCBColors[ShapePinsDrillUnplatedObjectNr] = RGB_PumpkinOrange;
 	PCBColors[ViaPinsObjectNr] = RGB(113, 113, 0);
 
 	PCBColors[ViaPinsHilitedObjectNr] = MakeHiliteColor2(PCBColors[ViaPinsObjectNr]);
@@ -1921,25 +1921,25 @@ void LoadDefaultColors()
 	PCBColors[PolylineObjectNr] = RGB_Yellow;
 	PCBColors[ErrorObjectNr] = RGB_Yellow;
 	PCBColors[WarningObjectNr] = RGB_Yellow;
-	PCBColors[GridObjectNr] = RGB_Gray;
+	PCBColors[GridObjectNr] = RGB_MidGray;
 	PCBColors[ButtonInfoObjectNr] = RGB_Yellow;
 	PCBColors[BackGroundObjectNr] = RGB_Black;
 	PCBColors[BoardOutlineObjectNr] = RGB_Gray;
-	PCBColors[BoardOutlineKeepOutObjectNr] = RGB_Yellow;
+	PCBColors[BoardOutlineKeepOutObjectNr] = RGB_Yellow3;
 
 	PCBColors[SwappablePinsGateObjectNr] = RGB_Yellow;
 	PCBColors[SwappableGatePinsObjectNr] = RGB_LightMagenta;
-	PCBColors[PasteMaskTopObjectNr] = RGB_Pink;
-	PCBColors[PasteMaskBottomObjectNr] = RGB_Green;
+	PCBColors[PasteMaskTopObjectNr] = RGB_LightAzureBlue;
+	PCBColors[PasteMaskBottomObjectNr] = RGB_LightStrongPink;
 	PCBColors[SoldMaskTopObjectNr] = PCBColors[ShapePinsTopObjectNr];
 	PCBColors[SoldMaskBottomObjectNr] = PCBColors[ShapePinsBottomObjectNr];
 //  PCBColors[SoldMaskTopObjectNr                ] = RGB_Red;
 //  PCBColors[SoldMaskBottomObjectNr             ] = RGB_Blue;
-	PCBColors[ObjectsInfo2ObjectNr] = RGB_Green;
-	PCBColors[ObjectsInfo3ObjectNr] = RGB_LightGreen;
-	PCBColors[ObjectsInfo4ObjectNr] = RGB_LightBlue;
-	PCBColors[UnconnectedPadsTopObjectNr] = RGB_DarkCyan;
-	PCBColors[UnconnectedPadsBottomObjectNr] = RGB_Gray;
+	PCBColors[ObjectsInfo2ObjectNr] = RGB_LightAzureBlue2;
+	PCBColors[ObjectsInfo3ObjectNr] = RGB_MauveViolet;
+	PCBColors[ObjectsInfo4ObjectNr] = RGB_PeachOrange;
+	PCBColors[UnconnectedPadsTopObjectNr] = RGB_IndigoBlue;
+	PCBColors[UnconnectedPadsBottomObjectNr] = RGB_HeliotropePink;
 	PCBColors[UnconnectedPadsInnerObjectNr] = RGB_DarkGray;
 	PCBColors[RoutingKeepoutTopObjectNr] = RGB_DarkRed;
 	PCBColors[RoutingKeepoutBottomObjectNr] = RGB_DarkRed;
@@ -1967,8 +1967,8 @@ void LoadDefaultColors()
 		PCBObjectCodes[ViewLayer1HilitedInNetObjectNr + cnt] = (uint32) ((13 << 8) + (2 << 20) + (1 << 16));
 	}
 
-	PCBObjectCodes[ViaPinsInNetObjectNr] = 13 << 8;
-	PCBObjectCodes[ViaPinsHilitedInNetObjectNr] = 13 << 8;
+	PCBObjectCodes[ViaPinsInNetObjectNr] = (13 << 8);
+	PCBObjectCodes[ViaPinsHilitedInNetObjectNr] = (13 << 8);
 
 	PCBObjectCodes[RoutingKeepoutTopObjectNr] = (8 << 8);
 	PCBObjectCodes[RoutingKeepoutBottomObjectNr] = (9 << 8);
@@ -1976,6 +1976,9 @@ void LoadDefaultColors()
 	PCBObjectCodes[UnconnectedPadsTopObjectNr] = (11 << 8);
 	PCBObjectCodes[UnconnectedPadsBottomObjectNr] = (11 << 8);
 	PCBObjectCodes[UnconnectedPadsInnerObjectNr] = (11 << 8);
+
+	PCBObjectCodes[PasteMaskTopObjectNr] = (7 << 8);
+	PCBObjectCodes[PasteMaskBottomObjectNr] = (7 << 8);
 
 	PCBObjectCodes[ShapePinsInnerObjectNr] = (8 << 8);
 //  PCBObjectCodes[ViaPinsObjectNr]               =(8 << 8);
@@ -1986,13 +1989,15 @@ void LoadDefaultColors()
 
 	for (cnt = 0; cnt < 192; cnt++)
 	{
-		PCBObjectCodes[cnt] |= 1 << 24;
+		PCBObjectCodes[cnt] |= (1 << 24);
 		PCBColors2[cnt] = (COLORREF) 0x01000000;	// Background color
 	}
 
-	PCBColors2[UnconnectedPadsTopObjectNr] = RGB_Yellow;
-	PCBColors2[UnconnectedPadsBottomObjectNr] = RGB_Yellow;
+	PCBColors2[UnconnectedPadsTopObjectNr] = RGB_LightAzureBlue;
+	PCBColors2[UnconnectedPadsBottomObjectNr] = RGB_LightStrongPink;
 	PCBColors2[UnconnectedPadsInnerObjectNr] = RGB_Yellow;
+	PCBColors2[PasteMaskTopObjectNr] = RGB_AmberOrange;
+	PCBColors2[PasteMaskBottomObjectNr] = RGB_DarkAmberOrange;
 
 
 }

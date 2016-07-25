@@ -3216,15 +3216,23 @@ void ChangeValue(int32 * Object, LPSTR str)
 // ********************************************************************************************************
 // ********************************************************************************************************
 
-void LoadIniFile()
+void LoadIniFile(LPSTR FileName, int32 mode)
 {
+	/*
+	mode:
+
+	bit 0 :
+	bit 1 : Load [Settings]
+	bit 2 : Load [Keys]
+
+	*/
 	int32 fp, cnt, Length, Value, res, ok, Key, ParamMode, OldWindowStartX, OldWindowStartY, OldWindowWidth,
 	      OldWindowHeight, ChangeGrid = 0, ChangeTraces = 0, ChangeClearances = 0;
 	char LineBuf[512], str1[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING], str3[MAX_LENGTH_STRING],
 	     str4[MAX_LENGTH_STRING], str5[MAX_LENGTH_STRING];
 	float Value1;
 
-	if (IniFile[0] == 0)
+	if (FileName[0] == 0)
 		return;
 
 //  MessageBox(NULL,IniFile,"Load ini file from",MB_APPLMODAL+MB_OK);
@@ -3234,7 +3242,7 @@ void LoadIniFile()
 	OldWindowWidth = WindowWidth;
 	OldWindowHeight = WindowHeight;
 
-	if ((fp = TextFileOpenUTF8(IniFile)) < 0)
+	if ((fp = TextFileOpenUTF8(FileName)) < 0)
 		return;
 
 	ParamMode = 0;
@@ -3254,13 +3262,22 @@ void LoadIniFile()
 				ParamMode = 0;
 
 				if (stricmp(str1, "[ExeDirectory]") == 0)
-					ParamMode = 1;
+				{
+					if (mode & 1)
+						ParamMode = 1;
+				}
 
 				if (stricmp(str1, "[Settings]") == 0)
-					ParamMode = 3;
+				{
+					if (mode & 1)
+						ParamMode = 3;
+				}
 
 				if (stricmp(str1, "[Keys]") == 0)
-					ParamMode = 4;
+				{
+					if (mode & 2)
+						ParamMode = 4;
+				}
 			}
 			else
 			{
@@ -4352,10 +4369,6 @@ void DecodeParameters(int32 mode)
 {
 	char *FileName;
 	int32 cnt, lengte, pos;
-
-	DesignPath[0] = 0;
-	DesignFile[0] = 0;
-	ProjectPath[0] = 0;
 
 	pos = 0;
 	lengte = 1000;

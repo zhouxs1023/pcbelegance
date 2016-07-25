@@ -73,7 +73,7 @@ int32 ClientWindowDivX, ClientWindowDivY, NrParams, RepeatMode, RepeatModeActive
         1, StartWithMaximumView, SaveSymbolsLocally, MoveCompAutoZoom, ZoomMode, MousePanMultiply, ButtonInfoTimeout =
             40, ButtonInfoTimeoutStart =
                 10, CurrentGuideNr, AreafillDrawMode, SystemBusyMode, DrawDrillMode, ZoomInOutProcessed, FastPaint,
-                DrawLayerCode[32], DrawCode;
+                DrawLayerCode[32], DrawCode, RepeatModeBusy;
 
 double SearchMinX, SearchMinY, SearchMaxX, SearchMaxY, CurrentDrawX1, CurrentDrawY1, CurrentDrawX2, CurrentDrawY2,
        ShiftOffsetX, ShiftOffsetY, VisibleMaxX, VisibleMinX, VisibleMaxY, VisibleMinY, CurrentX2, CurrentY2, ViewOffsetX,
@@ -3454,7 +3454,7 @@ void MemoryMain()
 	GerberInfo.NrPlotPens = 1;
 	GerberInfo.PenSpeed = 20.0;
 	GerberInfo.PlotMode = 0;
-	GerberInfo.PlotBoardOutline = 1;
+	GerberInfo.PlotBoardOutline = 0;
 	GerberInfo.DrillOutputOption = 1;	// Include drill tools
 	GerberInfo.AreaFillPen1 = (8 * 2540.0);
 	GerberInfo.AreaFillPen2 = (8 * 2540.0);

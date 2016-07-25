@@ -1386,7 +1386,7 @@ void MainLoop()
 		{
 			ObjectSelection();
 
-			if (RepeatMode == 0)
+			if ((RepeatMode == 0) && (LastAction != MOVE_ONE_TRACE_MODE))
 				LastAction = 0;
 
 			if (LastAction > 0)
@@ -1398,6 +1398,7 @@ void MainLoop()
 					break;
 
 				case MOVE_COMPONENTS_MODE:
+					RepeatModeBusy = 1;
 					if (GetNrCompsSelected() > 0)
 					{
 						DrawCrossHair(1);
@@ -1408,22 +1409,29 @@ void MainLoop()
 							MoveComponents(1);
 					}
 
+					RepeatModeBusy = 0;
 					break;
 
 				case MOVE_COMPONENT_REFERENCES_MODE:
+					RepeatModeBusy = 1;
 					if (GetNrReferencesSelected() == 1)
 						MoveSelectedRefs(0, 0);
 
+					RepeatModeBusy = 0;
 					break;
 
 				case MOVE_COMPONENT_VALUES_MODE:
+					RepeatModeBusy = 1;
 					if (GetNrCompValuesSelected() == 1)
 						MoveSelectedCompValues(0, 0);
 
+					RepeatModeBusy = 0;
 					break;
 
 				case OBJECTS_MODE:
+					RepeatModeBusy = 1;
 					MoveSelectedSpecialObjects(0, 1);
+					RepeatModeBusy = 0;
 					break;
 				}
 			}
@@ -2322,6 +2330,9 @@ void ExecuteKeys()
 		case MOVE_COMPONENTS_MODE:
 		case OBJECTS_MODE:
 			if (LastAction == 0)
+				RepeatMode = 0;
+
+			if (RepeatModeBusy == 0)
 				RepeatMode = 0;
 
 			LastAction = 0;
