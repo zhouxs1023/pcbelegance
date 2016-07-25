@@ -63,7 +63,7 @@ void RedrawButtons(void);
 
 void RedrawInfoBar(void);
 
-void LoadIniFile(void);
+void LoadIniFile(LPSTR FileName, int32 mode);
 
 void ScrollUp(int32 SizeOfScroll);
 

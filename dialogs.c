@@ -37,12 +37,12 @@
 #include "graphics.h"
 #include "menus.h"
 #include "help.h"
-#include "demo.h"
 #include "draw2.h"
 #include "files2.h"
 #include "mainloop.h"
 #include "utf8.h"
 #include "ctype.h"
+#include "../functionsc/version.h"
 
 #define NrGeomRadioButtons  6
 #define NrGeomInts          5
@@ -3338,8 +3338,8 @@ int32 CALLBACK AboutDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, LPARA
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(460, "Geometrie editor PCB Elegance"));
 		SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-		sprintf(str, SC(133, "Build version %i.%i.%i  [ %s ]"), PROGRAM_VERSION / 100, PROGRAM_VERSION % 100,
-		        BUILD_VERSION, TIME_STRING);
+		sprintf(str, SC(133, "Build version %i.%i.%i  [ %s ]"), VER_VERSION / 100, VER_VERSION % 100,
+			VER_BUILD, VER_DATE_STR);
 #ifdef GCC_COMP
 		strcat(str, "\r\n\r\nCompiled with mingw (gcc 4.9.2)");
 #endif
@@ -3390,7 +3390,7 @@ int32 AboutDialog()
 int32 CALLBACK ColorDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, LPARAM LParam)
 {
 	int32 about;
-	int32 res, ok, res2;
+	int32 res, ok, Selection;
 	COLORREF NewColor;
 
 	about = 1;
@@ -3431,7 +3431,6 @@ int32 CALLBACK ColorDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, LPARA
 		SetDialogItemText(Dialog, IDOK, SC(45, "OK"));
 		SetDialogItemText(Dialog, IDHELP, SC(47, "Help"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(46, "Cancel"));
-
 		return about;
 
 	case WM_DRAWITEM:
@@ -3475,14 +3474,14 @@ int32 CALLBACK ColorDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, LPARA
 			break;
 
 		case ID_CHANGE_COLOR:
-			if ((res = SendDlgItemMessage(Dialog, IDC_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
+			if ((Selection = SendDlgItemMessage(Dialog, IDC_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
 			{
-				res2 = SendDlgItemMessage(Dialog, IDC_LIST1, LB_GETITEMDATA, res, 0);
-				NewColor = GetNewColor(0, GEOMColors[res2], Dialog);
+				res = SendDlgItemMessage(Dialog, IDC_LIST1, LB_GETITEMDATA, Selection, 0);
+				NewColor = GetNewColor(0, GEOMColors[res], Dialog);
 
 				if (NewColor != -1)
 				{
-					GEOMColors[res2] = NewColor;
+					GEOMColors[res] = NewColor;
 					DeleteGraphicObjects();
 					CreateDrawObjects();
 					RePaint();
@@ -3490,6 +3489,7 @@ int32 CALLBACK ColorDialogBody(HWND Dialog, uint32 Message, WPARAM WParam, LPARA
 					CheckInputMessages(0);
 					SendDlgItemMessage(Dialog, IDC_LIST1, LB_RESETCONTENT, 0, 0);
 					SendMessage(Dialog, WM_INITDIALOG, 0, 0);
+					SendDlgItemMessage(Dialog, IDC_LIST1, LB_SETCURSEL, Selection, 0);
 				}
 			}
 

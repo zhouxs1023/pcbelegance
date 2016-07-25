@@ -145,7 +145,7 @@ void LoadObjects()
 	ObjectRecord *Object;
 	char str[MAX_LENGTH_STRING], *TextP;
 
-	memset(NewObjectPolygon, 0, sizeof(NewObjectPolygon));
+	memset(NewObjectPolygon, 0, sizeof(*NewObjectPolygon));
 // EditFile
 	NrObjects = 0;
 	NrPinObjects = 0;
@@ -4053,7 +4053,7 @@ int32 CheckFile(LPSTR FileName, int32 mode)
 
 void ChangeFile(LPSTR FileName, int32 mode)
 {
-	char str[MAX_LENGTH_STRING];
+	char str[MAX_LENGTH_STRING], ProjectIniFile[MAX_LENGTH_STRING];
 	int32 res, CheckResult;
 
 	CheckResult = CheckFile(FileName, mode);
@@ -4061,33 +4061,44 @@ void ChangeFile(LPSTR FileName, int32 mode)
 	if (CheckResult == -1)
 		return;
 
-//  MessageBox(NULL,DesignPath,"ChangeFile",MB_APPLMODAL+MB_OK);
-	if (LibraryFile[0] == 0)
-	{
+	if ((mode & 2) == 0)
 		IniFile[0] = 0;
 
-		if (FoundDesignPath)
-		{
-			sprintf(str, "%s\\geom.ini", DesignPath);
+	ProjectIniFile[0] = 0;
 
-			if (FileExistsUTF8(str) == 0)
+	if ((FoundDesignPath) && (LibraryFile[0] == 0))
+	{
+		sprintf(str, "%s\\geom.ini", DesignPath);
+
+		if (FileExistsUTF8(str) == 0)
+		{
+			if (IniFile[0] == 0)
 				strcpy(IniFile, str);
 		}
-
-		if (IniFile[0] == 0)
-		{
-			if (FoundProjectPath)
-			{
-				sprintf(str, "%s\\geom.ini", ProjectPath);
-
-				if (FileExistsUTF8(str) == 0)
-					strcpy(IniFile, str);
-			}
-		}
-
-		if (IniFile[0])
-			LoadIniFile();
 	}
+
+	if (FoundProjectPath)
+	{
+		sprintf(str, "%s\\geom.ini", ProjectPath);
+
+		if (FileExistsUTF8(str) == 0)
+		{
+			strcpy(ProjectIniFile, str);
+
+			if (IniFile[0] == 0)
+				strcpy(IniFile, str);
+		}
+	}
+
+	// load [Settings]
+	if (IniFile[0] != 0)
+		LoadIniFile(IniFile, 1);
+	
+	// load [Keys]
+	if (ProjectIniFile[0] != 0)
+		LoadIniFile(ProjectIniFile, 2);
+	else
+		LoadIniFile(IniFile, 2);
 
 //  MessageBox(NULL,DesignPath,"ChangeFile2",MB_APPLMODAL+MB_OK);
 	DeAllocateMemGeometrie();

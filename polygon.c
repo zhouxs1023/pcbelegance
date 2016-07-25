@@ -4303,7 +4303,7 @@ int32 DeleteFromObjectPolygon(int32 mode)
 	NewAreaFill = (AreaFillRecord *) AreaFillMemTemp;
 	TempAreaFill = (AreaFillRecord *) AreaFillMemTemp2;
 
-	memset(NewAreaFill, 0, sizeof(NewAreaFill));
+	memset(NewAreaFill, 0, sizeof(*NewAreaFill));
 	NewAreaFill->NrPolygons = 1;
 	NewAreaFill->MemSize = sizeof(AreaFillRecord);
 
@@ -4608,7 +4608,7 @@ int32 MergeObjectsToPolygon(int32 mode)
 	NewAreaFill = (AreaFillRecord *) AreaFillMemTemp;
 	TempAreaFill = (AreaFillRecord *) AreaFillMemTemp2;
 
-	memset(NewAreaFill, 0, sizeof(NewAreaFill));
+	memset(NewAreaFill, 0, sizeof(*NewAreaFill));
 	NewAreaFill->NrPolygons = 1;
 	NewAreaFill->MemSize = sizeof(AreaFillRecord);
 

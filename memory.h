@@ -80,7 +80,7 @@ extern float ParamsFloat[32];
 
 extern int32 FirstSize, NrObjects, CurrentObjectCode, Units, CurrentFontCode, ViewPosPointer, RepeatMode, LastAction,
        GEOMSystemError, ClipBoardMemSize, ClipBoardMemPos, MaxAreaFillMemoryTemp, MaxAreaFillMemoryTemp3, MaxTempMemory,
-       MaxTempMemory2, ParamsInt[8];
+       MaxTempMemory2, ParamsInt[8], RepeatModeBusy;
 
 
 extern uint8 CircleConv[16];

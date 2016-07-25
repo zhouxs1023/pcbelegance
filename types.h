@@ -311,7 +311,7 @@ typedef struct
 	       PitchX, PitchY, Clearance;
 	int32 NrPinsX, NrPinsY, NrPins, Start2, PinInc, Units;
 	int32 InsertPowerPad, InsertInnerPad, Pin1Square, Layer;
-	char Start1[10];
+	char Start1[12];
 } GeomCreateRecord;
 
 

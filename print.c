@@ -32,7 +32,6 @@
 #include "stdio.h"
 #include "draw2.h"
 #include "calcdef.h"
-#include "demo.h"
 #include "calc.h"
 #include "line2.h"
 #include "rect.h"

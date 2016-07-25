@@ -2809,7 +2809,7 @@ void CopyObjectsToOtherLayer(int32 Layer, int32 mode)
 // *******************************************************************************************************
 
 	memset(&PinObject, 0, sizeof(PinObject));
-	memset(NewObjectPolygon, 0, sizeof(NewObjectPolygon));
+	memset(NewObjectPolygon, 0, sizeof(*NewObjectPolygon));
 
 	for (cnt = 0; cnt < NrObjectPolygons; cnt++)
 	{

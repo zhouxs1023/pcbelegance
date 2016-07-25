@@ -2203,8 +2203,16 @@ void ChangeValue(int32 * Object, LPSTR str)
 // *******************************************************************************************************
 // *******************************************************************************************************
 
-void LoadIniFile()
+void LoadIniFile(LPSTR FileName, int32 mode)
 {
+	/*
+	mode:
+
+	bit 0 :
+	bit 1 : Load [Settings]
+	bit 2 : Load [Keys]
+
+	*/
 	int32 fp, cnt, Length, ParamMode, Value, ok, Key, OldWindowStartX, OldWindowStartY, OldWindowWidth, OldWindowHeight;
 
 	char LineBuf[512], str2[MAX_LENGTH_STRING], str1[MAX_LENGTH_STRING], str4[MAX_LENGTH_STRING],
@@ -2214,12 +2222,12 @@ void LoadIniFile()
 	int32 ChangeTraces = 0;
 	int32 ChangeClearances = 0;
 
-	if (IniFile[0] == 0)
+	if (FileName[0] == 0)
 		return;
 
 //  MessageBox(NULL,IniFile,"Load ini file from",MB_APPLMODAL+MB_OK);
 
-	if ((fp = TextFileOpenUTF8(IniFile)) < 0)
+	if ((fp = TextFileOpenUTF8(FileName)) < 0)
 		return;
 
 	OldWindowStartX = WindowStartX;
@@ -2244,10 +2252,16 @@ void LoadIniFile()
 				ParamMode = 0;
 
 				if (stricmp(str1, "[Settings]") == 0)
-					ParamMode = 3;
+				{
+					if (mode & 1)
+						ParamMode = 3;
+				}
 
 				if (stricmp(str1, "[Keys]") == 0)
-					ParamMode = 4;
+				{
+					if (mode & 2)
+						ParamMode = 4;
+				}
 			}
 			else
 			{
@@ -3183,8 +3197,6 @@ int32 AddGeomLanguageStrings(LPSTR FileName)
 
 void DecodeParameters(int32 mode)
 {
-	WCHAR EditFileW[MAX_LENGTH_STRING], EditFileW2[MAX_LENGTH_STRING], *FileName;
-	char str[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING];
 	int32 start, cnt, cnt2, lengte, pos;
 
 	pos = 0;

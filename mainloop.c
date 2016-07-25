@@ -796,7 +796,11 @@ void MainLoop()
 				LastAction = 0;
 
 			if ((LastAction > 0) && (GetNrSelectObjects() > 0))
+			{
+				RepeatModeBusy = 1;
 				MoveSelectedObjects(0, 0);
+				RepeatModeBusy = 0;
+			}
 		}
 	}
 
@@ -1494,6 +1498,9 @@ void ExecuteKeys()
 		{
 		case 1:
 			if (LastAction == 0)
+				RepeatMode = 0;
+
+			if (RepeatModeBusy == 0)
 				RepeatMode = 0;
 
 			LastAction = 0;

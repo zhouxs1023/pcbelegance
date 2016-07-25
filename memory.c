@@ -84,7 +84,7 @@ float ParamsFloat[32];
 int32 FirstSize, NrObjects, NrObjects2, CurrentObjectCode, Units, CurrentFontCode, ClipBoardMemSize, ClipBoardMemPos,
       MaxNrObjectPolygons, MaxObjectPolygonMemory, MaxNrPolygon8Objects, MaxTempMemory, MaxTempMemory2,
       MaxAreaFillMemoryTemp, MaxNrVerticesPolygon, ViewPosPointer, GEOMSystemError, RepeatMode, LastAction,
-      MousePanMultiply, ParamsInt[8];
+      MousePanMultiply, ParamsInt[8], RepeatModeBusy;
 
 int32 Debugfp, OperatingSystem;
 uint32 ClosingWindowMessage;
@@ -1093,7 +1093,7 @@ void MemoryMain()
 	RepeatMode = 0;
 	RelX = 0.0;
 	RelY = 0.0;
-	GridSize = (25.0 * 2540.0);
+	GridSize = (200.0 * 100.0);
 	ScrollSize = 100;
 	ScrollSizeDrawing = 40;
 	ScrollEndOfWindow = 40;
