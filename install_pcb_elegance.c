@@ -564,10 +564,8 @@ int32 CALLBACK InstallationDialog(HWND Dialog, WORD Message, WORD WParam, int32 
 		SendDlgItemMessage(Dialog, IDC_STATIC2, WM_SETTEXT, 0, (LPARAM) "PROGRAM directory");
 		SendDlgItemMessage(Dialog, IDC_STATIC3, WM_SETTEXT, 0, (LPARAM) "Project directory");
 		SendDlgItemMessage(Dialog, IDC_STATIC4, WM_SETTEXT, 0, (LPARAM) "Project directory");
-		SendDlgItemMessage(Dialog, IDC_STATIC5, WM_SETTEXT, 0, (LPARAM) "Project directory");
 		SendDlgItemMessage(Dialog, IDC_STATIC6, WM_SETTEXT, 0, (LPARAM) "PROGRAM directory");
 		SendDlgItemMessage(Dialog, IDC_RADIO1, WM_SETTEXT, 0, (LPARAM) "Standard windows install directory");
-		SendDlgItemMessage(Dialog, IDC_RADIO3, WM_SETTEXT, 0, (LPARAM) "Do not install. Change project directory only.");
 		SendDlgItemMessage(Dialog, IDOK, WM_SETTEXT, 0, (LPARAM) "OK");
 		SendDlgItemMessage(Dialog, IDCANCEL, WM_SETTEXT, 0, (LPARAM) "Cancel");
 		x = GetSystemMetrics(SM_CXMAXIMIZED) / 2;
@@ -576,15 +574,15 @@ int32 CALLBACK InstallationDialog(HWND Dialog, WORD Message, WORD WParam, int32 
 		x -= (DialogWindowRect.right - DialogWindowRect.left) / 2;
 		y -= (DialogWindowRect.bottom - DialogWindowRect.top) / 2;
 
-		if (StandardInstallDir)
+		//if (StandardInstallDir)
 			SendDlgItemMessage(Dialog, IDC_RADIO1, BM_SETCHECK, BST_CHECKED, 0);
-		else
-			SendDlgItemMessage(Dialog, IDC_RADIO2, BM_SETCHECK, BST_CHECKED, 0);
+		//else
+		//	SendDlgItemMessage(Dialog, IDC_RADIO2, BM_SETCHECK, BST_CHECKED, 0);
 
 		SendDlgItemMessage(Dialog, IDC_EDIT1, WM_SETTEXT, 0, (LPARAM) & ProjectDir);
-		SendDlgItemMessage(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) & ProjectDir);
+		sprintf(str, "%s\\projects", ProjectDir);
+		SendDlgItemMessage(Dialog, IDC_EDIT2, WM_SETTEXT, 0, (LPARAM) & str);
 		SendDlgItemMessage(Dialog, IDC_EDIT3, WM_SETTEXT, 0, (LPARAM) & ProjectDir);
-		SendDlgItemMessage(Dialog, IDC_EDIT4, WM_SETTEXT, 0, (LPARAM) & ProjectDir);
 		SendDlgItemMessage(Dialog, IDC_EDIT5, WM_SETTEXT, 0, (LPARAM) & InstallDir);
 		MoveWindow(Dialog, x, y, DialogWindowRect.right - DialogWindowRect.left,
 		           DialogWindowRect.bottom - DialogWindowRect.top, 1);
@@ -639,22 +637,6 @@ int32 CALLBACK InstallationDialog(HWND Dialog, WORD Message, WORD WParam, int32 
 				StandardInstallDir = 0;
 //  SHGetFolderPath(NULL,CSIDL_APPDATA,NULL,SHGFP_TYPE_CURRENT,ProjectInstallDir);
 				EndDialog(Dialog, 2);
-			}
-			else
-			{
-				if (FoundInstallation)
-				{
-					memset(ProjectDir, 0, sizeof(ProjectDir));
-					res = SendDlgItemMessage(Dialog, IDC_EDIT4, WM_GETTEXT, sizeof(ProjectDir), (LPARAM)ProjectDir);
-
-					if (ProjectDir[0] == 0)
-					{
-						sprintf(str, "Wrong directory names");
-						MessageBox(NULL, str, "Error", MB_APPLMODAL | MB_OK);
-						return about;
-					}
-					EndDialog(Dialog, 3);
-				}
 			}
 
 			return about;
@@ -752,49 +734,6 @@ HRESULT CreateLink(int Folder, LPCSTR Executable, LPSTR Directory, LPSTR LinkNam
 // *********************************************************************************************
 // *********************************************************************************************
 
-int32 WriteRegistryUpdate(void)
-{
-
-	int32 res;
-	HKEY Key;
-	char str[MAX_LENGTH_STRING];
-
-	sprintf(str, ".DEFAULT\\Software\\PCB Elegance");
-
-	if ((res = RegOpenKeyEx(HKEY_USERS, str, 0, KEY_SET_VALUE, &Key)) != ERROR_SUCCESS)
-		return -2;
-
-	sprintf(str, "%i.%i", VER_VERSION / 100, VER_VERSION % 100);
-
-	if ((res = RegSetValueEx(Key, "Version", 0, REG_SZ, (BYTE *)& str, strlen(str) + 1)) != ERROR_SUCCESS)
-		return -2;
-
-	strcpy(str, InstallDir);
-
-	if ((res = RegSetValueEx(Key, "InstallDir", 0, REG_SZ, (BYTE *)& str, strlen(str) + 1)) != ERROR_SUCCESS)
-		return -2;
-
-	strcpy(str, ProjectDir);
-
-	if ((res = RegSetValueEx(Key, "ProjectDir", 0, REG_SZ, (BYTE *)& str, strlen(str) + 1)) != ERROR_SUCCESS)
-		return -2;
-
-	strcpy(str, "English");
-
-	if ((res = RegSetValueEx(Key, "Language", 0, REG_SZ, (BYTE *)& str, strlen(str) + 1)) != ERROR_SUCCESS)
-		return -2;
-
-	if (RegCloseKey(Key) != ERROR_SUCCESS)
-		return -2;
-
-	return 0;
-}
-
-// *********************************************************************************************
-// *********************************************************************************************
-// *********************************************************************************************
-// *********************************************************************************************
-
 int32 WriteIniFileAndRegistryAndLinks(int32 mode)
 {
 	int32 res, KeyInfo, value, fp;
@@ -809,22 +748,22 @@ int32 WriteIniFileAndRegistryAndLinks(int32 mode)
 	//if (strcmp(InstallDir, ProjectDir))
 	//	sprintf(str3, "-p \"%s\"", ProjectDir);
 
-	if (CreateLink(CSIDL_PROGRAMS, str, str2, "Design manager", "Design manager", str3))
+	if (CreateLink(CSIDL_COMMON_PROGRAMS, str, str2, "Design manager", "Design manager", str3))
 		return -1;
 
 	sprintf(str, "%s\\viewplot.exe", InstallDir);
 
-	if (CreateLink(CSIDL_PROGRAMS, str, str2, "VIEWPlot", "VIEWPlot", NULL))
+	if (CreateLink(CSIDL_COMMON_PROGRAMS, str, str2, "VIEWPlot", "VIEWPlot", NULL))
 		return -1;
 
 	sprintf(str, "%s\\uninstall.exe", InstallDir);
 
-	if (CreateLink(CSIDL_PROGRAMS, str, str2, "Uninstall", "Uninstall", NULL))
+	if (CreateLink(CSIDL_COMMON_PROGRAMS, str, str2, "Uninstall", "Uninstall", NULL))
 		return -1;
 
 	sprintf(str, "%s\\manual.pdf", InstallDir);
 
-	if (CreateLink(CSIDL_PROGRAMS, str, str2, "Manual", "Manual", NULL))
+	if (CreateLink(CSIDL_COMMON_PROGRAMS, str, str2, "Manual", "Manual", NULL))
 		return -1;
 
 	sprintf(str3, "Do you want to create a link on the desktop");
@@ -845,53 +784,34 @@ int32 WriteIniFileAndRegistryAndLinks(int32 mode)
 // *********************************************************************************************
 // *********************************************************************************************
 
-	sprintf(str, ".DEFAULT\\Software\\PCB Elegance");
+	sprintf(str, "Software\\PCB Elegance");
 
-	if ((res =
-	            RegCreateKeyEx(HKEY_USERS, str, 0, "", REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL, &NewKey,
-	                           (PDWORD) & KeyInfo)) != ERROR_SUCCESS)
-	{
-		ok = 1;
+	if ((res = RegCreateKeyEx(HKEY_LOCAL_MACHINE, str, 0, "", REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS,
+		NULL, &Key, (LPDWORD)& KeyInfo)) != ERROR_SUCCESS)
 		return -2;
-	}
 
 	sprintf(str, "%i.%i", VER_VERSION / 100, VER_VERSION % 100);
 
-	if ((res = RegSetValueEx(NewKey, "Version", 0, REG_SZ, (BYTE *) & str, strlen(str) + 1)) != ERROR_SUCCESS)
-	{
-		ok = 1;
+	if ((res = RegSetValueEx(Key, "Version", 0, REG_SZ, (BYTE *)& str, strlen(str) + 1)) != ERROR_SUCCESS)
 		return -2;
-	}
 
 	strcpy(str, InstallDir);
 
-	if ((res = RegSetValueEx(NewKey, "InstallDir", 0, REG_SZ, (BYTE *) & str, strlen(str) + 1)) != ERROR_SUCCESS)
-	{
-		ok = 1;
+	if ((res = RegSetValueEx(Key, "InstallDir", 0, REG_EXPAND_SZ, (BYTE *)& str, strlen(str) + 1)) != ERROR_SUCCESS)
 		return -2;
-	}
 
 	strcpy(str, ProjectDir);
 
-	if ((res = RegSetValueEx(NewKey, "ProjectDir", 0, REG_SZ, (BYTE *) & str, strlen(str) + 1)) != ERROR_SUCCESS)
-	{
-		ok = 1;
+	if ((res = RegSetValueEx(Key, "ProjectDir", 0, REG_EXPAND_SZ, (BYTE *)& str, strlen(str) + 1)) != ERROR_SUCCESS)
 		return -2;
-	}
-
+	/*
 	strcpy(str, "English");
 
-	if ((res = RegSetValueEx(NewKey, "Language", 0, REG_SZ, (BYTE *) & str, strlen(str) + 1)) != ERROR_SUCCESS)
-	{
-		ok = 1;
+	if ((res = RegSetValueEx(Key, "Language", 0, REG_SZ, (BYTE *)& str, strlen(str) + 1)) != ERROR_SUCCESS)
+	return -2;
+	*/
+	if (RegCloseKey(Key) != ERROR_SUCCESS)
 		return -2;
-	}
-
-	if (RegCloseKey(NewKey) != ERROR_SUCCESS)
-	{
-		ok = 1;
-		return -2;
-	}
 
 // *********************************************************************************************
 // *********************************************************************************************
@@ -922,7 +842,7 @@ int32 WriteIniFileAndRegistryAndLinks(int32 mode)
 		return -2;
 	}
 
-	sprintf(str, "http://www.pcbelegance.com");
+	sprintf(str, "http://www.pcbelegance.org");
 
 	if ((res = RegSetValueEx(NewKey, "HelpLink", 0, REG_SZ, (BYTE *) & str, strlen(str) + 1)) != ERROR_SUCCESS)
 	{
@@ -1155,12 +1075,7 @@ int32 CALLBACK FinishedDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 	{
 	case WM_INITDIALOG:
 		SetWindowText(Dialog, "Installation completed");
-		if (FinalMessage == 2)
-			strcpy(str, "PCB Elegance project directory updated.");
-		else if (FoundInstallation == 1)
-			strcpy(str, "PCB Elegance is succesfully updated.");
-		else
-			strcpy(str, "PCB Elegance is succesfully installed.");
+		strcpy(str, "PCB Elegance is succesfully installed.");
 
 		SendDlgItemMessage(Dialog, IDC_STATIC2, WM_SETTEXT, 0, (LPARAM) str);
 		strcpy(str, "You can start PCB Elegance by running the Design manager or exit,\r\n");
@@ -1391,23 +1306,6 @@ void Start()
 			continue;
 		}
 
-		if (result == 3)
-		{
-			if ((WriteRegistryUpdate() == 0))
-			{
-				sprintf(str2, "Project directory changed to %s", ProjectDir);
-				MessageBox(NULL, str2, "Record updated", MB_APPLMODAL | MB_OK);
-				FinalMessage = 2;
-			}
-			else
-			{
-				sprintf(str2, "Error in writing to the registry");
-				MessageBox(NULL, str2, "Error", MB_APPLMODAL | MB_OK);
-				SendMessage(INSTALLWindow, WM_CLOSE, 0, 0);
-				return;
-			}
-		}
-
 		switch (result)
 		{
 		case 1:
@@ -1474,64 +1372,45 @@ void Start()
 
 	ok = 1;
 
-	if (!FoundInstallation)
+	if ((res = WriteIniFileAndRegistryAndLinks(0)) != 0)
 	{
-		if ((res = WriteIniFileAndRegistryAndLinks(0)) != 0)
+		switch (res)
 		{
-			switch (res)
-			{
-			case -1:
-				sprintf(str2, "Error in creating links");
-				break;
+		case -1:
+			sprintf(str2, "Error in creating links");
+			break;
 
-			case -2:
-				sprintf(str2, "Error in writing to the registry");
-				break;
+		case -2:
+			sprintf(str2, "Error in writing to the registry");
+			break;
 
-			case -3:
-				sprintf(str2, "Error in creating files in directory %s", InstallDir);
-				break;
-			}
-
-			MessageBox(NULL, str2, "Error", MB_APPLMODAL | MB_OK);
-			SendMessage(INSTALLWindow, WM_CLOSE, 0, 0);
-			return;
+		case -3:
+			sprintf(str2, "Error in creating files in directory %s", InstallDir);
+			break;
 		}
 
-		res = DialogBox(INSTALLClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_FINISHED), INSTALLWindow,
-		              (DLGPROC) FinishedDialog2);
-
-		if (res == 0)
-		{
-			sprintf(ExeFile, "%s\\design.exe", InstallDir);
-
-			//if (strcmp(InstallDir, ProjectDir))
-			//	sprintf(ExeParams, "\"%s\" -p \"%s\"", ExeFile, ProjectDir);
-			//else
-				sprintf(ExeParams, "\"%s\"", ExeFile);
-
-			StartupInfo.cb = sizeof(StartupInfo);
-			StartupInfo.wShowWindow = SW_SHOW;
-			CreateProcess(ExeFile, ExeParams, NULL, NULL, 1, 0, NULL, NULL, &StartupInfo, &ProcessInfo);
-		}
+		MessageBox(NULL, str2, "Error", MB_APPLMODAL | MB_OK);
+		SendMessage(INSTALLWindow, WM_CLOSE, 0, 0);
+		return;
 	}
-	else
+
+	res = DialogBox(INSTALLClass.hInstance, MAKEINTRESOURCE(IDD_DIALOG_FINISHED), INSTALLWindow,
+		            (DLGPROC) FinishedDialog2);
+
+	if (res == 0)
 	{
-		if ((res = WriteRegistryUpdate()) != 0)
-		{
-			switch (res)
-			{
-			case -2:
-				sprintf(str2, "Error in writing to the registry");
-				break;
-			}
+		sprintf(ExeFile, "%s\\design.exe", InstallDir);
 
-			MessageBox(NULL, str2, "Error", MB_APPLMODAL | MB_OK);
-			SendMessage(INSTALLWindow, WM_CLOSE, 0, 0);
-			return;
-		}
-			
+		//if (strcmp(InstallDir, ProjectDir))
+		//	sprintf(ExeParams, "\"%s\" -p \"%s\"", ExeFile, ProjectDir);
+		//else
+			sprintf(ExeParams, "\"%s\"", ExeFile);
+
+		StartupInfo.cb = sizeof(StartupInfo);
+		StartupInfo.wShowWindow = SW_SHOW;
+		CreateProcess(ExeFile, ExeParams, NULL, NULL, 1, 0, NULL, NULL, &StartupInfo, &ProcessInfo);
 	}
+
 
 	SendMessage(INSTALLWindow, WM_CLOSE, 0, 0);
 	return;
@@ -1985,9 +1864,9 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd, 
 	SHGetFolderPath(NULL, CSIDL_DESKTOPDIRECTORY, NULL, SHGFP_TYPE_CURRENT, str);
 	SHGetFolderPath(NULL, CSIDL_STARTMENU, NULL, SHGFP_TYPE_CURRENT, str2);
 
-	sprintf(str, ".DEFAULT\\Software\\PCB Elegance\\");
+	sprintf(str, "Software\\PCB Elegance");
 
-	if ((res = RegOpenKeyEx(HKEY_USERS, str, 0, KEY_QUERY_VALUE, &Key)) == ERROR_SUCCESS)
+	if ((res = RegOpenKeyEx(HKEY_LOCAL_MACHINE, str, 0, KEY_QUERY_VALUE, &Key)) == ERROR_SUCCESS)
 	{
 		KeyType = 0;
 		KeySize = 40;
@@ -2032,8 +1911,6 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd, 
 
 	strcpy(str3, str2);
 	
-	//sprintf(str3, "C:\\notes\\pcbeleg\\software\\install_pcb_elegance\\vc2010\\Debug\\pcb_eleg351.exe");
-
 	if (str3[0] != 0)
 		GetFullPathName(str3, 350, str2, &FileName);
 

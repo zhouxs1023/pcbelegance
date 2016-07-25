@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by install_pcb_elegance.rc
+// Used by C:\notes\pcbeleg\software\install_pcb_elegance\resource\install_pcb_elegance.rc
 //
 #define IDHELP                          9
 #define IDR_MENU1                       100
