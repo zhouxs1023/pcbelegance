@@ -82,6 +82,7 @@ int32 CALLBACK QuitDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LPar
 {
 	int32 about, x, y;
 	RECT DialogWindowRect;
+	char str[MAX_LENGTH_STRING];
 
 	about = 1;
 
@@ -101,27 +102,27 @@ int32 CALLBACK QuitDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LPar
 
 		if (InstallDirFromExeDir == 0)
 		{
-			if (strcmp(InstallDir, ProjectDir) != 0)
+			if (strstr(ProjectDir, InstallDir) == 0)
 			{
-				SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0,
-					(LPARAM)"Are you sure to uninstall PCB Elegance?\n\n"
-					"The project directory will not be deleted.\n\n"
+				sprintf(str,"Are you sure to uninstall PCB Elegance?\r\n\r\n"
+					"The project directory will not be deleted.\r\n\r\n"
 					"Project path:\n%s", ProjectDir);
+				SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0, (LPARAM)str);
 			}
 			else
 			{
-				SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0,
-					(LPARAM)"Are you sure to uninstall PCB Elegance?\n\n"
+				sprintf(str,"Are you sure to uninstall PCB Elegance?\r\n\r\n"
 					"Projects and libraries stored in the program directory "
-					"will also be deleted.\n\nProgram path:\n%s", InstallDir); 
+					"will also be deleted.\r\n\r\nProgram path:\r\n%s", InstallDir);
+				SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0, (LPARAM)str);
 			}
 		}
 		else
 		{
-			SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0,
-				(LPARAM)"Are you sure to uninstall PCB Elegance?\n\n"
+			sprintf(str,"Are you sure to uninstall PCB Elegance?\r\n\r\n"
 				"If you have stored projects and libraries in the program directory, "
-				"they will also be deleted.\n\nProgram path:\n%s", InstallDir);
+				"they will also be deleted.\r\n\r\nProgram path:\r\n%s", InstallDir);
+			SendDlgItemMessageUTF8(Dialog, IDC_STATIC2, WM_SETTEXT, 0, (LPARAM)str);
 		}
 
 		return about;
@@ -156,13 +157,11 @@ int32 CALLBACK QuitDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LPar
 
 int32 DeletePcbElegance()
 {
-	char str[MAX_LENGTH_STRING], StartMenuPath[MAX_LENGTH_STRING], DesktopPath[MAX_LENGTH_STRING],
-		Files[40][MAX_LENGTH_STRING];
-	int32 res, argc, cnt;
+	char str[MAX_LENGTH_STRING], StartMenuPath[MAX_LENGTH_STRING], DesktopPath[MAX_LENGTH_STRING];
 
 	StartMenuPath[0] = 0;
 
-	if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_PROGRAMS, NULL, SHGFP_TYPE_CURRENT, StartMenuPath)))
+	if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_COMMON_PROGRAMS, NULL, SHGFP_TYPE_CURRENT, StartMenuPath)))
 	{
 		sprintf(str, "%s\\PCB Elegance", StartMenuPath);
 		DeleteDirectory(str);
@@ -176,10 +175,8 @@ int32 DeletePcbElegance()
 		DeleteFile(str);
 	}
 
-	
-
-
-	RegDeleteKey(HKEY_USERS, ".DEFAULT\\Software\\PCB Elegance");
+	RegDeleteKey(HKEY_USERS, ".DEFAULT\\Software\\PCB Elegance"); //left by PCB Elegance 3.50
+	RegDeleteKey(HKEY_LOCAL_MACHINE, "Software\\PCB Elegance");
 	RegDeleteKey(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\PCB Elegance");
 	DeleteDirectory(InstallDir);
 
@@ -198,9 +195,9 @@ void Start()
 	HKEY Key;
 
 
-	sprintf(str, ".DEFAULT\\Software\\PCB Elegance");
+	sprintf(str, "Software\\PCB Elegance");
 
-	if ((res = RegOpenKeyEx(HKEY_USERS, str, 0, KEY_ALL_ACCESS, &Key)) == ERROR_SUCCESS)
+	if ((res = RegOpenKeyEx(HKEY_LOCAL_MACHINE, str, 0, KEY_ALL_ACCESS, &Key)) == ERROR_SUCCESS)
 	{
 		KeySize = sizeof(InstallDir) - 1;
 
