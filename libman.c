@@ -43,11 +43,11 @@
 #include "help.h"
 #include "resource.h"
 #include "params.h"
-#include "demo.h"
 #include "shlobj.h"
 #include "own_process.h"
 #include "htmlhelp.h"
 #include "utf8.h"
+#include "../functionsc/version.h"
 
 #define  SymbolLibraryCode1        "Symbol library version 1.0"
 //#define  SymbolLibraryCode2        "Symbol library version 2.0"
@@ -244,8 +244,8 @@ int32 CALLBACK AboutDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		SetWindowText(Dialog, SC(55, "About library manager PCB elegance"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(56, "library manager PCB Elegance"));
 		SetDialogItemText(Dialog, IDOK, SC(3, "OK"));
-		sprintf(str, SC(57, "Build version %i.%i.%i  [ %s ]"), PROGRAM_VERSION / 100, PROGRAM_VERSION % 100,
-		        BUILD_VERSION, TIME_STRING);
+		sprintf(str, SC(57, "Build version %i.%i.%i  [ %s ]"), VER_VERSION / 100, VER_VERSION % 100,
+			VER_BUILD, VER_DATE_STR);
 #ifdef GCC_COMP
 		strcat(str, "\r\n\r\nCompiled with mingw (gcc 4.6.1)");
 #endif

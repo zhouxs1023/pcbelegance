@@ -95,7 +95,6 @@
     <ClCompile Include="..\libman.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\demo.h" />
     <ClInclude Include="..\libman.h" />
     <ClInclude Include="..\help.h" />
     <ClInclude Include="..\resource.h" />
