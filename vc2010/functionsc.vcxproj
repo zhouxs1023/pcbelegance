@@ -40,6 +40,7 @@
     <ClInclude Include="..\resource.h" />
     <ClInclude Include="..\stdafx.h" />
     <ClInclude Include="..\utf8.h" />
+    <ClInclude Include="..\version.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C541DCB8-B7D1-4B04-A019-2468EC025957}</ProjectGuid>

@@ -34,6 +34,7 @@
 #pragma warning( disable : 4706 )	// assignment within conditional expression
 #pragma warning( disable : 4127 )	// conditional expression is constant
 #pragma warning( disable : 4201 )
+#pragma warning( disable : 4459 )
 
 #ifndef _DEBUG
 #pragma warning( disable : 4711 )	// function 'xxxxx' selected for automatic inline expansion

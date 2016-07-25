@@ -1421,9 +1421,8 @@ int CheckForWritingAndOpen(LPSTR FileName, int32 FileSize, HWND Window)
 	int64 i64FreeBytesToCaller, i64TotalBytes, i64FreeBytes;
 	char Dir[MAX_LENGTH_STRING], str[MAX_LENGTH_STRING];
 	PGETDISKFREESPACEEX pGetDiskFreeSpaceEx;
-	uint32 dwSectPerClust, dwBytesPerSect, dwFreeClusters, dwTotalClusters;
+	DWORD dwSectPerClust, dwBytesPerSect, dwFreeClusters, dwTotalClusters;
 	int32 fResult;
-
 
 	lengte = strlen(FileName);
 	BytesFree = 0;
@@ -1529,7 +1528,7 @@ int CheckForWritingAndOpenUTF8(LPSTR FileName, int32 FileSize, HWND Window)
 	int64 i64FreeBytesToCaller, i64TotalBytes, i64FreeBytes;
 	char Dir[MAX_LENGTH_STRING], str[MAX_LENGTH_STRING];
 	PGETDISKFREESPACEEX pGetDiskFreeSpaceEx;
-	uint32 dwSectPerClust, dwBytesPerSect, dwFreeClusters, dwTotalClusters;
+	DWORD dwSectPerClust, dwBytesPerSect, dwFreeClusters, dwTotalClusters;
 	int32 fResult;
 
 	BytesFree = 0;

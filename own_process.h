@@ -47,7 +47,7 @@ typedef struct
 	int32 SizeX;
 	int32 SizeY;
 	uint32 Status;
-	int32 ProcessID;
+	DWORD ProcessID;
 	int32 PosX;
 	int32 PosY;
 } WindowInfoRecord;

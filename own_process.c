@@ -374,7 +374,7 @@ void GetWindowPropertiesToFile(LPSTR Filename, int32 mode)
 			{
 				if ((mode & 2) == 0)
 				{
-					sprintf(str, "%-50s : %-50s : %4d : 0x%08x : 0x%08x : %d,%d %d,%d", WindowProperties[cnt].Name,
+					sprintf(str, "%-50s : %-50s : %4ld : 0x%08x : 0x%08x : %d,%d %d,%d", WindowProperties[cnt].Name,
 					        WindowProperties[cnt].ClassName, WindowProperties[cnt].ProcessID,
 					        (int32) WindowProperties[cnt].WindowHandle, WindowProperties[cnt].Style,
 					        WindowProperties[cnt].SizeX, WindowProperties[cnt].SizeY, WindowProperties[cnt].PosX,
@@ -399,7 +399,7 @@ void GetWindowPropertiesToFile(LPSTR Filename, int32 mode)
 			{
 				if ((WindowProperties[cnt].TopWindow) && (WindowProperties[cnt].ProcessID == cnt2))
 				{
-					sprintf(str, "%-50s : %-50s : %4d : 0x%08x : 0x%08x : %d,%d %d,%d", WindowProperties[cnt].Name,
+					sprintf(str, "%-50s : %-50s : %4ld : 0x%08x : 0x%08x : %d,%d %d,%d", WindowProperties[cnt].Name,
 					        WindowProperties[cnt].ClassName, WindowProperties[cnt].ProcessID,
 					        (int32) WindowProperties[cnt].WindowHandle, WindowProperties[cnt].Style,
 					        WindowProperties[cnt].SizeX, WindowProperties[cnt].SizeY, WindowProperties[cnt].PosX,
@@ -576,7 +576,8 @@ int32 GetProcessListToFile(LPSTR Filename)
 
 int32 GetProcessProperties(ProcessInfoRecord ** OwnProcessInfo)
 {
-	int32 ProcessesCount, MinMem, MaxMem;
+	int32 ProcessesCount;
+	SIZE_T MinMem, MaxMem;
 	HANDLE ProcessSnap = NULL, ProcessHandle = NULL;
 	PROCESSENTRY32 pe32 = { 0 };
 //  MODULEENTRY32  me32      = {0};
@@ -900,14 +901,21 @@ int32 DummyReadProcessMemory(int32 pid, int32 NrMegaBytes, int32 mode)
 // *******************************************************************************************************
 // *******************************************************************************************************
 // *******************************************************************************************************
+// *INDENT-OFF*
+void GetCPUID(uint32 op, uint32 *EAX, uint32 *EBX, uint32 *ECX, uint32 *EDX)
 
-void GetCPUID(uint32 op, uint32 * EAX, uint32 * EBX, uint32 * ECX, uint32 * EDX)
 {
 #ifdef GCC_COMP
 	uint32 regA, regB, regC, regD;
 
 
-	asm("movl   $0,%%ecx\n\t" "cpuid\n\t": "=a"(regA), "=b"(regB), "=c"(regC), "=d"(regD):"a"(op));
+	asm("movl   $0,%%ecx\n\t"
+		"cpuid\n\t"
+		: "=a" (regA),
+		"=b" (regB),
+		"=c" (regC),
+		"=d" (regD)
+		: "a" (op));
 
 	*EAX = regA;
 	*EBX = regB;
@@ -915,9 +923,15 @@ void GetCPUID(uint32 op, uint32 * EAX, uint32 * EBX, uint32 * ECX, uint32 * EDX)
 	*EDX = regD;
 #else
 	DWORD A, B, C, D;
-	_asm
-	{
-		mov eax, op mov ecx, 0 cpuid mov A, eax mov B, ebx mov C, ecx mov D, edx}
+	_asm {
+		mov eax, op
+		mov ecx, 0
+		cpuid
+		mov A, eax
+		mov B, ebx
+		mov C, ecx
+		mov D, edx
+	}
 	*EAX = A;
 	*EBX = B;
 	*ECX = C;
@@ -925,6 +939,7 @@ void GetCPUID(uint32 op, uint32 * EAX, uint32 * EBX, uint32 * ECX, uint32 * EDX)
 #endif
 }
 
+// *INDENT-ON*
 // ***************************************************************************************************
 // ***************************************************************************************************
 // ***************************************************************************************************
