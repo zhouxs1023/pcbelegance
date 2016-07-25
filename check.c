@@ -1977,7 +1977,7 @@ int32 Check(int32 mode)
 	SetTimer0();
 #endif
 
-	if (res = CheckForLoseWires(0))
+	if ((res = CheckForLoseWires(0)))
 	{
 //    Wire=&((*Wires)[res]);
 //    CenterScreen(Wire->X1,Wire->Y1,0);

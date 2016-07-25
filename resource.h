@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by C:\notes\pcbeleg\software\sch\resource\sch.rc
+// Used by sch.rc
 //
 #define IDHELP                          9
 #define IDHELP3                         11

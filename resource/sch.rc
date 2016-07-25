@@ -10,6 +10,7 @@
 #define APSTUDIO_HIDDEN_SYMBOLS
 #include "winresrc.h"
 #undef APSTUDIO_HIDDEN_SYMBOLS
+#include "../../functionsc/version.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -1019,7 +1020,8 @@ BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""winresrc.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "\0"
+	"#include ""../../functionsc/version.h""\r\n"
+	"\0"
 END
 
 3 TEXTINCLUDE 
@@ -1037,8 +1039,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,51,0,0
- PRODUCTVERSION 3,51,0,0
+ FILEVERSION VER_FILEVERSION
+ PRODUCTVERSION VER_FILEVERSION
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -1053,13 +1055,13 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "CompanyName", "www.pcbelegance.com"
+            VALUE "CompanyName", "www.pcbelegance.org"
             VALUE "FileDescription", "Sch"
-            VALUE "FileVersion", "3, 51, 0, 0"
+            VALUE "FileVersion", VER_FILEVERSION_STR
             VALUE "InternalName", "Sch"
             VALUE "OriginalFilename", "Sch.exe"
             VALUE "ProductName", "Schematic and symbol editor PCB elegance"
-            VALUE "ProductVersion", "3, 51, 0, 0"
+            VALUE "ProductVersion", VER_FILEVERSION_STR
         END
     END
     BLOCK "VarFileInfo"

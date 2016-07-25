@@ -36,7 +36,6 @@
 #include "resource.h"
 #include "sch.h"
 #include "io.h"
-#include "demo.h"
 #include "files.h"
 #include "files2.h"
 #include "help.h"
@@ -49,6 +48,7 @@
 #include "calc2.h"
 #include "richedit.h"
 #include "ctype.h"
+#include "../functionsc/version.h"
 
 #define GeometryLibraryCode1        "Geometry library version 1.0"
 
@@ -811,7 +811,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 {
 	int32 about, PinChanged, PowerPin, cnt = 0, cnt2, res, StartNumber, IncNumber, NrOfPins, AutoNumbering;
 	double divx, divy, OX, OY;
-	char sel[MAX_LENGTH_STRING], LabelName[MAX_LENGTH_STRING], NewLabelName[MAX_LENGTH_STRING],
+	char sel[MAX_LENGTH_STRING], LabelName[MAX_LENGTH_STRING],
 	     PinTextName[MAX_LENGTH_STRING], NewPinTextName[MAX_LENGTH_STRING], PinName[MAX_LENGTH_STRING],
 	     NewPinName[MAX_LENGTH_STRING], DialogTextLine[MAX_LENGTH_STRING], NumberString[100];
 #ifdef _DEBUG
@@ -1124,8 +1124,8 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 						AddedPinText[NrAddPins].FontHeight = (float) 1.0;
 						AddedPinText[NrAddPins].TextMode = ALIGN_LEFT_CENTRE;
 						AddedPinText[NrAddPins].Thickness = (float) 0.1;
-						memset(&AddedPins[NrAddPins].Label, 0, sizeof(&AddedPins[NrAddPins].Label));
-						memmove(&AddedPins[NrAddPins].Label, &LabelName, sizeof(AddedPins[NrAddPins].Label) - 1);
+						memset(&AddedPins[NrAddPins].Label, 0, sizeof(((PinRecord*)0)->Label));
+						memmove(&AddedPins[NrAddPins].Label, &LabelName, sizeof(((PinRecord*)0)->Label) - 1);
 						OX += divx;
 						OY += divy;
 						NrAddPins++;
@@ -1311,7 +1311,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 
 						// ******************************************************************************************
 
-						memset(&AddedPins[NrAddPins].Label, 0, sizeof(&AddedPins[NrAddPins].Label));
+						memset(&AddedPins[NrAddPins].Label, 0, sizeof(((PinRecord*)0)->Label));
 						memmove(&AddedPins[NrAddPins].Label, &DialogTextLine, sizeof(AddedPins[NrAddPins].Label) - 1);
 						OX += divx;
 						OY += divy;
@@ -1521,7 +1521,7 @@ int32 CALLBACK AddPinsDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM L
 
 				if (DialogTextLine[0] != 0)
 				{
-					if (CheckLabelName(DialogTextLine, PowerPin) == -1)
+					if (CheckLabelName(DialogTextLine) == -1)
 					{
 						sprintf(sel, SC(64, "Pin text ( %s ) is not valid for use as a label name"), DialogTextLine);
 						MessageBoxUTF8(SCHWindow, sel, SC(38, "Error"), MB_APPLMODAL | MB_OK);
@@ -1841,7 +1841,7 @@ int32 CALLBACK AddPinBusDialog2(HWND Dialog, UINT Message, WPARAM WParam, LPARAM
 		SetDialogItemText(Dialog, IDCANCEL, SC(2, "Cancel"));
 		SetDialogItemText(Dialog, IDHELP, SC(3, "Help"));
 		SetDialogItemText(Dialog, IDC_STATIC1, SC(78, "Pin(s)"));
-		SetDialogItemText(Dialog, IDC_STATIC2, SC(79, "Nr Pins"));
+		SetDialogItemText(Dialog, IDC_STATIC2, SC(79, "Nr pins"));
 		SetDialogItemText(Dialog, IDC_STATIC4, SC(80, "Pin text"));
 		SetDialogItemText(Dialog, IDC_STATIC4, SC(41, "Label"));
 		SetDialogItemText(Dialog, IDC_STATIC6, SC(44, "Connection"));
@@ -4353,8 +4353,8 @@ int32 CALLBACK AboutDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 		SetDialogItemText(Dialog, IDOK, SC(1, "OK"));
 		SetDialogItemText(Dialog, IDCANCEL, SC(2, "Cancel"));
 
-		sprintf(str, "Build version %i.%i.%i  [ %s ]", PROGRAM_VERSION / 100, PROGRAM_VERSION % 100, BUILD_VERSION,
-		        TIME_STRING);
+		sprintf(str, "Build version %i.%i.%i  [ %s ]", VER_VERSION / 100, VER_VERSION % 100,
+			VER_BUILD, VER_DATE_STR);
 #ifdef GCC_COMP
 		strcat(str, "\r\n\r\nCompiled with mingw (gcc 4.9.2)");
 #endif
@@ -4406,7 +4406,7 @@ int32 AboutDialog()
 int32 CALLBACK ColorDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM LParam)
 {
 	int32 about;
-	int32 res, ok, res2;
+	int32 res, ok, Selection;
 	COLORREF NewColor;
 
 	about = 1;
@@ -4490,14 +4490,14 @@ int32 CALLBACK ColorDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 			break;
 
 		case ID_CHANGE_COLOR:
-			if ((res = SendDlgItemMessage(Dialog, IDC_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
+			if ((Selection = SendDlgItemMessage(Dialog, IDC_LIST1, LB_GETCURSEL, 0, 0)) != CB_ERR)
 			{
-				res2 = SendDlgItemMessage(Dialog, IDC_LIST1, LB_GETITEMDATA, res, 0);
-				NewColor = GetNewColor(0, SCHColors[res2], Dialog);
+				res = SendDlgItemMessage(Dialog, IDC_LIST1, LB_GETITEMDATA, Selection, 0);
+				NewColor = GetNewColor(0, SCHColors[res], Dialog);
 
 				if (NewColor != -1)
 				{
-					SCHColors[res2] = NewColor;
+					SCHColors[res] = NewColor;
 					DeleteGraphicObjects();
 					CreateDrawObjects(0);
 					RePaint();
@@ -4505,6 +4505,7 @@ int32 CALLBACK ColorDialogBody(HWND Dialog, UINT Message, WPARAM WParam, LPARAM 
 					CheckInputMessages(0);
 					SendDlgItemMessage(Dialog, IDC_LIST1, LB_RESETCONTENT, 0, 0);
 					SendMessage(Dialog, WM_INITDIALOG, 0, 0);
+					SendDlgItemMessage(Dialog, IDC_LIST1, LB_SETCURSEL, Selection, 0);
 				}
 			}
 

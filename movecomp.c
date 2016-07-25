@@ -1942,8 +1942,8 @@ void FlipTextAlignment(float *x, float *y, int16 *RefInfo, int16 SymbolInfo, int
 	int32 Alignment = *RefInfo & 0x0f;
 	char str[200];
 
-	if ( ((TextRotation == 0) && (Mode == 4) && (Rotation == 0)
-		|| (TextRotation == 1) && (Mode == 8) && (Rotation == 1)) )
+	if ( ((TextRotation == 0) && (Mode == 4) && (Rotation == 0))
+		|| ((TextRotation == 1) && (Mode == 8) && (Rotation == 1)) )
 	{
 		switch (Alignment)
 		{

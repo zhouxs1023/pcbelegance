@@ -2941,6 +2941,7 @@ int32 GetMinMaxInstanceReferenceText(InstanceRecord * Instance)
 	double x1, y1, hulp;
 	int32 PinTextRotation, Alignment, ObjectMirrorX, ObjectMirrorY, Rotation;
 	int32 Check = 0;
+	char str[MAX_LENGTH_STRING];
 
 	if ((Instance->Info & (OBJECT_NOT_VISIBLE | OBJECT_PROTECTED)) != 0)
 		return -1;
@@ -3040,8 +3041,13 @@ int32 GetMinMaxInstanceReferenceText(InstanceRecord * Instance)
 		break;
 	}
 
-	GetMinMaxText(Instance->OriginX + x1, Instance->OriginY + y1, 1.0, 0, PinTextRotation, Alignment,
-	              Instance->Reference);
+	strcpy(str, Instance->Reference);
+
+	if ((!EditingSheetSymbol) && (AppendPropertiesToReferences)
+		&& ((Instance->Properties[0] != 0) || (Instance->PlacingOption != -1)))
+		strcat(str, " (...)");
+
+	GetMinMaxText(Instance->OriginX + x1, Instance->OriginY + y1, 1.0, 0, PinTextRotation, Alignment, str);
 	return 0;
 }
 

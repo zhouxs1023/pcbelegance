@@ -131,7 +131,6 @@
     <ClInclude Include="..\change.h" />
     <ClInclude Include="..\check.h" />
     <ClInclude Include="..\command.h" />
-    <ClInclude Include="..\demo.h" />
     <ClInclude Include="..\dialogs.h" />
     <ClInclude Include="..\draw.h" />
     <ClInclude Include="..\draw2.h" />

@@ -51,8 +51,8 @@
 #include "resource.h"
 #include "time.h"
 #include "utf8.h"
-#include "demo.h"
 #include "property.h"
+#include "../functionsc/version.h"
 
 
 #define  PDFConvX(x)  (((((x)*254000.0)-PDFStartX)*PDFMultFactor+PDFPageOffsetX)*PDFMultFactor2)
@@ -772,7 +772,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 		SetDialogItemTextUTF8(Dialog, IDC_STATIC1, SC(413, "Plot options"));
 		SetDialogItemTextUTF8(Dialog, IDC_STATIC2, SC(414, "Bitmap resolution"));
 		SetDialogItemTextUTF8(Dialog, IDC_STATIC3, SC(415, "User"));
-		SetDialogItemTextUTF8(Dialog, IDD_UNITS, SC(416, "thou/mm/µm"));
+		SetDialogItemTextUTF8(Dialog, IDD_UNITS, SC(416, "mils/mm/µm"));
 		SetWindowTextUTF8(Dialog, SC(417, "Bitmap output"));
 
 		TempUnits = 1;
@@ -802,7 +802,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 			if (TempUnits == 0)
 			{
 				SetDialogFloatValue(Dialog, IDC_EDIT2, (double) (BitmapExportResolution / 2540.0), 4);
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "thou"));
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "mils"));
 			}
 			else
 			{
@@ -884,7 +884,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 			{
 			case 0:
 				value1 /= 2540.0;
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "thou"));
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "mils"));
 				SetDialogFloatValue(Dialog, IDC_EDIT2, value1, 4);
 				break;
 
@@ -928,7 +928,7 @@ int32 CALLBACK ExportBitmapDialogBody(HWND Dialog, UINT Message, WPARAM WParam, 
 			{
 			case 0:
 				value1 /= 2540.0;
-				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "thou"));
+				SendDlgItemMessageUTF8(Dialog, IDC_EDIT7, WM_SETTEXT, 0, (LPARAM) (LPSTR) SC(419, "mils"));
 				SetDialogFloatValue(Dialog, IDC_EDIT2, value1, 4);
 				break;
 
@@ -4347,19 +4347,47 @@ int32 ExportToPDF(int32 PaperSize, int32 Orientation, int32 FitToPage, int32 Pdf
 
 	PDFOutput(0);
 
-
+// *INDENT-OFF*
 #if 0
 
-	4 0 obj << /Type / Page / Parent 54 0 R / Resources 41 0 R / Contents 42 0 R /
-	        Annots[5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0
-	               R 21 0 R 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R] / Thumb 47 0 R / MediaBox[0 0 1191 842] / CropBox[0 0 1191 842] / Rotate 0 >> endobj 5 0 obj << /A << /S / JavaScript / Type / Action / JS(var citem = app.popUpMenu \ ('C7320', \n \ t['Properties:', \n ' Reference  \
-  : C7320', \n ' Part No     : 2324104', \n ' Value        : 100nF', \n ' Tole\
-rance   : 10%', \n ' Nom. Voltage : 10V', \n ' Nom. Power   : ', \n ' Geom Nam\
-e    : C0402', \n ' Comp. Height : undefined', \n ' Variant      : ?', \n ' Li\
-brary      : BS Rlslib', \n], \t['Comment:', \n 'undefined' \ n] \);
-	                                                                                                                                                                                                                                                                                                        ) >> /Type / Annot / Subtype / Link / Rect[178 607 190 610] / Border[0 0 0[4 2]] / F 64 / C[1 1 0] >> endobj
+4 0 obj
+<<
+/Type /Page
+/Parent 54 0 R
+/Resources 41 0 R
+/Contents 42 0 R
+/Annots [ 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R
+15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R
+25 0 R 26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R
+35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R ]
+/Thumb 47 0 R
+/MediaBox [ 0 0 1191 842 ]
+/CropBox [ 0 0 1191 842 ]
+/Rotate 0
+>>
+endobj
+5 0 obj
+<<
+/A << /S /JavaScript /Type /Action /JS ( var citem = app.popUpMenu\( 'C7320' ,\n\t['Properties:',\n' Reference  \
+  : C7320',\n' Part No     : 2324104',\n' Value        : 100nF',\n' Tole\
+rance   : 10%',\n' Nom. Voltage : 10V',\n' Nom. Power   : ',\n' Geom Nam\
+e    : C0402',\n' Comp. Height : undefined',\n' Variant      : ?',\n' Li\
+brary      : BS Rlslib',\n],\t[ 'Comment:',\n'undefined'\n] \);  )>>
+/Type /Annot
+/Subtype /Link
+/Rect [ 178 607 190 610 ]
+/Border [ 0 0 0 [ 4 2 ] ]
+/F 64
+/C [ 1 1 0 ]
+>>
+endobj
+
 #endif
+// *INDENT-ON*
+
 // ****************************************************************************************************
+
+
 	        PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
 	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
 	WriteToFile(fp, str);
@@ -4477,91 +4505,67 @@ brary      : BS Rlslib', \n], \t['Comment:', \n 'undefined' \ n] \);
 				WriteToFile(fp, "/C [ 1 1 0 ] \r\n");
 				WriteToFile(fp, ">>\r\n");
 				WriteToFile(fp, "endobj\r\n");
+// *INDENT-OFF*
 #if 0
-				5 0 obj << /A << /S / JavaScript / Type / Action / JS(var citem =
-				            app.popUpMenu \ ('C7320', \n \ t['Properties:', \n ' Reference  \
-  : C7320', \n ' Part No     : 2324104', \n ' Value        : 100nF', \n ' Tole\
-rance   : 10%', \n ' Nom. Voltage : 10V', \n ' Nom. Power   : ', \n ' Geom Nam\
-e    : C0402', \n ' Comp. Height : undefined', \n ' Variant      : ?', \n ' Li\
-brary      : BS Rlslib', \n], \t['Comment:', \n 'undefined' \ n] \);
-				                                                     ) >> /Type / Annot / Subtype / Link / Rect[178 607 190 610] / Border[0 0 0[4 2]] / F 64 /
-				        C[1 1 0] >> endobj 150 0 obj << /A << /S / JavaScript / Type / Action / JS(var citem =
-				                    app.popUpMenu \ ('C1067',
-				                                     \n \
-				                                     t
-				                                     ['Properties:',
-				                                      \n
-				                                      ' Reference : C1067',
-				                                      \n
-				                                      ' Part No    : ',
-				                                      \n
-				                                      ' value      : 10u',
-				                                      \n
-				                                      ' Part description : Capacitor tant elco 10 uF',
-				                                      \n
-				                                      ' Geometry    : ELCO_SMD35x28',
-				                                      \n \);
-				                                    ) >> /Type / Annot /
-				                    Subtype / Link /
-				                    Rect[438 331 462 335] /
-				                    Border[0 0 0[4 2]] /
-				                    F 64 / C[1 1 0] >> endobj
+5 0 obj
+<<
+/A << /S /JavaScript /Type /Action /JS ( var citem = app.popUpMenu\( 'C7320' ,\n\t['Properties:',\n' Reference  \
+  : C7320',\n' Part No     : 2324104',\n' Value        : 100nF',\n' Tole\
+rance   : 10%',\n' Nom. Voltage : 10V',\n' Nom. Power   : ',\n' Geom Nam\
+e    : C0402',\n' Comp. Height : undefined',\n' Variant      : ?',\n' Li\
+brary      : BS Rlslib',\n],\t[ 'Comment:',\n'undefined'\n] \);  )>>
+/Type /Annot
+/Subtype /Link
+/Rect [ 178 607 190 610 ]
+/Border [ 0 0 0 [ 4 2 ] ]
+/F 64
+/C [ 1 1 0 ]
+>>
+endobj
+
+
+150 0 obj
+<<
+/A << /S /JavaScript /Type /Action /JS ( var citem = app.popUpMenu\( \
+ 'C1067' ,\n\t['Properties:',\n' Reference : C1067',\n' Part No    : ',\n\
+' value      : 10u' ,\n' Part description : Capacitor tant elco 10 uF',\n' Geometry    : ELCO_SMD35x28',\n\
+ \); )>>
+/Type /Annot
+/Subtype /Link
+/Rect [ 438 331 462 335 ]
+/Border [ 0 0 0 [ 4 2 ] ]
+/F 64
+/C [ 1 1 0 ]
+>>
+endobj
+
 #endif
+// *INDENT-ON*
 			}
 		}
 
-		for (cnt2 = 0;
-		        cnt2 <
-		        Design.NrNetLabels;
-		        cnt2++)
+		for (cnt2 = 0; cnt2 < Design.NrNetLabels; cnt2++)
 		{
-			NetLabel =
-			    &((*NetLabels)[cnt2]);
+			NetLabel = &((*NetLabels)[cnt2]);
 
-			if (((NetLabel->
-			        Info &
-			        OBJECT_NOT_VISIBLE)
-			        == 0)
-			        &&
-			        ((NrProperties =
-			              GetProperty
-			              (NetLabel->Name,
-			               NULL, NULL,
-			               -1)) > 0))
+			if (((NetLabel->Info & OBJECT_NOT_VISIBLE) == 0)
+			        && ((NrProperties = GetProperty(NetLabel->Name, NULL, NULL, -1)) > 0))
 			{
-				PDFObjectPos
-				[NrPDFObjects++] =
-				    FileCurrentPointer(fp);
-				sprintf(str,
-				        "%d 0 obj\r\n",
-				        NrPDFObjects);
+				PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+				sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
 				WriteToFile(fp, str);
-				WriteToFile(fp,
-				            "<<\r\n");
-				WriteToFile(fp,
-				            "/A << /S /JavaScript /Type /Action /JS ( var citem = app.popUpMenu\\( \\\r\n");
-				sprintf(str,
-				        " '%s' ,\\n\\t['Properties:',\\n",
-				        NetLabel->Name);
+				WriteToFile(fp, "<<\r\n");
+				WriteToFile(fp, "/A << /S /JavaScript /Type /Action /JS ( var citem = app.popUpMenu\\( \\\r\n");
+				sprintf(str, " '%s' ,\\n\\t['Properties:',\\n", NetLabel->Name);
 				WriteToFile(fp, str);
 				str[0] = 0;
 
-				for (cnt3 = 0;
-				        cnt3 < NrProperties;
-				        cnt3++)
+				for (cnt3 = 0; cnt3 < NrProperties; cnt3++)
 				{
-					GetProperty(NetLabel->
-					            Name,
-					            PropertyID,
-					            PropertyValue,
-					            cnt3);
-					sprintf(str2,
-					        "' %s   : %s',\\n",
-					        PropertyID,
-					        PropertyValue);
+					GetProperty(NetLabel->Name, PropertyID, PropertyValue, cnt3);
+					sprintf(str2, "' %s   : %s',\\n", PropertyID, PropertyValue);
 
-					if (strlen(str) +
-					        strlen(str2) > 80)
+					if (strlen(str) + strlen(str2) > 80)
 					{
 						strcat(str, "\r\n");
 						WriteToFile(fp, str);
@@ -4571,127 +4575,63 @@ brary      : BS Rlslib', \n], \t['Comment:', \n 'undefined' \ n] \);
 					strcat(str, str2);
 				}
 
-				strcat(str,
-				       "] \\); )>>\r\n");
+				strcat(str, "] \\); )>>\r\n");
 				WriteToFile(fp, str);
-				WriteToFile(fp,
-				            "/Type /Annot \r\n");
-				WriteToFile(fp,
-				            "/Subtype /Link \r\n");
-				x =
-				    NetLabel->ConnectX +
-				    NetLabel->TextX;
-				y =
-				    NetLabel->ConnectY +
-				    NetLabel->TextY;
-				x1 =
-				    (int32) (PDFConvX
-				             (x -
-				              ExtraOffsetAnnotation));
-				y1 =
-				    (int32) (PDFConvY
-				             (y -
-				              ExtraOffsetAnnotation));
-				x2 =
-				    (int32) (x1 +
-				             PDFConv(strlen
-				                     (NetLabel->
-				                      Name) *
-				                     PDFCharWidthFactor
-				                     *
-				                     FontSize
-				                     *
-				                     DefFontSize
-				                     +
-				                     ExtraOffsetAnnotation));
-				y2 =
-				    (int32) (y1 +
-				             PDFConv(FontSize
-				                     +
-				                     ExtraOffsetAnnotation));
-				sprintf(str,
-				        "/Rect [ %d %d %d %d ]\r\n",
-				        x1, y1, x2, y2);
+				WriteToFile(fp, "/Type /Annot \r\n");
+				WriteToFile(fp, "/Subtype /Link \r\n");
+				x = NetLabel->ConnectX + NetLabel->TextX;
+				y = NetLabel->ConnectY + NetLabel->TextY;
+				x1 = (int32) (PDFConvX(x - ExtraOffsetAnnotation));
+				y1 = (int32) (PDFConvY(y - ExtraOffsetAnnotation));
+				x2 = (int32) (x1 +
+				              PDFConv(strlen(NetLabel->Name) * PDFCharWidthFactor * FontSize * DefFontSize +
+				                      ExtraOffsetAnnotation));
+				y2 = (int32) (y1 + PDFConv(FontSize + ExtraOffsetAnnotation));
+				sprintf(str, "/Rect [ %d %d %d %d ]\r\n", x1, y1, x2, y2);
 				WriteToFile(fp, str);
-				WriteToFile(fp,
-				            "/Border [ 0 0 0 [ 4 2 ] ] \r\n");
-				WriteToFile(fp,
-				            "/F 64 \r\n");
-				WriteToFile(fp,
-				            "/C [ 1 1 0 ] \r\n");
-				WriteToFile(fp,
-				            ">>\r\n");
-				WriteToFile(fp,
-				            "endobj\r\n");
+				WriteToFile(fp, "/Border [ 0 0 0 [ 4 2 ] ] \r\n");
+				WriteToFile(fp, "/F 64 \r\n");
+				WriteToFile(fp, "/C [ 1 1 0 ] \r\n");
+				WriteToFile(fp, ">>\r\n");
+				WriteToFile(fp, "endobj\r\n");
 			}
 		}
 	}
 
 // ****************************************************************************************************
-	PDFObjectPos
-	[NrPDFObjects++] =
-	    FileCurrentPointer(fp);
-	NrPDFObjectsRootDir =
-	    NrPDFObjects;
-	sprintf(str,
-	        "%d 0 obj\r\n",
-	        NrPDFObjects);
+	PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+	NrPDFObjectsRootDir = NrPDFObjects;
+	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "<<\r\n");
-	WriteToFile(fp,
-	            "/Type /Pages\r\n");
-	sprintf(str,
-	        "/Count 1\r\n");
+	WriteToFile(fp, "<<\r\n");
+	WriteToFile(fp, "/Type /Pages\r\n");
+	sprintf(str, "/Count 1\r\n");
 	WriteToFile(fp, str);
 	str[0] = 0;
-	sprintf(str2,
-	        "/Kids [%d 0 R",
-	        NrPDFObjectsRootDir
-	        + 1);
+	sprintf(str2, "/Kids [%d 0 R", NrPDFObjectsRootDir + 1);
 	strcat(str, str2);
 	strcat(str, "]\r\n");
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "endobj\r\n");
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "endobj\r\n");
+
 // ****************************************************************************************************
 	cnt = 1;
-	PDFObjectPos
-	[NrPDFObjects++] =
-	    FileCurrentPointer(fp);
-	sprintf(str,
-	        "%d 0 obj\r\n",
-	        NrPDFObjects);
+	PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "<<\r\n");
-	WriteToFile(fp,
-	            "/Type /Page\r\n");
-	sprintf(str,
-	        "/Parent %d 0 R\r\n",
-	        NrPDFObjectsRootDir);
+	WriteToFile(fp, "<<\r\n");
+	WriteToFile(fp, "/Type /Page\r\n");
+	sprintf(str, "/Parent %d 0 R\r\n", NrPDFObjectsRootDir);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "/Resources << /Procset %d 0 R\r\n",
-	        NrPDFObjectsRootDir
-	        + 6);
+	sprintf(str, "/Resources << /Procset %d 0 R\r\n", NrPDFObjectsRootDir + 6);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "              /Font << /F1 %d 0 R >>\r\n",
-	        NrPDFObjectsRootDir
-	        + 7);
+	sprintf(str, "              /Font << /F1 %d 0 R >>\r\n", NrPDFObjectsRootDir + 7);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "           >>\r\n");
-	sprintf(str,
-	        "/MediaBox [0 0 %d %d]\r\n",
-	        PageSizeUnitsX,
-	        PageSizeUnitsY);
+	WriteToFile(fp, "           >>\r\n");
+	sprintf(str, "/MediaBox [0 0 %d %d]\r\n", PageSizeUnitsX, PageSizeUnitsY);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "/Contents 1 0 R\r\n");
+	sprintf(str, "/Contents 1 0 R\r\n");
 	WriteToFile(fp, str);
 
 	if (!EditingSymbol)
@@ -4699,61 +4639,28 @@ brary      : BS Rlslib', \n], \t['Comment:', \n 'undefined' \ n] \);
 		str[0] = 0;
 		cnt3 = 0;
 
-		for (cnt2 = 0;
-		        cnt2 <
-		        min(MaxNrInstances,
-		            Design.
-		            NrInstances);
-		        cnt2++)
+		for (cnt2 = 0; cnt2 < min(MaxNrInstances, Design.NrInstances); cnt2++)
 		{
-			Instance =
-			    (InstanceRecord *) &
-			    ((*Instances)[cnt2]);
+			Instance = (InstanceRecord *) & ((*Instances)[cnt2]);
 
-			if (((Instance->
-			        Info &
-			        OBJECT_NOT_VISIBLE)
-			        == 0)
-			        && (Instance->
-			            Reference[0] !=
-			            0)
-			        &&
-			        (GetInstanceRefInfo
-			         (Instance, &x, &y,
-			          &Rotation, str3,
-			          0) == 0))
+			if (((Instance->Info & OBJECT_NOT_VISIBLE) == 0) && (Instance->Reference[0] != 0)
+			        && (GetInstanceRefInfo(Instance, &x, &y, &Rotation, str3, 0) == 0))
 				cnt3++;
 		}
 
-		for (cnt2 = 0;
-		        cnt2 <
-		        Design.NrNetLabels;
-		        cnt2++)
+		for (cnt2 = 0; cnt2 < Design.NrNetLabels; cnt2++)
 		{
-			NetLabel =
-			    &((*NetLabels)[cnt2]);
+			NetLabel = &((*NetLabels)[cnt2]);
 
-			if (((NetLabel->
-			        Info &
-			        OBJECT_NOT_VISIBLE)
-			        == 0)
-			        &&
-			        ((NrProperties =
-			              GetProperty
-			              (NetLabel->Name,
-			               NULL, NULL,
-			               -1)) > 0))
+			if (((NetLabel->Info & OBJECT_NOT_VISIBLE) == 0)
+			        && ((NrProperties = GetProperty(NetLabel->Name, NULL, NULL, -1)) > 0))
 				cnt3++;
 		}
 
-		for (cnt2 = 0;
-		        cnt2 < cnt3; cnt2++)
+		for (cnt2 = 0; cnt2 < cnt3; cnt2++)
 		{
 			if (cnt2 == 0)
-			{
-				strcat(str,
-				       "/Annots [ ");
-			}
+				strcat(str, "/Annots [ ");
 
 			if (strlen(str) + 7 > 80)
 			{
@@ -4762,284 +4669,170 @@ brary      : BS Rlslib', \n], \t['Comment:', \n 'undefined' \ n] \);
 				str[0] = 0;
 			}
 
-			sprintf(str2, "%d 0 R ",
-			        cnt2 + 2);
+			sprintf(str2, "%d 0 R ", cnt2 + 2);
 			strcat(str, str2);
-			/*
-			/Annots [ 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R
-			15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R
-			25 0 R 26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R
-			35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R ]
-			*/
+// *INDENT-OFF*
+/*
+/Annots [ 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R
+15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R
+25 0 R 26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R
+35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R ]
+*/
+// *INDENT-ON*
 		}
 
 		strcat(str, "]\r\n");
 		WriteToFile(fp, str);
 	}
 
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "endobj\r\n");
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "endobj\r\n");
 // ****************************************************************************************************
-	PDFObjectPos
-	[NrPDFObjects++] =
-	    FileCurrentPointer(fp);
-	sprintf(str,
-	        "%d 0 obj\r\n",
-	        NrPDFObjects);
+	PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "<<\r\n");
-	sprintf(str,
-	        "/Dest [%d 0 R /Fit]\r\n",
-	        NrPDFObjectsRootDir
-	        + 1);
+	WriteToFile(fp, "<<\r\n");
+	sprintf(str, "/Dest [%d 0 R /Fit]\r\n", NrPDFObjectsRootDir + 1);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "/Parent %d 0 R\r\n",
-	        NrPDFObjectsRootDir
-	        + 3);
+	sprintf(str, "/Parent %d 0 R\r\n", NrPDFObjectsRootDir + 3);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "endobj\r\n");
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "endobj\r\n");
+
+
 // ****************************************************************************************************
-	PDFObjectPos
-	[NrPDFObjects++] =
-	    FileCurrentPointer(fp);
-	sprintf(str,
-	        "%d 0 obj\r\n",
-	        NrPDFObjects);
+
+	PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "<<\r\n");
-	WriteToFile(fp,
-	            "/Type /Outlines\r\n");
-	sprintf(str,
-	        "/First %d 0 R\r\n",
-	        NrPDFObjectsRootDir
-	        + 2);
+	WriteToFile(fp, "<<\r\n");
+	WriteToFile(fp, "/Type /Outlines\r\n");
+	sprintf(str, "/First %d 0 R\r\n", NrPDFObjectsRootDir + 2);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "/Last %d 0 R\r\n",
-	        NrPDFObjectsRootDir
-	        + 2);
+	sprintf(str, "/Last %d 0 R\r\n", NrPDFObjectsRootDir + 2);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "endobj\r\n");
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "endobj\r\n");
+
 // ****************************************************************************************************
-	PDFObjectPos
-	[NrPDFObjects++] =
-	    FileCurrentPointer(fp);
-	sprintf(str,
-	        "%d 0 obj\r\n",
-	        NrPDFObjects);
+	PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "<<\r\n");
-	WriteToFile(fp,
-	            "/Type /Catalog\r\n");
-	sprintf(str,
-	        "/Pages %d 0 R\r\n",
-	        NrPDFObjectsRootDir);
+	WriteToFile(fp, "<<\r\n");
+	WriteToFile(fp, "/Type /Catalog\r\n");
+	sprintf(str, "/Pages %d 0 R\r\n", NrPDFObjectsRootDir);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "/Outlines %d 0 R\r\n",
-	        NrPDFObjectsRootDir
-	        + 3);
+	sprintf(str, "/Outlines %d 0 R\r\n", NrPDFObjectsRootDir + 3);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "/PageLayout /SinglePage\r\n");
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "endobj\r\n");
+	WriteToFile(fp, "/PageLayout /SinglePage\r\n");
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "endobj\r\n");
+
 // ****************************************************************************************************
-	PDFObjectPos
-	[NrPDFObjects++] =
-	    FileCurrentPointer(fp);
-	sprintf(str,
-	        "%d 0 obj\r\n",
-	        NrPDFObjects);
+	PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "<<\r\n");
-	WriteToFile(fp,
-	            "/CreationDate ");
+	WriteToFile(fp, "<<\r\n");
+	WriteToFile(fp, "/CreationDate ");
 	time(&ltime);
-	today =
-	    localtime(&ltime);
-	strftime(str, 100,
-	         "(D:%Y%m%d%H%M%S)\r\n",
-	         today);
+	today = localtime(&ltime);
+	strftime(str, 100, "(D:%Y%m%d%H%M%S)\r\n", today);
 	WriteToFile(fp, str);
 
-	if
-	(PDFCreatorOrganisation
-	        [0] != 0)
+	if (PDFCreatorOrganisation[0] != 0)
 	{
-		sprintf(str,
-		        "/Author (%s)\r\n",
-		        PDFCreatorOrganisation);
+		sprintf(str, "/Author (%s)\r\n", PDFCreatorOrganisation);
 		WriteToFile(fp, str);
 	}
 
-	if (PDFCreatorName[0] !=
-	        0)
+	if (PDFCreatorName[0] != 0)
 	{
-		sprintf(str,
-		        "/Creator (%s)\r\n",
-		        PDFCreatorName);
+		sprintf(str, "/Creator (%s)\r\n", PDFCreatorName);
 		WriteToFile(fp, str);
 	}
 
 	if (PDFSubject[0] != 0)
 	{
-		sprintf(str,
-		        "/Subject (%s)\r\n",
-		        PDFSubject);
+		sprintf(str, "/Subject (%s)\r\n", PDFSubject);
 		WriteToFile(fp, str);
 	}
 
-	GetFilePartFromFileName
-	(str, EditFile);
+	GetFilePartFromFileName(str, EditFile);
 
 	if (!EditingSymbol)
-	{
-		sprintf(PDFTitle,
-		        "Schematic file %s",
-		        str);
-	}
+		sprintf(PDFTitle, "Schematic file %s", str);
 	else
 	{
 		if (!EditingSheetSymbol)
-		{
-			sprintf(PDFTitle,
-			        "Symbol file %s",
-			        str);
-		}
+			sprintf(PDFTitle, "Symbol file %s", str);
 		else
-		{
-			sprintf(PDFTitle,
-			        "Sheet symbol file %s",
-			        str);
-		}
+			sprintf(PDFTitle, "Sheet symbol file %s", str);
 	}
 
-	sprintf(str,
-	        "/Title (%s)\r\n",
-	        PDFTitle);
+	sprintf(str, "/Title (%s)\r\n", PDFTitle);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "/Producer (PCB elegance %d.%d\n",
-	        PROGRAM_VERSION /
-	        100,
-	        PROGRAM_VERSION %
-	        100);
+	sprintf(str, "/Producer (PCB elegance %d.%d\n", VER_VERSION / 100, VER_VERSION % 100);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "endobj\r\n");
-// ****************************************************************************************************
-	PDFObjectPos
-	[NrPDFObjects++] =
-	    FileCurrentPointer(fp);
-	sprintf(str,
-	        "%d 0 obj\r\n",
-	        NrPDFObjects);
-	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "<<\r\n");
-	WriteToFile(fp,
-	            "[ /PDF /Text ]\r\n");
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "endobj\r\n");
-// ****************************************************************************************************
-	PDFObjectPos
-	[NrPDFObjects++] =
-	    FileCurrentPointer(fp);
-	sprintf(str,
-	        "%d 0 obj\r\n",
-	        NrPDFObjects);
-	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "<<\r\n");
-	WriteToFile(fp,
-	            "/Type /Font\r\n");
-	WriteToFile(fp,
-	            "/Subtype /Type1\r\n");
-	WriteToFile(fp,
-	            "/Name /F1\r\n");
-	WriteToFile(fp,
-	            "/BaseFont /Courier\r\n");
-//  WriteToFile(fp,"/BaseFont /Helvetica\r\n");
-	WriteToFile(fp,
-	            "/Encoding /MacRomanEncoding\r\n");
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "endobj\r\n");
-// ****************************************************************************************************
-	pos =
-	    FileCurrentPointer(fp);
-	WriteToFile(fp,
-	            "xref\r\n");
-	sprintf(str, "0 %d\r\n",
-	        NrPDFObjects +
-	        1);
-	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "0000000000 65535 f\r\n");
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "endobj\r\n");
 
-	for (cnt = 0;
-	        cnt < NrPDFObjects;
-	        cnt++)
+// ****************************************************************************************************
+
+	PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
+	WriteToFile(fp, str);
+	WriteToFile(fp, "<<\r\n");
+	WriteToFile(fp, "[ /PDF /Text ]\r\n");
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "endobj\r\n");
+
+// ****************************************************************************************************
+
+	PDFObjectPos[NrPDFObjects++] = FileCurrentPointer(fp);
+	sprintf(str, "%d 0 obj\r\n", NrPDFObjects);
+	WriteToFile(fp, str);
+	WriteToFile(fp, "<<\r\n");
+	WriteToFile(fp, "/Type /Font\r\n");
+	WriteToFile(fp, "/Subtype /Type1\r\n");
+	WriteToFile(fp, "/Name /F1\r\n");
+	WriteToFile(fp, "/BaseFont /Courier\r\n");
+//  WriteToFile(fp,"/BaseFont /Helvetica\r\n");
+	WriteToFile(fp, "/Encoding /MacRomanEncoding\r\n");
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "endobj\r\n");
+// ****************************************************************************************************
+
+	pos = FileCurrentPointer(fp);
+	WriteToFile(fp, "xref\r\n");
+	sprintf(str, "0 %d\r\n", NrPDFObjects + 1);
+	WriteToFile(fp, str);
+	WriteToFile(fp, "0000000000 65535 f\r\n");
+
+	for (cnt = 0; cnt < NrPDFObjects; cnt++)
 	{
-		sprintf(str,
-		        "%010d 00000 n\r\n",
-		        PDFObjectPos
-		        [cnt]);
+		sprintf(str, "%010d 00000 n\r\n", PDFObjectPos[cnt]);
 		WriteToFile(fp, str);
 	}
 
-	WriteToFile(fp,
-	            "trailer\r\n");
-	WriteToFile(fp,
-	            "<<\r\n");
-	sprintf(str,
-	        "/Size %d\r\n",
-	        NrPDFObjects +
-	        1);
+	WriteToFile(fp, "trailer\r\n");
+	WriteToFile(fp, "<<\r\n");
+	sprintf(str, "/Size %d\r\n", NrPDFObjects + 1);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "/Root %d 0 R\r\n",
-	        NrPDFObjectsRootDir
-	        + 4);
+	sprintf(str, "/Root %d 0 R\r\n", NrPDFObjectsRootDir + 4);
 	WriteToFile(fp, str);
-	sprintf(str,
-	        "/Info %d 0 R\r\n",
-	        NrPDFObjectsRootDir
-	        + 5);
+	sprintf(str, "/Info %d 0 R\r\n", NrPDFObjectsRootDir + 5);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            ">>\r\n");
-	WriteToFile(fp,
-	            "startxref\r\n");
-	sprintf(str, "%d\r\n",
-	        pos);
+
+	WriteToFile(fp, ">>\r\n");
+	WriteToFile(fp, "startxref\r\n");
+	sprintf(str, "%d\r\n", pos);
 	WriteToFile(fp, str);
-	WriteToFile(fp,
-	            "%%EOF\r\n");
+	WriteToFile(fp, "%%EOF\r\n");
+
 	FileClose(fp);
-	DeAllocateMemMessageBuf
-	();
+
+	DeAllocateMemMessageBuf();
+
 	return 0;
 }
 

@@ -2248,7 +2248,7 @@ void CommandAddMultipleNetLabels(int32 Mode)
 						WiresSelected[LowestCnt] = -1;
 						memset(&NewNetLabel, 0, sizeof(NetLabelRecord));
 						memset(&HulpLine, 0, 100);
-						sprintf(HulpLine, "%s%i%s", &FirstText, count, &LastText);
+						sprintf(HulpLine, "%s%i%s", FirstText, count, LastText);
 						memmove(&NewNetLabel.Name, &HulpLine, 35);
 						NewNetLabel.ConnectX = Wire->X1;
 						NewNetLabel.ConnectY = Wire->Y1;
@@ -2292,7 +2292,7 @@ void CommandAddMultipleNetLabels(int32 Mode)
 						WiresSelected[HighestCnt] = -1;
 						memset(&NewNetLabel, 0, sizeof(NetLabelRecord));
 						memset(&HulpLine, 0, 100);
-						sprintf(HulpLine, "%s%i%s", &FirstText, count, &LastText);
+						sprintf(HulpLine, "%s%i%s", FirstText, count, LastText);
 						memmove(&NewNetLabel.Name, &HulpLine, 35);
 						NewNetLabel.ConnectX = Wire->X1;
 						NewNetLabel.ConnectY = Wire->Y1;

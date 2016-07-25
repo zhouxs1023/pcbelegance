@@ -205,7 +205,8 @@ HWND GetDesignManagersWindow(int32 mode)
 
 void InsertWindowInProject(HWND Window, int32 mode)
 {
-	int32 cnt, PID, PID2;
+	int32 cnt;
+	DWORD PID, PID2;
 	HWND DesignWindow;
 
 	if (ProjectInfo == NULL)
@@ -2211,8 +2212,16 @@ LRESULT CALLBACK SCHWinProc(HWND Window, UINT Message, WPARAM WParam, LPARAM LPa
 // ********************************************************************************************************
 // ********************************************************************************************************
 
-void LoadIniFile(LPSTR FileName)
+void LoadIniFile(LPSTR FileName, int32 mode)
 {
+	/*
+	mode:
+
+	bit 0 :
+	bit 1 : Load [Settings]
+	bit 2 : Load [Keys]
+
+	*/
 	int32 fp, Length, Value, ok, Key, ParamMode, OldWindowStartX, OldWindowStartY, OldWindowWidth, OldWindowHeight;
 	char LineBuf[512], str1[MAX_LENGTH_STRING], str2[MAX_LENGTH_STRING], str4[MAX_LENGTH_STRING];
 	float Value2;
@@ -2251,22 +2260,34 @@ void LoadIniFile(LPSTR FileName)
 				ParamMode = 0;
 
 				if (stricmp(str1, "[Files]") == 0)
-					ParamMode = 0;
+				{
+					if (mode & 1)
+						ParamMode = 5;
+				}
 
 				if (stricmp(str1, "[Settings]") == 0)
-					ParamMode = 1;
+				{
+					if (mode & 1)
+						ParamMode = 1;
+				}
 
 				if (stricmp(str1, "[Printer]") == 0)
-					ParamMode = 2;
+				{
+					if (mode & 1)
+						ParamMode = 2;
+				}
 
 				if (stricmp(str1, "[Keys]") == 0)
-					ParamMode = 4;
+				{
+					if (mode & 2)
+						ParamMode = 4;
+				}
 			}
 			else
 			{
 				switch (ParamMode)
 				{
-				case 0:
+				case 5:
 					if ((NrUsedFiles < 16) && (str1[0] != 0))
 					{
 						strncpy(UsedFiles[NrUsedFiles], str1, MAX_LENGTH_STRING - 1);
@@ -3020,7 +3041,6 @@ int32 AddSchLanguageStrings(LPSTR FileName)
 void DecodeParameters(int32 mode)
 {
 	int32 cnt, lengte, pos;
-	char *FileName;
 	float x, y;
 
 	DesignPath[0] = 0;

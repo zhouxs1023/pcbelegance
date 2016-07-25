@@ -79,7 +79,7 @@ STARTUPINFO StartupInfo;
 // ********************************************************************************************************
 // ********************************************************************************************************
 
-void LoadIniFile(LPSTR FileName);
+void LoadIniFile(LPSTR FileName, int32 mode);
 
 // ********************************************************************************************************
 // ********************************************************************************************************
@@ -3002,7 +3002,6 @@ int32 ChangeFile(LPSTR FileName, int32 mode)
 
 	char str[MAX_LENGTH_STRING], FileName2[MAX_LENGTH_STRING];
 	int32 lengte, res, CheckResult, EditingMode;
-	int32 IniFileChanged = 1;
 
 	EditingMode = -1;
 
@@ -3136,12 +3135,21 @@ int32 ChangeFile(LPSTR FileName, int32 mode)
 	res = 0;
 
 	if (((OldIniFile[0] == 0) || (stricmpUTF8(OldIniFile, IniFile) != 0)) && (IniFile != NULL) && (IniFile[0] != 0)
-	        && (IniFileChanged) && ((mode & 4) == 0))
-		LoadIniFile(IniFile);
+		&& ((mode & 4) == 0))
+	{
+		LoadIniFile(IniFile, 1);
+
+		strcpy(str, ProjectPath);
+		strcat(str, "\\sch.ini");
+
+		if (FileExistsUTF8(str) == 0)
+			LoadIniFile(str, 2);
+	}
 	else
 	{
 //    MessageBoxUTF8(SCHWindow,"No inifile","",MB_OK+MB_APPLMODAL);
 	}
+
 
 	DeAllocateMemDesign();
 	res = 0;
@@ -3246,13 +3254,6 @@ int32 ChangeFile(LPSTR FileName, int32 mode)
 		AddMenuFiles();
 		ViewWholeDesign(0);
 		RePaint();
-
-//    ViewFull(1);
-//    ValidateRect(SCHWindow,NULL);
-		if (IniFileChanged)
-		{
-//      RePaint();
-		}
 
 		CheckInputMessages(0);
 		CheckInputMessages(0);

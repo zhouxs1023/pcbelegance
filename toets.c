@@ -118,7 +118,7 @@ KeyRecord KeyFunctions[MaxFunctions] =
   FunctionChangeUnits                 ,0x0000                           ,Key_Ctrl_U            ,0,-1,"FunctionChangeUnits"                 ,
   FunctionUndo                        ,ID_EDIT_UNDO                     ,(int32)'u'            ,0,-1,"FunctionUndo"                        ,
   FunctionEditText                    ,ID_EDIT_TEXT                     ,(int32)'e'            ,0,-1,"FunctionEdit"                        ,
-  FunctionRedo                        ,ID_EDIT_REDO                     ,0                     ,0,-1,"FunctionRedo"                        ,
+  FunctionRedo                        ,ID_EDIT_REDO                     ,(int32)'y'            ,0,-1,"FunctionRedo"                        ,
   FunctionRePaint                     ,ID_VIEW_REPAINT                  ,Key_F5                ,0,-1,"FunctionRePaint"                     ,
   FunctionUnselectAll                 ,ID_UNSELECT_ALL                  ,Key_F2                ,0,-1,"FunctionUnselectAll"                 ,
   FunctionFileOpen                    ,ID_FILE_OPEN                     ,Key_F3                ,0,-1,"FunctionFileOpen"                    ,
