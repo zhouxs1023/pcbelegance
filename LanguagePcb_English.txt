@@ -1152,7 +1152,7 @@
 1155 "Material"
 1156 "Copper thickness"
 1157 "FR4"
-1158 "Do not add thermal reliefs"
+1158 "Add thermal reliefs to vias"
 1159 "Reverse layer numbering"
 1160 "Output drill data as gerber file"
 1161 "Drill file (gerber output)"
@@ -1340,3 +1340,4 @@
 1344 "Add Font"
 1345 "Value : %s\r\n"
 1346 "Create Gerbv project file"
+1347 "THOU"

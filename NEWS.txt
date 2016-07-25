@@ -1,6 +1,87 @@
 PCB Elegance NEWS
 =================
 
+Version 3.52 - 25/7/2016
+
+Layout editor
+-------------
+* BUGFIX - Previous view feature works correctly now.
+* BUGFIX - Fixed some cases where undo would not work correctly.
+* BUGFIX - Improved left and right mouse click handling.
+* BUGFIX - Mirror objects x and mirror objects y now work correctly for text objects.
+* BUGFIX - Limit rotation values for components and component ref/values when rotating with right click (move mode).
+* BUGFIX - Save layout as a geometry feature now checks and fixes bad rotation values of text and components.
+* BUGFIX - Selection of nets in design rules dialogue box no longer resets after changing the properties.
+* BUGFIX - Object snap on/off in the context menu works now.
+* BUGFIX - Activation of pop-up display manually via keyboard works correctly now. The default key is 'q' for query.
+* BUGFIX - Swap nets feature works correctly now.
+* BUGFIX - User variables work correctly now. It even supports unicode.
+* BUGFIX - Components now show up properly when the design has only one copper layer.
+* BUGFIX - Component outline layer of a component now turns white when selected.
+* BUGFIX - Component value and ref turn now white immediately after being selected without any refresh required.
+* BUGFIX - Drag one trace mode no longer breaks after selecting Exit from the context menu.
+* Colour dialogue no longer resets selection.
+* Accelerator keys section of the pcb.ini file in the project directory now has a higher priority than the keys section in the local design pcb.ini file.
+* Repeat is smarter now. No need to double tap the escape key.
+* Highlight accelerator key now works in change traces/vias mode as well as route mode.
+* Pop-up info display now includes component value when showing component pin info.
+* Added sensible metric defaults to some dialogue boxes.
+* Thermal reliefs on vias option in the areafill dialogue box was changed to be more clear.
+* Extra field of the gerber output dialogue / layers.txt file has improved semicolon handling.
+* Added Gerbv (GEDA gerber viewer) project file generation feature.
+* Some of the default accelerator keys have changed. The three routing modes now have a separate key each, in addition to the routing mode selection key which toggles between them.
+* Default layer colours have been changed. The previous ones were ugly and caused eye fatigue.
+* Imperial units 'mils' have changed to 'thou' in all text to prevent confusion with mm, which is pronounced 'mil' in English.
+* Relative line drawing now uses the last point as the relative reference, instead of the relative cursor, unless it's the first point. Allows the use of Auto-cad style prefix '@' and '#' for relative and absolute, respectively. The default is still absolute.
+
+Geometry editor
+---------------
+* BUGFIX - Previous view feature works correctly now.
+* BUGFIX - Fixed some cases where undo would not work correctly.
+* BUGFIX - Improved left and right mouse click handling.
+* BUGFIX - Tooltip for buttons now shows the key.
+* BUGFIX - Text rotation no longer does strange things after 'rotating too many times'.
+* BUGFIX - Text flip x and text flip y both work now.
+* BUGFIX - Arc flip x and arc flip y now work correctly.
+* Colour dialogue no longer resets selection.
+* Repeat is smarter now. No need to double tap the escape key.
+* Accelerator keys section in the project directory geom.ini file now has a higher priority than the local design geom.ini file.
+* Some of the default layer colours have changed to keep consistency with the layout editor.
+* Imperial units 'mils' have changed to 'thou' in all text to prevent confusion with mm, which is pronounced 'mil' in English.
+* Relative line drawing now uses the last point as the relative reference, instead of the relative cursor, unless it's the first point. Allow the use of Auto-cad style prefix '@' and '#' for relative and absolute, respectively. The default is still absolute.
+* Renamed IC wizards (from New geometry) to have more meaningful names.
+* Toolbar button for rectangle now makes a rectangle from four lines instead of a solid object.
+
+Schematic/Symbol editor
+-----------------------
+* BUGFIX - Previous view feature works correctly now.
+* BUGFIX - Fixed some cases where undo would not work correctly.
+* BUGFIX - Improved left and right mouse click handling.
+* BUGFIX - Pinbus reorder works now.
+* BUGFIX - Using mirror x on component ref/value now changes left/right alignment instead of moving the text far, far away.
+* Colour dialogue no longer resets selection.
+* Accelerator keys section in the project directory sch.ini file now has a higher priority than the local design sch.ini file.
+* Increased the size of the list in the add pin dialogue box from 24 to 25 lines (makes it possible to do a 100 pin QFP in four steps).
+* Auto pins number feature of the add pin dialogue is now more useful and intuitive.
+
+Design Manager
+--------------
+* The project directory path will now be read from the Windows registry if not provided by an environment variable or command line parameter. It can be changed from within design manager (Edit -> Configure paths).
+* Gerbv is now supported as an alternative gerber viewer.
+
+Installer/uninstaller/misc
+--------------------------
+* Installing over the top of a previous installation will not overwrite anything in the projects directory (libraries, ini files, etc).
+* Uninstaller will warn if it thinks there are projects stored in the program directory (which would be deleted).
+* Uninstaller no longer deletes the project directory (!!!), instead merely mentions that it exists.
+* The manual and help files are up to date.
+
+
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+
 Version 3.51 - 19/5/2016
 
 Layout editor
@@ -44,7 +125,10 @@ Layout editor
 * Setting PCB layers to 1 is buggy. Workaround: Set layers to 2 for a single layer board
 * The 'Save layout as a geometry' feature crashes the program sometimes
 
-
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
+// *******************************************************************************************************
 
 Version 3.50 - 18/5/2012
 
