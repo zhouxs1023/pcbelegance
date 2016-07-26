@@ -1,0 +1,5 @@
+﻿  libman.c
+..\libman.c(2473): warning C4101: 'length': unreferenced local variable
+..\libman.c(2473): warning C4101: 'cnt2': unreferenced local variable
+..\libman.c(3218): warning C4101: 'Wstr': unreferenced local variable
+  libman.vcxproj -> C:\notes\pcbeleg\software\vc2010\Release\libman.exe
