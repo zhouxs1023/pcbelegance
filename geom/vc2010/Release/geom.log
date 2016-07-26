@@ -1,0 +1,30 @@
+﻿  calc.c
+  calcdef.c
+  calcrect.c
+  command.c
+  dialogs.c
+  draw.c
+  draw2.c
+  draw3.c
+  dxf.c
+  edit.c
+  files.c
+  geom.c
+  graphics.c
+  help.c
+  insdel.c
+  mainloop.c
+..\geom.c(388): warning C4101: 'res': unreferenced local variable
+..\geom.c(3200): warning C4101: 'FileName': unreferenced local variable
+..\geom.c(3200): warning C4101: 'EditFileW': unreferenced local variable
+..\geom.c(3200): warning C4101: 'EditFileW2': unreferenced local variable
+..\geom.c(3201): warning C4101: 'str2': unreferenced local variable
+..\geom.c(3201): warning C4101: 'str': unreferenced local variable
+  memory.c
+  menus.c
+  movecomp.c
+  polygon.c
+  print.c
+  select.c
+  toets.c
+  geom.vcxproj -> C:\notes\pcbeleg\software\vc2010\Release\geom.exe
