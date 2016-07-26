@@ -1,0 +1,1046 @@
+calc.o: ..\calc.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\memory.h \
+ ..\calc.h ..\sch.h ..\calcdef.h c:\mingw\include\math.h ..\insdel.h \
+ ..\mainloop.h c:\mingw\include\time.h
+calc2.o: ..\calc2.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\calc2.h ..\draw.h \
+ c:\mingw\include\math.h ..\sch.h ..\calc.h ..\calcdef.h
+calcdef.o: ..\calcdef.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\calcdef.h c:\mingw\include\math.h \
+ ..\..\functionsc/files2.h ..\uservar.h ..\memory.h \
+ c:\mingw\include\time.h c:\mingw\include\parts\time.h \
+ c:\mingw\include\ctype.h
+calcrect.o: ..\calcrect.c ..\..\functionsc/owntypes.h ..\calcrect.h \
+ c:\mingw\include\string.h c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h c:\mingw\include\math.h \
+ c:\mingw\include\stdlib.h
+change.o: ..\change.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\graphics.h ..\toets.h \
+ ..\mainloop.h ..\edit.h ..\edit2.h ..\..\functionsc/line2.h ..\draw.h \
+ ..\draw2.h ..\draw3.h ..\..\functionsc/ellipss.h ..\sch.h ..\calc.h \
+ c:\mingw\include\math.h ..\calc2.h ..\calcdef.h ..\calcrect.h \
+ ..\insdel.h ..\files.h ..\dialogs.h ..\select.h ..\resource.h \
+ ..\property.h
+check.o: ..\check.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\check.h \
+ c:\mingw\include\math.h ..\calc.h ..\calcdef.h ..\resource.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\dialogs.h ..\mainloop.h ..\insdel.h \
+ ..\sch.h ..\graphics.h ..\draw.h ..\..\functionsc/owntime.h
+command.o: ..\command.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\print.h c:\mingw\include\math.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\keyswin.h ..\toets.h ..\sch.h ..\calc.h \
+ ..\calcdef.h ..\memory.h ..\menus.h ..\select.h ..\mainloop.h ..\files.h \
+ ..\..\functionsc/files2.h ..\edit.h ..\edit2.h \
+ ..\..\functionsc/ellipss.h ..\..\functionsc/line2.h \
+ ..\..\functionsc/rect.h ..\draw.h ..\draw2.h ..\draw3.h ..\resource.h \
+ ..\command.h ..\insdel.h ..\dialogs.h ..\graphics.h ..\movecomp.h \
+ ..\change.h ..\inscomp.h ..\check.h ..\help.h c:\mingw\include\time.h \
+ ..\dxf.h ..\property.h ..\move2.h
+dialogs.o: ..\dialogs.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\dialogs.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\graphics.h ..\mainloop.h ..\select.h \
+ ..\resource.h ..\sch.h c:\mingw\include\io.h ..\files.h \
+ ..\..\functionsc/files2.h ..\help.h ..\draw2.h ..\edit2.h ..\inscomp.h \
+ ..\insdel.h ..\calc2.h c:\mingw\include\richedit.h \
+ c:\mingw\include\ctype.h ..\../functionsc/version.h
+draw.o: ..\draw.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\graphics.h ..\memory.h ..\draw.h \
+ ..\draw2.h ..\calcdef.h ..\calc.h ..\..\functionsc/line2.h \
+ ..\..\functionsc/rect.h ..\sch.h c:\mingw\include\math.h \
+ ..\..\functionsc/ellipss.h ..\toets.h ..\mainloop.h \
+ c:\mingw\include\time.h c:\mingw\include\parts\time.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h ..\property.h
+draw2.o: ..\draw2.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\draw2.h ..\draw.h ..\calc.h \
+ ..\calcdef.h ..\..\functionsc/line2.h ..\..\functionsc/rect.h ..\sch.h \
+ c:\mingw\include\math.h c:\mingw\include\time.h \
+ c:\mingw\include\parts\time.h ..\..\functionsc/ellipss.h ..\movecomp.h \
+ ..\graphics.h ..\resource.h
+draw3.o: ..\draw3.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h c:\mingw\include\math.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\keyswin.h ..\toets.h ..\sch.h ..\calc.h \
+ ..\calcdef.h ..\memory.h ..\menus.h ..\select.h ..\mainloop.h ..\files.h \
+ ..\edit.h ..\edit2.h ..\..\functionsc/ellipss.h ..\..\functionsc/line2.h \
+ ..\..\functionsc/rect.h ..\help.h ..\draw2.h ..\draw3.h ..\graphics.h \
+ ..\resource.h
+dxf.o: ..\dxf.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\dxf.h \
+ ..\..\functionsc/files2.h ..\calcdef.h ..\calc.h c:\mingw\include\time.h \
+ ..\memory.h ..\resource.h c:\mingw\include\math.h ..\insdel.h ..\files.h \
+ ..\mainloop.h ..\property.h c:\mingw\include\ctype.h
+edit.o: ..\edit.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\edit.h ..\edit2.h \
+ ..\..\functionsc/line2.h ..\..\functionsc/rect.h ..\draw.h ..\draw2.h \
+ ..\draw3.h ..\..\functionsc/ellipss.h ..\sch.h ..\calc.h ..\files.h \
+ ..\toets.h ..\calcdef.h c:\mingw\include\math.h ..\calc2.h ..\graphics.h \
+ ..\calcrect.h ..\mainloop.h ..\insdel.h ..\select.h ..\dialogs.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\resource.h ..\help.h
+edit2.o: ..\edit2.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\resource.h \
+ ..\graphics.h ..\toets.h ..\mainloop.h ..\edit.h ..\edit2.h \
+ ..\..\functionsc/line2.h ..\draw.h ..\draw2.h ..\draw3.h \
+ ..\..\functionsc/ellipss.h ..\sch.h ..\calc.h c:\mingw\include\math.h \
+ ..\calc2.h ..\calcdef.h ..\calcrect.h ..\insdel.h \
+ ..\..\functionsc/files2.h ..\files.h ..\dialogs.h ..\help.h
+files.o: ..\files.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\calc.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\memory.h \
+ c:\mingw\include\io.h c:\mingw\include\direct.h c:\mingw\include\fcntl.h \
+ c:\mingw\include\time.h c:\mingw\include\errno.h \
+ c:\mingw\include\sys\stat.h ..\sch.h ..\files.h \
+ ..\..\functionsc/files2.h ..\calcdef.h ..\menus.h ..\dialogs.h \
+ ..\resource.h ..\check.h ..\insdel.h ..\mainloop.h ..\graphics.h \
+ c:\mingw\include\math.h ..\..\functionsc/owntime.h
+graphics.o: ..\graphics.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\graphics.h ..\calcdef.h \
+ ..\..\functionsc/line2.h ..\..\functionsc/ellipss.h
+help.o: ..\help.c ..\help.h ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\memory.h \
+ c:\mingw\include\htmlhelp.h
+inscomp.o: ..\inscomp.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\..\functionsc/files2.h ..\files.h \
+ ..\inscomp.h c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\sch.h ..\help.h ..\edit2.h ..\memory.h \
+ ..\resource.h
+insdel.o: ..\insdel.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\insdel.h ..\calc.h \
+ ..\calcdef.h ..\calcrect.h ..\graphics.h ..\draw.h ..\draw2.h ..\sch.h \
+ ..\files.h ..\toets.h ..\mainloop.h c:\mingw\include\math.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h
+mainloop.o: ..\mainloop.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h c:\mingw\include\math.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\keyswin.h ..\toets.h ..\sch.h \
+ ..\calcdef.h ..\calc.h ..\memory.h ..\menus.h ..\select.h ..\mainloop.h \
+ ..\files.h ..\edit.h ..\edit2.h ..\..\functionsc/ellipss.h \
+ ..\..\functionsc/line2.h ..\..\functionsc/rect.h ..\draw.h ..\draw2.h \
+ ..\draw3.h ..\dialogs.h ..\insdel.h ..\graphics.h ..\movecomp.h \
+ ..\check.h ..\change.h ..\command.h ..\inscomp.h ..\print.h \
+ ..\resource.h ..\help.h ..\property.h ..\..\functionsc/owntime.h
+memory.o: ..\memory.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\files.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\..\functionsc/files2.h \
+ c:\mingw\include\ctype.h ..\graphics.h
+menus.o: ..\menus.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\menus.h ..\memory.h ..\mainloop.h \
+ ..\resource.h ..\sch.h ..\calc.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\files.h \
+ ..\toets.h ..\inscomp.h ..\select.h
+messages.o: ..\messages.c ..\..\functionsc/owntypes.h \
+ c:\mingw\include\stdio.h c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h \
+ c:\mingw\include\string.h
+move2.o: ..\move2.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\calc.h ..\menus.h ..\sch.h \
+ ..\calcdef.h ..\graphics.h ..\toets.h ..\mainloop.h ..\draw3.h \
+ ..\draw2.h ..\draw.h ..\select.h ..\..\functionsc/line2.h ..\insdel.h \
+ ..\movecomp.h ..\resource.h ..\help.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\dialogs.h \
+ ..\property.h c:\mingw\include\ctype.h
+movecomp.o: ..\movecomp.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\calc.h ..\menus.h ..\sch.h \
+ ..\calcdef.h ..\graphics.h ..\toets.h ..\mainloop.h ..\draw3.h \
+ ..\draw2.h ..\draw.h ..\select.h ..\..\functionsc/line2.h ..\insdel.h \
+ ..\movecomp.h ..\move2.h ..\resource.h ..\help.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\dialogs.h ..\property.h \
+ c:\mingw\include\ctype.h
+print.o: ..\print.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h c:\mingw\include\locale.h ..\graphics.h \
+ ..\memory.h ..\print.h ..\draw2.h ..\calcdef.h ..\calc.h \
+ ..\..\functionsc/line2.h ..\..\functionsc/rect.h ..\calc2.h ..\sch.h \
+ ..\..\functionsc/files2.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h \
+ c:\mingw\include\math.h ..\draw.h ..\..\functionsc/ellipss.h ..\toets.h \
+ ..\mainloop.h ..\dialogs.h ..\resource.h c:\mingw\include\time.h \
+ ..\property.h ..\../functionsc/version.h
+property.o: ..\property.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\edit.h ..\edit2.h \
+ ..\..\functionsc/files2.h ..\..\functionsc/rect.h ..\draw.h ..\draw2.h \
+ ..\draw3.h ..\..\functionsc/ellipss.h ..\sch.h ..\calc.h ..\files.h \
+ ..\toets.h ..\calcdef.h c:\mingw\include\math.h ..\calc2.h ..\graphics.h \
+ ..\calcrect.h ..\mainloop.h ..\insdel.h ..\select.h ..\dialogs.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\resource.h ..\property.h ..\help.h
+sch.o: ..\sch.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\..\functionsc/line2.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h ..\..\functionsc/rect.h ..\memory.h \
+ ..\sch.h c:\mingw\include\io.h ..\toets.h ..\draw.h ..\draw2.h \
+ ..\draw3.h ..\calc.h ..\calcdef.h ..\menus.h ..\check.h ..\files.h \
+ ..\..\functionsc/files2.h ..\inscomp.h ..\dialogs.h \
+ ..\..\functionsc/ellipss.h ..\mainloop.h ..\resource.h ..\command.h \
+ ..\graphics.h c:\mingw\include\direct.h ..\messages.h ..\print.h \
+ ..\..\functionsc/params.h ..\property.h ..\..\functionsc/owntime.h \
+ ..\uservar.h ..\..\functionsc/own_process.h
+select.o: ..\select.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\select.h ..\calcdef.h \
+ ..\calc2.h ..\graphics.h ..\calcrect.h ..\calc.h ..\draw.h ..\draw2.h \
+ ..\..\functionsc/ellipss.h ..\..\functionsc/line2.h ..\sch.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys\types.h \
+ c:\mingw\include\parts\time.h c:\mingw\include\math.h ..\edit.h \
+ ..\..\functionsc/files2.h ..\mainloop.h ..\dialogs.h ..\resource.h \
+ ..\property.h
+toets.o: ..\toets.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\toets.h ..\keyswin.h \
+ c:\mingw\include\ctype.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\function.h \
+ ..\resource.h
+uservar.o: ..\uservar.c ..\types.h c:\mingw\include\windows.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stdarg.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\string.h \
+ c:\mingw\include\_mingw.h \
+ c:\mingw\lib\gcc\mingw32\4.9.3\include\stddef.h \
+ c:\mingw\include\basetsd.h c:\mingw\include\pshpack4.h \
+ c:\mingw\include\poppack.h c:\mingw\include\wincon.h \
+ c:\mingw\include\winbase.h c:\mingw\include\wingdi.h \
+ c:\mingw\include\winuser.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\winsvc.h \
+ c:\mingw\include\cderr.h c:\mingw\include\dde.h c:\mingw\include\ddeml.h \
+ c:\mingw\include\dlgs.h c:\mingw\include\imm.h \
+ c:\mingw\include\lzexpand.h c:\mingw\include\mmsystem.h \
+ c:\mingw\include\nb30.h c:\mingw\include\rpc.h c:\mingw\include\rpcdce.h \
+ c:\mingw\include\basetyps.h c:\mingw\include\rpcdcep.h \
+ c:\mingw\include\rpcnsi.h c:\mingw\include\rpcnterr.h \
+ c:\mingw\include\shellapi.h c:\mingw\include\pshpack2.h \
+ c:\mingw\include\winperf.h c:\mingw\include\commdlg.h \
+ c:\mingw\include\unknwn.h c:\mingw\include\objfwd.h \
+ c:\mingw\include\wtypes.h c:\mingw\include\rpcndr.h \
+ c:\mingw\include\rpcnsip.h c:\mingw\include\prsht.h \
+ c:\mingw\include\winspool.h c:\mingw\include\winsock2.h \
+ c:\mingw\include\ole2.h c:\mingw\include\objbase.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\objidl.h \
+ c:\mingw\include\cguid.h c:\mingw\include\olectlid.h \
+ c:\mingw\include\oleauto.h c:\mingw\include\oaidl.h \
+ c:\mingw\include\oleidl.h ..\..\functionsc/owntypes.h \
+ ..\..\functionsc/utf8.h ..\..\functionsc/owntypes.h \
+ c:\mingw\include\commctrl.h ..\memory.h ..\..\functionsc/files2.h \
+ ..\sch.h ..\calc.h ..\files.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\parts\time.h ..\resource.h
