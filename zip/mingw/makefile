@@ -32,6 +32,7 @@ EXTRA             +=-Wno-unused-variable
 DEFINES           +=-D GCC_COMP
 DEFINES           +=-D WIN32
 DEFINES           +=-D HAVE_MEMCPY
+DEFINES           +=-D WINVER=0x0501 -D _WIN32_IE=0x0500 -D _WIN32_WINNT=0x0501
 #DEFINES           +=-D DEBUG_LOG
 
 INPUTDIR           =..
