@@ -1,0 +1,11 @@
+;Drill tools [ scart-mux ]
+;
+;  Tool nr   Type      Diam mm     thou        Nr drills
+;-------------------------------------------------------
+  T1         Plated       1.205    47.24          94
+  T2         Unplated     3.205   125.98           8
+  T3         Unplated     1.205    47.24           2
+  T4         Plated       1.005    39.37          25
+  T5         Plated       0.805    31.50           4
+  T6         Plated       0.705    27.56          16
+  T7         Plated       0.405    15.75         211

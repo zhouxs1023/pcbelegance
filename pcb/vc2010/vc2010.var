@@ -1,0 +1,9 @@
+;
+;Example:
+;
+;$user="John Smith"
+;
+$NrSheets="1"
+$value1="123abc"
+$title="你好"
+
