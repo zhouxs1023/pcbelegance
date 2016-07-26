@@ -1,9 +1,0 @@
-﻿  dialogs.c
-  gerber.c
-  odb.c
-  pcb.c
-..\pcb.c(1194): warning C4101: 'res': unreferenced local variable
-  plot.c
-  print.c
-  toets.c
-  pcb.vcxproj -> C:\notes\pcbeleg\software\vc2010\Release\pcb.exe
