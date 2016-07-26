@@ -82,7 +82,6 @@ int32 DrawWindowMinX, DrawWindowMinY, DrawWindowMaxX, DrawWindowMaxY, MessageHei
       StartSetup, EndSetup, FirstPaint = 1, FirstDraw =
                   1, NrParams, FoundInstallation, WindowWidth, WindowHeight, MousePosX, MousePosY, WindowStyle, ScrollSize,
                   ScrollSizeDrawing, ScrollEndOfWindow, FlagSSE2;
-int32 FinalMessage;
 
 STARTUPINFO StartupInfo;
 PAINTSTRUCT PS;
