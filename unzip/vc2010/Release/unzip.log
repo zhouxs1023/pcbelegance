@@ -1,0 +1,20 @@
+﻿  api.c
+  crc32.c
+  crc_i386.c
+  crctab.c
+  crypt.c
+  explode.c
+  extract.c
+  fileio.c
+  globals.c
+  inflate.c
+  list.c
+  match.c
+  nt.c
+  process.c
+  unreduce.c
+  unshrink.c
+  win32.c
+  windll.c
+  zipinfo.c
+  unzip.vcxproj -> C:\notes\pcbeleg\software\vc2010\Release\unzip.lib
