@@ -1,2 +1,10 @@
-\.exe$
-\.pdf$
+exe$
+mingw/.*\.o$
+mingw/.*\.map$
+mingw/.*\.res$
+Debug/.*\.obj$
+Debug/.*\.idb$
+Debug/.*\.pdb$
+Debug/.*\.tlog$
+Debug/.*\.log$
+Debug/.*\.res$
